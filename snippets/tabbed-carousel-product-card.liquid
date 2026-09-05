@@ -1,0 +1,274 @@
+{%- doc -%}
+  Renders a product card for the Tabbed Collection Carousel section.
+  Includes portrait media, badges, in-card quick shop option selector, and color swatches.
+
+  @param {object} product - The Shopify product object
+  @param {string} section_id - The ID of the parent section
+  @param {string} [card_aspect_ratio] - 'portrait' | 'square' | 'adapt'
+  @param {boolean} [show_secondary_image] - Whether to show second image on hover
+  @param {boolean} [show_badges] - Whether to display Sale and Low Stock badges
+  @param {boolean} [show_swatches] - Whether to render color swatches
+  @param {boolean} [show_quick_shop] - Whether to render in-card quick variant picker
+  @param {number} [low_stock_threshold] - Quantity threshold for Low Stock badge
+{%- enddoc -%}
+
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign featured_image = current_variant.featured_image | default: product.featured_image
+  assign secondary_image = product.images[1]
+  assign aspect_ratio_class = 'tcc-card__media-wrapper--portrait'
+  if card_aspect_ratio == 'square'
+    assign aspect_ratio_class = 'tcc-card__media-wrapper--square'
+  elsif card_aspect_ratio == 'adapt'
+    assign aspect_ratio_class = 'tcc-card__media-wrapper--adapt'
+  endif
+
+  # Badges logic
+  assign on_sale = false
+  if current_variant.compare_at_price > current_variant.price
+    assign on_sale = true
+  endif
+
+  assign is_low_stock = false
+  assign stock_limit = low_stock_threshold | default: 5
+  if current_variant.inventory_management != blank and current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= stock_limit
+    assign is_low_stock = true
+  endif
+  for tag in product.tags
+    assign down_tag = tag | downcase
+    if down_tag contains 'low stock' or down_tag contains 'low-stock'
+      assign is_low_stock = true
+    endif
+  endfor
+%}
+
+<div class="tcc-card" data-product-id="{{ product.id }}">
+  <div class="tcc-card__media-wrapper {{ aspect_ratio_class }}">
+    {%- comment -%} Badges {%- endcomment -%}
+    {%- if show_badges -%}
+      <div class="tcc-card__badges">
+        {%- if is_low_stock -%}
+          <span class="tcc-badge tcc-badge--low-stock">Low Stock</span>
+        {%- elsif on_sale -%}
+          <span class="tcc-badge tcc-badge--sale">Sale</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Primary & Secondary Images {%- endcomment -%}
+    {%- liquid
+      assign primary_class = 'tcc-card__img tcc-card__img--primary'
+      if secondary_image != blank and show_secondary_image
+        assign primary_class = primary_class | append: ' has-secondary'
+      endif
+    -%}
+    <a href="{{ product.url }}" class="tcc-card__link" aria-label="{{ product.title | escape }}">
+      {%- if featured_image != blank -%}
+        <img
+          src="{{ featured_image | image_url: width: 800 }}"
+          alt="{{ product.title | escape }}"
+          class="{{ primary_class }}"
+          loading="lazy"
+          width="800"
+          height="1000"
+        >
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'tcc-card__img' }}
+      {%- endif -%}
+
+      {%- if show_secondary_image and secondary_image != blank -%}
+        <img
+          src="{{ secondary_image | image_url: width: 800 }}"
+          alt="{{ product.title | escape }}"
+          class="tcc-card__img tcc-card__img--secondary"
+          loading="lazy"
+          width="800"
+          height="1000"
+        >
+      {%- endif -%}
+    </a>
+
+    {%- comment -%} IN-CARD QUICK SHOP OVERLAY (Shows options + Add to Cart button on hover) {%- endcomment -%}
+    <div class="tcc-quick-shop">
+      {%- unless product.has_only_default_variant -%}
+        {%- for option in product.options_with_values -%}
+          {%- assign opt_name_down = option.name | downcase -%}
+          {%- unless opt_name_down contains 'color' or opt_name_down contains 'colour' -%}
+            <div
+              class="tcc-option-group"
+              data-option-name="{{ option.name | escape }}"
+              data-option-index="{{ option.position }}"
+            >
+              <div class="tcc-option-label">{{ option.name }}</div>
+              <div class="tcc-option-values">
+                {%- for value in option.values -%}
+                  <button
+                    type="button"
+                    class="tcc-opt-pill{% if option.selected_value == value or forloop.first %} is-selected{% endif %}"
+                    data-value="{{ value | escape }}"
+                  >
+                    {{ value }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- endunless -%}
+
+      <button
+        type="button"
+        class="tcc-add-btn"
+        data-variant-id="{{ current_variant.id }}"
+        {% unless current_variant.available %}disabled{% endunless %}
+      >
+        {%- if current_variant.available -%}
+          ADD TO CART
+        {%- else -%}
+          SOLD OUT
+        {%- endif -%}
+      </button>
+      <button
+        type="button"
+        class="tcc-add-btn mobile"
+        data-variant-id="{{ current_variant.id }}"
+        {% unless current_variant.available %}disabled{% endunless %}
+      >
+        {%- if current_variant.available -%}
+          <div class="tcc-add-btn_icon">
+            <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
+          </div>
+        {%- else -%}
+          <div class="tcc-add-btn_icon disable">
+            <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
+          </div>
+        {%- endif -%}
+      </button>
+    </div>
+  </div>
+
+  {%- comment -%} CARD DETAILS BELOW MEDIA {%- endcomment -%}
+  <div class="tcc-card__info">
+    <a href="{{ product.url }}" class="tcc-card__title">
+      {{ product.title }}
+    </a>
+
+    <div class="tcc-card__price-row">
+      {%- if on_sale -%}
+        <span class="tcc-price--sale">{{ current_variant.price | money }}</span>
+        <span class="tcc-price--compare">{{ current_variant.compare_at_price | money }}</span>
+        {%- assign diff_amount = current_variant.compare_at_price | minus: current_variant.price -%}
+        <span class="tcc-save-badge">Save {{ diff_amount | money }}</span>
+      {%- else -%}
+        <span class="tcc-price--regular">{{ current_variant.price | money }}</span>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} COLOR SWATCHES {%- endcomment -%}
+    {%- if show_swatches -%}
+      {%- for option in product.options_with_values -%}
+        {%- assign opt_name = option.name | downcase -%}
+        {%- if opt_name contains 'color' or opt_name contains 'colour' -%}
+          <div class="tcc-swatches" aria-label="Color options" data-color-option-index="{{ option.position }}">
+            {%- for value in option.values -%}
+              {%- liquid
+                assign swatch_img_url = ''
+                for v in product.variants
+                  if v.option1 == value or v.option2 == value or v.option3 == value or v.title contains value
+                    if v.featured_image != blank
+                      assign swatch_img_url = v.featured_image | image_url: width: 800
+                      break
+                    elsif v.featured_media != blank
+                      assign swatch_img_url = v.featured_media.preview_image | image_url: width: 800
+                      break
+                    endif
+                  endif
+                endfor
+                if swatch_img_url == blank and product.featured_image != blank
+                  assign swatch_img_url = product.featured_image | image_url: width: 800
+                endif
+
+                # Background color mapping
+                assign val_handle = value | handleize | downcase
+                assign swatch_bg = val_handle
+                if val_handle contains 'black'
+                  assign swatch_bg = '#111111'
+                elsif val_handle contains 'white'
+                  assign swatch_bg = '#ffffff'
+                elsif val_handle contains 'grey' or val_handle contains 'gray'
+                  assign swatch_bg = '#808080'
+                elsif val_handle contains 'navy' or val_handle contains 'blue'
+                  assign swatch_bg = '#1b2a4a'
+                elsif val_handle contains 'tosca' or val_handle contains 'teal'
+                  assign swatch_bg = '#2a6f7a'
+                elsif val_handle contains 'brown'
+                  assign swatch_bg = '#5c3a21'
+                elsif val_handle contains 'green' or val_handle contains 'olive'
+                  assign swatch_bg = '#4d5c38'
+                elsif val_handle contains 'cream' or val_handle contains 'beige'
+                  assign swatch_bg = '#f5f0e1'
+                elsif val_handle contains 'maroon' or val_handle contains 'red'
+                  assign swatch_bg = '#6b1d28'
+                endif
+              -%}
+              <button
+                type="button"
+                class="tcc-swatch-item{% if option.selected_value == value or forloop.first %} is-selected{% endif %}"
+                data-color-value="{{ value | escape }}"
+                data-color-option-index="{{ option.position }}"
+                data-variant-image="{{ swatch_img_url }}"
+                aria-label="{{ value | escape }}"
+                title="{{ value | escape }}"
+                style="background-color: {{ swatch_bg }};"
+              ></button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} EMBEDDED PRODUCT JSON DATA FOR LIVE VARIANT RESOLUTION {%- endcomment -%}
+  <script type="application/json" class="tcc-product-json">
+    {{ product | json }}
+  </script>
+</div>
+<style>
+  
+.tcc-add-btn.mobile {
+    display: none !important;
+  }
+  @media (max-width:767px){
+  .tcc-card  .tcc-quick-shop, .tcc-card:focus-within .tcc-quick-shop, .tcc-card.is-quick-shop-open .tcc-quick-shop {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        display: flex;
+        backdrop-filter: blur(0px);
+        align-items: flex-end;
+        background: transparent !important;
+    }
+      .tcc-option-group {
+          display: none; 
+      }
+      button.tcc-add-btn {
+          display: none !important;
+      } 
+      .tcc-add-btn.mobile {
+          display: flex !important;
+        height: 35px;
+        width: 37px;
+        padding: 0 !important;
+        border-radius: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+      .tcc-add-btn_icon img{
+        width:19px;
+      }
+      .tcc-add-btn:hover:not(:disabled), 
+      .tcc-add-btn:hover {
+          background: #fff; 
+      }
+  }
+</style>

@@ -1,0 +1,42 @@
+{% doc %}
+  Renders the accepted payment method icons shown under the cart drawer checkout button.
+
+  @example
+  {% render 'cart-payment-icons' %}
+{% enddoc %}
+
+{%- if settings.cart_drawer_payment_icons and shop.enabled_payment_types.size > 0 -%}
+  <ul
+    class="cart-payment-icons list-unstyled"
+    role="list"
+    aria-label="Payment methods"
+  >
+    {%- for type in shop.enabled_payment_types -%}
+      <li class="cart-payment-icons__item">
+        {{ type | payment_type_svg_tag: class: 'cart-payment-icons__icon' }}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
+
+{% stylesheet %}
+  .cart-payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cart-payment-icons__item {
+    display: flex;
+  }
+
+  .cart-payment-icons__icon {
+    display: block;
+    width: 34px;
+    height: auto;
+  }
+{% endstylesheet %}

@@ -1,0 +1,178 @@
+{% doc %}
+  @prompt
+    Create a inline price block for the product page with three elements side-by-side in a single row with flexbox alignment:
+    
+    Sale Price: Large, bold, mustard/gold text (#E0AD40 or similar gold accent color).
+    
+    Compare-at Price: Muted light gray text (#A8A8A8) with a strikethrough effect.
+    
+    Savings Badge: Pill-shaped badge with a solid black background (#000000), rounded corners (border-radius: 100px), white text (#FFFFFF), bold font, displaying dynamic savings (e.g., 'Save €X').
+    Ensure vertical centering (align-items: center) and light spacing (gap: 8px) between elements.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign sale_price = current_variant.price %}
+{% assign compare_price = current_variant.compare_at_price %}
+{% assign savings_amount = compare_price | minus: sale_price %}
+
+{% style %}
+  .ai-inline-price-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-inline-price-{{ ai_gen_id }}__row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    line-height: 1.2;
+  }
+
+  .ai-inline-price-{{ ai_gen_id }}__sale {
+    color: {{ block.settings.sale_color }};
+    font-size: {{ block.settings.sale_size }}px;
+    font-weight: 700;
+  }
+
+  .ai-inline-price-{{ ai_gen_id }}__compare {
+    color: {{ block.settings.compare_color }};
+    font-size: {{ block.settings.compare_size }}px;
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+  }
+
+  .ai-inline-price-{{ ai_gen_id }}__savings {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 100px;
+    background: {{ block.settings.badge_background }};
+    color: {{ block.settings.badge_text_color }};
+    font-size: {{ block.settings.badge_size }}px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-inline-price-{{ ai_gen_id }} {
+      width: 100%;
+    }
+
+    .ai-inline-price-{{ ai_gen_id }}__sale {
+      font-size: {{ block.settings.sale_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-inline-price-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-inline-price-{{ ai_gen_id }}__row" aria-label="Product pricing">
+    <span class="ai-inline-price-{{ ai_gen_id }}__sale">
+      {{ sale_price | money }}
+    </span>
+
+    {% if compare_price > sale_price %}
+      <span class="ai-inline-price-{{ ai_gen_id }}__compare">
+        {{ compare_price | money }}
+      </span>
+      <span class="ai-inline-price-{{ ai_gen_id }}__savings">
+        {{ block.settings.savings_label }} {{ savings_amount | money }}
+      </span>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Inline price",
+  "settings": [
+    {
+      "type": "text",
+      "id": "savings_label",
+      "label": "Savings label",
+      "default": "Save"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Price style"
+    },
+    {
+      "type": "color",
+      "id": "sale_color",
+      "label": "Sale price",
+      "default": "#B8860B"
+    },
+    {
+      "type": "range",
+      "id": "sale_size",
+      "label": "Sale size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "color",
+      "id": "compare_color",
+      "label": "Compare-at price",
+      "default": "#A8A8A8"
+    },
+    {
+      "type": "range",
+      "id": "compare_size",
+      "label": "Compare size",
+      "min": 10,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Savings badge"
+    },
+    {
+      "type": "color",
+      "id": "badge_background",
+      "label": "Background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "badge_size",
+      "label": "Text size",
+      "min": 10,
+      "max": 22,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inline price"
+    }
+  ],
+  "tag": null,
+  "class": "inline-price-block"
+}
+{% endschema %}

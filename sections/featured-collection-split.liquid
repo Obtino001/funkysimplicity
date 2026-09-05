@@ -1,0 +1,623 @@
+{%- comment -%}
+  Featured Collection Split Showcase Section
+  Matches the Figma layout with:
+  - Split layout: 2x2 Grid of 4 Product Cards using theme's native `_product-card` block + 1 Tall Hero Banner Card ("For Him" / "For Her")
+  - Banner position toggle (Right / Left)
+  - Full support for theme blocks, quick add, gallery hover, prices, and swatches
+  - Centered "VIEW ALL" pill button linked to collection
+{%- endcomment -%}
+
+{%- liquid
+  assign section_id = section.id
+  assign collection = section.settings.collection
+  assign products_to_show = section.settings.products_to_show | default: 4
+  assign banner_position = section.settings.banner_position | default: 'right'
+  assign banner_image = section.settings.banner_image
+  assign banner_image_mobile = section.settings.banner_image_mobile | default: banner_image
+  assign banner_heading = section.settings.banner_heading | default: 'For Him'
+  assign banner_heading_size = section.settings.banner_heading_size | default: 'h2'
+  assign banner_subheading = section.settings.banner_subheading
+  assign banner_link = section.settings.banner_link
+  if banner_link == blank and collection != blank
+    assign banner_link = collection.url
+  endif
+  assign banner_overlay_opacity = section.settings.banner_overlay_opacity | default: 10
+  assign banner_overlay_color = section.settings.banner_overlay_color | default: '#000000'
+  assign banner_text_color = section.settings.banner_text_color | default: '#ffffff'
+
+  assign show_view_all = section.settings.show_view_all
+  assign view_all_text = section.settings.view_all_text | default: 'VIEW ALL'
+  assign view_all_link = section.settings.view_all_link
+  if view_all_link == blank and collection != blank
+    assign view_all_link = collection.url
+  elsif view_all_link == blank
+    assign view_all_link = routes.all_products_collection_url
+  endif
+
+  assign section_width = section.settings.section_width | default: 'page-width'
+  assign gap = section.settings.gap | default: 16
+  assign padding_top = section.settings.padding_top | default: 64
+  assign padding_bottom = section.settings.padding_bottom | default: 64
+-%}
+
+<section
+  id="FeaturedCollectionSplit-{{ section_id }}"
+  class="featured-collection-split section section--{{ section_width }}"
+  style="
+    --fcs-gap: {{ gap }}px;
+    --fcs-padding-top: {{ padding_top }}px;
+    --fcs-padding-bottom: {{ padding_bottom }}px;
+    --fcs-banner-text-color: {{ banner_text_color }};
+    --fcs-banner-overlay-color: {{ banner_overlay_color }};
+    --fcs-banner-overlay-opacity: {{ banner_overlay_opacity | divided_by: 100.0 }};
+    padding-block-start: var(--fcs-padding-top);
+    padding-block-end: var(--fcs-padding-bottom);
+  "
+>
+  <div class="fcs-container">
+    <div class="fcs-layout fcs-layout--banner-{{ banner_position }}">
+      {%- comment -%} 2x2 PRODUCT GRID RENDERING _product-card BLOCK {%- endcomment -%}
+      <div class="fcs-products-grid">
+        {%- if collection != blank and collection.products.size > 0 -%}
+          {%- for product in collection.products limit: products_to_show -%}
+            <div class="fcs-grid-item">
+              {% content_for 'block',
+                type: '_product-card',
+                id: 'static-product-card',
+                closest.product: product,
+                product_view_context: 'collection'
+              %}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for i in (1..products_to_show) -%}
+            <div class="fcs-grid-item">
+              {% content_for 'block',
+                type: '_product-card',
+                id: 'static-product-card',
+                closest.product: null
+              %}
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} TALL HERO BANNER CARD {%- endcomment -%}
+      <div class="fcs-banner-wrapper">
+        <a
+          {% if banner_link != blank %}href="{{ banner_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+          class="fcs-banner"
+          aria-label="{{ banner_heading | escape }}"
+        >
+          <div class="fcs-banner__media">
+            {%- if banner_image != blank -%}
+              <picture>
+                {%- if banner_image_mobile != blank and banner_image_mobile != banner_image -%}
+                  <source media="(max-width: 749px)" srcset="{{ banner_image_mobile | image_url: width: 1000 }}">
+                {%- endif -%}
+                <img
+                  src="{{ banner_image | image_url: width: 1400 }}"
+                  alt="{{ banner_image.alt | default: banner_heading | escape }}"
+                  class="fcs-banner__image"
+                  loading="lazy"
+                  width="1400"
+                  height="1800"
+                >
+              </picture>
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'fcs-banner__placeholder' }}
+            {%- endif -%}
+            <div class="fcs-banner__overlay"></div>
+          </div>
+
+          <div class="fcs-banner__content">
+            {%- if banner_heading != blank -%}
+              <h2 class="fcs-banner__heading {{ banner_heading_size }}">
+                {{ banner_heading }}
+              </h2>
+            {%- endif -%}
+
+            {%- if banner_subheading != blank -%}
+              <p class="fcs-banner__subheading">
+                {{ banner_subheading }}
+              </p>
+            {%- endif -%}
+          </div>
+        </a>
+      </div>
+    </div>
+
+    {%- comment -%} FOOTER VIEW ALL BUTTON {%- endcomment -%}
+    {%- if show_view_all -%}
+      <div class="fcs-footer">
+        <a href="{{ view_all_link }}" class="fcs-view-all-btn">
+          {{ view_all_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .featured-collection-split {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .fcs-container {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .fcs-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--fcs-gap, 16px);
+    align-items: stretch;
+  }
+
+  .fcs-layout--banner-left {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fcs-layout--banner-left .fcs-banner-wrapper {
+    order: 1;
+  }
+
+  .fcs-layout--banner-left .fcs-products-grid {
+    order: 2;
+  }
+
+  .fcs-layout--banner-right .fcs-products-grid {
+    order: 1;
+  }
+
+  .fcs-layout--banner-right .fcs-banner-wrapper {
+    order: 2;
+  }
+
+  /* 2x2 Product Grid */
+  .fcs-products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--fcs-gap, 16px);
+  }
+
+  .fcs-grid-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .fcs-grid-item product-card {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Tall Hero Banner */
+  .fcs-banner-wrapper {
+    display: flex;
+    width: 100%;
+    height: 96%;
+    min-height: 96%;
+  }
+
+  .fcs-banner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+    overflow: hidden;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .fcs-banner__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .fcs-banner__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fcs-banner:hover .fcs-banner__image {
+    transform: scale(1.03);
+  }
+
+  .fcs-banner__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fcs-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--fcs-banner-overlay-color, #000000);
+    opacity: var(--fcs-banner-overlay-opacity, 0.1);
+    z-index: 2;
+    transition: opacity 0.3s ease;
+  }
+
+  .fcs-banner:hover .fcs-banner__overlay {
+    opacity: 40%;
+  }
+
+  .fcs-banner__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    color: var(--fcs-banner-text-color, #ffffff);
+  }
+
+  .fcs-banner__heading {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-heading--family, serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .fcs-banner__heading.h1 { font-size: clamp(2.5rem, 5vw, 5.4rem); }
+  .fcs-banner__heading.h2 { font-size: clamp(2rem, 4.2vw, 3.5rem); }
+  .fcs-banner__heading.h3 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
+  .fcs-banner__heading.h4 { font-size: clamp(1.35rem, 2.5vw, 2rem); }
+
+  .fcs-banner__subheading {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    font-family: var(--font-body--family, inherit);
+    font-size: 1rem;
+    color: inherit;
+    opacity: 0.95;
+  }
+
+  /* Footer Button */
+  .fcs-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .fcs-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-foreground, #121212);
+    background: transparent;
+    color: var(--color-foreground, #121212);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .fcs-view-all-btn:hover {
+    background: var(--color-foreground, #121212);
+    color: var(--color-background, #ffffff);
+  }
+
+  /* Responsive Mobile */
+  @media screen and (max-width: 989px) {
+    .fcs-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .fcs-layout--banner-left .fcs-banner-wrapper,
+    .fcs-layout--banner-right .fcs-banner-wrapper {
+      order: -1;
+    }
+
+    .fcs-banner {
+      min-height: 380px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .fcs-products-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .fcs-banner {
+      min-height: 320px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured Split Showcase",
+  "class": "section-featured-collection-split",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "_product-card"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection & Layout"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to Show",
+      "min": 2,
+      "max": 6,
+      "step": 2,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "banner_position",
+      "label": "Banner Position",
+      "options": [
+        { "value": "left", "label": "Banner on Left" },
+        { "value": "right", "label": "Banner on Right" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "page-width", "label": "Page Width" },
+        { "value": "full-width", "label": "Full Width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Grid Gap",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Featured Banner Card"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_mobile",
+      "label": "Mobile Banner Image (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Banner Heading",
+      "default": "For Him"
+    },
+    {
+      "type": "select",
+      "id": "banner_heading_size",
+      "label": "Banner Heading Size",
+      "options": [
+        { "value": "h1", "label": "Extra Large" },
+        { "value": "h2", "label": "Large" },
+        { "value": "h3", "label": "Medium" },
+        { "value": "h4", "label": "Small" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "text",
+      "id": "banner_subheading",
+      "label": "Banner Subheading (Optional)"
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Banner Link",
+      "info": "Leave blank to link directly to selected Collection"
+    },
+    {
+      "type": "color",
+      "id": "banner_text_color",
+      "label": "Banner Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "banner_overlay_color",
+      "label": "Banner Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "banner_overlay_opacity",
+      "label": "Banner Overlay Opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Footer Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button Label",
+      "default": "VIEW ALL"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "Custom View All Link",
+      "info": "Leave blank to link to Collection"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 20,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 20,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Split Showcase",
+      "settings": {
+        "products_to_show": 4,
+        "banner_position": "right",
+        "banner_heading": "For Him",
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL",
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": {
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product-card-gallery": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "product_title": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "price": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            }
+          },
+          "block_order": ["product-card-gallery", "product_title", "price"]
+        }
+      },
+      "block_order": []
+    }
+  ]
+}
+{% endschema %}

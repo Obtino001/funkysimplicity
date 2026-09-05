@@ -1,0 +1,122 @@
+{%- doc -%}
+  Renders a high-fidelity placeholder product card matching the design screenshot
+  when in theme customizer onboarding mode or empty collection state.
+
+  @param {number} index - 1 to 4
+  @param {string} [card_aspect_ratio] - 'portrait' | 'square' | 'adapt'
+{%- enddoc -%}
+
+{% liquid
+  assign idx = index | default: 1
+  assign aspect_ratio_class = 'tcc-card__media-wrapper--portrait'
+  if card_aspect_ratio == 'square'
+    assign aspect_ratio_class = 'tcc-card__media-wrapper--square'
+  elsif card_aspect_ratio == 'adapt'
+    assign aspect_ratio_class = 'tcc-card__media-wrapper--adapt'
+  endif
+
+  case idx
+    when 1
+      assign title = 'Argus Leggings – Tosca Brown'
+      assign price = '€89.00'
+      assign compare_price = ''
+      assign badge_type = 'low-stock'
+      assign badge_label = 'Low Stock'
+      assign show_overlay = true
+    when 2
+      assign title = 'Giraffe Leggings – Olive Black'
+      assign price = '€34.99'
+      assign compare_price = '€44.00'
+      assign badge_type = 'sale'
+      assign badge_label = 'Sale'
+      assign show_overlay = false
+    when 3
+      assign title = 'Bloom Leggings – Cream Black'
+      assign price = '€89.00'
+      assign compare_price = ''
+      assign badge_type = ''
+      assign badge_label = ''
+      assign show_overlay = false
+    else
+      assign title = 'Bloom Capri Leggings – Green'
+      assign price = '€63.00'
+      assign compare_price = ''
+      assign badge_type = ''
+      assign badge_label = ''
+      assign show_overlay = false
+  endcase
+%}
+
+<div class="tcc-card">
+  <div class="tcc-card__media-wrapper {{ aspect_ratio_class }}">
+    {%- if badge_label != blank -%}
+      <div class="tcc-card__badges">
+        <span class="tcc-badge tcc-badge--{{ badge_type }}">{{ badge_label }}</span>
+      </div>
+    {%- endif -%}
+
+    <a href="#" class="tcc-card__link">
+      {{ 'product-' | append: idx | placeholder_svg_tag: 'tcc-card__img' }}
+    </a>
+
+    {%- comment -%} Sample In-card Quick Shop {%- endcomment -%}
+    <div class="tcc-quick-shop">
+      <div class="tcc-option-group">
+        <div class="tcc-option-label">Size</div>
+        <div class="tcc-option-values">
+          <button type="button" class="tcc-opt-pill is-selected">S</button>
+          <button type="button" class="tcc-opt-pill">M</button>
+          <button type="button" class="tcc-opt-pill">L</button>
+          <button type="button" class="tcc-opt-pill">XL</button>
+          <button type="button" class="tcc-opt-pill">2XL</button>
+          <button type="button" class="tcc-opt-pill">3XL</button>
+          <button type="button" class="tcc-opt-pill">4XL</button>
+        </div>
+      </div>
+
+      <div class="tcc-option-group">
+        <div class="tcc-option-label">Waist Rise</div>
+        <div class="tcc-option-values">
+          <button type="button" class="tcc-opt-pill is-selected">High</button>
+          <button type="button" class="tcc-opt-pill">Medium</button>
+        </div>
+      </div>
+
+      <div class="tcc-option-group">
+        <div class="tcc-option-label">Inseam</div>
+        <div class="tcc-option-values">
+          <button type="button" class="tcc-opt-pill is-selected">Long Leg</button>
+          <button type="button" class="tcc-opt-pill">Normal Leg</button>
+        </div>
+      </div>
+
+      <button type="button" class="tcc-add-btn">
+        ADD TO CART
+      </button>
+    </div>
+  </div>
+
+  <div class="tcc-card__info">
+    <a href="#" class="tcc-card__title">{{ title }}</a>
+
+    <div class="tcc-card__price-row">
+      {%- if compare_price != blank -%}
+        <span class="tcc-price--sale">{{ price }}</span>
+        <span class="tcc-price--compare">{{ compare_price }}</span>
+        <span class="tcc-save-badge">Save €</span>
+      {%- else -%}
+        <span class="tcc-price--regular">{{ price }}</span>
+      {%- endif -%}
+    </div>
+
+    <div class="tcc-swatches">
+      <span class="tcc-swatch-item is-selected" style="background-color: #111;"></span>
+      <span class="tcc-swatch-item" style="background-color: #555;"></span>
+      <span class="tcc-swatch-item" style="background-color: #2e6040;"></span>
+      {%- if idx == 1 -%}
+        <span class="tcc-swatch-item" style="background-color: #6b1d28;"></span>
+        <span class="tcc-swatch-item" style="background-color: #2a6f7a;"></span>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

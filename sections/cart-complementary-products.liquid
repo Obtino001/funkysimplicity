@@ -1,0 +1,19 @@
+{% comment %}
+  Section Rendering API target for the cart drawer "You may also like" panel.
+  Requested by assets/cart-complementary.js through the product recommendations
+  route with `intent=complementary`, which populates `recommendations.products`.
+{% endcomment %}
+
+{%- if recommendations.performed and recommendations.products_count > 0 -%}
+  <div class="cart-complementary__list">
+    {%- for product in recommendations.products -%}
+      {% render 'cart-complementary-card', product: product %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "complementary products"
+}
+{% endschema %}

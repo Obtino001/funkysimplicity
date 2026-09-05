@@ -1,0 +1,574 @@
+{%- comment -%}
+  Featured Causes / Sustainability Cards Section
+  Figma Specs:
+  - Main Heading: Fraunces / Serif 400, 36px, centered
+  - 2-Column Story / Cause Cards with bottom gradient overlay
+  - Card Title: Fraunces 300 (Light), 28px, #FFFFFF
+  - Card Description: DM Sans 500 (Medium), 16px, rgba(255, 255, 255, 0.8)
+  - Card Link: DM Sans 500 (Medium), 16px, #FFFFFF with arrow icon
+  - Footer Button: Centered "VIEW ALL" pill outline button
+{%- endcomment -%}
+
+{%- liquid
+  assign section_id = section.id
+  assign heading = section.settings.heading | default: 'Causes We Love & Support Every Month,<br>Thanks To You'
+  assign heading_size = section.settings.heading_size | default: 36
+  assign heading_max_width = section.settings.heading_max_width | default: 680
+  assign show_view_all = section.settings.show_view_all
+  assign view_all_text = section.settings.view_all_text | default: 'VIEW ALL'
+  assign view_all_link = section.settings.view_all_link | default: '#'
+  assign gap = section.settings.gap | default: 20
+  assign section_width = section.settings.section_width | default: 'page-width'
+  assign card_aspect_ratio = section.settings.card_aspect_ratio | default: '4 / 3'
+  assign padding_top = section.settings.padding_top | default: 64
+  assign padding_bottom = section.settings.padding_bottom | default: 64
+-%}
+
+<section
+  id="FeaturedCauses-{{ section_id }}"
+  class="featured-causes-section section section--{{ section_width }}"
+  style="
+    --fc-heading-size: {{ heading_size }}px;
+    --fc-heading-max-width: {{ heading_max_width }}px;
+    --fc-gap: {{ gap }}px;
+    --fc-card-aspect-ratio: {{ card_aspect_ratio }};
+    --fc-padding-top: {{ padding_top }}px;
+    --fc-padding-bottom: {{ padding_bottom }}px;
+    padding-block-start: var(--fc-padding-top);
+    padding-block-end: var(--fc-padding-bottom);
+  "
+>
+  <div class="fc-container">
+    {%- comment -%} Main Section Heading {%- endcomment -%}
+    {%- if heading != blank -%}
+      <div class="fc-header">
+        <h2 class="fc-heading">{{ heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} 2-Column Cause Cards Grid {%- endcomment -%}
+    <div class="fc-grid">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign img = block.settings.image
+            assign img_mobile = block.settings.image_mobile | default: img
+            assign title = block.settings.title
+            assign text = block.settings.text
+            assign link_label = block.settings.link_label | default: "I'm Interested"
+            assign link_url = block.settings.link_url
+          -%}
+          <div class="fc-card" {{ block.shopify_attributes }}>
+            <div class="fc-card__media">
+              {%- if img != blank -%}
+                <picture>
+                  {%- if img_mobile != blank and img_mobile != img -%}
+                    <source media="(max-width: 749px)" srcset="{{ img_mobile | image_url: width: 1000 }}">
+                  {%- endif -%}
+                  <img
+                    src="{{ img | image_url: width: 1400 }}"
+                    alt="{{ img.alt | default: title | escape }}"
+                    class="fc-card__img"
+                    loading="lazy"
+                    width="1400"
+                    height="1000"
+                  >
+                </picture>
+              {%- else -%}
+                {{ 'collection-2' | placeholder_svg_tag: 'fc-card__placeholder' }}
+              {%- endif -%}
+              <div class="fc-card__overlay"></div>
+            </div>
+
+            <div class="fc-card__content">
+              {%- if title != blank -%}
+                <h3 class="fc-card__title">{{ title }}</h3>
+              {%- endif -%}
+
+              {%- if text != blank -%}
+                <p class="fc-card__desc">{{ text }}</p>
+              {%- endif -%}
+
+              {%- if link_label != blank -%}
+                <a
+                  {% if link_url != blank %}href="{{ link_url }}"{% else %}role="link" aria-disabled="true"{% endif %}
+                  class="fc-card__link"
+                >
+                  <span>{{ link_label }}</span>
+                  <svg class="fc-card__arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Placeholders {%- endcomment -%}
+        <div class="fc-card">
+          <div class="fc-card__media">
+            {{ 'collection-1' | placeholder_svg_tag: 'fc-card__placeholder' }}
+            <div class="fc-card__overlay"></div>
+          </div>
+          <div class="fc-card__content">
+            <h3 class="fc-card__title">Seashepherd</h3>
+            <p class="fc-card__desc">You might've seen Seaspiracy on Netflix. These planet-loving heroes keep our oceans clean and our marine friends safe. Their dedicated work, preserves the fragile ocean ecosystems. When you purchase a legging - you're not just looking great - you're also making a splash for a good cause!</p>
+            <a href="#" class="fc-card__link">
+              <span>I'm Interested</span>
+              <svg class="fc-card__arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="fc-card">
+          <div class="fc-card__media">
+            {{ 'collection-2' | placeholder_svg_tag: 'fc-card__placeholder' }}
+            <div class="fc-card__overlay"></div>
+          </div>
+          <div class="fc-card__content">
+            <h3 class="fc-card__title">Bear Sanctuary Vietnam</h3>
+            <p class="fc-card__desc">While we're all about making great leggings, we also like to give back to our planet and the beautiful creatures that inhabit it. We're gladly supporting the Bear Sanctuary in Vietnam via monthly donations. The Bear Sanctuary Vietnam, is a non-profit project dedicated to the rescue, rehabilitation, and conservation of Vietnam's endangered Bears.</p>
+            <a href="#" class="fc-card__link">
+              <span>I'm Interested</span>
+              <svg class="fc-card__arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Bottom View All Button {%- endcomment -%}
+    {%- if show_view_all and view_all_text != blank -%}
+      <div class="fc-footer">
+        <a href="{{ view_all_link }}" class="fc-btn">
+          {{ view_all_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .featured-causes-section {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .fc-container {
+    width: 100%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  /* Header */
+  .fc-header {
+    width: 100%;
+    max-width: var(--fc-heading-max-width, 680px);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .fc-heading {
+    margin: 0;
+    color: var(--color-foreground, #121212);
+    font-family: 'Fraunces', var(--font-heading--family, serif);
+    font-weight: 400;
+    font-size: clamp(1.75rem, 3.5vw, var(--fc-heading-size, 36px));
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  /* 2-Column Cards Grid */
+  .fc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--fc-gap, 20px);
+    width: 100%;
+  }
+
+  /* Card */
+  .fc-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--fc-card-aspect-ratio, 4 / 3);
+    min-height: 440px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    background-color: #222222;
+  }
+
+  .fc-card__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .fc-card__img,
+  .fc-card__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .fc-card:hover .fc-card__img {
+    transform: scale(1.03);
+  }
+
+  .fc-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.6) 45%,
+      rgba(0, 0, 0, 0.15) 75%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    z-index: 2;
+  }
+
+  /* Content */
+  .fc-card__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 2.25rem 2rem;
+    color: #ffffff;
+    box-sizing: border-box;
+  }
+
+  /* Title: Fraunces 300 Light, 28px, #FFFFFF */
+  .fc-card__title {
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Fraunces', var(--font-heading--family, serif);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.15;
+    letter-spacing: 0;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Description: DM Sans 500 Medium, 16px, 80% opacity */
+  .fc-card__desc {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'DM Sans', var(--font-body--family, sans-serif);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.45;
+    letter-spacing: 0;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Link: DM Sans 500 Medium, 16px, #FFFFFF with arrow */
+  .fc-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-family: 'DM Sans', var(--font-body--family, sans-serif);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: none;
+    margin-top: 0.35rem;
+    transition: color 0.2s ease;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  .fc-card__link span {
+    text-decoration: none;
+    text-underline-offset: 4px;
+    transition: text-decoration 0.2s ease;
+  }
+
+  .fc-card:hover .fc-card__link span,
+  .fc-card__link:hover span {
+    text-decoration: underline;
+  }
+
+  .fc-card__arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .fc-card:hover .fc-card__arrow,
+  .fc-card__link:hover .fc-card__arrow {
+    transform: translateX(4px);
+  }
+
+  /* Footer Button: Pill Outline */
+  .fc-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .fc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-foreground, #121212);
+    background: transparent;
+    color: var(--color-foreground, #121212);
+    font-family: var(--font-body--family, inherit);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    line-height: Normal;
+  }
+
+  .fc-btn:hover {
+    background: var(--color-foreground, #121212);
+    color: var(--color-background, #ffffff);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 989px) {
+    .fc-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .fc-card {
+      aspect-ratio: auto;
+      min-height: 380px;
+    }
+
+    .fc-card__content {
+      padding: 1.75rem 1.5rem;
+    }
+
+    .fc-card__title {
+      font-size: 24px;
+    }
+
+    .fc-card__desc {
+      font-size: 14px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured Causes",
+  "class": "section-featured-causes",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Causes We Love & Support Every Month, Thanks To You"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading Font Size (px)",
+      "min": 24,
+      "max": 54,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_max_width",
+      "label": "Heading Max Width (px)",
+      "min": 400,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 680
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "page-width", "label": "Page Width" },
+        { "value": "full-width", "label": "Full Width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "select",
+      "id": "card_aspect_ratio",
+      "label": "Card Aspect Ratio",
+      "options": [
+        { "value": "4 / 3", "label": "Standard (4:3)" },
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "16 / 9", "label": "Wide (16:9)" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Grid Gap (px)",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Footer Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button Label",
+      "default": "VIEW ALL"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 20,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 20,
+      "max": 140,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cause_card",
+      "name": "Cause Card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Background Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Cause Title",
+          "default": "Cause Name"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Cause Description",
+          "default": "Description of the organization and your contribution."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link Label",
+          "default": "I'm Interested"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Causes",
+      "settings": {
+        "heading": "Causes We Love & Support Every Month, Thanks To You",
+        "heading_size": 36,
+        "heading_max_width": 680,
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL",
+        "gap": 20,
+        "padding_top": 64,
+        "padding_bottom": 64
+      },
+      "blocks": [
+        {
+          "type": "cause_card",
+          "settings": {
+            "title": "Seashepherd",
+            "text": "You might've seen Seaspiracy on Netflix. These planet-loving heroes keep our oceans clean and our marine friends safe. Their dedicated work, preserves the fragile ocean ecosystems. When you purchase a legging - you're not just looking great - you're also making a splash for a good cause!",
+            "link_label": "I'm Interested"
+          }
+        },
+        {
+          "type": "cause_card",
+          "settings": {
+            "title": "Bear Sanctuary Vietnam",
+            "text": "While we're all about making great leggings, we also like to give back to our planet and the beautiful creatures that inhabit it. We're gladly supporting the Bear Sanctuary in Vietnam via monthly donations. The Bear Sanctuary Vietnam, is a non-profit project dedicated to the rescue, rehabilitation, and conservation of Vietnam's endangered Bears.",
+            "link_label": "I'm Interested"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

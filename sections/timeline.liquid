@@ -1,0 +1,401 @@
+
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section timeline-section{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  style="
+    --padding-block-start: {{ section.settings.padding_block_start }}px;
+    --padding-block-end: {{ section.settings.padding_block_end }}px;
+    --intro-heading-size: {{ section.settings.intro_heading_size }}px;
+    --intro-heading-weight: {{ section.settings.intro_heading_weight }};
+    --intro-text-size: {{ section.settings.intro_text_size }}px;
+    --intro-text-weight: {{ section.settings.intro_text_weight }};
+    --milestone-year-size: {{ section.settings.milestone_year_size }}px;
+    --milestone-year-weight: {{ section.settings.milestone_year_weight }};
+    --milestone-title-size: {{ section.settings.milestone_title_size }}px;
+    --milestone-title-weight: {{ section.settings.milestone_title_weight }};
+    --milestone-description-size: {{ section.settings.milestone_description_size }}px;
+    --milestone-description-weight: {{ section.settings.milestone_description_weight }};
+  "
+>
+  <div class="timeline-section__grid">
+    <div class="timeline-section__intro">
+      {%- if section.settings.intro_heading != blank -%}
+        <h2 class="timeline-section__intro-heading">{{ section.settings.intro_heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.intro_text != blank -%}
+        <div class="timeline-section__intro-text rte">{{ section.settings.intro_text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.intro_image != blank -%}
+        <div class="timeline-section__intro-image-wrapper">
+          {{
+            section.settings.intro_image
+            | image_url: width: 1200
+            | image_tag: loading: 'lazy', class: 'timeline-section__intro-image', sizes: '(min-width: 990px) 45vw, 100vw'
+          }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="timeline-section__list">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'milestone' -%}
+            <div class="timeline-milestone" {{ block.shopify_attributes }}>
+              {%- if block.settings.year != blank -%}
+                <div class="timeline-milestone__year">{{ block.settings.year }}</div>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h3 class="timeline-milestone__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <div class="timeline-milestone__description rte">{{ block.settings.description }}</div>
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .timeline-section {
+    padding-block-start: var(--padding-block-start, 48px);
+    padding-block-end: var(--padding-block-end, 48px);
+    padding-inline: var(--page-margin, 24px);
+  }
+
+  .timeline-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: var(--page-width, 1400px);
+    margin-inline: auto;
+  }
+
+  .timeline-section__intro-heading {
+    font-size: var(--intro-heading-size, 26px);
+    font-weight: var(--intro-heading-weight, 600);
+    margin: 0 0 16px;
+  }
+
+  .timeline-section__intro-text {
+    font-size: var(--intro-text-size, 14px);
+    font-weight: var(--intro-text-weight, 400);
+    opacity: 0.85;
+    margin-bottom: 24px;
+  }
+
+  .timeline-section__intro-image-wrapper {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .timeline-section__intro-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .timeline-section__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-milestone {
+    border: 1px solid rgba(var(--color-foreground, 17, 17, 17), 0.12);
+    border-radius: 8px;
+    padding: 17px 24px 17px 14px;
+  }
+
+  .timeline-milestone__year {
+    font-size: var(--milestone-year-size, 24px);
+    font-weight: var(--milestone-year-weight, 600);
+    margin-bottom: 4px;
+  }
+
+  .timeline-milestone__title {
+    font-size: var(--milestone-title-size, 16px);
+    font-weight: var(--milestone-title-weight, 600);
+    margin: 0 0 15px;
+    font-family: 'DM Sans';
+     text-transform: capitalize;
+
+  }
+
+  .timeline-milestone__description {
+    font-size: var(--milestone-description-size, 13px);
+    font-weight: var(--milestone-description-weight, 400);
+    opacity: 0.8;
+  }
+
+  @media screen and (min-width: 990px) {
+    .timeline-section__grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .timeline-section__intro {
+      position: sticky;
+      top: 100px;
+    }
+  }
+   @media (max-width: 768px){
+.section.timeline-section {
+    padding-top: 0px;
+    padding-bottom: 30px;
+    padding-inline:0px;
+}
+.timeline-section__intro-heading {
+    font-size: 27px;
+}
+.timeline-section__intro-text {
+    font-size: 14px;
+  }
+  .timeline-section__grid {
+    gap: 30px;
+   
+}
+.timeline-milestone__year {
+    font-size: 26px;
+}
+.timeline-milestone__title {
+    font-size: 20px;
+    font-weight: 500;
+}
+  }
+
+</style>
+
+{% schema %}
+{
+  "name": "Timeline",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Intro (left column)"
+    },
+    {
+      "type": "text",
+      "id": "intro_heading",
+      "label": "Heading",
+      "default": "How It All Began"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "intro_image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Intro heading typography"
+    },
+    {
+      "type": "range",
+      "id": "intro_heading_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "select",
+      "id": "intro_heading_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Intro text typography"
+    },
+    {
+      "type": "range",
+      "id": "intro_text_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "intro_text_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Milestone date typography"
+    },
+    {
+      "type": "range",
+      "id": "milestone_year_size",
+      "label": "Font size",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "milestone_year_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Milestone title typography"
+    },
+    {
+      "type": "range",
+      "id": "milestone_title_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "milestone_title_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Milestone description typography"
+    },
+    {
+      "type": "range",
+      "id": "milestone_description_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "select",
+      "id": "milestone_description_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "range",
+      "id": "padding_block_start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_block_end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Milestone",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year / label",
+          "default": "2020"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Milestone title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeline",
+      "blocks": [
+        { "type": "milestone" },
+        { "type": "milestone" },
+        { "type": "milestone" },
+        { "type": "milestone" }
+      ]
+    }
+  ]
+}
+{% endschema %}

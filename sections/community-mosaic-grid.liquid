@@ -1,0 +1,1390 @@
+{%- comment -%}
+  Our Funky Community - Mosaic Collage Grid Section
+  Features:
+  - 5-Column Mosaic Collage (8 Photos)
+  - Hover overlay with Full Screen Expand Icon ("arrow-expand-round.png")
+  - Interactive Lightbox Popup Modal with Next/Prev navigation and keyboard support
+  - Centered "JOIN OUR COMMUNITY" CTA Button
+{%- endcomment -%}
+
+{%- liquid
+  assign section_id = section.id
+  assign heading = section.settings.heading | default: 'Our Funky Community'
+  assign heading_size = section.settings.heading_size | default: 28
+  assign heading_alignment = section.settings.heading_alignment | default: 'left'
+  assign button_label = section.settings.button_label | default: 'JOIN OUR COMMUNITY'
+  assign button_link = section.settings.button_link | default: '#'
+  assign show_button = section.settings.show_button
+  assign button_bg = section.settings.button_bg | default: '#000000'
+  assign button_color = section.settings.button_color | default: '#ffffff'
+  assign gap = section.settings.gap | default: 12
+  assign section_width = section.settings.section_width | default: 'page-width' 
+  assign overlay_opacity = section.settings.overlay_opacity | default: 40
+  assign expand_icon_url = 'https://cdn.shopify.com/s/files/1/0646/0761/files/arrow-expand-round.png?v=1787680681'
+-%}
+
+<section
+  id="CommunityMosaic-{{ section_id }}"
+  class="community-mosaic-section section section--{{ section_width }}"
+  data-section-id="{{ section_id }}"
+  style="
+    --cm-heading-size: {{ heading_size }}px;
+    --cm-gap: {{ gap }}px;
+    --cm-btn-bg: {{ button_bg }};
+    --cm-btn-color: {{ button_color }};
+    --cm-overlay-opacity: {{ overlay_opacity | divided_by: 100.0 }}; 
+    padding-block-start: var(--cm-padding-top);
+    padding-block-end: var(--cm-padding-bottom);
+  "
+>
+  <div class="cm-container">
+    {%- comment -%} Header {%- endcomment -%}
+    {%- if heading != blank -%}
+      <div class="cm-header cm-header--{{ heading_alignment }}">
+        <h2 class="cm-heading">{{ heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} 5-Column Mosaic Grid {%- endcomment -%}
+    <div class="cm-grid">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks limit: 8 -%}
+          {%- liquid
+            assign img = block.settings.image
+            assign link = block.settings.link
+            assign alt_text = img.alt | default: heading
+            assign item_class = 'cm-item cm-item--' | append: forloop.index
+          -%}
+          <div class="{{ item_class }}" {{ block.shopify_attributes }}>
+            <button
+              type="button"
+              class="cm-card"
+              data-cm-trigger
+              data-index="{{ forloop.index0 }}"
+              {% if img != blank %}
+                data-full-src="{{ img | image_url: width: 2200 }}"
+                data-alt="{{ alt_text | escape }}"
+              {% else %}
+                data-placeholder="true"
+              {% endif %}
+              aria-label="View photo {{ forloop.index }} in full screen"
+            >
+              {%- if img != blank -%}
+                <img
+                  src="{{ img | image_url: width: 1200 }}"
+                  alt="{{ alt_text | escape }}"
+                  class="cm-card__img"
+                  loading="lazy"
+                  width="{{ img.width }}"
+                  height="{{ img.height }}"
+                >
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'cm-card__placeholder' }}
+              {%- endif -%}
+
+              {%- comment -%} Hover Overlay with Fullscreen Expand Icon {%- endcomment -%}
+              <div class="cm-card__overlay">
+                <div class="cm-card__icon-wrap">
+                  <img
+                    src="{{ expand_icon_url }}"
+                    alt="Expand full screen"
+                    class="cm-card__expand-icon"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </button>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} 8 Onboarding Placeholder Slots {%- endcomment -%}
+        {%- for i in (1..8) -%}
+          <div class="cm-item cm-item--{{ i }}">
+            <button
+              type="button"
+              class="cm-card"
+              data-cm-trigger
+              data-index="{{ forloop.index0 }}"
+              data-placeholder="true"
+              aria-label="View photo {{ i }} in full screen"
+            >
+              {{ 'image' | placeholder_svg_tag: 'cm-card__placeholder' }}
+              <div class="cm-card__overlay">
+                <div class="cm-card__icon-wrap">
+                  <img
+                    src="{{ expand_icon_url }}"
+                    alt="Expand full screen"
+                    class="cm-card__expand-icon"
+                    width="36"
+                    height="36"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+            </button>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Bottom CTA Button {%- endcomment -%}
+    {%- if show_button and button_label != blank -%}
+      <div class="cm-footer">
+        <a href="{{ button_link }}" class="cm-btn">
+          {{ button_label }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Full Screen Image Lightbox Modal {%- endcomment -%}
+  <div
+    id="CommunityLightbox-{{ section_id }}"
+    class="cm-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <div class="cm-lightbox__backdrop" data-cm-close></div>
+
+    <div class="cm-lightbox__container">
+      <button type="button" class="cm-lightbox__close" data-cm-close aria-label="Close full screen view">
+        <svg
+          viewBox="0 0 24 24"
+          width="22"
+          height="22"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <button type="button" class="cm-lightbox__nav cm-lightbox__nav--prev" data-cm-prev aria-label="Previous photo">
+        <svg
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="cm-lightbox__media">
+        <img src="" alt="" class="cm-lightbox__img">
+      </div>
+
+      <button type="button" class="cm-lightbox__nav cm-lightbox__nav--next" data-cm-next aria-label="Next photo">
+        <svg
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="cm-lightbox__counter">
+        <span class="cm-lightbox__current">1</span> / <span class="cm-lightbox__total">8</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    .community-mosaic-section {
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .cm-container {
+      width: 100%;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+      padding:60px 0;
+    }
+
+    /* Header */
+    .cm-header {
+      width: 100%;
+    }
+
+    .cm-header--left {
+      text-align: left;
+    }
+
+    .cm-header--center {
+      text-align: center;
+    }
+
+    .cm-heading {
+      margin: 0;
+      color: #000000;
+      font-family: 'Fraunces', var(--font-heading--family, serif);
+      font-weight: 300;
+      font-size: var(--cm-heading-size, 28px);
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: capitalize;
+    }
+
+    /* 5-Column Mosaic Grid */
+    .cm-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr 1.25fr 1fr;
+      grid-template-rows: repeat(2, 260px);
+      gap: var(--cm-gap, 12px);
+      width: 100%;
+    }
+
+    /* Slot assignments matching screenshot */
+    .cm-item--1 {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+
+    .cm-item--2 {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .cm-item--3 {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .cm-item--4 {
+      grid-column: 3;
+      grid-row: 1;
+    }
+    .cm-item--5 {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    .cm-item--6 {
+      grid-column: 4;
+      grid-row: 1 / span 2;
+    }
+
+    .cm-item--7 {
+      grid-column: 5;
+      grid-row: 1;
+    }
+    .cm-item--8 {
+      grid-column: 5;
+      grid-row: 2;
+    }
+
+    /* Card */
+    .cm-card {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f5f5f5;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cm-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cm-card:hover .cm-card__img {
+      transform: scale(1.04);
+    }
+
+    .cm-card__placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Hover Overlay & Expand Icon */
+    .cm-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, var(--cm-overlay-opacity, 0.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+
+    .cm-card:hover .cm-card__overlay,
+    .cm-card:focus-visible .cm-card__overlay {
+      opacity: 1;
+    }
+
+    .cm-card__icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.85);
+    }
+
+    .cm-card:hover .cm-card__icon-wrap {
+      transform: scale(1);
+    }
+
+    .cm-card__expand-icon {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+    }
+
+    /* Button */
+    .cm-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.75rem;
+    }
+
+    .cm-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 15px 25px;
+      border-radius: 999px;
+
+      color: var(--cm-btn-color, #000);
+      border: 1px solid var(--cm-btn-bg, #000000);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-sizing: border-box;
+    }
+
+    .cm-btn:hover {
+      background-color: #000;
+      border-color: #000;
+      color: #fff;
+    }
+
+    /* =========================================================================
+       LIGHTBOX POPUP MODAL
+       ========================================================================= */
+    .cm-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+    }
+
+    .cm-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cm-lightbox__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .cm-lightbox__container {
+      position: relative;
+      z-index: 2;
+      max-width: 90vw;
+      max-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cm-lightbox__media {
+      position: relative;
+      max-width: 82vw;
+      max-height: 84vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .cm-lightbox__img {
+      max-width: 100%;
+      max-height: 450px;
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      display: block;
+      transform: scale(0.96);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    }
+
+    .cm-lightbox.is-open .cm-lightbox__img {
+      transform: scale(1);
+    }
+
+    /* Close button */
+    .cm-lightbox__close {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .cm-lightbox__close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.08);
+    }
+
+    /* Nav Arrows */
+    .cm-lightbox__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .cm-lightbox__nav:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .cm-lightbox__nav--prev {
+      left: -64px;
+    }
+
+    .cm-lightbox__nav--next {
+      right: -64px;
+    }
+
+    /* Counter */
+    .cm-lightbox__counter {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.75);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 16px;
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 1024px) {
+      .cm-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 10px;
+      }
+
+      .cm-item--1,
+      .cm-item--2,
+      .cm-item--3,
+      .cm-item--4,
+      .cm-item--5,
+      .cm-item--6,
+      .cm-item--7,
+      .cm-item--8 {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        aspect-ratio: 1 / 1;
+        height: auto;
+      }
+
+      .cm-item--1,
+      .cm-item--6 {
+        aspect-ratio: 3 / 4;
+      }
+
+      .cm-lightbox__nav--prev {
+        left: 12px;
+      }
+
+      .cm-lightbox__nav--next {
+        right: 12px;
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+       
+      .cm-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .cm-heading {
+        font-size: 24px;
+      }
+
+      .cm-btn {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .cm-lightbox__close {
+        top: 16px;
+        right: 16px;
+        width: 38px;
+        height: 38px;
+      }
+
+      .cm-lightbox__nav {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    /* =========================================
+     RESPONSIVE / TABLET
+  ========================================= */
+
+  @media screen and (max-width: 1024px) {
+
+    .community-mosaic-section,
+    .community-mosaic-section *,
+    .cm-container,
+    .cm-grid,
+    .cm-item {
+      box-sizing: border-box;
+    }
+
+    .cm-container {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .cm-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: auto;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .cm-item--1,
+    .cm-item--2,
+    .cm-item--3,
+    .cm-item--4,
+    .cm-item--5,
+    .cm-item--6,
+    .cm-item--7,
+    .cm-item--8 {
+      grid-column: auto !important;
+      grid-row: auto !important;
+
+      width: 100%;
+      min-width: 0;
+
+      aspect-ratio: 1 / 1;
+      height: auto;
+    }
+
+    .cm-item--1,
+    .cm-item--6 {
+      aspect-ratio: 3 / 4;
+    }
+
+    .cm-card {
+      min-width: 0;
+      height: 100%;
+    }
+
+    .cm-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Lightbox */
+
+    .cm-lightbox__container {
+      width: calc(100vw - 40px);
+      max-width: 90vw;
+      max-height: 88vh;
+    }
+
+    .cm-lightbox__media {
+      max-width: calc(100vw - 100px);
+      max-height: 80vh;
+    }
+
+    .cm-lightbox__img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+    }
+
+    .cm-lightbox__nav--prev {
+      left: -55px;
+    }
+
+    .cm-lightbox__nav--next {
+      right: -55px;
+    }
+  }
+
+
+  /* =========================================
+     MOBILE
+  ========================================= */
+
+  @media screen and (max-width: 749px) {
+
+    .community-mosaic-section {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .cm-container {
+      width: 100%;
+      min-width: 0;
+      padding:30px 0;
+      gap: 20px;
+
+      overflow: hidden;
+    }
+
+
+    /* Heading */
+
+    .cm-heading {
+      font-size: clamp(22px, 6vw, 28px);
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+
+    /* Grid */
+
+    .cm-grid {
+      width: 100%;
+
+      display: grid;
+
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      grid-auto-rows: auto;
+
+      gap: 8px;
+    }
+
+
+    /* Reset Desktop Grid */
+
+    .cm-item--1,
+    .cm-item--2,
+    .cm-item--3,
+    .cm-item--4,
+    .cm-item--5,
+    .cm-item--6,
+    .cm-item--7,
+    .cm-item--8 {
+      grid-column: auto !important;
+      grid-row: auto !important;
+
+      width: 100%;
+      min-width: 0;
+
+      height: auto;
+      aspect-ratio: 1 / 1;
+    }
+
+
+    /* Large portrait images */
+
+    .cm-item--1,
+    .cm-item--6 {
+      aspect-ratio: 3 / 4;
+    }
+
+
+    /* Card */
+
+    .cm-card {
+      width: 100%;
+      height: 100%;
+
+      min-width: 0;
+
+      display: block;
+
+      overflow: hidden;
+    }
+
+    .cm-card__img,
+    .cm-card__placeholder {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+
+    /* Disable Hover Scale Problems on Mobile */
+
+    .cm-card:hover .cm-card__img {
+      transform: none;
+    }
+
+
+    /* Mobile Overlay */
+
+    .cm-card__overlay {
+      opacity: 0;
+    }
+
+    .cm-card:active .cm-card__overlay {
+      opacity: 1;
+    }
+
+
+    /* Expand Icon */
+
+    .cm-card__icon-wrap {
+      width: 38px;
+      height: 38px;
+    }
+
+    .cm-card__expand-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+
+    /* Footer */
+
+    .cm-footer {
+      width: 100%;
+
+      margin-top: 4px;
+    }
+
+
+    /* CTA Button */
+
+    .cm-btn {
+      width: 100%;
+
+      max-width: 100%;
+
+      min-height: 48px;
+
+      padding: 14px 20px;
+
+      text-align: center;
+
+      font-size: 13px;
+
+      white-space: normal;
+    }
+
+
+    /* =========================================
+       MOBILE LIGHTBOX
+    ========================================= */
+
+    .cm-lightbox {
+      padding: 0;
+
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .cm-lightbox__container {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100vh;
+
+      padding: 60px 16px 110px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      box-sizing: border-box;
+    }
+
+
+    /* Image Container */
+
+    .cm-lightbox__media {
+      width: 100%;
+
+      max-width: 100%;
+
+      max-height: calc(100vh - 180px);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+    }
+
+
+    /* Image */
+
+    .cm-lightbox__img {
+      width: auto;
+
+      height: auto;
+
+      max-width: 100%;
+
+      max-height: calc(100vh - 180px);
+
+      object-fit: contain;
+
+      display: block;
+    }
+
+
+    /* Close Button */
+
+    .cm-lightbox__close {
+      position: fixed;
+
+      top: 14px;
+      right: 14px;
+
+      width: 40px;
+      height: 40px;
+
+      z-index: 20;
+    }
+
+
+    /* =========================================
+       NAVIGATION BUTTONS
+       IMAGE KE UPAR OVERLAP NAHI HONGI
+    ========================================= */
+
+    .cm-lightbox__nav {
+      position: fixed;
+
+      top: auto;
+
+      bottom: 58px;
+
+      transform: none;
+
+      width: 42px;
+      height: 42px;
+
+      z-index: 20;
+    }
+
+
+    .cm-lightbox__nav:hover {
+      transform: none;
+    }
+
+
+    .cm-lightbox__nav--prev {
+      left: calc(50% - 52px);
+    }
+
+
+    .cm-lightbox__nav--next {
+      right: calc(50% - 52px);
+    }
+
+
+    /* Counter */
+
+    .cm-lightbox__counter {
+      position: fixed;
+
+      bottom: 14px;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      font-size: 13px;
+
+      padding: 6px 14px;
+
+      z-index: 20;
+
+      white-space: nowrap;
+    }
+  }
+
+
+  /* =========================================
+     SMALL MOBILE DEVICES
+  ========================================= */
+
+  @media screen and (max-width: 480px) {
+
+    .cm-container {
+      gap: 18px;
+    }
+
+    .cm-grid {
+      gap: 6px;
+    }
+
+
+    .cm-heading {
+      font-size: 22px;
+    }
+
+
+    .cm-item--1,
+    .cm-item--6 {
+      aspect-ratio: 2 / 3;
+    }
+
+
+    .cm-card__icon-wrap {
+      width: 32px;
+      height: 32px;
+    }
+
+
+    .cm-card__expand-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+
+    .cm-btn {
+      min-height: 46px;
+
+      padding: 13px 16px;
+
+      font-size: 12px;
+    }
+
+
+    /* Extra Small Mobile Lightbox */
+
+    .cm-lightbox__container {
+      padding-left: 10px;
+      padding-right: 10px;
+
+      padding-top: 55px;
+      padding-bottom: 105px;
+    }
+
+
+    .cm-lightbox__media {
+      max-height: calc(100vh - 165px);
+    }
+
+
+    .cm-lightbox__img {
+      max-height: calc(100vh - 165px);
+    }
+
+
+    .cm-lightbox__nav {
+      bottom: 52px;
+
+      width: 38px;
+      height: 38px;
+    }
+
+
+    .cm-lightbox__nav--prev {
+      left: calc(50% - 48px);
+    }
+
+
+    .cm-lightbox__nav--next {
+      right: calc(50% - 48px);
+    }
+
+
+    .cm-lightbox__counter {
+      bottom: 10px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    function initCommunityLightbox(sectionEl) {
+      if (!sectionEl || sectionEl.dataset.cmInitialized) return;
+      sectionEl.dataset.cmInitialized = 'true';
+
+      const lightbox = sectionEl.querySelector('.cm-lightbox');
+      if (!lightbox) return;
+
+      const imgEl = lightbox.querySelector('.cm-lightbox__img');
+      const counterCurrent = lightbox.querySelector('.cm-lightbox__current');
+      const counterTotal = lightbox.querySelector('.cm-lightbox__total');
+      const prevBtn = lightbox.querySelector('[data-cm-prev]');
+      const nextBtn = lightbox.querySelector('[data-cm-next]');
+      const closeBtns = lightbox.querySelectorAll('[data-cm-close]');
+      const triggers = Array.from(sectionEl.querySelectorAll('[data-cm-trigger]'));
+
+      if (triggers.length === 0) return;
+      if (counterTotal) counterTotal.textContent = triggers.length;
+
+      let currentIndex = 0;
+
+      function getSource(index) {
+        const item = triggers[index];
+        if (!item) return { src: '', alt: '' };
+        let fullSrc = item.dataset.fullSrc;
+        if (!fullSrc) {
+          const imgInside = item.querySelector('img');
+          if (imgInside) fullSrc = imgInside.src;
+        }
+        return {
+          src: fullSrc || '',
+          alt: item.dataset.alt || '',
+        };
+      }
+
+      function showImage(index) {
+        if (index < 0) index = triggers.length - 1;
+        if (index >= triggers.length) index = 0;
+        currentIndex = index;
+
+        const data = getSource(currentIndex);
+        if (imgEl && data.src) {
+          imgEl.style.opacity = '0.4';
+          imgEl.src = data.src;
+          imgEl.alt = data.alt;
+          imgEl.onload = () => {
+            imgEl.style.opacity = '1';
+          };
+        }
+        if (counterCurrent) counterCurrent.textContent = currentIndex + 1;
+      }
+
+      function openLightbox(index) {
+        showImage(index);
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      triggers.forEach((trigger, idx) => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          openLightbox(idx);
+        });
+      });
+
+      closeBtns.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeLightbox();
+        });
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showImage(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showImage(currentIndex + 1);
+        });
+      }
+
+      // Keyboard support
+      window.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+          showImage(currentIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+          showImage(currentIndex + 1);
+        }
+      });
+
+      // Touch swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      lightbox.addEventListener(
+        'touchstart',
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true }
+      );
+
+      lightbox.addEventListener(
+        'touchend',
+        (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 45) {
+            if (diff > 0) {
+              showImage(currentIndex + 1);
+            } else {
+              showImage(currentIndex - 1);
+            }
+          }
+        },
+        { passive: true }
+      );
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.community-mosaic-section').forEach(initCommunityLightbox);
+    });
+
+    document.addEventListener('shopify:section:load', (e) => {
+      const sec = e.target.querySelector('.community-mosaic-section') || e.target;
+      if (sec && sec.classList.contains('community-mosaic-section')) {
+        sec.removeAttribute('data-cm-initialized');
+        initCommunityLightbox(sec);
+      }
+    });
+
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      document.querySelectorAll('.community-mosaic-section').forEach(initCommunityLightbox);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Community Mosaic Grid",
+  "class": "section-community-mosaic-grid",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Funky Community"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading Font Size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "page-width", "label": "Page Width" },
+        { "value": "full-width", "label": "Full Width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Grid Gap",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Hover Overlay Opacity",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Call To Action Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "JOIN OUR COMMUNITY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "media",
+      "name": "Community Photo",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (Optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community Mosaic Grid",
+      "settings": {
+        "heading": "Our Funky Community",
+        "heading_size": 28,
+        "heading_alignment": "left",
+        "show_button": true,
+        "button_label": "JOIN OUR COMMUNITY",
+        "gap": 12
+      },
+      "blocks": [
+        { "type": "media" },
+        { "type": "media" },
+        { "type": "media" },
+        { "type": "media" },
+        { "type": "media" },
+        { "type": "media" },
+        { "type": "media" },
+        { "type": "media" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,120 @@
+{% doc %}
+  Renders the free shipping progress bar shown at the top of the cart drawer.
+
+  Reads `settings.cart_free_shipping_*` from the theme settings.
+
+  @example
+  {% render 'cart-free-shipping' %}
+{% enddoc %}
+
+{%- if settings.cart_free_shipping_bar -%}
+  {%- liquid
+    assign threshold = settings.cart_free_shipping_threshold | plus: 0 | times: 100 | round
+    assign current = cart.total_price
+
+    if threshold > 0
+      assign remaining = threshold | minus: current
+      if remaining < 0
+        assign remaining = 0
+      endif
+      assign progress = current | times: 100.0 | divided_by: threshold
+      if progress > 100
+        assign progress = 100
+      endif
+    else
+      assign remaining = 0
+      assign progress = 100
+    endif
+
+    if remaining > 0
+      assign fs_message = settings.cart_free_shipping_progress_text | replace: '[amount]', remaining | money
+    else
+      assign fs_message = settings.cart_free_shipping_success_text
+    endif
+  -%}
+
+  <div class="cart-free-shipping{% if remaining == 0 %} cart-free-shipping--reached{% endif %}">
+    <div
+      class="cart-free-shipping__track"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="{{ progress | round }}"
+      aria-label="{{ fs_message | escape }}"
+    >
+      <span
+        class="cart-free-shipping__fill"
+        style="--cart-free-shipping-progress: {{ progress }}%;"
+      >
+        <span class="cart-free-shipping__knob"></span>
+      </span>
+    </div>
+
+    <p class="cart-free-shipping__message">
+      <span>{{ fs_message }}</span>
+      <span class="cart-free-shipping__icon" aria-hidden="true">
+        {%- render 'icon-gift' -%}
+      </span>
+    </p>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .cart-free-shipping {
+    padding-inline: var(--cart-drawer-padding);
+    padding-block-end: var(--padding-md);
+    flex-shrink: 0;
+    margin-top: 16px;
+  }
+
+  .cart-free-shipping__track {
+    position: relative;
+    height: 4px;
+    border-radius: 99px;
+    background-color: rgb(var(--color-foreground-rgb) / 0.12);
+    margin-block-end: var(--margin-md);
+  }
+
+  .cart-free-shipping__fill {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    display: block;
+    width: var(--cart-free-shipping-progress, 0%);
+    min-width: 4px;
+    border-radius: 99px;
+    background-color: var(--color-foreground);
+    transition: width var(--animation-speed, 0.2s) var(--animation-easing, ease);
+  }
+
+  .cart-free-shipping__knob {
+    position: absolute;
+    inset-inline-end: 0;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color-foreground);
+    transform: translate(50%, -50%);
+  }
+
+  .cart-free-shipping__message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs);
+    margin: 0;
+    padding: var(--padding-sm) var(--padding-md);
+    border-radius: 4px;
+    background-color: rgb(var(--color-foreground-rgb) / 0.05);
+    font-size: var(--font-size--sm);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .cart-free-shipping__icon svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+  }
+{% endstylesheet %}

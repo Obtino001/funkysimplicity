@@ -1,0 +1,33 @@
+<div
+  class="mo-compare-recommendations"
+  data-mo-compare-recommendations
+>
+  {% if recommendations.performed? and recommendations.products_count > 0 %}
+
+    <h2 class="mo-compare-recommendations__title">
+      Compare Your Style
+    </h2>
+
+    <div class="mo-compare-recommendations__products">
+
+      {% for recommended_product in recommendations.products limit: 2 %}
+
+        <div class="mo-compare-recommendations__item">
+          {% render 'mo-compare-product',
+            product: recommended_product
+          %}
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Mo Compare Product",
+  "settings": []
+}
+{% endschema %}

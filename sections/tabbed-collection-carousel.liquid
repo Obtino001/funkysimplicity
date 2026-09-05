@@ -1,0 +1,1538 @@
+{%- comment -%}
+  Tabbed Collection Carousel Section for Horizon Theme
+  Matches the Figma/Design layout with:
+  - Header: Section title, collection tab pills, slider arrows (< >)
+  - Multi-collection tab switching with responsive carousel slider
+  - Product cards with:
+    - Badges ("Low Stock", "Sale", custom)
+    - Portrait media with hover image
+    - In-card Quick Shop variant selector (Size, Waist Rise, Inseam, etc.) with real-time variant matching
+    - 1-Click Ajax Add to Cart with loading state & Cart Drawer integration
+    - Product title, formatted price (with sale price, compare price, Save badge)
+    - Color swatches below price with image switching
+  - Centered "VIEW ALL" button linked to active collection
+{%- endcomment -%}
+
+{% liquid
+  assign section_id = section.id
+  assign heading = section.settings.heading
+  assign heading_size = section.settings.heading_size | default: 'h2'
+  assign section_width = section.settings.section_width | default: 'page-width'
+  assign columns_desktop = section.settings.columns_desktop | default: 4
+  assign columns_mobile = section.settings.columns_mobile | default: '2'
+  assign card_aspect_ratio = section.settings.card_aspect_ratio | default: 'portrait'
+  assign show_secondary_image = section.settings.show_secondary_image
+  assign show_badges = section.settings.show_badges
+  assign show_swatches = section.settings.show_swatches
+  assign show_quick_shop = section.settings.show_quick_shop
+  assign show_view_all = section.settings.show_view_all
+  assign view_all_text = section.settings.view_all_text | default: 'VIEW ALL'
+  assign low_stock_threshold = section.settings.low_stock_threshold | default: 5
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section_id }}{% endif %}"
+  style="{% if section.settings.background_color != blank %}--color-background: {{ section.settings.background_color }};{% endif %}"
+></div>
+
+<section
+  id="TabbedCollectionCarousel-{{ section_id }}"
+  class="
+    section
+    section--{{ section_width }}
+    tabbed-collection-carousel
+    spacing-style
+    {% if section.settings.background_color != blank %}color-custom-{{ section_id }}{% endif %}
+  "
+  data-section-id="{{ section_id }}"
+  style="
+    --tcc-columns-desktop: {{ columns_desktop }};
+    --tcc-columns-mobile: {{ columns_mobile }};
+    --tcc-gap: {{ section.settings.gap | default: 16 }}px;
+    --tcc-padding-top: {{ section.settings.padding_top | default: 48 }}px;
+    --tcc-padding-bottom: {{ section.settings.padding_bottom | default: 48 }}px;
+    padding-block-start: var(--tcc-padding-top);
+    padding-block-end: var(--tcc-padding-bottom);
+  "
+>
+  <div class="tcc-container">
+    {%- comment -%} SECTION HEADER {%- endcomment -%}
+    <div class="tcc-header">
+      <div class="tcc-header__left">
+        {%- if heading != blank -%}
+          <h2 class="tcc-heading {{ heading_size }}">{{ heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- comment -%} COLLECTION TABS {%- endcomment -%}
+        <div class="tcc-tabs-nav" role="tablist" aria-label="Collections">
+          {%- if section.blocks.size > 0 -%}
+            {%- for block in section.blocks -%}
+              {%- liquid
+                assign collection = block.settings.collection
+                assign tab_title = block.settings.tab_title
+                if tab_title == blank and collection != blank
+                  assign tab_title = collection.title
+                elsif tab_title == blank
+                  assign tab_title = 'Tab ' | append: forloop.index
+                endif
+                assign tab_url = block.settings.view_all_url
+                if tab_url == blank and collection != blank
+                  assign tab_url = collection.url
+                elsif tab_url == blank
+                  assign tab_url = routes.all_products_collection_url
+                endif
+              -%}
+              <button
+                type="button"
+                role="tab"
+                class="tcc-tab-btn{% if forloop.first %} is-active{% endif %}"
+                id="tcc-tab-{{ section_id }}-{{ block.id }}"
+                aria-controls="tcc-panel-{{ section_id }}-{{ block.id }}"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                data-tab-id="{{ block.id }}"
+                data-collection-url="{{ tab_url }}"
+                {{ block.shopify_attributes }}
+              >
+                {{ tab_title }}
+              </button>
+            {%- endfor -%}
+          {%- else -%}
+            {%- comment -%} Onboarding default tabs {%- endcomment -%}
+            <button type="button" role="tab" class="tcc-tab-btn is-active" aria-selected="true" data-tab-id="sample-1" data-collection-url="{{ routes.all_products_collection_url }}">Tops</button>
+            <button type="button" role="tab" class="tcc-tab-btn" aria-selected="false" data-tab-id="sample-2" data-collection-url="{{ routes.all_products_collection_url }}">Leggings</button>
+            <button type="button" role="tab" class="tcc-tab-btn" aria-selected="false" data-tab-id="sample-3" data-collection-url="{{ routes.all_products_collection_url }}">Bras</button>
+            <button type="button" role="tab" class="tcc-tab-btn" aria-selected="false" data-tab-id="sample-4" data-collection-url="{{ routes.all_products_collection_url }}">Bodysuits</button>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%} ARROW NAVIGATION CONTROLS {%- endcomment -%}
+      <div class="tcc-header__arrows">
+        <button
+          type="button"
+          class="tcc-arrow-btn tcc-arrow-prev"
+          aria-label="Previous Slide"
+          data-direction="prev"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="tcc-arrow-btn tcc-arrow-next"
+          aria-label="Next Slide"
+          data-direction="next"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {%- comment -%} CAROUSEL PANELS {%- endcomment -%}
+    <div class="tcc-panels-container">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign collection = block.settings.collection
+            assign products_to_show = section.settings.products_to_show | default: 8
+          -%}
+          <div
+            id="tcc-panel-{{ section_id }}-{{ block.id }}"
+            class="tcc-tab-panel{% if forloop.first %} is-active{% endif %}"
+            role="tabpanel"
+            aria-labelledby="tcc-tab-{{ section_id }}-{{ block.id }}"
+            data-panel-id="{{ block.id }}"
+          >
+            <div class="tcc-slider-track" data-slider-track>
+              {%- if collection != blank and collection.products.size > 0 -%}
+                {%- for product in collection.products limit: products_to_show -%}
+                  <div class="tcc-slide-item">
+                    {%- render 'tabbed-carousel-product-card',
+                      product: product,
+                      section_id: section_id,
+                      card_aspect_ratio: card_aspect_ratio,
+                      show_secondary_image: show_secondary_image,
+                      show_badges: show_badges,
+                      show_swatches: show_swatches,
+                      show_quick_shop: show_quick_shop,
+                      low_stock_threshold: low_stock_threshold
+                    -%}
+                  </div>
+                {%- endfor -%}
+              {%- else -%}
+                {%- comment -%} Placeholder cards {%- endcomment -%}
+                {%- for i in (1..4) -%}
+                  <div class="tcc-slide-item">
+                    {%- render 'tabbed-carousel-product-placeholder', index: forloop.index, card_aspect_ratio: card_aspect_ratio -%}
+                  </div>
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Onboarding default panels {%- endcomment -%}
+        {%- for tab_idx in (1..4) -%}
+          <div
+            class="tcc-tab-panel{% if forloop.first %} is-active{% endif %}"
+            role="tabpanel"
+            data-panel-id="sample-{{ tab_idx }}"
+          >
+            <div class="tcc-slider-track" data-slider-track>
+              {%- for i in (1..4) -%}
+                <div class="tcc-slide-item">
+                  {%- render 'tabbed-carousel-product-placeholder', index: forloop.index, card_aspect_ratio: card_aspect_ratio -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} BOTTOM VIEW ALL BUTTON {%- endcomment -%}
+    {%- if show_view_all -%}
+      {%- liquid
+        assign initial_view_all_url = routes.all_products_collection_url
+        if section.blocks.size > 0
+          assign first_block = section.blocks.first
+          if first_block.settings.view_all_url != blank
+            assign initial_view_all_url = first_block.settings.view_all_url
+          elsif first_block.settings.collection != blank
+            assign initial_view_all_url = first_block.settings.collection.url
+          endif
+        endif
+      -%}
+      <div class="tcc-footer">
+        <a
+          href="{{ initial_view_all_url }}"
+          class="tcc-view-all-btn"
+          data-view-all-btn
+        >
+          {{ view_all_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  /* TABBED COLLECTION CAROUSEL STYLES */
+  .tabbed-collection-carousel {
+    position: relative;
+    width: 100%;
+    overflow-x: clip;
+    color: var(--color-foreground, #121212);
+    box-sizing: border-box;
+  }
+
+  .tcc-container {
+    width: 100%;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  /* Header */
+  .tcc-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .tcc-header__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .tcc-heading {
+    margin: 0;
+    font-family: var(--font-heading--family, inherit);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .tcc-heading.h1 { font-size: clamp(2rem, 4vw, 3rem); }
+  .tcc-heading.h2 { font-size: clamp(1.75rem, 3.5vw, 28px); }
+  .tcc-heading.h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+  .tcc-heading.h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+
+  /* Tabs Navigation */
+  .tcc-tabs-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tcc-tab-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0.55rem 1.25rem;
+    border-radius: 9999px;
+    font-family: var(--font-body--family, inherit);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-foreground, #121212);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+  }
+
+  .tcc-tab-btn:hover {
+    background-color: rgb(var(--color-foreground-rgb, 18 18 18) / 0.05);
+  }
+
+  .tcc-tab-btn.is-active {
+    background-color: rgb(var(--color-foreground-rgb, 18 18 18) / 0.08);
+    color: var(--color-foreground, #121212);
+    font-weight: 500;
+  }
+
+  /* Arrows */
+  .tcc-header__arrows {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto;
+  }
+
+  .tcc-arrow-btn {
+    appearance: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #EBEBEB;
+    background: transparent;
+    color: var(--color-foreground, #121212);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .tcc-arrow-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  /* Panels & Slider */
+  .tcc-panels-container {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .tcc-tab-panel {
+    display: none;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .tcc-tab-panel.is-active {
+    display: block;
+  }
+
+  @keyframes tccFadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tcc-slider-track {
+    display: flex;
+    overflow-x: visible;
+    overflow-y: visible;
+    overflow: visible;
+    gap: var(--tcc-gap);
+    padding-bottom: 0.75rem;
+    padding-top: 0.25rem;
+    width: max-content;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+    touch-action: pan-y;
+  }
+
+  .tcc-slide-item {
+    flex: 0 0 clamp(240px, calc((100vw - 4rem - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 454px);
+    width: clamp(240px, calc((100vw - 4rem - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 320px);
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 989px) {
+    .tcc-slide-item {
+      flex: 0 0 clamp(200px, calc((100vw - 3rem - (var(--tcc-gap) * 2)) / 2.6), 280px);
+      width: clamp(200px, calc((100vw - 3rem - (var(--tcc-gap) * 2)) / 2.6), 280px);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    
+  .tcc-header__arrows {
+    display: none; 
+  }
+
+    .tcc-slide-item {
+      flex: 0 0 clamp(160px, calc((100vw - 2rem - var(--tcc-gap)) / 1.35), 240px);
+      width: clamp(160px, calc((100vw - 2rem - var(--tcc-gap)) / 1.35), 240px);
+    }
+    .tcc-header {
+      margin-bottom: 1.25rem;
+    }
+    .tcc-arrow-btn {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  /* PRODUCT CARD */
+  .tcc-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: transparent;
+    font-family: var(--font-body--family, inherit);
+  }
+
+  .tcc-card__media-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f4f4f4;
+    border-radius: 0px;
+  }
+
+  /* Aspect ratios */
+  .tcc-card__media-wrapper--portrait {
+    aspect-ratio: 3 / 4;
+  }
+  .tcc-card__media-wrapper--square {
+    aspect-ratio: 1 / 1;
+  }
+  .tcc-card__media-wrapper--adapt {
+    aspect-ratio: auto;
+  }
+
+  .tcc-card__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .tcc-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+  }
+
+  .tcc-card__img--secondary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .tcc-card:hover .tcc-card__img--primary.has-secondary {
+    opacity: 0;
+  }
+  .tcc-card:hover .tcc-card__img--secondary {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  /* Keep primary image visible and disable secondary hover when color is selected */
+  .tcc-card.has-color-selected .tcc-card__img--primary,
+  .tcc-card.has-color-selected:hover .tcc-card__img--primary {
+    opacity: 1 !important;
+  }
+  .tcc-card.has-color-selected .tcc-card__img--secondary,
+  .tcc-card.has-color-selected:hover .tcc-card__img--secondary {
+    opacity: 0 !important;
+    display: none !important;
+  }
+
+  /* Badges */
+  .tcc-card__badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .tcc-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.02em;
+    background: rgba(255, 255, 255, 0.92);
+    color: #121212;
+    backdrop-filter: blur(4px);
+  }
+
+  .tcc-badge--low-stock {
+    background: #f4f1ea;
+    color: #2b2b2b;
+  }
+
+  .tcc-badge--sale {
+    background: #e5edf5;
+    color: #1a446c;
+  }
+
+  /* QUICK SHOP VARIANT SELECTOR OVERLAY */
+  .tcc-quick-shop {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #F6F6F6B2;
+    backdrop-filter: blur(8px);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 4;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Visible on hover on desktop, or toggled on mobile */
+  .tcc-card:hover .tcc-quick-shop,
+  .tcc-card:focus-within .tcc-quick-shop,
+  .tcc-card.is-quick-shop-open .tcc-quick-shop {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    .tcc-quick-shop {
+      padding: 8px 10px;
+      gap: 6px;
+    }
+  }
+
+  .tcc-option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .tcc-option-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #555;
+    text-transform: none;
+  }
+
+  .tcc-option-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tcc-opt-pill {
+    appearance: none;
+    background: #fff;
+    border: none;
+    color: #000;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border-radius: 0px;
+    line-height: 1.2;
+  }
+
+  .tcc-opt-pill:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  .tcc-opt-pill.is-selected {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  .tcc-opt-pill.is-disabled {
+    opacity: 0.4;
+    text-decoration: line-through;
+    cursor: not-allowed;
+  }
+
+  .tcc-add-btn {
+    appearance: none;
+    width: 100%;
+    margin-top: 4px;
+    padding: 15px 12px;
+    background: #ffffff;
+    border: 0px;
+    color: #121212;
+    font-family: var(--font-body--family, inherit);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .tcc-add-btn:hover:not(:disabled) {
+    background: #121212;
+    color: #ffffff;
+  }
+
+  .tcc-add-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f0f0f0;
+    color: #888;
+  }
+
+  .tcc-add-btn.is-loading {
+    position: relative;
+    color: transparent !important;
+  }
+
+  .tcc-add-btn.is-loading::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 50%;
+    left: 50%;
+    margin: -7px 0 0 -7px;
+    border: 2px solid #121212;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: tccSpin 0.6s linear infinite;
+  }
+
+  @keyframes tccSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* CARD DETAILS */
+  .tcc-card__info {
+    padding-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex-grow: 1;
+  }
+
+  .tcc-card__title {
+    font-size: 0.92rem;
+    font-weight: 400;
+    color: var(--color-foreground, #121212);
+    text-decoration: none;
+    line-height: 1.35;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .tcc-card__title:hover {
+    text-decoration: underline;
+  }
+
+  /* Price */
+  .tcc-card__price-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    flex-wrap: wrap;
+  }
+
+  .tcc-price--regular {
+    color: var(--color-foreground, #121212);
+  }
+
+  .tcc-price--sale {
+    color: #d97706;
+    font-weight: 600;
+  }
+
+  .tcc-price--compare {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 0.82rem;
+  }
+
+  .tcc-save-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    background: #000;
+    color: #fff;
+    border-radius: 9999px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Color Swatches */
+  .tcc-swatches {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+
+  .tcc-swatch-item {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: inline-block;
+  }
+
+  .tcc-swatch-item:hover,
+  .tcc-swatch-item.is-selected {
+    transform: scale(1.2);
+    border-color: #000;
+    box-shadow: 0 0 0 1px #000;
+  }
+
+  /* FOOTER VIEW ALL */
+  .tcc-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+  }
+
+  .tcc-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-foreground, #121212);
+    background: transparent;
+    color: var(--color-foreground, #121212);
+    font-family: var(--font-body--family, inherit);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .tcc-view-all-btn:hover {
+    background: var(--color-foreground, #121212);
+    color: var(--color-background, #ffffff);
+  }
+  @media (max-width:767px){
+    
+  /* FOOTER VIEW ALL */
+  .tcc-footer { 
+    margin-top: 20px;
+  }
+  .tcc-card  .tcc-quick-shop, .tcc-card:focus-within .tcc-quick-shop, .tcc-card.is-quick-shop-open .tcc-quick-shop {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+    display: flex;
+    backdrop-filter: blur(0px);
+    align-items: flex-end;
+    background: transparent !important;
+}
+      .tcc-option-group {
+          display: none !important; 
+      }
+      button.tcc-add-btn {
+          display: none !important;
+      } 
+     .tcc-add-btn.mobile {
+          display: flex !important;
+        height: 35px;
+        width: 37px;
+        padding: 0 !important;
+        border-radius: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+.tcc-add-btn_icon img{
+  width:19px;
+}
+.tcc-add-btn:hover:not(:disabled), 
+.tcc-add-btn:hover {
+    background: #fff; 
+}
+  }
+  
+</style>
+
+<script>
+  (function() {
+    function initTabbedCarousel(sectionEl) {
+      if (!sectionEl || sectionEl.dataset.tccInitialized) return;
+      sectionEl.dataset.tccInitialized = 'true';
+
+      const tabButtons = sectionEl.querySelectorAll('.tcc-tab-btn');
+      const tabPanels = sectionEl.querySelectorAll('.tcc-tab-panel');
+      const viewAllBtn = sectionEl.querySelector('[data-view-all-btn]');
+      const arrowPrev = sectionEl.querySelector('.tcc-arrow-prev');
+      const arrowNext = sectionEl.querySelector('.tcc-arrow-next');
+
+      // Helper to get active track
+      function getActiveTrack() {
+        const activePanel = sectionEl.querySelector('.tcc-tab-panel.is-active');
+        return activePanel ? activePanel.querySelector('[data-slider-track]') : null;
+      }
+
+      let currentIndex = 0;
+
+      function updateSliderPosition(animate = true) {
+        const track = getActiveTrack();
+        if (!track) return;
+        const slides = track.querySelectorAll('.tcc-slide-item');
+        if (!slides.length) return;
+
+        const slide = slides[0];
+        const gap = parseFloat(getComputedStyle(track).gap) || 16;
+        const slideWidth = slide.getBoundingClientRect().width;
+        const step = slideWidth + gap;
+
+        const container = track.closest('.tcc-container') || sectionEl;
+        const containerWidth = container.getBoundingClientRect().width;
+        const totalWidth = (slides.length * slideWidth) + ((slides.length - 1) * gap);
+        const maxOffset = Math.max(0, totalWidth - containerWidth);
+        const maxIndex = Math.ceil(maxOffset / step);
+
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+
+        let targetOffset = currentIndex * step;
+        if (targetOffset > maxOffset) targetOffset = maxOffset;
+
+        track.style.transition = animate ? 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
+        track.style.transform = `translateX(-${targetOffset}px)`;
+
+        if (arrowPrev) arrowPrev.disabled = targetOffset <= 2;
+        if (arrowNext) arrowNext.disabled = targetOffset >= maxOffset - 2;
+      }
+
+      function updateArrowStates() {
+        updateSliderPosition(false);
+      }
+
+      // Tab Switching
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabId = btn.dataset.tabId;
+          const targetPanel = sectionEl.querySelector(`[data-panel-id="${tabId}"]`);
+          const collectionUrl = btn.dataset.collectionUrl;
+
+          // Toggle tabs
+          tabButtons.forEach(b => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+
+          // Toggle panels
+          tabPanels.forEach(p => p.classList.remove('is-active'));
+          if (targetPanel) {
+            targetPanel.classList.add('is-active');
+            currentIndex = 0;
+            const track = targetPanel.querySelector('[data-slider-track]');
+            if (track) {
+              track.style.transform = 'translateX(0px)';
+            }
+          }
+
+          // Update View All URL
+          if (viewAllBtn && collectionUrl) {
+            viewAllBtn.setAttribute('href', collectionUrl);
+          }
+
+          setTimeout(() => updateSliderPosition(false), 50);
+        });
+      });
+
+      // Arrow Clicks
+      if (arrowPrev) {
+        arrowPrev.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateSliderPosition(true);
+          }
+        });
+      }
+
+      if (arrowNext) {
+        arrowNext.addEventListener('click', (e) => {
+          e.preventDefault();
+          currentIndex++;
+          updateSliderPosition(true);
+        });
+      }
+
+      // Touch & Mouse Drag Slider Handling
+      sectionEl.querySelectorAll('[data-slider-track]').forEach(track => {
+        let isDragging = false;
+        let startX = 0;
+        let currentX = 0;
+
+        // Touch events
+        track.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          currentX = e.touches[0].clientX;
+          isDragging = true;
+        }, { passive: true });
+
+        track.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          currentX = e.touches[0].clientX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', () => {
+          if (!isDragging) return;
+          isDragging = false;
+          const diff = startX - currentX;
+          if (diff > 40) {
+            currentIndex++;
+            updateSliderPosition(true);
+          } else if (diff < -40) {
+            if (currentIndex > 0) currentIndex--;
+            updateSliderPosition(true);
+          }
+        });
+
+        // Mouse drag events
+        track.addEventListener('mousedown', (e) => {
+          if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.tcc-quick-shop') || e.target.closest('.tcc-swatch-item')) return;
+          isDragging = true;
+          startX = e.clientX;
+          currentX = e.clientX;
+          track.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          currentX = e.clientX;
+        });
+
+        window.addEventListener('mouseup', () => {
+          if (!isDragging) return;
+          isDragging = false;
+          track.style.cursor = '';
+          const diff = startX - currentX;
+          if (diff > 40) {
+            currentIndex++;
+            updateSliderPosition(true);
+          } else if (diff < -40) {
+            if (currentIndex > 0) currentIndex--;
+            updateSliderPosition(true);
+          }
+        });
+      });
+
+      window.addEventListener('resize', () => updateSliderPosition(false));
+
+      // Initialize Product Cards
+      sectionEl.querySelectorAll('.tcc-card').forEach(card => {
+        initProductCard(card);
+      });
+
+      updateArrowStates();
+    }
+
+    function initProductCard(card) {
+      const dataScript = card.querySelector('.tcc-product-json');
+      if (!dataScript) return;
+
+      let productData;
+      try {
+        productData = JSON.parse(dataScript.textContent);
+      } catch(e) {
+        return;
+      }
+
+      const optPills = card.querySelectorAll('.tcc-opt-pill');
+      const addBtn = card.querySelector('.tcc-add-btn');
+      const priceRegular = card.querySelector('.tcc-price--regular');
+      const priceSale = card.querySelector('.tcc-price--sale');
+      const priceCompare = card.querySelector('.tcc-price--compare');
+      const saveBadge = card.querySelector('.tcc-save-badge');
+      const primaryImg = card.querySelector('.tcc-card__img--primary') || card.querySelector('.tcc-card__img');
+      const swatches = card.querySelectorAll('.tcc-swatch-item');
+      const swatchesContainer = card.querySelector('.tcc-swatches');
+
+      // State of currently selected options
+      const selectedOptions = {};
+
+      // Detect which option index is Color/Colour
+      let colorOptionPosition = null;
+      if (swatchesContainer && swatchesContainer.dataset.colorOptionIndex) {
+        colorOptionPosition = swatchesContainer.dataset.colorOptionIndex;
+      } else if (productData && productData.options) {
+        productData.options.forEach((opt, idx) => {
+          const name = (typeof opt === 'string' ? opt : opt.name || '').toLowerCase();
+          if (name.includes('color') || name.includes('colour')) {
+            colorOptionPosition = (idx + 1).toString();
+          }
+        });
+      }
+
+      // Initialize selected color option from active swatch
+      if (colorOptionPosition) {
+        const activeSwatch = card.querySelector('.tcc-swatch-item.is-selected') || swatches[0];
+        if (activeSwatch) {
+          selectedOptions[colorOptionPosition] = activeSwatch.dataset.colorValue;
+        }
+      }
+
+      // Initialize selected non-color options from active pills
+      card.querySelectorAll('.tcc-option-group').forEach(group => {
+        const optIndex = group.dataset.optionIndex;
+        const activePill = group.querySelector('.tcc-opt-pill.is-selected') || group.querySelector('.tcc-opt-pill');
+        if (activePill) {
+          selectedOptions[optIndex] = activePill.dataset.value;
+        }
+      });
+
+      function resolveVariant() {
+        if (!productData || !productData.variants) return null;
+        let found = productData.variants.find(v => {
+          return Object.keys(selectedOptions).every(idx => {
+            const optKey = 'option' + idx;
+            return v[optKey] === selectedOptions[idx];
+          });
+        });
+        if (!found && colorOptionPosition) {
+          found = productData.variants.find(v => {
+            return v['option' + colorOptionPosition] === selectedOptions[colorOptionPosition];
+          });
+        }
+        return found || productData.variants[0];
+      }
+
+      function updateCardState() {
+        const variant = resolveVariant();
+
+        if (variant) {
+          // Update Price
+          const formattedPrice = formatMoney(variant.price);
+          if (variant.compare_at_price > variant.price) {
+            if (priceSale) priceSale.textContent = formattedPrice;
+            if (priceCompare) priceCompare.textContent = formatMoney(variant.compare_at_price);
+            if (saveBadge) {
+              const diff = variant.compare_at_price - variant.price;
+              saveBadge.textContent = 'Save ' + formatMoney(diff);
+              saveBadge.style.display = 'inline-block';
+            }
+            if (priceRegular) priceRegular.style.display = 'none';
+            if (priceSale) priceSale.style.display = 'inline';
+            if (priceCompare) priceCompare.style.display = 'inline';
+          } else {
+            if (priceRegular) {
+              priceRegular.textContent = formattedPrice;
+              priceRegular.style.display = 'inline';
+            }
+            if (priceSale) priceSale.style.display = 'none';
+            if (priceCompare) priceCompare.style.display = 'none';
+            if (saveBadge) saveBadge.style.display = 'none';
+          }
+
+          // Update Add Button
+          if (addBtn) {
+            addBtn.dataset.variantId = variant.id;
+            if (variant.available) {
+              addBtn.disabled = false;
+              addBtn.textContent = 'ADD TO CART';
+            } else {
+              addBtn.disabled = true;
+              addBtn.textContent = 'SOLD OUT';
+            }
+          }
+        } else {
+          if (addBtn) {
+            addBtn.disabled = true;
+            addBtn.textContent = 'UNAVAILABLE';
+          }
+        }
+      }
+
+      // Option pill clicks
+      optPills.forEach(pill => {
+        pill.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const group = pill.closest('.tcc-option-group');
+          if (!group) return;
+          const optIndex = group.dataset.optionIndex;
+          const value = pill.dataset.value;
+
+          group.querySelectorAll('.tcc-opt-pill').forEach(p => p.classList.remove('is-selected'));
+          pill.classList.add('is-selected');
+
+          selectedOptions[optIndex] = value;
+          updateCardState();
+        });
+      });
+
+      // Swatch clicks & hover
+      swatches.forEach(swatch => {
+        const selectSwatch = (e) => {
+          if (e.type === 'click') {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          const colorVal = swatch.dataset.colorValue;
+          let imgUrl = swatch.dataset.variantImage;
+
+          swatches.forEach(s => s.classList.remove('is-selected'));
+          swatch.classList.add('is-selected');
+          card.classList.add('has-color-selected');
+
+          if (colorOptionPosition) {
+            selectedOptions[colorOptionPosition] = colorVal;
+          }
+
+          if (!imgUrl && productData && productData.variants) {
+            const vMatch = productData.variants.find(v => {
+              return (v.option1 === colorVal || v.option2 === colorVal || v.option3 === colorVal || (v.title && v.title.includes(colorVal))) && v.featured_image && v.featured_image.src;
+            });
+            if (vMatch && vMatch.featured_image) {
+              imgUrl = vMatch.featured_image.src;
+            }
+          }
+
+          if (imgUrl && primaryImg) {
+            primaryImg.src = imgUrl;
+            primaryImg.removeAttribute('srcset');
+            primaryImg.style.opacity = '1';
+            primaryImg.style.display = 'block';
+            const secImg = card.querySelector('.tcc-card__img--secondary');
+            if (secImg) {
+              secImg.style.opacity = '0';
+              secImg.style.display = 'none';
+            }
+          }
+
+          updateCardState();
+        };
+
+        swatch.addEventListener('click', selectSwatch);
+        swatch.addEventListener('mouseenter', selectSwatch);
+      });
+
+      // Add to Cart Click
+      if (addBtn) {
+        addBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          const variantId = addBtn.dataset.variantId;
+          if (!variantId || addBtn.disabled) return;
+
+          addBtn.classList.add('is-loading');
+          addBtn.disabled = true;
+
+          try {
+            const formData = new FormData();
+            formData.append('id', variantId);
+            formData.append('quantity', '1');
+            formData.append('sections', 'cart-drawer-section,cart-drawer,main-cart-items,cart-icon-bubble');
+            formData.append('sections_url', window.location.pathname);
+
+            const response = await fetch('/cart/add.js', {
+              method: 'POST',
+              body: formData
+            });
+
+            if (response.ok) {
+              const resData = await response.json();
+
+              // Update Cart Drawer DOM dynamically
+              if (resData.sections) {
+                Object.keys(resData.sections).forEach(secKey => {
+                  const html = resData.sections[secKey];
+                  const targets = document.querySelectorAll(`[data-section-id="${secKey}"], #${secKey}, #shopify-section-${secKey}`);
+                  targets.forEach(target => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newEl = doc.querySelector(`[data-section-id="${secKey}"], #${secKey}, #shopify-section-${secKey}`) || doc.body.firstElementChild;
+                    if (newEl) {
+                      target.innerHTML = newEl.innerHTML;
+                    }
+                  });
+                });
+              }
+
+              try {
+                const freshRes = await fetch(`${window.Shopify?.routes?.root || '/'}?section_id=cart-drawer-section`);
+                if (freshRes.ok) {
+                  const freshHtml = await freshRes.text();
+                  const parser = new DOMParser();
+                  const doc = parser.parseFromString(freshHtml, 'text/html');
+                  const drawerDialog = document.querySelector('theme-drawer#cart-drawer dialog') || document.querySelector('theme-drawer[id*="cart"] dialog') || document.querySelector('#cart-drawer');
+                  const newDialog = doc.querySelector('dialog') || doc.querySelector('#cart-drawer');
+                  if (drawerDialog && newDialog) {
+                    drawerDialog.innerHTML = newDialog.innerHTML;
+                  }
+                }
+              } catch(fetchErr) {
+                console.log('Drawer fallback:', fetchErr);
+              }
+
+              // Trigger theme events
+              document.dispatchEvent(new CustomEvent('cart:updated', { bubbles: true, detail: { item: resData } }));
+              document.dispatchEvent(new CustomEvent('shopify:cart:lines-update', { bubbles: true, detail: { item: resData } }));
+
+              // Open Horizon Cart Drawer
+              const themeDrawer = document.querySelector('theme-drawer#cart-drawer') || document.querySelector('theme-drawer[id*="cart"]');
+              if (themeDrawer && typeof themeDrawer.open === 'function') {
+                themeDrawer.open();
+              } else if (themeDrawer) {
+                themeDrawer.setAttribute('open', '');
+              } else {
+                const cartTrigger = document.querySelector('[data-drawer-target="cart-drawer"]') || document.querySelector('.header__icon--cart');
+                if (cartTrigger) cartTrigger.click();
+              }
+
+              addBtn.textContent = 'ADDED ✓';
+              setTimeout(() => {
+                addBtn.classList.remove('is-loading');
+                addBtn.disabled = false;
+                addBtn.textContent = 'ADD TO CART';
+              }, 1500);
+            } else {
+              const err = await response.json();
+              addBtn.textContent = err.description || 'ERROR';
+              setTimeout(() => {
+                addBtn.classList.remove('is-loading');
+                addBtn.disabled = false;
+                addBtn.textContent = 'ADD TO CART';
+              }, 2000);
+            }
+          } catch(err) {
+            addBtn.textContent = 'ERROR';
+            setTimeout(() => {
+              addBtn.classList.remove('is-loading');
+              addBtn.disabled = false;
+              addBtn.textContent = 'ADD TO CART';
+            }, 2000);
+          }
+        });
+      }
+    }
+
+    function formatMoney(cents) {
+      if (typeof cents !== 'number') return '';
+      const amount = (cents / 100).toFixed(2);
+      const symbol = window.Shopify && window.Shopify.currency && window.Shopify.currency.symbol ? window.Shopify.currency.symbol : '€';
+      return symbol + amount;
+    }
+
+    // Auto-init on load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.tabbed-collection-carousel').forEach(initTabbedCarousel);
+    });
+
+    // Support Shopify Theme Editor
+    document.addEventListener('shopify:section:load', (e) => {
+      const section = e.target.querySelector('.tabbed-collection-carousel') || e.target;
+      if (section && section.classList.contains('tabbed-collection-carousel')) {
+        section.removeAttribute('data-tcc-initialized');
+        initTabbedCarousel(section);
+      }
+    });
+
+    document.addEventListener('shopify:block:select', (e) => {
+      const blockId = e.detail.blockId;
+      const tab = document.querySelector(`[data-tab-id="${blockId}"]`);
+      if (tab) tab.click();
+    });
+
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      document.querySelectorAll('.tabbed-collection-carousel').forEach(initTabbedCarousel);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Tabbed Carousel",
+  "class": "section-tabbed-collection-carousel",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "New Arrivals"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        { "value": "h1", "label": "Extra Large" },
+        { "value": "h2", "label": "Large" },
+        { "value": "h3", "label": "Medium" },
+        { "value": "h4", "label": "Small" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "page-width", "label": "Page Width" },
+        { "value": "full-width", "label": "Full Width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Desktop Columns",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Mobile Columns",
+      "options": [
+        { "value": "1", "label": "1 Column" },
+        { "value": "2", "label": "2 Columns" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products per Tab",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between Products",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Product Card Settings"
+    },
+    {
+      "type": "select",
+      "id": "card_aspect_ratio",
+      "label": "Image Aspect Ratio",
+      "options": [
+        { "value": "portrait", "label": "Portrait (3:4)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "adapt", "label": "Natural Adapt" }
+      ],
+      "default": "portrait"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "label": "Show Secondary Image on Hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badges",
+      "label": "Show Badges (Sale, Low Stock)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "low_stock_threshold",
+      "label": "Low Stock Threshold",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_shop",
+      "label": "Enable In-Card Quick Shop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_swatches",
+      "label": "Show Color Swatches",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Footer 'View All' Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show 'View All' Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button Label",
+      "default": "VIEW ALL"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Collection Tab",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "info": "Leave blank to use Collection Title"
+        },
+        {
+          "type": "url",
+          "id": "view_all_url",
+          "label": "Custom View All Link",
+          "info": "Optional override"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabbed Carousel",
+      "settings": {
+        "heading": "New Arrivals",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "show_secondary_image": true,
+        "show_badges": true,
+        "show_quick_shop": true,
+        "show_swatches": true,
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL",
+        "padding_top": 48,
+        "padding_bottom": 48
+      },
+      "blocks": [
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Tops"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Leggings"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Bras"
+          }
+        },
+        {
+          "type": "collection_tab",
+          "settings": {
+            "tab_title": "Bodysuits"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,728 @@
+{%- comment -%}
+  Fabric Features Banner Section for Horizon Theme
+  Hero-style banner showcasing material/fabric composition, features/benefits with circular icons, and a CTA button.
+{%- endcomment -%}
+
+{%- liquid
+  assign section_id = section.id
+  assign bg_image = section.settings.image
+  assign bg_image_mobile = section.settings.image_mobile | default: bg_image
+  assign overlay_color = section.settings.overlay_color | default: '#000000'
+  assign overlay_opacity = section.settings.overlay_opacity | default: 50
+  assign heading = section.settings.heading
+  assign heading_size = section.settings.heading_size | default: 'large'
+  assign description = section.settings.description
+  assign content_max_width = section.settings.content_max_width | default: 720
+  assign text_color = section.settings.text_color | default: '#ffffff'
+  assign subtext = section.settings.subtext
+  assign button_label = section.settings.button_label
+  assign button_link = section.settings.button_link
+  assign button_style = section.settings.button_style | default: 'outline'
+  assign columns_desktop = section.settings.columns_desktop | default: 3
+  assign padding_top = section.settings.padding_top | default: 80
+  assign padding_bottom = section.settings.padding_bottom | default: 80
+  assign section_min_height = section.settings.section_min_height | default: 'auto'
+-%}
+
+<section
+  id="FabricFeaturesBanner-{{ section_id }}"
+  class="fabric-features-banner section-{{ section_id }} {% if section.settings.section_width == 'full' %}fabric-features-banner--full{% else %}page-width{% endif %}"
+  style="
+    --ffb-text-color: {{ text_color }};
+    --ffb-overlay-color: {{ overlay_color }};
+    --ffb-overlay-opacity: {{ overlay_opacity | divided_by: 100.0 }};
+    --ffb-content-max-width: {{ content_max_width }}px;
+    --ffb-columns: {{ columns_desktop }};
+    --ffb-padding-top: {{ padding_top }}px;
+    --ffb-padding-bottom: {{ padding_bottom }}px;
+    --ffb-min-height: {{ section_min_height }};
+  "
+>
+  {%- comment -%} Background Image & Overlay {%- endcomment -%}
+  <div class="ffb-bg">
+    {%- if bg_image != blank -%}
+      <picture>
+        {%- if bg_image_mobile != blank and bg_image_mobile != bg_image -%}
+          <source media="(max-width: 749px)" srcset="{{ bg_image_mobile | image_url: width: 1000 }}">
+        {%- endif -%}
+        <img
+          src="{{ bg_image | image_url: width: 2400 }}"
+          alt="{{ bg_image.alt | default: heading | escape }}"
+          class="ffb-bg__image"
+          loading="lazy"
+          width="2400"
+          height="1400"
+        >
+      </picture>
+    {%- else -%}
+      <div class="ffb-bg__placeholder"></div>
+    {%- endif -%}
+    <div class="ffb-bg__overlay"></div>
+  </div>
+
+  {%- comment -%} Content Wrapper {%- endcomment -%}
+  <div class="ffb-container">
+    {%- comment -%} Header / Main Story {%- endcomment -%}
+    <div class="ffb-header">
+      {%- if heading != blank -%}
+        <div class="ffb-heading ffb-heading--{{ heading_size }}">
+          {{ heading }}
+        </div>
+      {%- endif -%}
+
+      {%- if description != blank -%}
+        <div class="ffb-description rte">
+          {{ description }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Feature Icons Grid {%- endcomment -%}
+    {%- if section.blocks.size > 0 -%}
+      <div class="ffb-grid">
+        {%- for block in section.blocks -%}
+          <div class="ffb-card" {{ block.shopify_attributes }}>
+            <div class="ffb-card__icon-wrapper">
+              {%- if block.settings.custom_svg != blank -%}
+                <div class="ffb-card__svg">
+                  {{ block.settings.custom_svg }}
+                </div>
+              {%- elsif block.settings.custom_image != blank -%}
+                <img
+                  src="{{ block.settings.custom_image | image_url: width: 120 }}"
+                  alt="{{ block.settings.title | escape }}"
+                  class="ffb-card__image-icon"
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                >
+              {%- else -%}
+                {%- case block.settings.icon -%}
+                  {%- when 'cotton' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 21a8 8 0 0 0 8-8c0-2.4-1.1-4.6-2.8-6-.4-.3-.9-.6-1.4-.8a7 7 0 0 0-7.6 0c-.5.2-1 .5-1.4.8-1.7 1.4-2.8 3.6-2.8 6a8 8 0 0 0 8 8Z"></path>
+                      <path d="M12 13v8"></path>
+                      <path d="M9 16c1-1 2-1.5 3-1.5s2 .5 3 1.5"></path>
+                      <path d="M7 10c1.5 0 2.5 1 3.5 2"></path>
+                      <path d="M17 10c-1.5 0-2.5 1-3.5 2"></path>
+                    </svg>
+                  {%- when 'flask' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M9.5 2h5"></path>
+                      <path d="M10 2v5.5L5.2 16.2A3 3 0 0 0 7.8 21h8.4a3 3 0 0 0 2.6-4.8L14 7.5V2"></path>
+                      <line x1="2" y1="2" x2="22" y2="22"></line>
+                      <circle cx="10" cy="16" r="1" fill="currentColor"></circle>
+                      <circle cx="14" cy="14" r="1" fill="currentColor"></circle>
+                      <circle cx="13" cy="18" r="1" fill="currentColor"></circle>
+                    </svg>
+                  {%- when 'clock_recycle' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <polyline points="12 6 12 12 15.5 14"></polyline>
+                      <path d="M20.5 8.5A9 9 0 0 0 12 3a9 9 0 0 0-8.5 6"></path>
+                      <path d="M3.5 15.5A9 9 0 0 0 12 21a9 9 0 0 0 8.5-6"></path>
+                    </svg>
+                  {%- when 'leaf' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                    </svg>
+                  {%- when 'feather' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                      <line x1="16" y1="8" x2="2" y2="22"></line>
+                      <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                    </svg>
+                  {%- when 'droplet' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                    </svg>
+                  {%- when 'shield' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <polyline points="9 12 11 14 15 10"></polyline>
+                    </svg>
+                  {%- when 'heart' -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                    </svg>
+                  {%- else -%}
+                    <svg class="ffb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                {%- endcase -%}
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="ffb-card__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <div class="ffb-card__text">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Bottom CTA {%- endcomment -%}
+    {%- if subtext != blank or button_label != blank -%}
+      <div class="ffb-footer">
+        {%- if subtext != blank -%}
+          <div class="ffb-subtext">{{ subtext }}</div>
+        {%- endif -%}
+
+        {%- if button_label != blank -%}
+          <a
+            href="{{ button_link | default: '#' }}"
+            class="ffb-btn ffb-btn--{{ button_style }}"
+          >
+            {{ button_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .fabric-features-banner {
+    position: relative;
+    width: 100%;
+    min-height: var(--ffb-min-height, auto);
+    color: var(--ffb-text-color, #ffffff);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block-start: var(--ffb-padding-top, 80px);
+    padding-block-end: var(--ffb-padding-bottom, 80px);
+    overflow: hidden;
+  }
+
+  .fabric-features-banner--full {
+    max-width: 100%;
+    padding-inline: 1.5rem;
+  }
+
+  /* Background & Overlay */
+  .ffb-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .ffb-bg__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .ffb-bg__placeholder {
+    width: 100%;
+    height: 100%;
+    background: #111111;
+  }
+
+  .ffb-bg__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--ffb-overlay-color, #000000);
+    opacity: var(--ffb-overlay-opacity, 0.5);
+    z-index: 2;
+  }
+
+  /* Container */
+  .ffb-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  /* Header */
+  .ffb-header {
+    max-width: var(--ffb-content-max-width, 720px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .ffb-heading {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-heading--family, serif);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .ffb-heading p {
+    margin: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .ffb-heading--small { font-size: clamp(2.25rem, 3.5vw, 2.9rem); }
+  .ffb-heading--medium { font-size: clamp(2.25rem, 4.5vw, 3.25rem); }
+  .ffb-heading--large { font-size: clamp(2.5rem, 5.5vw, 4rem); }
+  .ffb-heading--xlarge { font-size: clamp(3rem, 7vw, 5rem); }
+
+  .ffb-description {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-body--family, inherit);
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    line-height: 1.6;
+    opacity: 0.9;
+    font-weight: 300;
+  }
+
+  .ffb-description p {
+    margin: 0;
+  }
+
+  /* Grid of Features */
+  .ffb-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--ffb-columns, 3), 1fr);
+    gap: 2.5rem 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+
+  .ffb-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    color: inherit;
+  }
+
+  .ffb-card__icon-wrapper {
+    width: 64px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(4px);
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  }
+
+  {% comment %} .ffb-card:hover .ffb-card__icon-wrapper {
+    transform: scale(1.08);
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+  } {% endcomment %}
+
+  .ffb-icon {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    color: inherit;
+  }
+
+  .ffb-card__svg svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+
+  .ffb-card__image-icon {
+    object-fit: contain;
+  }
+
+  .ffb-card__title {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-body--family, inherit);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+
+  .ffb-card__text {
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-body--family, inherit);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    font-weight: 300;
+    max-width: 280px;
+  }
+
+  /* Footer / CTA */
+  .ffb-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .ffb-subtext {
+    font-size: 0.9rem;
+    font-family: var(--font-body--family, inherit);
+    color: inherit;
+    opacity: 0.9;
+    letter-spacing: 0.02em;
+  }
+
+  .ffb-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 9999px;
+    font-family: var(--font-body--family, inherit);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .ffb-btn--outline {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    color: #ffffff;
+  }
+
+  .ffb-btn--outline:hover {
+    background: #ffffff;
+    color: #121212;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .ffb-btn--solid {
+    background: #ffffff;
+    color: #121212;
+    border: 1px solid #ffffff;
+  }
+
+  .ffb-btn--solid:hover {
+    background: transparent;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  /* Mobile Responsive */
+  @media screen and (max-width: 849px) {
+    .ffb-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem 1.5rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .fabric-features-banner {
+      padding-block-start: max(40px, calc(var(--ffb-padding-top, 80px) * 0.6));
+      padding-block-end: max(40px, calc(var(--ffb-padding-bottom, 80px) * 0.6));
+    }
+
+    .ffb-container {
+      gap: 2.25rem;
+    }
+
+    .ffb-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .ffb-card__text {
+      max-width: 320px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Fabric Features Banner",
+  "class": "section-fabric-features-banner",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Image & Overlay"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Background Image",
+      "info": "Optional. Falls back to desktop background image."
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 95,
+      "step": 5,
+      "unit": "%",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Typography & Colors"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>90% Cotton.<br>10% Stretch.</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" },
+        { "value": "xlarge", "label": "Extra Large" }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>All shirts and blouses are made from 100% rayon voile, a high-quality fabric known for its light and flowing character. The material feels soft and breathable on the skin and drapes beautifully along the body, creating a comfortable and elegant look that can be worn all day.</p>"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Header Max Width",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "default": 720
+    },
+    {
+      "type": "header",
+      "content": "Call To Action"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "CTA Subtext",
+      "default": "Ready to experience something different"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button Style",
+      "options": [
+        { "value": "outline", "label": "Pill Outline (Glass)" },
+        { "value": "solid", "label": "Pill Solid" }
+      ],
+      "default": "outline"
+    },
+    {
+      "type": "header",
+      "content": "Layout & Spacing"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section Width",
+      "options": [
+        { "value": "page", "label": "Page Width" },
+        { "value": "full", "label": "Full Width" }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Desktop Feature Columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "section_min_height",
+      "label": "Section Minimum Height",
+      "options": [
+        { "value": "auto", "label": "Auto" },
+        { "value": "500px", "label": "500px" },
+        { "value": "650px", "label": "650px" },
+        { "value": "80vh", "label": "80% Viewport" },
+        { "value": "100vh", "label": "Full Viewport" }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top Padding",
+      "min": 20,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom Padding",
+      "min": 20,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature / Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Preset Icon",
+          "options": [
+            { "value": "cotton", "label": "Cotton Flower" },
+            { "value": "flask", "label": "No Microplastics (Flask)" },
+            { "value": "clock_recycle", "label": "Lasts For Years (Clock & Recycle)" },
+            { "value": "leaf", "label": "Eco / Leaf" },
+            { "value": "feather", "label": "Soft / Feather" },
+            { "value": "droplet", "label": "Breathable / Droplet" },
+            { "value": "shield", "label": "Protection / Shield" },
+            { "value": "heart", "label": "Ethical / Heart" },
+            { "value": "star", "label": "Quality / Star" }
+          ],
+          "default": "cotton"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom Icon Image",
+          "info": "Overrides preset icon if uploaded"
+        },
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Code",
+          "info": "Overrides preset icon and image if provided"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Brief description of this material benefit."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fabric Features Banner",
+      "settings": {
+        "heading": "<p>90% Cotton.<br>10% Stretch.</p>",
+        "heading_size": "large",
+        "description": "<p>All shirts and blouses are made from 100% rayon voile, a high-quality fabric known for its light and flowing character. The material feels soft and breathable on the skin and drapes beautifully along the body, creating a comfortable and elegant look that can be worn all day.</p>",
+        "subtext": "Ready to experience something different",
+        "button_label": "SHOP NOW",
+        "columns_desktop": 3,
+        "overlay_opacity": 50,
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "cotton",
+            "title": "Starches Naturally",
+            "text": "No heat, the fabric breathes like your second skin."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "flask",
+            "title": "No Microplastics",
+            "text": "Our natural cotton fabric contains no microplastics."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "clock_recycle",
+            "title": "Lasts For Years",
+            "text": "Tested and made to last through years of wear."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

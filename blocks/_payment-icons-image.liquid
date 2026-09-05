@@ -1,0 +1,95 @@
+{%- doc -%}
+  Static "accepted payment methods" badge row exported from the Figma design. Rendered directly
+  from the theme asset (rather than an image_picker) since this artwork is fixed brand content,
+  not a merchant-uploaded image.
+
+  @example
+  {% render '_payment-icons-image', block: block %}
+{%- enddoc -%}
+
+<div
+  class="payment-icons-image spacing-style"
+  style="{% render 'spacing-style', settings: block.settings %}"
+  {{ block.shopify_attributes }}
+>
+  <img
+    src="{{ 'payment-icons-row.png' | asset_url }}"
+    alt="{{ 'content.accepted_payment_methods' | t: default: 'Accepted payment methods' }}"
+    loading="lazy"
+    width="370"
+    height="21"
+  >
+</div>
+
+{% stylesheet %}
+  .payment-icons-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .payment-icons-image img {
+    max-width: 370px;
+    width: 100%;
+    height: auto;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Payment icons",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment icons",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,159 @@
+{% doc %}
+  Renders a single "You may also like" card for the cart drawer side panel.
+
+  Shares the `data-cart-recommendation` contract with
+  `assets/cart-drawer-recommendations.js`, so option selection, availability
+  and add-to-cart are handled by the same delegated listeners.
+
+  @param {object} product - The product to render.
+{% enddoc %}
+
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign on_sale = false
+  if variant.compare_at_price > variant.price
+    assign on_sale = true
+    assign savings = variant.compare_at_price | minus: variant.price
+  endif
+-%}
+
+<div
+  class="cart-complementary-card"
+  data-cart-recommendation
+  data-product-url="{{ product.url }}"
+  data-product-id="{{ product.id }}"
+>
+  <script type="application/json" data-recommendation-variants>
+    [
+      {%- for v in product.variants -%}
+        {
+          "id": {{ v.id }},
+          "available": {{ v.available }},
+          "options": {{ v.options | json }},
+          "price": {{ v.price | money | json }},
+          "compare_at_price": {{ v.compare_at_price | money | json }},
+          "savings": {{ v.compare_at_price | minus: v.price | at_least: 0 | money | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  </script>
+
+  <div class="cart-complementary-card__media">
+    <a href="{{ product.url }}" class="cart-complementary-card__media-link">
+      {%- if product.featured_image -%}
+        <img
+          src="{{ product.featured_image | image_url: width: 600 }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          class="cart-complementary-card__image"
+          loading="lazy"
+          width="600"
+          height="800"
+        >
+      {%- else -%}
+        {{ 'product-apparel-2' | placeholder_svg_tag: 'cart-complementary-card__image placeholder-svg' }}
+      {%- endif -%}
+    </a>
+
+    {%- if on_sale -%}
+      <span class="cart-complementary-card__badge">Sale</span>
+    {%- endif -%}
+
+    <div class="cart-complementary-card__quick-add">
+      {%- unless product.has_only_default_variant -%}
+        {%- for option in product.options_with_values -%}
+          {%- liquid
+            assign is_swatch = false
+            for value in option.values
+              if value.swatch.color or value.swatch.image
+                assign is_swatch = true
+                break
+              endif
+            endfor
+          -%}
+
+          {%- if is_swatch -%}
+            <div
+              class="cart-complementary-card__swatches"
+              role="group"
+              aria-label="{{ option.name | escape }}"
+              data-option-position="{{ option.position }}"
+            >
+              {%- for value in option.values -%}
+                <button
+                  type="button"
+                  class="cart-recommendation__swatch{% if forloop.first %} is-selected{% endif %}"
+                  data-option-value="{{ value | escape }}"
+                  title="{{ value | escape }}"
+                  aria-label="{{ option.name | escape }}: {{ value | escape }}"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  style="
+                    {%- if value.swatch.color -%}
+                      --swatch-background: {{ value.swatch.color }};
+                    {%- elsif value.swatch.image -%}
+                      --swatch-image: url({{ value.swatch.image | image_url: width: 60 }});
+                    {%- endif -%}
+                  "
+                ></button>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div
+              class="cart-complementary-card__options"
+              role="group"
+              aria-label="{{ option.name | escape }}"
+              data-option-position="{{ option.position }}"
+            >
+              {%- for value in option.values -%}
+                <button
+                  type="button"
+                  class="cart-complementary-card__option{% if forloop.first %} is-selected{% endif %}"
+                  data-option-value="{{ value | escape }}"
+                  aria-label="{{ option.name | escape }}: {{ value | escape }}"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                >
+                  {{- value -}}
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endunless -%}
+
+      <button
+        type="button"
+        class="cart-complementary-card__add"
+        data-recommendation-add
+        data-variant-id="{{ variant.id }}"
+      >
+        <span class="cart-recommendation__add-icon">{{ 'actions.add_to_cart' | t }}</span>
+        <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <a href="{{ product.url }}" class="cart-complementary-card__title">{{ product.title }}</a>
+
+  <div class="cart-complementary-card__prices">
+    <span class="cart-complementary-card__price" data-recommendation-price>{{ variant.price | money }}</span>
+
+    <s
+      class="cart-complementary-card__compare"
+      data-recommendation-compare
+      {% unless on_sale %}
+        hidden
+      {% endunless %}
+    >
+      {{- variant.compare_at_price | money -}}
+    </s>
+
+    <span
+      class="cart-items__savings-badge"
+      data-recommendation-savings
+      {% unless on_sale %}
+        hidden
+      {% endunless %}
+    >
+      Save {{ savings | money }}
+    </span>
+  </div>
+</div>

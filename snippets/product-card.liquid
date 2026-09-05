@@ -1,0 +1,61 @@
+{%- doc -%}
+  This snippet renders the main theme product card.
+  It applies the tabbed carousel product card layout with:
+  - Portrait media & secondary image on hover
+  - Badges (Sale / Low Stock)
+  - In-card Quick Shop overlay on hover (variations pills + ADD TO CART button)
+  - Color swatches with live image switching & variant resolution
+  - Responsive grid compatibility
+
+  @param {object} product - The product object
+  @param {object} children - The children of the product card
+  @param {object} [block] - The block object
+  @param {number} [product_card_gap] - The gap between the product card children
+  @param {string} [product_view_context] - The context in which the product card is being rendered
+{%- enddoc -%}
+
+{% liquid
+  assign onboarding = false
+  if product.id == empty or product == blank
+    assign onboarding = true
+  endif
+%}
+
+{%- if product != blank and product.id != empty and onboarding == false -%}
+  <div class="product-card-wrapper theme-product-card-wrapper" data-product-id="{{ product.id }}">
+    {%- render 'tabbed-carousel-product-card',
+      product: product,
+      section_id: block.id,
+      card_aspect_ratio: 'portrait',
+      show_secondary_image: true,
+      show_badges: true,
+      show_swatches: true,
+      show_quick_shop: true
+    -%}
+  </div>
+{%- else -%}
+  {%- assign block_settings = block.settings -%}
+  <product-card
+    class="product-card size-style"
+    style="{% render 'size-style', settings: block_settings %}"
+    id="product-card-{{ block.id }}"
+    data-placeholder="true"
+    {{ block.shopify_attributes }}
+  >
+    <div
+      class="
+        product-card__content
+        layout-panel-flex
+        layout-panel-flex--column
+        product-grid__card
+        spacing-style
+        border-style
+        gap-style
+      "
+    >
+      {{ children }}
+    </div>
+  </product-card>
+{%- endif -%}
+
+{% render 'product-card-styles' %}

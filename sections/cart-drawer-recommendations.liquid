@@ -1,0 +1,19 @@
+{% comment %}
+  Section Rendering API target for the cart drawer "Compare your style" list.
+  Requested by assets/cart-drawer-recommendations.js via the product
+  recommendations route, which populates `recommendations.products`.
+{% endcomment %}
+
+{%- if recommendations.performed and recommendations.products_count > 0 -%}
+  <div class="cart-recommendations__list">
+    {%- for product in recommendations.products -%}
+      {% render 'cart-drawer-recommendation-card', product: product %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "drawer recommendations"
+}
+{% endschema %}

@@ -1,0 +1,262 @@
+{% doc %}
+  Renders the "You may also like" side panel that sits to the left of the cart
+  drawer and shows products that complement what is already in the cart.
+
+  Cards are fetched per cart line from the product recommendations route with
+  `intent=complementary` by `assets/cart-complementary.js`, then merged and
+  de-duplicated. Complementary products are configured in the Shopify
+  Search & Discovery app; when a product has none set, the panel stays hidden.
+
+  @example
+  {% render 'cart-complementary' %}
+{% enddoc %}
+
+{%- if settings.cart_complementary_enabled and cart.item_count > 0 -%}
+  {%- liquid
+    assign cart_product_ids = ''
+    for item in cart.items limit: 5
+      assign cart_product_ids = cart_product_ids | append: item.product.id | append: ','
+    endfor
+    assign cart_product_ids = cart_product_ids | split: ',' | uniq | join: ','
+  -%}
+
+  {% comment %}
+    Shared option-picker / add-to-cart behaviour. ES modules run once per URL,
+    so loading it here as well as from the recommendations block is safe.
+  {% endcomment %}
+  <script
+    type="module"
+    src="{{ 'cart-drawer-recommendations.js' | asset_url }}"
+    fetchpriority="low"
+  ></script>
+  <script
+    type="module"
+    src="{{ 'cart-complementary.js' | asset_url }}"
+    fetchpriority="low"
+  ></script>
+
+  <cart-complementary-panel
+    class="cart-complementary"
+    data-url="{{ routes.product_recommendations_url }}"
+    data-product-ids="{{ cart_product_ids }}"
+    data-exclude-ids="{{ cart_product_ids }}"
+    data-limit="{{ settings.cart_complementary_limit | default: 6 }}"
+    data-intent="{{ settings.cart_complementary_intent | default: 'complementary' }}"
+    data-section-id="cart-complementary-products"
+    data-cart-add-url="{{ routes.cart_add_url }}"
+    hidden
+  >
+    <h2 class="cart-complementary__heading">
+      {{ settings.cart_complementary_title | default: 'You May Also Like' }}
+    </h2>
+
+    <div class="cart-complementary__scroller" data-complementary-target></div>
+  </cart-complementary-panel>
+{%- endif -%}
+
+{% stylesheet %}
+  /* ---------------------------------------------------------------------- */
+  /* Panel shell — sits flush against the inline-start edge of the drawer     */
+  /* ---------------------------------------------------------------------- */
+
+  .cart-complementary {
+    --cart-complementary-width: 340px;
+    --cart-complementary-padding: var(--padding-xl);
+
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 100%;
+    display: flex;
+    flex-direction: column;
+    width: var(--cart-complementary-width);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    border-inline-end: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+  }
+
+  .cart-complementary[hidden] {
+    display: none;
+  }
+
+  /* Not enough room for a second panel — the drawer alone takes the screen. */
+  @media screen and (max-width: 1099px) {
+    .cart-complementary {
+      display: none;
+    }
+  }
+
+  .cart-complementary__heading {
+    margin: 0;
+    padding: var(--cart-complementary-padding) var(--cart-complementary-padding) var(--padding-md);
+    font-size: var(--font-size--lg); 
+   font-family: 'DM Sans';
+    font-weight: 600;
+  }
+
+  .cart-complementary__scroller {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0 var(--cart-complementary-padding) var(--cart-complementary-padding);
+  }
+
+  .cart-complementary__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xl);
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Card                                                                    */
+  /* ---------------------------------------------------------------------- */
+
+  .cart-complementary-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+  }
+
+  .cart-complementary-card__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background-color: rgb(var(--color-foreground-rgb) / 0.04);
+  }
+
+  .cart-complementary-card__media-link {
+    display: block;
+    height: 100%;
+  }
+
+  .cart-complementary-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cart-complementary-card__badge {
+    position: absolute;
+    inset-block-start: 8px;
+    inset-inline-start: 8px;
+    padding: 3px 10px;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-size: var(--font-size--xs);
+    line-height: 1.3;
+  }
+
+  /* Size grid + add-to-cart, revealed over the bottom of the image. */
+  .cart-complementary-card__quick-add {
+    position: absolute;
+    inset-inline: 8px;
+    inset-block-end: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity var(--animation-speed, 0.2s) ease, transform var(--animation-speed, 0.2s) ease;
+  }
+
+  .cart-complementary-card__media:hover .cart-complementary-card__quick-add,
+  .cart-complementary-card__media:focus-within .cart-complementary-card__quick-add {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (hover: none) {
+    .cart-complementary-card__quick-add {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .cart-complementary-card__options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .cart-complementary-card__swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .cart-complementary-card__option {
+    padding: 7px 2px;
+    border: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-size: var(--font-size--xs);
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .cart-complementary-card__option.is-selected {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  .cart-complementary-card__option.is-unavailable {
+    background-color: rgb(var(--color-foreground-rgb) / 0.08);
+    color: rgb(var(--color-foreground-rgb) / 0.35);
+    cursor: not-allowed;
+  }
+
+  .cart-complementary-card__add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px;
+    border: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-size: var(--font-size--xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .cart-complementary-card__add[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .cart-complementary-card__add.is-loading .cart-recommendation__add-icon {
+    display: none;
+  }
+
+  .cart-complementary-card__add.is-loading .cart-recommendation__add-spinner {
+    display: block;
+  }
+
+  .cart-complementary-card__title {
+    color: var(--color-foreground);
+    font-size: var(--font-size--md);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .cart-complementary-card__prices {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gap-xs);
+    font-size: var(--font-size--sm);
+  }
+
+  .cart-complementary-card__price {
+    color: #c08b2c;
+  }
+
+  .cart-complementary-card__compare {
+    color: rgb(var(--color-foreground-rgb) / 0.45);
+  }
+
+  .cart-complementary-card__prices [hidden] {
+    display: none;
+  }
+{% endstylesheet %}

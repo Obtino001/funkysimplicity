@@ -1,0 +1,162 @@
+{%- doc -%}
+  Single-select pill picker for a non-variant product property (e.g. "Waist rise", "Inseam"),
+  submitted as a cart line item property. Visually matches the native variant option buttons
+  by reusing the theme's `variant-option` classes and `variant-picker-styles` stylesheet.
+
+  @example
+  {% render '_custom-property-pills', block: block %}
+{%- enddoc -%}
+
+{%- liquid
+  assign block_settings = block.settings
+  assign property_name = block_settings.property_name
+  assign property_field_name = 'properties[key]' | replace: 'key', property_name
+  assign options = block_settings.options | split: ','
+  assign default_value = block_settings.default_value | strip
+  if default_value == blank
+    assign default_value = options.first | strip
+  endif
+  assign product_form_id = 'BuyButtons-ProductForm-section.id' | replace: 'section.id', section.id
+  assign wrapper_id = 'CustomPropertyPills-' | append: block.id
+-%}
+
+<div
+  id="{{ wrapper_id }}"
+  class="custom-property-pills spacing-style"
+  style="{% render 'spacing-style', settings: block_settings %}"
+  {{ block.shopify_attributes }}
+>
+  <fieldset class="variant-option variant-option--buttons">
+    <legend class="variant-option__legend">
+      <span class="variant-option__legend-name">{{ property_name | escape }}:</span>
+      <span
+        class="variant-option__selected-value"
+        data-custom-property-selected-value
+      >
+        {{- default_value -}}
+      </span>
+    </legend>
+    {%- for option in options -%}
+      {%- assign option = option | strip -%}
+      {%- if option != blank -%}
+        <label class="variant-option__button-label">
+          <input
+            type="radio"
+            name="{{ property_field_name }}"
+            value="{{ option }}"
+            form="{{ product_form_id }}"
+            data-custom-property-input
+            {% if option == default_value %}
+              checked
+            {% endif %}
+          >
+          <span
+            class="variant-option__button-label__text"
+            data-key="variant-option-text"
+          >
+            {{- option -}}
+          </span>
+        </label>
+      {%- endif -%}
+    {%- endfor -%}
+  </fieldset>
+</div>
+
+{% render 'variant-picker-styles' %}
+
+<script>
+  (function () {
+    var wrapper = document.getElementById('{{ wrapper_id }}');
+    if (!wrapper) return;
+    var selectedValueEl = wrapper.querySelector('[data-custom-property-selected-value]');
+    var inputs = wrapper.querySelectorAll('[data-custom-property-input]');
+    inputs.forEach(function (input) {
+      input.addEventListener('change', function () {
+        if (selectedValueEl) selectedValueEl.textContent = input.value;
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Custom property pills",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "property_name",
+      "label": "Property name",
+      "default": "Waist rise",
+      "info": "This becomes the cart line item property name."
+    },
+    {
+      "type": "text",
+      "id": "options",
+      "label": "Options",
+      "default": "High, Normal",
+      "info": "Comma-separated list of pill options."
+    },
+    {
+      "type": "text",
+      "id": "default_value",
+      "label": "Default selected option",
+      "info": "Must match one of the options above. Defaults to the first option."
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom property pills",
+      "category": "t:categories.product",
+      "settings": {
+        "property_name": "Waist rise",
+        "options": "High, Normal"
+      }
+    }
+  ]
+}
+{% endschema %}

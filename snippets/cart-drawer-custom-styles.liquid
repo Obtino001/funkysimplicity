@@ -1,0 +1,317 @@
+{% doc %}
+  Visual overrides for the custom cart drawer layout.
+
+  Everything here is scoped to `.cart-drawer--custom` so the cart page and any
+  other drawer keep the stock Horizon styling.
+
+  @example
+  {% render 'cart-drawer-custom-styles' %}
+{% enddoc %}
+
+{% stylesheet %}
+  /* ---------------------------------------------------------------------- */
+  /* Shell                                                                   */
+  /* ---------------------------------------------------------------------- */
+
+  .theme-drawer__dialog.cart-drawer--custom {
+    --theme-drawer-padding: var(--padding-xl);
+    --cart-drawer-padding: var(--padding-xl);
+  }
+
+  .cart-drawer--custom .theme-drawer__header {
+    align-items: flex-start;
+    padding-block-end: 6px;
+  }
+/* 
+  .cart-drawer--custom .theme-drawer__title {
+    align-items: flex-start;
+    gap: var(--gap-2xs);
+    font-size: var(--font-size--xl);
+    font-weight: 600;
+  } */
+.theme-drawer__title {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    margin: 0;
+    font-family: 'DM Sans' !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+}
+  .cart-drawer__title-icon {
+    display: inline-flex;
+    align-self: center;
+  }
+
+  .cart-drawer__title-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Item count sits raised next to the title, like a superscript. */
+  .cart-drawer--custom .theme-drawer__badge {
+    min-width: auto;
+    height: auto;
+    align-self: flex-start;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    font-size: var(--font-size--xs);
+    line-height: 1;
+  }
+
+  .cart-drawer--custom .theme-drawer__close-button svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Line items                                                              */
+  /* ---------------------------------------------------------------------- */
+
+  .cart-drawer--custom .cart-drawer__items .cart-items__table-row {
+    --cart-item-price-width: auto;
+
+    position: relative;
+    grid-template-columns: 145px minmax(0, 1fr);
+    grid-template-areas:
+      'media details'
+      'media variants'
+      'media unit_price'
+      'media quantity'
+      'media error';
+    column-gap: var(--gap-lg);
+    align-items: start;
+  }
+
+  .cart-drawer--custom .cart-items__media-container {
+    aspect-ratio: 3 / 4;
+    border-radius: 2px;
+  }
+
+  .cart-drawer--custom .cart-items__media-container--carousel {
+    display: block;
+  }
+
+  .cart-items__media-track {
+    display: flex;
+    height: 100%;
+    transition: transform var(--animation-speed, 0.25s) var(--animation-easing, ease);
+  }
+
+  .cart-items__media-slide {
+    flex: 0 0 100%;
+    display: block;
+    height: 100%;
+  }
+
+  .cart-drawer--custom .cart-items__media-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cart-drawer--custom .cart-items__title {
+    font-size: var(--font-size--lg);
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .cart-drawer--custom .cart-items__details {
+    color: var(--color-foreground);
+  }
+
+  /* "Color : Cream" — one option per line. */
+  .cart-drawer--custom .cart-items__variants--stacked,
+  .cart-drawer--custom .cart-items__properties {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-block-start: var(--margin-2xs);
+  }
+
+  .cart-drawer--custom .cart-items__variant,
+  .cart-drawer--custom .cart-items__property {
+    display: flex;
+    gap: 4px;
+    font-size: var(--font-size--sm);
+  }
+
+  .cart-drawer--custom .cart-items__variant dd,
+  .cart-drawer--custom .cart-items__property dd {
+    margin: 0;
+    color: rgb(var(--color-foreground-rgb) / 0.55);
+  }
+
+  .cart-items__variant-label {
+    color: var(--color-foreground);
+    white-space: nowrap;
+  }
+
+  /* Price row: sale price, compare-at, then the savings pill. */
+  .cart-drawer--custom .cart-items__unit-price-wrapper {
+    margin-block-start: var(--margin-xs);
+  }
+
+  .cart-drawer--custom .cart-items__unit-price-wrapper > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gap-xs);
+    font-size: var(--font-size--md);
+  }
+
+  .cart-drawer--custom .cart-items__unit-price-wrapper span:not(.visually-hidden):not(.cart-items__savings-badge) {
+    color: #c08b2c;
+  }
+
+  .cart-drawer--custom .cart-items__unit-price-wrapper .compare-at-price {
+    color: rgb(var(--color-foreground-rgb) / 0.45);
+  }
+
+  .cart-items__savings-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+    font-size: var(--font-size--xs);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  /* The stock layout puts the line total in its own column; the drawer design
+     shows the unit price inline instead, so hide the duplicate. */
+  .cart-drawer--custom .cart-drawer__items .cart-items__price {
+    display: none;
+  }
+
+  /* Quantity stepper as a rounded pill. */
+  .cart-drawer--custom .cart-items__quantity {
+    margin-block-start: var(--margin-md);
+  }
+
+  .cart-drawer--custom .cart-items__quantity .quantity-selector {
+    gap: var(--gap-xs);
+    padding: 2px 6px;
+    border: 1px solid rgb(var(--color-foreground-rgb) / 0.18);
+    border-radius: 999px;
+    background-color: var(--color-background);
+  }
+
+  .cart-drawer--custom .cart-items__quantity .quantity-selector input {
+    width: 2.25rem;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    text-align: center;
+    font-size: var(--font-size--md);
+  }
+
+  .cart-drawer--custom .cart-items__quantity .quantity-selector button {
+    width: 28px;
+    height: 28px;
+    min-height: 0;
+    padding: 0;
+  }
+
+  /* Remove button moves to the top-right of the row. */
+  .cart-drawer--custom .cart-drawer__items .cart-items__remove {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    width: 28px;
+    height: 28px;
+    min-height: 0;
+  }
+
+  .cart-drawer--custom .cart-drawer__items .cart-items__remove svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cart-drawer--custom .cart-items__title-row {
+    padding-inline-end: 36px;
+  }
+
+  @container cart-items (min-width: 720px) {
+    /* Keep the drawer's stacked layout even when the container gets wide. */
+    .cart-drawer--custom .cart-drawer__items .cart-items__table-row {
+      grid-template-columns: 145px minmax(0, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        'media details'
+        'media variants'
+        'media unit_price'
+        'media quantity'
+        'media error';
+    }
+
+    .cart-drawer--custom .cart-drawer__items .cart-items__quantity {
+      grid-area: quantity;
+      margin-block-start: var(--margin-md);
+    }
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Summary                                                                 */
+  /* ---------------------------------------------------------------------- */
+
+  .cart-drawer--custom .cart-drawer__summary {
+    align-items: stretch;
+    gap: var(--gap-md);
+    border-block-start: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+    background-color: rgb(var(--color-foreground-rgb) / 0.03);
+  }
+
+  .cart-drawer--custom .cart-drawer__summary .cart-totals {
+    gap: var(--gap-md);
+  }
+
+  /* Design order: subtotal first, then the order note. */
+  .cart-drawer--custom .cart-drawer__summary .cart-totals__container {
+    order: -1;
+    row-gap: 2px;
+  }
+
+  .cart-drawer--custom .cart-drawer__summary .cart-actions {
+    border: 0;
+    margin-block-start: 0;
+  }
+
+  .cart-drawer--custom .cart-totals__total-label {
+    font-size: var(--font-size--xl);
+    font-weight: 600;
+  }
+
+  .cart-drawer--custom .cart-totals__total-value {
+    font-size: var(--font-size--2xl);
+    font-weight: 600;
+  }
+
+  .cart-drawer--custom .cart-totals__tax-note small {
+    font-size: var(--font-size--sm);
+    color: rgb(var(--color-foreground-rgb) / 0.6);
+  }
+
+  .cart-drawer--custom .cart__ctas .cart__checkout-button {
+    height: 56px;
+    border-radius: 999px;
+    background-color: var(--color-foreground);
+    color: var(--color-background);
+    border: 0;
+    font-size: var(--font-size--md);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .cart-drawer--custom .cart-drawer__payment-icons {
+    width: 100%;
+    margin-block-start: calc(-1 * var(--gap-xs));
+  }
+
+  .cart-drawer--custom .cart-drawer__payment-icons:empty {
+    display: none;
+  }
+{% endstylesheet %}

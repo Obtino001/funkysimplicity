@@ -1,0 +1,553 @@
+
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section process-section{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  style="
+    --padding-block-start: {{ section.settings.padding_block_start }}px;
+    --padding-block-end: {{ section.settings.padding_block_end }}px;
+    --heading-size: {{ section.settings.heading_size }}px;
+    --heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --heading-weight: {{ section.settings.heading_weight }};
+    --step-title-size: {{ section.settings.step_title_size }}px;
+    --step-title-size-mobile: {{ section.settings.step_title_size_mobile }}px;
+    --step-title-weight: {{ section.settings.step_title_weight }};
+    --step-description-size: {{ section.settings.step_description_size }}px;
+    --step-description-size-mobile: {{ section.settings.step_description_size_mobile }}px;
+    --step-description-weight: {{ section.settings.step_description_weight }};
+    --line-color: {{ section.settings.line_color | default: '#1111111a' }};
+    --line-weight: {{ section.settings.line_weight }}px;
+    --marker-color: {{ section.settings.marker_color | default: '#111111' }};
+    --marker-width: {{ section.settings.marker_width }}px;
+  "
+>
+  {%- if section.settings.heading != blank -%}
+    <h2 class="process-section__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  <div class="process-section__list">
+    {%- assign step_index = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'process_step' -%}
+          {%- assign step_index = step_index | plus: 1 -%}
+          <div
+            class="process-step"
+            style="--marker-offset: {{ block.settings.marker_offset | default: 0 }}px;"
+            {{ block.shopify_attributes }}
+          >
+            <div class="process-step__media">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 1200
+                  | image_tag: loading: 'lazy', class: 'process-step__image', sizes: '(min-width: 990px) 40vw, 100vw'
+                }}
+              {%- else -%}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'process-step__image' }}
+              {%- endif -%}
+            </div>
+
+            <div class="process-step__marker" aria-hidden="true">
+              <span class="process-step__dot"></span>
+            </div>
+
+            <div class="process-step__content{% if block.settings.content_align != 'auto' %} process-step__content--{{ block.settings.content_align }}{% endif %}">
+              {%- if block.settings.icon != blank -%}
+                <div class="process-step__icon">
+                  {{ block.settings.icon | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h3 class="process-step__title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <div class="process-step__description rte">{{ block.settings.description }}</div>
+              {%- endif -%}
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<style>
+  .process-section {
+    padding-block-start: var(--padding-block-start, 48px);
+    padding-block-end: var(--padding-block-end, 48px);
+    padding-inline: var(--page-margin, 24px);
+    overflow: visible;
+  }
+
+  .process-section__heading {
+    font-size: var(--heading-size, 36px);
+    font-weight: var(--heading-weight, 400);
+    text-align: center;
+    margin: 0 0 40px;
+  }
+
+  .process-section__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: var(--page-width, 1400px);
+    margin-inline: auto;
+    position: relative;
+    overflow: visible;
+    z-index: 0;
+    padding-left: 24px;
+  }
+
+  .process-section__list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    width: var(--line-weight, 1px);
+    background-color: var(--line-color, rgba(17, 17, 17, 0.15));
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .process-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .process-step__media {
+    width: 100%;
+    order: 2;
+  }
+
+  .process-step__content {
+    order: 1;
+  }
+
+  .process-step__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .process-step__marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: calc(50% + var(--marker-offset, 0px));
+    left: 4px;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .process-step__dot {
+    width: var(--marker-width, 10px);
+    height: var(--marker-width, 10px);
+    border-radius: 50%;
+    background-color: var(--marker-color, #111111);
+    display: block;
+  }
+
+  .process-step__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+    margin-inline-end: auto;
+  }
+
+  .process-step__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .process-step__title {
+    font-size: var(--step-title-size, 28px);
+    font-weight: var(--step-title-weight, 400);
+    margin: 0 0 10px;
+  }
+
+  .process-step__description {
+    font-size: var(--step-description-size, 16px);
+    font-weight: var(--step-description-weight, 400);
+    font-family: var(--font-body-family, 'DM Sans');
+    line-height: 1.6;
+  }
+section#IconFeaturesBar-template--30252635423047__icon_features_bar_3NBTjj {
+    width: 1380px;
+    margin: auto;
+}
+div#shopify-section-template--30252635423047__icon_features_bar_3NBTjj {
+    margin: 30px 0px 60px 0px;
+}
+  @media screen and (max-width: 749px) {
+    .process-section__heading {
+      font-size: var(--heading-size-mobile, 24px);
+    }
+
+    .process-step__title {
+      font-size: var(--step-title-size-mobile, 20px);
+    }
+
+    .process-step__description {
+      font-size: var(--step-description-size-mobile, 14px);
+    }
+    section#IconFeaturesBar-template--30252635423047__icon_features_bar_3NBTjj {
+    width: 100%;
+    margin: auto;
+}
+div#shopify-section-template--30252635423047__icon_features_bar_3NBTjj {
+    margin: 0px;
+}
+  }
+
+  @media screen and (min-width: 990px) {
+    .process-section__list {
+      gap: 64px;
+      padding-left: 0;
+    }
+
+    .process-section__list::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .process-step {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .process-step__marker {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .process-step:nth-child(even) .process-step__media {
+      order: 2;
+    }
+
+    .process-step:nth-child(even) .process-step__content {
+      order: 1;
+      text-align: right;
+    }
+
+    .process-step:nth-child(even) .process-step__icon {
+      margin-inline-start: auto;
+      margin-inline-end: 0;
+    }
+
+    .process-step:nth-child(odd) .process-step__media {
+      order: 1;
+    }
+
+    .process-step:nth-child(odd) .process-step__content {
+      order: 2;
+      text-align: left;
+    }
+
+    .process-step:nth-child(odd) .process-step__icon {
+      margin-inline-start: 0;
+      margin-inline-end: auto;
+    }
+  }
+    @media screen and (max-width: 768px){
+    .process-step__marker {
+    top: 18px;
+    left: -20px;
+}
+.process-step__title {
+    font-size: 22px;
+}
+  }
+
+  .process-step__content--left .process-step__icon {
+    margin-inline-start: 0 !important;
+    margin-inline-end: auto !important;
+  }
+
+  .process-step__content--right .process-step__icon {
+    margin-inline-start: auto !important;
+    margin-inline-end: 0 !important;
+  }
+
+  .process-step__content--left {
+    text-align: left !important;
+  }
+
+  .process-step__content--right {
+    text-align: right !important;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "The Process",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Process"
+    },
+    {
+      "type": "header",
+      "content": "Heading typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Font size (desktop)",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Font size (mobile)",
+      "min": 16,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Step title typography"
+    },
+    {
+      "type": "range",
+      "id": "step_title_size",
+      "label": "Font size (desktop)",
+      "min": 14,
+      "max": 44,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "step_title_size_mobile",
+      "label": "Font size (mobile)",
+      "min": 12,
+      "max": 34,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "step_title_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Step description typography"
+    },
+    {
+      "type": "range",
+      "id": "step_description_size",
+      "label": "Font size (desktop)",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "step_description_size_mobile",
+      "label": "Font size (mobile)",
+      "min": 10,
+      "max": 26,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "step_description_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Semibold (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Timeline line & marker"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Line color",
+      "default": "#1111111a"
+    },
+    {
+      "type": "range",
+      "id": "line_weight",
+      "label": "Line weight",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "marker_color",
+      "label": "Marker color",
+      "default": "#111111"
+    },
+    {
+      "type": "range",
+      "id": "marker_width",
+      "label": "Marker size",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "range",
+      "id": "padding_block_start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_block_end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "process_step",
+      "name": "Process step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Small icon shown above the step title"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Step title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Marker position"
+        },
+        {
+          "type": "range",
+          "id": "marker_offset",
+          "label": "Marker vertical offset",
+          "info": "Negative moves the marker up, positive moves it down",
+          "min": -100,
+          "max": 100,
+          "step": 5,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Content alignment"
+        },
+        {
+          "type": "select",
+          "id": "content_align",
+          "label": "Text alignment (desktop)",
+          "info": "Auto alternates left/right based on the step's position, matching the design",
+          "options": [
+            { "value": "auto", "label": "Auto (alternate)" },
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "auto"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "The Process",
+      "blocks": [
+        { "type": "process_step" },
+        { "type": "process_step" },
+        { "type": "process_step" },
+        { "type": "process_step" },
+        { "type": "process_step" }
+      ]
+    }
+  ]
+}
+{% endschema %}

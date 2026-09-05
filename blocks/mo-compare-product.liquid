@@ -1,0 +1,105 @@
+<div
+  class="mo-compare-product"
+  data-mo-compare-product
+  data-product-id="{{ product.id }}"
+>
+  <div
+    class="mo-compare-product__recommendations"
+    data-mo-compare-recommendations
+  >
+    <div class="mo-compare-product__loading" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const container = document.querySelector(
+      '[data-mo-compare-product][data-product-id="{{ product.id }}"]'
+    );
+
+    if (!container) return;
+
+    const recommendationsContainer = container.querySelector(
+      '[data-mo-compare-recommendations]'
+    );
+
+    if (!recommendationsContainer) return;
+
+    const productId = container.dataset.productId;
+
+    const url =
+      window.Shopify.routes.root +
+      'recommendations/products' +
+      '?product_id=' +
+      productId +
+      '&limit=2' +
+      '&section_id=mo-compare-recommendations' +
+      '&intent=related';
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to load recommendations');
+        }
+
+        return response.text();
+      })
+      .then((html) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        const recommendations = doc.querySelector(
+          '[data-mo-compare-recommendations]'
+        );
+
+        if (!recommendations) {
+          recommendationsContainer.innerHTML = '';
+          return;
+        }
+
+        if (!recommendations.innerHTML.trim()) {
+          recommendationsContainer.innerHTML = '';
+          return;
+        }
+
+        recommendationsContainer.innerHTML = recommendations.innerHTML;
+      })
+      .catch((error) => {
+        console.error('Compare product recommendations:', error);
+        recommendationsContainer.innerHTML = '';
+      });
+  })();
+</script>
+<style>
+  h2.mo-compare-recommendations__title {
+    font-size: 18px;
+    color: #000000;
+    font-family: 'DM Sans';
+    font-weight: 500;
+}
+.mo-compare-recommendations__products {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+@media (max-width:767px){
+  product-component .cart-recommendation {
+      grid-template-columns: 120px minmax(0, 1fr);
+  }
+}
+</style>
+{% schema %}
+{
+  "name": "Mo Compare Product",
+  "tag": null,
+  "settings": [],
+  "presets": [
+    {
+      "name": "Mo Compare Product"
+    }
+  ]
+}
+{% endschema %}

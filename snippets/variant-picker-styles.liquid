@@ -1,0 +1,312 @@
+{%- doc -%}
+  Variant picker styles consolidated into a single snippet for reliable CSS subsetting.
+  Rendered from variant-main-picker, variant-swatches, quick-add triggers,
+  product-card-related blocks/sections, and list-filter because they can reuse
+  the same variant option controls.
+
+  @example
+  {% render 'variant-picker-styles' %}
+{%- enddoc -%}
+
+{% stylesheet %}
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+  /* Variant picker container styles */
+  .variant-picker {
+    width: 100%;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .variant-picker__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .variant-picker[data-shopify-visual-preview] {
+    min-width: 300px;
+    padding-inline-start: max(4px, var(--padding-inline-start, 0px));
+  }
+
+  /* Variant option component */
+  .variant-option {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+  }
+
+  .variant-option + .variant-option {
+    margin-top: 14px;
+  }
+
+  /* Option Labels */
+  .variant-option legend,
+  .variant-option--legend,
+  .variant-option__legend,
+  .variant-option[data-testid='variant-option-single'],
+  .variant-option--dropdowns > label {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 1.3 !important;
+    color: #000000 !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    display: block !important;
+  }
+
+  .variant-option__legend-name {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    color: #000000 !important;
+    margin-right: 4px !important;
+  }
+
+  .variant-option__selected-value,
+  .variant-option__swatch-value {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    color: #000000 !important;
+    padding-inline-start: 0 !important;
+  }
+
+  .variant-option--buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  /* =========================================================================
+     Color Option Specifics (Visual Color Swatches)
+     28px x 28px, 2px border-radius, active shadow/glow highlight
+     ========================================================================= */
+  .variant-option--swatches {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .variant-option--swatches .variant-option__button-label,
+  .variant-option__button-label--has-swatch {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 2px !important;
+    border: 1px solid #E5E5E5 !important;
+    background-color: #FFFFFF !important;
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    flex: 0 0 28px !important;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease, outline 0.2s ease !important;
+  }
+
+  .variant-option--swatches .variant-option__button-label:hover,
+  .variant-option__button-label--has-swatch:hover {
+    border-color: #000000 !important;
+  }
+
+  .variant-option__button-label--has-swatch .swatch {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    min-height: 100% !important;
+    border-radius: 2px !important;
+    border: none !important;
+    background-size: cover !important;
+    background-position: center !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Active / Selected Color Swatch with Subtle Bottom Shadow & Glow Highlight */
+  .variant-option--swatches .variant-option__button-label:has(input:checked),
+  .variant-option__button-label--has-swatch:has(input:checked) {
+    border-color: #000000 !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+    outline: 1.5px solid #000000 !important;
+    outline-offset: 1.5px !important;
+  }
+
+  /* Out of stock swatch */
+  .variant-option--swatches .variant-option__button-label:has([data-option-available='false']),
+  .variant-option__button-label--has-swatch:has([data-option-available='false']) {
+    opacity: 0.7;
+    position: relative;
+  }
+
+  /* =========================================================================
+     Size & Other Options (Text Buttons)
+     Font DM Sans 500, 12px, Height 28px, min-width 50px, padding 6px 12px, border-radius 2px
+     ========================================================================= */
+  .variant-option:not(.variant-option--swatches) .variant-option__button-label,
+  .variant-option__button-label:not(.variant-option__button-label--has-swatch) {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    max-height: 28px !important;
+    min-width: 50px !important;
+    padding: 6px 12px !important;
+    border-radius: 2px !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    position: relative !important;
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+
+    /* Unselected State: White background with light gray border */
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .variant-option:not(.variant-option--swatches) .variant-option__button-label:hover:not(:has([data-option-available='false'])) {
+    border-color: #000000 !important;
+  }
+
+  /* Selected State: Filled solid gray background with no border */
+  .variant-option:not(.variant-option--swatches) .variant-option__button-label:has(input:checked),
+  .variant-option__button-label:not(.variant-option__button-label--has-swatch):has(input:checked) {
+    background-color: #ECECEC !important;
+    border: 1px solid transparent !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  /* Out of Stock State: White background with diagonal cross-through line */
+  .variant-option:not(.variant-option--swatches) .variant-option__button-label:has([data-option-available='false']),
+  .variant-option__button-label:not(.variant-option__button-label--has-swatch):has([data-option-available='false']) {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    color: #999999 !important;
+    cursor: not-allowed !important;
+  }
+
+  .variant-option:not(.variant-option--swatches) .variant-option__button-label:has([data-option-available='false']):has(input:checked) {
+    background-color: #ECECEC !important;
+    border: 1px solid transparent !important;
+    color: #777777 !important;
+  }
+
+  /* Button text */
+  .variant-option__button-label__text {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    color: inherit !important;
+    z-index: 2;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Hidden native radio input */
+  .variant-option__button-label input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .variant-option__button-label:has([data-option-available='false']) input {
+    cursor: not-allowed;
+  }
+
+  /* Diagonal Strikethrough Line for Out of Stock options */
+  .variant-option__strikethrough {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    stroke: #999999 !important;
+    stroke-width: 1.2px !important;
+    z-index: 3 !important;
+    display: block !important;
+  }
+
+  /* Remove default theme pill animations and pseudo overlays that conflict with clean buttons */
+  .variant-option__button-label__pill {
+    display: none !important;
+  }
+  .variant-option__button-label::before,
+  .variant-option__button-label::after {
+    display: none !important;
+  }
+
+  /* Dropdown variant option fallback */
+  .variant-option__select-wrapper {
+    display: flex;
+    position: relative;
+    border: 1px solid #E5E5E5;
+    border-radius: 2px;
+    align-items: center;
+    margin-top: 4px;
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+  .variant-option__select {
+    padding: 6px 32px 6px 12px;
+    appearance: none;
+    background-color: transparent;
+    color: #000000;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    border: 0;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .variant-option__select-wrapper .icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+  }
+{% endstylesheet %}
+

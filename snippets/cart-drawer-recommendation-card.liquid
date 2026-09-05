@@ -1,0 +1,148 @@
+{% doc %}
+  Renders a single "Compare your style" recommendation row for the cart drawer.
+
+  @param {object} product - The product to render.
+{% enddoc %}
+
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+-%}
+
+<div
+  class="cart-recommendation"
+  data-cart-recommendation
+  data-product-url="{{ product.url }}"
+>
+  <script type="application/json" data-recommendation-variants>
+    [
+      {%- for v in product.variants -%}
+        {
+          "id": {{ v.id }},
+          "available": {{ v.available }},
+          "options": {{ v.options | json }},
+          "price": {{ v.price | money | json }},
+          "featured_image": {{ v.featured_image.src | image_url: width: 400 | json }}
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  </script>
+
+  <div class="cart-recommendation__media" data-media-carousel>
+    <div class="cart-recommendation__media-track" data-media-track>
+      {%- for image in product.images limit: 5 -%}
+        <img
+          class="cart-recommendation__image"
+          src="{{ image | image_url: width: 400 }}"
+          alt="{{ image.alt | escape }}"
+          loading="lazy"
+          width="400"
+          height="533"
+        >
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'cart-recommendation__image placeholder-svg' }}
+      {%- endfor -%}
+    </div>
+
+    {%- if product.images.size > 1 -%}
+      <button
+        type="button"
+        class="cart-media-nav cart-media-nav--prev"
+        data-media-prev
+        aria-label="{{ 'content.pagination.previous' | t }}"
+      >
+        {{- 'icon-chevron-left.svg' | inline_asset_content -}}
+      </button>
+      <button
+        type="button"
+        class="cart-media-nav cart-media-nav--next"
+        data-media-next
+        aria-label="{{ 'content.pagination.next' | t }}"
+      >
+        {{- 'icon-chevron-right.svg' | inline_asset_content -}}
+      </button>
+    {%- endif -%}
+  </div>
+
+  <div class="cart-recommendation__info">
+    <a class="cart-recommendation__title" href="{{ product.url }}">{{ product.title }}</a>
+
+    <div class="cart-recommendation__price" data-recommendation-price>
+      {{ variant.price | money }}
+    </div>
+
+    {%- unless product.has_only_default_variant -%}
+      <div class="cart-recommendation__options">
+        {%- for option in product.options_with_values -%}
+          {%- liquid
+            assign is_swatch = false
+            for value in option.values
+              if value.swatch.color or value.swatch.image
+                assign is_swatch = true
+                break
+              endif
+            endfor
+          -%}
+
+          {%- if is_swatch -%}
+            <div
+              class="cart-recommendation__swatches"
+              role="group"
+              aria-label="{{ option.name | escape }}"
+              data-option-position="{{ option.position }}"
+            >
+              {%- for value in option.values -%}
+                <button
+                  type="button"
+                  class="cart-recommendation__swatch{% if forloop.first %} is-selected{% endif %}"
+                  data-option-value="{{ value | escape }}"
+                  title="{{ value | escape }}"
+                  aria-label="{{ option.name | escape }}: {{ value | escape }}"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  style="
+                    {%- if value.swatch.color -%}
+                      --swatch-background: {{ value.swatch.color }};
+                    {%- elsif value.swatch.image -%}
+                      --swatch-image: url({{ value.swatch.image | image_url: width: 60 }});
+                    {%- endif -%}
+                  "
+                ></button>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div
+              class="cart-recommendation__sizes"
+              role="group"
+              aria-label="{{ option.name | escape }}"
+              data-option-position="{{ option.position }}"
+            >
+              {%- for value in option.values -%}
+                <button
+                  type="button"
+                  class="cart-recommendation__size{% if forloop.first %} is-selected{% endif %}"
+                  data-option-value="{{ value | escape }}"
+                  aria-label="{{ option.name | escape }}: {{ value | escape }}"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                >
+                  {{- value -}}
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endunless -%}
+
+    <button
+      type="button"
+      class="cart-recommendation__add"
+      data-recommendation-add
+      data-variant-id="{{ variant.id }}"
+      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
+    >
+      <span class="cart-recommendation__add-icon">
+        {{- 'icon-cart.svg' | inline_asset_content -}}
+      </span>
+      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>

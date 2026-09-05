@@ -1,0 +1,137 @@
+<div class="product-info-benefits">
+  <div class="product-info-benefits__top">
+    {% if block.settings.feature_1_text != blank %}
+      <div class="product-info-benefits__item">
+        <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_19_373637f7-3388-4586-96d7-4d1972d5ca3a.png?v=1788285593" height="" width="" alt="" loading="" class="product-info-benefits__icon">
+        <span>
+          {{ block.settings.feature_1_text }}
+        </span>
+      </div>
+    {% endif %}
+    {% if block.settings.feature_2_text != blank %}
+      <div class="product-info-benefits__item">
+        <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_e67c3d74-c6eb-48ce-8e55-43623e43c9f1.png?v=1788285607" height="" width="" alt="" loading="" class="product-info-benefits__icon">
+        <span>
+          {{ block.settings.feature_2_text }}
+        </span>
+      </div>
+    {% endif %}
+    {% if block.settings.feature_3_text != blank %}
+      <div class="product-info-benefits__item">
+        <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_21_9cfe3a40-e00e-4702-bd8f-4ade51f34bca.png?v=1788285629" height="" width="" alt="" loading="" class="product-info-benefits__icon">
+        <span>
+          {{ block.settings.feature_3_text }}
+        </span>
+      </div>
+    {% endif %}
+    {% if block.settings.feature_4_text != blank %}
+      <div class="product-info-benefits__item">
+        <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_22_aa7f8f29-6240-4353-962a-3d85f377cb02.png?v=1788285644" height="" width="" alt="" loading="" class="product-info-benefits__icon">
+        <span>
+          {{ block.settings.feature_4_text }}
+        </span>
+      </div>
+    {% endif %}
+  </div>
+  {% if block.settings.tip_heading != blank or block.settings.tip_text != blank %}
+    <div class="product-info-benefits__tip">
+      <div class="product-info-benefits__tip-icon">
+        <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/idea.png?v=1788286019" height="" width="" alt="">
+      </div>
+      <div class="product-info-benefits__tip-content">
+        {% if block.settings.tip_heading != blank %}
+          <strong>
+            {{ block.settings.tip_heading }}
+          </strong>
+        {% endif %}
+        {% if block.settings.tip_text != blank %}
+          <span>
+            {{ block.settings.tip_text }}
+          </span>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+<style>
+  .product-info-benefits {
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  .product-info-benefits__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F6F6F6;
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+  .product-info-benefits__item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: #000000;
+    white-space: nowrap;
+    }
+ .product-info-benefits__icon {
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+}
+ .product-info-benefits__tip {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #F6F6F6;
+    padding: 14px 20px;
+    border-radius: 10px;
+}
+  .product-info-benefits__tip-icon {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    border-radius: 50%;
+    background: #E9E9E9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .product-info-benefits__tip-icon img{
+    width:auto;    
+}
+  .product-info-benefits__tip-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000000;
+    }
+    .product-info-benefits__tip-content strong {
+        font-weight: 600; 
+    }
+  @media screen and (max-width: 767px) {
+  .product-info-benefits__tip-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px; 
+  }
+    .product-info-benefits__top {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding: 14px;
+    }
+    .product-info-benefits__item {
+      width: calc(50% - 10px);
+      font-size: 10px;
+    }
+    .product-info-benefits__tip {
+      align-items: flex-start;
+      padding: 14px;
+    }
+    .product-info-benefits__tip-content {
+      font-size: 10px;
+    }
+  }
+</style>
