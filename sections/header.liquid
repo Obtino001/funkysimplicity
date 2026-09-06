@@ -1375,10 +1375,7 @@
       margin-inline: 0 !important;
     }
 
-    /* Text, Navigation Links & Actions inside Dark Pill */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link:visited,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-menu summary,
+    /* Text & Actions inside Dark Pill */
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button,
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__link,
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__btn,
@@ -1386,18 +1383,18 @@
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header__column,
     #header-component[transparent] .header__column--right .dropdown-localization__button,
     #header-component[transparent] .header__column--right .header-actions__action {
-      color: var(--header-pill-text, #ffffff) !important;
-      font-family: 'DM Sans', var(--font-body--family, sans-serif) !important;
-      font-size: 14px !important;
-      font-weight: 500 !important;
+      color: var(--header-pill-text, #ffffff);
+      font-family: 'DM Sans', var(--font-body--family, sans-serif);
+      font-size: 14px;
+      font-weight: 500;
     }
 
     /* SVGs in Header: filled icons (cart and search) vs stroke carets */
     .header-actions__cart-icon svg,
     .search-action svg,
     .search-modal__button svg {
-      stroke: none !important;
-      fill: currentColor !important;
+      stroke: none;
+      fill: currentColor;
       width: 22px;
       height: 22px;
       color: var(--header-pill-text, #ffffff);
@@ -1405,12 +1402,10 @@
 
     #header-component[transparent] .header-actions__cart-icon svg,
     #header-component[transparent] .search-action svg {
-      color: var(--header-pill-text, #ffffff) !important;
-      fill: var(--header-pill-text, #ffffff) !important;
+      color: var(--header-pill-text, #ffffff);
+      fill: var(--header-pill-text, #ffffff);
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link:hover,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-menu summary:hover,
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button:hover {
       opacity: 0.82;
     }

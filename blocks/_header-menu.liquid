@@ -285,7 +285,7 @@
   }
 
   .menu-list {
-    --menu-horizontal-gap: var(--gap-xl);
+    --menu-horizontal-gap: var(--gap-2xl, 2rem);
     --menu-vertical-gap: var(--gap-xl);
 
     display: flex;
@@ -366,6 +366,10 @@
     align-items: center !important; 
   }
 
+  .menu-list__list-item:not([slot='overflow']) .menu-list__disclosure {
+    display: none;
+  }
+
   .menu-list__disclosure {
     position: absolute;
     inset-block-start: 50%;
@@ -405,7 +409,7 @@
   }
 
   .menu-list__link-title {
-    padding-inline: var(--gap-sm);
+    padding-inline: calc(var(--menu-horizontal-gap) / 2);
     text-transform: capitalize;
   }
   [slot='overflow'] .menu-list__link-title {
