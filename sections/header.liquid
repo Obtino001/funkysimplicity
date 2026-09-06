@@ -37,7 +37,10 @@
     assign transparent = 'not-sticky'
   endif
 
-  assign text_color_transparent = transparent_text_color_setting | default: settings.page_text_color
+  assign text_color_transparent = transparent_text_color_setting | default: '#ffffff'
+  if text_color_transparent contains 'settings.' or text_color_transparent == blank
+    assign text_color_transparent = '#ffffff'
+  endif
   assign transparent_text_brightness = text_color_transparent | color_brightness
   if transparent_text_brightness > 128
     assign transparent_text_contrast = 'var(--palette-darkest)'
@@ -417,8 +420,8 @@
     --color-background-bottom-row: rgba({{ section.settings.background_color_bottom.rgba | default: settings.page_background_color.rgba }});
     {% if transparent and text_color_transparent != blank %}
       --color-transparent-text: {{ text_color_transparent }};
-      --color-transparent-text-rgb: {{ text_color_transparent.rgb }};
-      --color-transparent-text-contrast: {{ transparent_text_contrast }};
+      --color-transparent-text-rgb: {{ text_color_transparent.rgb | default: '255 255 255' }};
+      --color-transparent-text-contrast: {{ transparent_text_contrast | default: '#000000' }};
     {% endif %}
     {% if cart_bubble_color_override %}
       --cart-bubble-background: {{ cart_bubble_background }};
@@ -604,8 +607,7 @@
 
       z-index: var(--layer-overlay);
 
-      &[transparent='not-sticky'][data-sticky-state='active'],
-      &:has(.menu-list__list-item > .menu-list__link:not([aria-haspopup]):hover) {
+      &[transparent='not-sticky'][data-sticky-state='active'] {
         --header-logo-display: unset;
         --header-logo-inverse-display: unset;
         --color-foreground: inherit;
@@ -617,8 +619,8 @@
         --closed-underlay-height: 100%;
       }
 
-      /** For transparent header, apply transparent text color to rows when menu is not hovered */
-      &:not([data-sticky-state='active']):not(:has(.menu-list__link:hover)):not(:has(header-menu[aria-expanded='true']))
+      /** For transparent header, apply transparent text color to rows when header menu is not expanded */
+      &:not([data-sticky-state='active']):not(:has(header-menu[aria-expanded='true']))
         .header__row {
         --color-foreground: var(--color-transparent-text);
         --color-foreground-rgb: var(--color-transparent-text-rgb);
@@ -630,7 +632,7 @@
 
       /* Swap the cart bubble in transparent state only when using the default
          style. Custom bubble colors apply unchanged across header states. */
-      &[data-bubble-style='default']:not([data-sticky-state='active']):not(:has(.menu-list__link:hover)):not(
+      &[data-bubble-style='default']:not([data-sticky-state='active']):not(
           :has(header-menu[aria-expanded='true'])
         )
         .header__row {
@@ -640,7 +642,6 @@
 
       /* Multiple selectors for performance: each simple :has() check is faster than one complex selector with multiple conditions */
       &:has(.mega-menu__list:hover),
-      &:has(.menu-list__link:hover),
       &:has(header-menu[aria-expanded='true']) {
         --header-logo-display: unset;
         --header-logo-inverse-display: unset;
