@@ -1,1 +1,1987 @@
-{"sections":{"main":{"type":"product-information","blocks":{"disclosures_g9mWze":{"type":"disclosures","name":"t:names.disclosures","settings":{"heading":"Disclosures","heading_preset":"h5","open_by_default":false,"icon":"caret","disclosure_heading_preset":"h6","text_color":"","dividers":true,"divider_color":"{{ settings.color_palette.color2 }}","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"media-gallery":{"type":"_product-media-gallery","static":true,"settings":{"media_presentation":"carousel","media_columns":"two","image_gap":4,"large_first_image":false,"icons_style":"arrow","slideshow_controls_style":"thumbnails","slideshow_mobile_controls_style":"thumbnails","thumbnail_position":"bottom","thumbnail_width":44,"thumbnail_radius":0,"aspect_ratio":"adapt","constrain_to_viewport":true,"media_fit":"cover","media_radius":0,"extend_media":false,"zoom":true,"video_loop":false,"hide_variants":true,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"product-details":{"type":"_product-details","static":true,"settings":{"width":"custom","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","details_position":"flex-start","gap":28,"sticky_details_desktop":true,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"padding-block-start":0,"padding-block-end":24,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"group_icgrde":{"type":"group","name":"t:names.header","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_xrnftG":{"type":"text","name":"t:names.product_title","settings":{"text":"<h1>{{ closest.product.title }}<\/h1>","width":"100%","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-heading--family)","font_size":"2rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"ai_gen_block_89d0ccc_TyDqeE":{"type":"ai_gen_block_89d0ccc","settings":{"savings_label":"Save","desktop_width_percent":100,"sale_color":"#e0ad40","sale_size":22,"compare_color":"#a8a8a8","compare_size":22,"badge_background":"#000000","badge_text_color":"#ffffff","badge_size":14},"blocks":{}}},"block_order":["text_xrnftG","ai_gen_block_89d0ccc_TyDqeE"]},"variant_picker_R3rGDr":{"type":"variant-picker","settings":{"variant_style":"buttons","show_swatches":true,"option_label_text_color":"","variant_style_class":"default","custom_variant_background":"{{ settings.color_palette.background }}","custom_variant_text":"{{ settings.color_palette.foreground }}","custom_variant_border":"{{ settings.color_palette.foreground }}","selected_variant_style_class":"default","custom_selected_variant_background":"{{ settings.color_palette.foreground }}","custom_selected_variant_text":"{{ settings.color_palette.background }}","custom_selected_variant_border":"{{ settings.color_palette.foreground }}","alignment":"left","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"buy_buttons_eYQEYi":{"type":"buy-buttons","settings":{"stacking":true,"text_color":"","show_pickup_availability":false,"gift_card_form":true,"recipient_button_style":"default","recipient_button_background":"{{ settings.color_palette.background }}","recipient_button_text":"{{ settings.color_palette.foreground }}","recipient_button_border":"{{ settings.color_palette.foreground }}","selected_recipient_button_style":"default","selected_recipient_button_background":"{{ settings.color_palette.foreground }}","selected_recipient_button_text":"{{ settings.color_palette.background }}","selected_recipient_button_border":"{{ settings.color_palette.foreground }}","input_style":"default","input_background_color":"{{ settings.color_palette.background }}","input_text_color":"{{ settings.color_palette.foreground }}","input_border_color":"{{ settings.color_palette.foreground }}","border_width":1,"border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"quantity":{"type":"quantity","disabled":true,"static":true,"settings":{"input_style":"default","input_background_color":"{{ settings.color_palette.background }}","input_text_color":"{{ settings.color_palette.foreground }}","input_border_color":"{{ settings.color_palette.foreground }}","border_width":1,"border_radius":0},"blocks":{}},"add-to-cart":{"type":"add-to-cart","static":true,"settings":{"style_class":"button-secondary","custom_button_background":"{{ settings.color_palette.foreground }}","custom_button_text":"{{ settings.color_palette.background }}","custom_button_border":"{{ settings.color_palette.background }}","button-class":"add_to_cart_button_class"},"blocks":{}},"accelerated-checkout":{"type":"accelerated-checkout","disabled":true,"static":true,"settings":{},"blocks":{}}},"block_order":[]},"group_FhPqML":{"type":"group","name":"t:names.group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"center","gap":12,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"image_4e84gV":{"type":"image","name":"t:names.image","settings":{"image":"shopify:\/\/shop_images\/image_13.svg","link":"","image_ratio":"adapt","width":"custom","custom_width":70,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["image_4e84gV"]},"content_box_XezpMz":{"type":"content-box","name":"Content Box","settings":{"feature_1_text":"High Quality Fabrics","feature_2_text":"Handmade Fairly in Bali","feature_3_text":"4 Way Stretch Cotton","feature_4_text":"Original Swiss Artwork","tip_heading":"Tip For First-Time Customers:","tip_text":"To Help Us Find Your Perfect Fit, Please Share Your Height And Weight In The Comments Section Of Your Cart!"},"blocks":{}},"mo_compare_product_GnPXyi":{"type":"mo-compare-product","name":"Mo Compare Product","settings":{},"blocks":{}},"accordion_n9WR6N":{"type":"accordion","name":"t:names.accordion","settings":{"icon":"caret","dividers":true,"divider_color":"#000000","type_preset":"h4","background_color":"","text_color":"","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"accordion_row_pwJnTM":{"type":"_accordion-row","settings":{"heading":"DESCRIPTION","open_by_default":false,"icon":"none","width":20},"blocks":{"text_6h7kPM":{"type":"text","settings":{"text":"{{ closest.product.description }}","width":"100%","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_6h7kPM"]},"accordion_row_cGJXCC":{"type":"_accordion-row","settings":{"heading":"SIZING","open_by_default":false,"icon":"none","width":20},"blocks":{"text_QgHLTg":{"type":"text","settings":{"text":"<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_QgHLTg"]},"accordion_row_3CaeTq":{"type":"_accordion-row","settings":{"heading":"MATERIALS","open_by_default":false,"icon":"none","width":20},"blocks":{"text_BDnAeG":{"type":"text","settings":{"text":"<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_BDnAeG"]},"accordion_row_cbNXBB":{"type":"_accordion-row","settings":{"heading":"CARE GUIDE","open_by_default":false,"icon":"none","width":20},"blocks":{"text_txDqKw":{"type":"text","settings":{"text":"<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_txDqKw"]},"accordion_row_Y9UVaP":{"type":"_accordion-row","settings":{"heading":"HANDMADE WITH LOVE","open_by_default":false,"icon":"none","width":20},"blocks":{"text_zfFG7U":{"type":"text","settings":{"text":"<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_zfFG7U"]},"accordion_row_CjNyLY":{"type":"_accordion-row","settings":{"heading":"SHIPPING & RETURNS","open_by_default":false,"icon":"none","width":20},"blocks":{"text_iMtbdi":{"type":"text","settings":{"text":"<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_iMtbdi"]}},"block_order":["accordion_row_pwJnTM","accordion_row_cGJXCC","accordion_row_3CaeTq","accordion_row_cbNXBB","accordion_row_Y9UVaP","accordion_row_CjNyLY"]},"text_aEtTtq":{"type":"text","name":"t:names.product_description","disabled":true,"settings":{"text":"{{ closest.product.description }}","width":"100%","max_width":"normal","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["group_icgrde","variant_picker_R3rGDr","buy_buttons_eYQEYi","group_FhPqML","content_box_XezpMz","mo_compare_product_GnPXyi","accordion_n9WR6N","text_aEtTtq"]}},"block_order":["disclosures_g9mWze"],"custom_css":[".ai-inline-price-aqtjsdg9xrtbyzkrjcaigenblock89d0ccctydqee__row span {font-weight: 400;}"],"settings":{"content_width":"content-center-aligned","desktop_media_position":"left","equal_columns":true,"limit_details_width":false,"gap":48,"enable_sticky_add_to_cart":false,"background_color":"{{ settings.color_palette.background }}","padding-block-start":20,"padding-block-end":0}},"tabbed_collection_carousel_XhDXhd":{"type":"tabbed-collection-carousel","blocks":{"collection_tab_QKqAka":{"type":"collection_tab","settings":{"collection":"shop-by-print","tab_title":"Tops","view_all_url":""}},"collection_tab_EjeG9C":{"type":"collection_tab","settings":{"collection":"cactus-print","tab_title":"Leggings","view_all_url":""}},"collection_tab_g48xMb":{"type":"collection_tab","settings":{"collection":"cow","tab_title":"Bras","view_all_url":""}},"collection_tab_fcQmmb":{"type":"collection_tab","settings":{"collection":"flare-pants","tab_title":"Bodysuits","view_all_url":""}}},"block_order":["collection_tab_QKqAka","collection_tab_EjeG9C","collection_tab_g48xMb","collection_tab_fcQmmb"],"name":"Tabbed Carousel","settings":{"heading":"Our Best Sellers","heading_size":"h2","section_width":"page-width","background_color":"","columns_desktop":3,"columns_mobile":"2","products_to_show":8,"gap":8,"card_aspect_ratio":"portrait","show_secondary_image":true,"show_badges":true,"low_stock_threshold":5,"show_quick_shop":true,"show_swatches":true,"show_view_all":true,"view_all_text":"VIEW ALL","padding_top":60,"padding_bottom":80}},"fabric_features_banner_NKYTKG":{"type":"fabric-features-banner","blocks":{"feature_mAiHtV":{"type":"feature","settings":{"icon":"flask","custom_image":"shopify:\/\/shop_images\/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1.png","custom_svg":"","title":"Starches Naturally","text":"No heat, the fabric breathes like your second skin."}},"feature_aWA6XB":{"type":"feature","settings":{"icon":"flask","custom_image":"shopify:\/\/shop_images\/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_1.png","custom_svg":"","title":"No Microplastics","text":"Our natural cotton fabric contains no microplastics."}},"feature_DEU4gH":{"type":"feature","settings":{"icon":"clock_recycle","custom_image":"shopify:\/\/shop_images\/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_2.png","custom_svg":"","title":"Lasts For Years","text":"Tested and made to last through years of wear."}}},"block_order":["feature_mAiHtV","feature_aWA6XB","feature_DEU4gH"],"custom_css":["@media (max-width: 767px) {.ffb-bg__overlay {background-color: #000; opacity: 1; }}"],"name":"Fabric Features Banner","settings":{"image":"shopify:\/\/shop_images\/d4634c7f704b130d7d468145893455118200b32d.webp","image_mobile":"shopify:\/\/shop_images\/d4634c7f704b130d7d468145893455118200b32d_242e3e9f-9116-4894-9f0c-71ce330c5973.webp","overlay_color":"#000000","overlay_opacity":50,"text_color":"#ffffff","heading":"<p>90% Cotton.<br\/>10% Stretch.<\/p>","heading_size":"small","description":"<p>All shirts and blouses are made from 100% rayon voile, a high-quality fabric known for its light and flowing character. The material feels soft and breathable on the skin and drapes beautifully along the body, creating a comfortable and elegant look that can be worn all day.<\/p>","content_max_width":720,"subtext":"Ready to experience something different","button_label":"SHOP NOW","button_link":"","button_style":"outline","section_width":"full","columns_desktop":3,"section_min_height":"auto","padding_top":80,"padding_bottom":80}},"google_reviews_grid_LHeq7C":{"type":"google-reviews-grid","blocks":{"review_AVPBfK":{"type":"review","settings":{"author":"Susann Schramm","avatar_color":"#e06d53","rating":5,"text":"I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.","date":"4 months ago","show_google_badge":true}},"review_P8d4FT":{"type":"review","settings":{"author":"Monali Reddy","avatar_color":"#b93815","rating":5,"text":"The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.","date":"4 months ago","show_google_badge":true}},"review_DFPGHa":{"type":"review","settings":{"author":"Nicoletta Lenchi","avatar_color":"#4d7c0f","rating":5,"text":"This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.","date":"4 months ago","show_google_badge":true}},"review_q8Bwag":{"type":"review","settings":{"author":"Brenda Sanchez","avatar_color":"#c2410c","rating":5,"text":"I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.","date":"4 months ago","show_google_badge":true}},"review_tnVjKC":{"type":"review","settings":{"author":"Liila Fontana","avatar_color":"#558b2f","rating":5,"text":"Looooove All The Amazing Beautiful And So Comfy Funky Wearings Some I Have For Years Now Still Like New. Sooo Good Quality. Big Thank Youuu Funky Simplicity!","date":"4 months ago","show_google_badge":true}},"review_jm6feN":{"type":"review","settings":{"author":"Marc Margherita","avatar_color":"#2e7d32","rating":5,"text":"I Love My Yoga Pants. I Have Two Pairs And After Wearing Them For Several Years They Look And Feel Like New. They Are My Go-To Comfy House Pants As Well As Stylish Leisure-Wear In The City.","date":"4 months ago","show_google_badge":true}},"review_QJzy4R":{"type":"review","settings":{"author":"Susann Schramm","avatar_color":"#e06d53","rating":5,"text":"I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.","date":"4 months ago","show_google_badge":true}},"review_in3zwi":{"type":"review","settings":{"author":"Monali Reddy","avatar_color":"#b93815","rating":5,"text":"The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.","date":"4 months ago","show_google_badge":true}},"review_9ddcjt":{"type":"review","settings":{"author":"Nicoletta Lenchi","avatar_color":"#4d7c0f","rating":5,"text":"This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.","date":"4 months ago","show_google_badge":true}},"review_QHkrFy":{"type":"review","settings":{"author":"Brenda Sanchez","avatar_color":"#c2410c","rating":5,"text":"I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.","date":"4 months ago","show_google_badge":true}}},"block_order":["review_AVPBfK","review_P8d4FT","review_DFPGHa","review_q8Bwag","review_tnVjKC","review_jm6feN","review_QJzy4R","review_in3zwi","review_9ddcjt","review_QHkrFy"],"name":"Customer Reviews Grid","settings":{"heading":"Exceptional Cloths. Exceptional Ratings.","heading_size":"h2","rating_prefix":"Rated 5\/5 On","show_google_logo":true,"enable_marquee":true,"marquee_speed":35,"card_bg":"#f8f8f8","text_color":"#121212","star_color":"#f59e0b","show_view_all":true,"view_all_text":"VIEW ALL REVIEWS","view_all_link":"","padding_top":60,"padding_bottom":32}},"collection_list_HzNdCd":{"type":"collection-list","blocks":{"group_7re8hj":{"type":"group","name":"t:names.header","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_3UTccC":{"type":"text","name":"t:names.text","settings":{"text":"<p>Shop by Prints<\/p>","width":"fit-content","max_width":"normal","alignment":"left","type_preset":"h4","font":"var(--font-body--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":16,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_3UTccC"]},"static-collection-card":{"type":"_collection-card","name":"t:names.collection_card","static":true,"settings":{"placement":"below_image","horizontal_alignment":"center","vertical_alignment":"center","collection_card_gap":8,"background_color":"","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0},"blocks":{"collection_title_z8Qepm":{"type":"collection-title","name":"t:names.collection_title","settings":{"width":"fit-content","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-heading--family)","font_size":"1.25rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","background":false,"background_color":"{{ settings.color_palette.background }}","text_color":"{{ settings.color_palette.foreground }}","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"collection-card-image":{"type":"_collection-card-image","name":"t:names.collection_card_image","static":true,"settings":{"image_ratio":"portrait","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0},"blocks":{}}},"block_order":["collection_title_z8Qepm"]}},"block_order":["group_7re8hj"],"custom_css":["slideshow-arrows[position=\"center\"] {justify-content: right; align-items: flex-start; top: -60px; gap: 20px;}",".slideshow-control--next {margin-inline-start: unset !important;}",".slideshow-control[disabled] {display: block;}",".slideshow-control[disabled] {position: relative;}","slideshow-arrows .slideshow-control {opacity: 1; border: 1px solid #ebebeb; padding: 0 !important; min-width: 38px !important; min-height: 38px !important; display: flex !important;}",".slideshow-control {animation: none;}"],"name":"t:names.collections_carousel","settings":{"collection_list":["capri-leggings","coral","zebra-print","bloom","feather"],"layout_type":"carousel","carousel_on_mobile":false,"columns":3,"mobile_columns":"2","mobile_card_size":"60cqw","columns_gap":8,"bento_gap":8,"rows_gap":8,"max_collections":4,"icons_style":"chevron","icons_shape":"circle","section_width":"page-width","gap":12,"background_color":"","padding-block-start":40,"padding-block-end":60}},"hero_feature_boxes_nACJ39":{"type":"hero-feature-boxes","blocks":{"feature_box_7KW7bP":{"type":"feature_box","settings":{"icon":"stretch","custom_image":"shopify:\/\/shop_images\/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1.png","custom_svg":"","title":"Four Way Stretch Cotton","text":"Made with our amazing 4-way stretch cotton, flexibility and support."}},"feature_box_qmK4jH":{"type":"feature_box","settings":{"icon":"feather","custom_image":"shopify:\/\/shop_images\/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_1.png","custom_svg":"","title":"Buttery-Soft Comfort","text":"Ultra-soft cotton stretch fabric that feels like a second skin."}},"feature_box_zt8rVN":{"type":"feature_box","settings":{"icon":"needle_thread","custom_image":"shopify:\/\/shop_images\/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_2.png","custom_svg":"","title":"Balinese Craftsmanship","text":"Lovingly handmade by skilled Balinese artisans, with each piece crafted with care and pride."}},"feature_box_PjqaQB":{"type":"feature_box","settings":{"icon":"fabric_layers","custom_image":"shopify:\/\/shop_images\/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_3.png","custom_svg":"","title":"High Quality Fabrics","text":"90% cotton and 10% elastane, made to last through countless washes and wears without losing shape."}}},"block_order":["feature_box_7KW7bP","feature_box_qmK4jH","feature_box_zt8rVN","feature_box_PjqaQB"],"name":"Hero Feature Boxes","settings":{"image":"shopify:\/\/shop_images\/9c1878b625f414decf9e9f5e18c2390e3b8af640.webp","overlay_color":"#000000","overlay_opacity":40,"heading":"The Perfect Leggings\nFrom Our Bali Family","heading_size":56,"heading_max_width":560,"text_color":"#ffffff","box_border_color":"#ffffff","box_border_opacity":40,"box_bg_opacity":8,"section_min_height":"700px","padding_top":60,"padding_bottom":60}},"community_mosaic_grid_MbXXbA":{"type":"community-mosaic-grid","blocks":{"media_ijMxp4":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_2.png","link":""}},"media_efFm6X":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_3.png","link":""}},"media_RpCmtd":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_5.png","link":""}},"media_Kt8eUk":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_4.png","link":""}},"media_WWteBU":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_6.png","link":""}},"media_cUDyw4":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_2_1.png","link":""}},"media_CJWqy4":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_3_1.png","link":""}},"media_CUBmLq":{"type":"media","settings":{"image":"shopify:\/\/shop_images\/Rectangle_5_1.png","link":""}}},"block_order":["media_ijMxp4","media_efFm6X","media_RpCmtd","media_Kt8eUk","media_WWteBU","media_cUDyw4","media_CJWqy4","media_CUBmLq"],"name":"Community Mosaic Grid","settings":{"heading":"Our Funky Community","heading_size":28,"heading_alignment":"left","section_width":"page-width","gap":10,"overlay_opacity":40,"show_button":true,"button_label":"JOIN OUR COMMUNITY","button_link":"","button_bg":"{{ settings.color_palette.foreground }}","button_color":"{{ settings.color_palette.foreground }}"}},"featured_blog_posts_UGbMPW":{"type":"featured-blog-posts","blocks":{"static-blog-title":{"type":"_featured-blog-posts-title","name":"t:names.title","static":true,"settings":{"text":"<p>The Happy Moment Blog<\/p>","width":"fit-content","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-heading--family)","font_size":"2rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"static-blog-post-card":{"type":"_featured-blog-posts-card","name":"t:names.blog_card","static":true,"settings":{"show_read_time":true,"show_read_more":true,"read_more_text":"Read More","alignment":"left","gap":8,"background_color":"#f6f6f6","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"image":{"type":"_featured-blog-posts-image","static":true,"settings":{"image_ratio":"square","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0},"blocks":{}},"title":{"type":"_heading","name":"t:names.title","static":true,"settings":{"type_preset":"custom","font":"var(--font-heading--family)","font_size":"1.5rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text":"<h4>{{ closest.article.title }}<\/h4>","read_only":false,"alignment":"left","show_alignment":false,"text_color":"","padding-block-start":10,"padding-block-end":0,"padding-inline-start":20,"padding-inline-end":0},"blocks":{}},"blog-post-info-text":{"type":"_blog-post-info-text","name":"t:names.details","disabled":true,"static":true,"settings":{"show_date":true,"show_author":true,"type_preset":"","alignment":"left","text_color":"","show_alignment":false,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":20,"padding-inline-end":20},"blocks":{}},"blog-post-description":{"type":"_blog-post-description","name":"t:names.excerpt","static":true,"settings":{"type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","padding-block-start":8,"padding-block-end":0,"padding-inline-start":20,"padding-inline-end":20},"blocks":{}}},"block_order":[]}},"custom_css":[".text-block--AcjJGOExJN0JYbVQ3V__static-blog-title p {font-size: 28px;}"],"name":"t:names.blog_posts_grid","settings":{"blog":"news","layout_type":"grid","carousel_on_mobile":true,"post_limit":3,"columns":3,"mobile_columns":"2","mobile_card_size":"60cqw","columns_gap":8,"rows_gap":8,"icons_style":"arrow","icons_shape":"none","section_width":"page-width","gap":12,"background_color":"","padding-block-start":20,"padding-block-end":48}},"section_n6QDL3":{"type":"section","blocks":{"group_V76kNV":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"center","gap":16,"width":"fit-content","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"icon_YPi4LL":{"type":"icon","settings":{"icon":"none","image_upload":"shopify:\/\/shop_images\/Frame_19.svg","width":48,"link":"","open_in_new_tab":false,"icon_color":""},"blocks":{}},"group_pwreyC":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":4,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_8LCBJf":{"type":"text","settings":{"text":"<p>High Quality Fabrics<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-heading--family)","font_size":"1.125rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_8LCBJf"]}},"block_order":["icon_YPi4LL","group_pwreyC"]},"group_GXt7zr":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"center","gap":16,"width":"fit-content","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"icon_r48egt":{"type":"icon","settings":{"icon":"none","image_upload":"shopify:\/\/shop_images\/Frame_20.svg","width":48,"link":"","open_in_new_tab":false,"icon_color":""},"blocks":{}},"group_QWJAUa":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":4,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_yGwLYK":{"type":"text","settings":{"text":"<p>Handmade Fairly In Bali<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-heading--family)","font_size":"1.125rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_yGwLYK"]}},"block_order":["icon_r48egt","group_QWJAUa"]},"group_HAWgPX":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"center","gap":16,"width":"fit-content","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"icon_jg39fK":{"type":"icon","settings":{"icon":"none","image_upload":"shopify:\/\/shop_images\/Frame_21_1.svg","width":48,"link":"","open_in_new_tab":false,"icon_color":""},"blocks":{}},"group_W4VmWz":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":4,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_nh8hzr":{"type":"text","settings":{"text":"<p>4 way stretch cotton<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-heading--family)","font_size":"1.125rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_nh8hzr"]}},"block_order":["icon_jg39fK","group_W4VmWz"]},"group_Ggcr7m":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"center","gap":16,"width":"fit-content","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"icon_yWgUJL":{"type":"icon","settings":{"icon":"none","image_upload":"shopify:\/\/shop_images\/Frame.svg","width":48,"link":"","open_in_new_tab":false,"icon_color":""},"blocks":{}},"group_n93b8U":{"type":"group","settings":{"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":4,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","background_color":"","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"link":"","open_in_new_tab":false,"placeholder":"","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{"text_YqgQ7p":{"type":"text","settings":{"text":"<p>Original swiss artwork<\/p>","width":"100%","max_width":"normal","alignment":"left","type_preset":"custom","font":"var(--font-heading--family)","font_size":"1.125rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","text_color":"","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}},"block_order":["text_YqgQ7p"]}},"block_order":["icon_yWgUJL","group_n93b8U"]}},"block_order":["group_V76kNV","group_GXt7zr","group_HAWgPX","group_Ggcr7m"],"custom_css":["@media (max-width: 767px) {.spacing-style.layout-panel-flex.layout-panel-flex--row.section-content-wrapper.mobile-column {display: grid; grid-template-columns: 1fr 1fr; } p {text-align: center; }}"],"name":"t:names.icons_with_text","settings":{"content_direction":"row","vertical_on_mobile":true,"horizontal_alignment":"center","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":60,"section_width":"page-width","section_height":"custom","section_height_custom":0,"background_media":"none","background_color":"#f6f6f6","video_position":"cover","background_image_position":"cover","toggle_overlay":false,"overlay_color":"#00000026","overlay_style":"solid","gradient_direction":"to top","border":"none","border_width":1,"border_opacity":100,"border_color":"","border_radius":0,"padding-block-start":40,"padding-block-end":40}}},"order":["main","tabbed_collection_carousel_XhDXhd","fabric_features_banner_NKYTKG","google_reviews_grid_LHeq7C","collection_list_HzNdCd","hero_feature_boxes_nACJ39","community_mosaic_grid_MbXXbA","featured_blog_posts_UGbMPW","section_n6QDL3"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "disclosures_g9mWze": {
+          "type": "disclosures",
+          "name": "t:names.disclosures",
+          "settings": {
+            "heading": "Disclosures",
+            "heading_preset": "h5",
+            "open_by_default": false,
+            "icon": "caret",
+            "disclosure_heading_preset": "h6",
+            "text_color": "",
+            "dividers": true,
+            "divider_color": "{{ settings.color_palette.color2 }}",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": {
+            "media_presentation": "carousel",
+            "media_columns": "two",
+            "image_gap": 4,
+            "large_first_image": false,
+            "icons_style": "arrow",
+            "slideshow_controls_style": "thumbnails",
+            "slideshow_mobile_controls_style": "thumbnails",
+            "thumbnail_position": "bottom",
+            "thumbnail_width": 44,
+            "thumbnail_radius": 0,
+            "aspect_ratio": "adapt",
+            "constrain_to_viewport": true,
+            "media_fit": "cover",
+            "media_radius": 0,
+            "extend_media": false,
+            "zoom": true,
+            "video_loop": false,
+            "hide_variants": true,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": {
+            "width": "custom",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "details_position": "flex-start",
+            "gap": 28,
+            "sticky_details_desktop": true,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_icgrde": {
+              "type": "group",
+              "name": "t:names.header",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_xrnftG": {
+                  "type": "text",
+                  "name": "t:names.product_title",
+                  "settings": {
+                    "text": "<h1>{{ closest.product.title }}</h1>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "2rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "ai_gen_block_89d0ccc_TyDqeE": {
+                  "type": "ai_gen_block_89d0ccc",
+                  "settings": {
+                    "savings_label": "Save",
+                    "desktop_width_percent": 100,
+                    "sale_color": "#e0ad40",
+                    "sale_size": 22,
+                    "compare_color": "#a8a8a8",
+                    "compare_size": 22,
+                    "badge_background": "#000000",
+                    "badge_text_color": "#ffffff",
+                    "badge_size": 14
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_xrnftG",
+                "ai_gen_block_89d0ccc_TyDqeE"
+              ]
+            },
+            "variant_picker_R3rGDr": {
+              "type": "variant-picker",
+              "settings": {
+                "variant_style": "buttons",
+                "show_swatches": true,
+                "option_label_text_color": "",
+                "variant_style_class": "default",
+                "custom_variant_background": "{{ settings.color_palette.background }}",
+                "custom_variant_text": "{{ settings.color_palette.foreground }}",
+                "custom_variant_border": "{{ settings.color_palette.foreground }}",
+                "selected_variant_style_class": "default",
+                "custom_selected_variant_background": "{{ settings.color_palette.foreground }}",
+                "custom_selected_variant_text": "{{ settings.color_palette.background }}",
+                "custom_selected_variant_border": "{{ settings.color_palette.foreground }}",
+                "alignment": "left",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "buy_buttons_eYQEYi": {
+              "type": "buy-buttons",
+              "settings": {
+                "stacking": true,
+                "text_color": "",
+                "show_pickup_availability": false,
+                "gift_card_form": true,
+                "recipient_button_style": "default",
+                "recipient_button_background": "{{ settings.color_palette.background }}",
+                "recipient_button_text": "{{ settings.color_palette.foreground }}",
+                "recipient_button_border": "{{ settings.color_palette.foreground }}",
+                "selected_recipient_button_style": "default",
+                "selected_recipient_button_background": "{{ settings.color_palette.foreground }}",
+                "selected_recipient_button_text": "{{ settings.color_palette.background }}",
+                "selected_recipient_button_border": "{{ settings.color_palette.foreground }}",
+                "input_style": "default",
+                "input_background_color": "{{ settings.color_palette.background }}",
+                "input_text_color": "{{ settings.color_palette.foreground }}",
+                "input_border_color": "{{ settings.color_palette.foreground }}",
+                "border_width": 1,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "quantity": {
+                  "type": "quantity",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {
+                    "input_style": "default",
+                    "input_background_color": "{{ settings.color_palette.background }}",
+                    "input_text_color": "{{ settings.color_palette.foreground }}",
+                    "input_border_color": "{{ settings.color_palette.foreground }}",
+                    "border_width": 1,
+                    "border_radius": 0
+                  },
+                  "blocks": {}
+                },
+                "add-to-cart": {
+                  "type": "add-to-cart",
+                  "static": true,
+                  "settings": {
+                    "style_class": "button-secondary",
+                    "custom_button_background": "{{ settings.color_palette.foreground }}",
+                    "custom_button_text": "{{ settings.color_palette.background }}",
+                    "custom_button_border": "{{ settings.color_palette.background }}",
+                    "button-class": "add_to_cart_button_class"
+                  },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "disabled": true,
+                  "static": true,
+                  "settings": {},
+                  "blocks": {}
+                }
+              },
+              "block_order": []
+            },
+            "group_FhPqML": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 12,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "image_4e84gV": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/image_13.svg",
+                    "link": "",
+                    "image_ratio": "adapt",
+                    "width": "custom",
+                    "custom_width": 70,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_4e84gV"
+              ]
+            },
+            "content_box_XezpMz": {
+              "type": "content-box",
+              "name": "Content Box",
+              "settings": {
+                "feature_1_text": "High Quality Fabrics",
+                "feature_2_text": "Handmade Fairly in Bali",
+                "feature_3_text": "4 Way Stretch Cotton",
+                "feature_4_text": "Original Swiss Artwork",
+                "tip_heading": "Tip For First-Time Customers:",
+                "tip_text": "To Help Us Find Your Perfect Fit, Please Share Your Height And Weight In The Comments Section Of Your Cart!"
+              },
+              "blocks": {}
+            },
+            "mo_compare_product_GnPXyi": {
+              "type": "mo-compare-product",
+              "name": "Mo Compare Product",
+              "settings": {},
+              "blocks": {}
+            },
+            "accordion_n9WR6N": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "caret",
+                "dividers": true,
+                "divider_color": "#000000",
+                "type_preset": "h4",
+                "background_color": "",
+                "text_color": "",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "accordion_row_pwJnTM": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "DESCRIPTION",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_6h7kPM": {
+                      "type": "text",
+                      "settings": {
+                        "text": "{{ closest.product.description }}",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "custom",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_6h7kPM"
+                  ]
+                },
+                "accordion_row_cGJXCC": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "SIZING",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_QgHLTg": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_QgHLTg"
+                  ]
+                },
+                "accordion_row_3CaeTq": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "MATERIALS",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_BDnAeG": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_BDnAeG"
+                  ]
+                },
+                "accordion_row_cbNXBB": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "CARE GUIDE",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_txDqKw": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_txDqKw"
+                  ]
+                },
+                "accordion_row_Y9UVaP": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "HANDMADE WITH LOVE",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_zfFG7U": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_zfFG7U"
+                  ]
+                },
+                "accordion_row_CjNyLY": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "SHIPPING & RETURNS",
+                    "open_by_default": false,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_iMtbdi": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_iMtbdi"
+                  ]
+                }
+              },
+              "block_order": [
+                "accordion_row_pwJnTM",
+                "accordion_row_cGJXCC",
+                "accordion_row_3CaeTq",
+                "accordion_row_cbNXBB",
+                "accordion_row_Y9UVaP",
+                "accordion_row_CjNyLY"
+              ]
+            },
+            "text_aEtTtq": {
+              "type": "text",
+              "name": "t:names.product_description",
+              "disabled": true,
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "group_icgrde",
+            "variant_picker_R3rGDr",
+            "buy_buttons_eYQEYi",
+            "group_FhPqML",
+            "content_box_XezpMz",
+            "mo_compare_product_GnPXyi",
+            "accordion_n9WR6N",
+            "text_aEtTtq"
+          ]
+        }
+      },
+      "block_order": [
+        "disclosures_g9mWze"
+      ],
+      "custom_css": [
+        ".ai-inline-price-aqtjsdg9xrtbyzkrjcaigenblock89d0ccctydqee__row span {font-weight: 400;}"
+      ],
+      "settings": {
+        "content_width": "content-center-aligned",
+        "desktop_media_position": "left",
+        "equal_columns": true,
+        "limit_details_width": false,
+        "gap": 48,
+        "enable_sticky_add_to_cart": false,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 20,
+        "padding-block-end": 0
+      }
+    },
+    "tabbed_collection_carousel_XhDXhd": {
+      "type": "tabbed-collection-carousel",
+      "blocks": {
+        "collection_tab_QKqAka": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "shop-by-print",
+            "tab_title": "Tops",
+            "view_all_url": ""
+          }
+        },
+        "collection_tab_EjeG9C": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "cactus-print",
+            "tab_title": "Leggings",
+            "view_all_url": ""
+          }
+        },
+        "collection_tab_g48xMb": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "cow",
+            "tab_title": "Bras",
+            "view_all_url": ""
+          }
+        },
+        "collection_tab_fcQmmb": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "flare-pants",
+            "tab_title": "Bodysuits",
+            "view_all_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_QKqAka",
+        "collection_tab_EjeG9C",
+        "collection_tab_g48xMb",
+        "collection_tab_fcQmmb"
+      ],
+      "name": "Tabbed Carousel",
+      "settings": {
+        "heading": "Our Best Sellers",
+        "heading_size": "h2",
+        "section_width": "page-width",
+        "background_color": "",
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "products_to_show": 8,
+        "gap": 8,
+        "card_aspect_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_badges": true,
+        "low_stock_threshold": 5,
+        "show_quick_shop": true,
+        "show_swatches": true,
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL",
+        "padding_top": 60,
+        "padding_bottom": 80
+      }
+    },
+    "fabric_features_banner_NKYTKG": {
+      "type": "fabric-features-banner",
+      "blocks": {
+        "feature_mAiHtV": {
+          "type": "feature",
+          "settings": {
+            "icon": "flask",
+            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_9318d2d1-3b10-44cc-a9b1-7d94659585ff.png",
+            "custom_svg": "",
+            "title": "Starches Naturally",
+            "text": "No heat, the fabric breathes like your second skin."
+          }
+        },
+        "feature_aWA6XB": {
+          "type": "feature",
+          "settings": {
+            "icon": "flask",
+            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_1_7ef0587e-cd93-4dfa-9e1f-4c6800be59b0.png",
+            "custom_svg": "",
+            "title": "No Microplastics",
+            "text": "Our natural cotton fabric contains no microplastics."
+          }
+        },
+        "feature_DEU4gH": {
+          "type": "feature",
+          "settings": {
+            "icon": "clock_recycle",
+            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_2_46dda474-24fe-4607-860c-51687bc1ab6b.png",
+            "custom_svg": "",
+            "title": "Lasts For Years",
+            "text": "Tested and made to last through years of wear."
+          }
+        }
+      },
+      "block_order": [
+        "feature_mAiHtV",
+        "feature_aWA6XB",
+        "feature_DEU4gH"
+      ],
+      "custom_css": [
+        "@media (max-width: 767px) {.ffb-bg__overlay {background-color: #000; opacity: 1; }}"
+      ],
+      "name": "Fabric Features Banner",
+      "settings": {
+        "image": "shopify://shop_images/d4634c7f704b130d7d468145893455118200b32d.webp",
+        "image_mobile": "shopify://shop_images/d4634c7f704b130d7d468145893455118200b32d_242e3e9f-9116-4894-9f0c-71ce330c5973.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "text_color": "#ffffff",
+        "heading": "<p>90% Cotton.<br/>10% Stretch.</p>",
+        "heading_size": "small",
+        "description": "<p>All shirts and blouses are made from 100% rayon voile, a high-quality fabric known for its light and flowing character. The material feels soft and breathable on the skin and drapes beautifully along the body, creating a comfortable and elegant look that can be worn all day.</p>",
+        "content_max_width": 720,
+        "subtext": "Ready to experience something different",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "button_style": "outline",
+        "section_width": "full",
+        "columns_desktop": 3,
+        "section_min_height": "auto",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "google_reviews_grid_LHeq7C": {
+      "type": "google-reviews-grid",
+      "blocks": {
+        "review_AVPBfK": {
+          "type": "review",
+          "settings": {
+            "author": "Susann Schramm",
+            "avatar_color": "#e06d53",
+            "rating": 5,
+            "text": "I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_P8d4FT": {
+          "type": "review",
+          "settings": {
+            "author": "Monali Reddy",
+            "avatar_color": "#b93815",
+            "rating": 5,
+            "text": "The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_DFPGHa": {
+          "type": "review",
+          "settings": {
+            "author": "Nicoletta Lenchi",
+            "avatar_color": "#4d7c0f",
+            "rating": 5,
+            "text": "This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_q8Bwag": {
+          "type": "review",
+          "settings": {
+            "author": "Brenda Sanchez",
+            "avatar_color": "#c2410c",
+            "rating": 5,
+            "text": "I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_tnVjKC": {
+          "type": "review",
+          "settings": {
+            "author": "Liila Fontana",
+            "avatar_color": "#558b2f",
+            "rating": 5,
+            "text": "Looooove All The Amazing Beautiful And So Comfy Funky Wearings Some I Have For Years Now Still Like New. Sooo Good Quality. Big Thank Youuu Funky Simplicity!",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_jm6feN": {
+          "type": "review",
+          "settings": {
+            "author": "Marc Margherita",
+            "avatar_color": "#2e7d32",
+            "rating": 5,
+            "text": "I Love My Yoga Pants. I Have Two Pairs And After Wearing Them For Several Years They Look And Feel Like New. They Are My Go-To Comfy House Pants As Well As Stylish Leisure-Wear In The City.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_QJzy4R": {
+          "type": "review",
+          "settings": {
+            "author": "Susann Schramm",
+            "avatar_color": "#e06d53",
+            "rating": 5,
+            "text": "I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_in3zwi": {
+          "type": "review",
+          "settings": {
+            "author": "Monali Reddy",
+            "avatar_color": "#b93815",
+            "rating": 5,
+            "text": "The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_9ddcjt": {
+          "type": "review",
+          "settings": {
+            "author": "Nicoletta Lenchi",
+            "avatar_color": "#4d7c0f",
+            "rating": 5,
+            "text": "This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        },
+        "review_QHkrFy": {
+          "type": "review",
+          "settings": {
+            "author": "Brenda Sanchez",
+            "avatar_color": "#c2410c",
+            "rating": 5,
+            "text": "I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.",
+            "date": "4 months ago",
+            "show_google_badge": true
+          }
+        }
+      },
+      "block_order": [
+        "review_AVPBfK",
+        "review_P8d4FT",
+        "review_DFPGHa",
+        "review_q8Bwag",
+        "review_tnVjKC",
+        "review_jm6feN",
+        "review_QJzy4R",
+        "review_in3zwi",
+        "review_9ddcjt",
+        "review_QHkrFy"
+      ],
+      "name": "Customer Reviews Grid",
+      "settings": {
+        "heading": "Exceptional Cloths. Exceptional Ratings.",
+        "heading_size": "h2",
+        "rating_prefix": "Rated 5/5 On",
+        "enable_marquee": true,
+        "marquee_speed": 35,
+        "card_bg": "#f8f8f8",
+        "text_color": "#121212",
+        "star_color": "#f59e0b",
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL REVIEWS",
+        "view_all_link": "",
+        "padding_top": 60,
+        "padding_bottom": 32
+      }
+    },
+    "collection_list_HzNdCd": {
+      "type": "collection-list",
+      "blocks": {
+        "group_7re8hj": {
+          "type": "group",
+          "name": "t:names.header",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_3UTccC": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Shop by Prints</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 16,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_3UTccC"
+          ]
+        },
+        "static-collection-card": {
+          "type": "_collection-card",
+          "name": "t:names.collection_card",
+          "static": true,
+          "settings": {
+            "placement": "below_image",
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "collection_card_gap": 8,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0
+          },
+          "blocks": {
+            "collection_title_z8Qepm": {
+              "type": "collection-title",
+              "name": "t:names.collection_title",
+              "settings": {
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.25rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "{{ settings.color_palette.background }}",
+                "text_color": "{{ settings.color_palette.foreground }}",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "collection-card-image": {
+              "type": "_collection-card-image",
+              "name": "t:names.collection_card_image",
+              "static": true,
+              "settings": {
+                "image_ratio": "portrait",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "collection_title_z8Qepm"
+          ]
+        }
+      },
+      "block_order": [
+        "group_7re8hj"
+      ],
+      "custom_css": [
+        "slideshow-arrows[position=\"center\"] {justify-content: right; align-items: flex-start; top: -60px; gap: 20px;}",
+        ".slideshow-control--next {margin-inline-start: unset !important;}",
+        ".slideshow-control[disabled] {display: block;}",
+        ".slideshow-control[disabled] {position: relative;}",
+        "slideshow-arrows .slideshow-control {opacity: 1; border: 1px solid #ebebeb; padding: 0 !important; min-width: 38px !important; min-height: 38px !important; display: flex !important;}",
+        ".slideshow-control {animation: none;}"
+      ],
+      "name": "t:names.collections_carousel",
+      "settings": {
+        "collection_list": [
+          "capri-leggings",
+          "coral",
+          "zebra-print",
+          "bloom",
+          "feather"
+        ],
+        "layout_type": "carousel",
+        "carousel_on_mobile": false,
+        "columns": 3,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "bento_gap": 8,
+        "rows_gap": 8,
+        "max_collections": 4,
+        "icons_style": "chevron",
+        "icons_shape": "circle",
+        "section_width": "page-width",
+        "gap": 12,
+        "background_color": "",
+        "padding-block-start": 40,
+        "padding-block-end": 60
+      }
+    },
+    "hero_feature_boxes_nACJ39": {
+      "type": "hero-feature-boxes",
+      "blocks": {
+        "feature_box_7KW7bP": {
+          "type": "feature_box",
+          "settings": {
+            "icon": "stretch",
+            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1.png",
+            "custom_svg": "",
+            "title": "Four Way Stretch Cotton",
+            "text": "Made with our amazing 4-way stretch cotton, flexibility and support."
+          }
+        },
+        "feature_box_qmK4jH": {
+          "type": "feature_box",
+          "settings": {
+            "icon": "feather",
+            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_1.png",
+            "custom_svg": "",
+            "title": "Buttery-Soft Comfort",
+            "text": "Ultra-soft cotton stretch fabric that feels like a second skin."
+          }
+        },
+        "feature_box_zt8rVN": {
+          "type": "feature_box",
+          "settings": {
+            "icon": "needle_thread",
+            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_2.png",
+            "custom_svg": "",
+            "title": "Balinese Craftsmanship",
+            "text": "Lovingly handmade by skilled Balinese artisans, with each piece crafted with care and pride."
+          }
+        },
+        "feature_box_PjqaQB": {
+          "type": "feature_box",
+          "settings": {
+            "icon": "fabric_layers",
+            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_3.png",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "text": "90% cotton and 10% elastane, made to last through countless washes and wears without losing shape."
+          }
+        }
+      },
+      "block_order": [
+        "feature_box_7KW7bP",
+        "feature_box_qmK4jH",
+        "feature_box_zt8rVN",
+        "feature_box_PjqaQB"
+      ],
+      "name": "Hero Feature Boxes",
+      "settings": {
+        "image": "shopify://shop_images/9c1878b625f414decf9e9f5e18c2390e3b8af640.webp",
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "heading": "The Perfect Leggings\nFrom Our Bali Family",
+        "heading_size": 56,
+        "heading_max_width": 560,
+        "text_color": "#ffffff",
+        "box_border_color": "#ffffff",
+        "box_border_opacity": 40,
+        "box_bg_opacity": 8,
+        "section_min_height": "700px",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "community_mosaic_grid_MbXXbA": {
+      "type": "community-mosaic-grid",
+      "blocks": {
+        "media_ijMxp4": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_2.png",
+            "link": ""
+          }
+        },
+        "media_efFm6X": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3.png",
+            "link": ""
+          }
+        },
+        "media_RpCmtd": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_5.png",
+            "link": ""
+          }
+        },
+        "media_Kt8eUk": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4.png",
+            "link": ""
+          }
+        },
+        "media_WWteBU": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_6.png",
+            "link": ""
+          }
+        },
+        "media_cUDyw4": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_2_1.png",
+            "link": ""
+          }
+        },
+        "media_CJWqy4": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3_1.png",
+            "link": ""
+          }
+        },
+        "media_CUBmLq": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_5_1.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "media_ijMxp4",
+        "media_efFm6X",
+        "media_RpCmtd",
+        "media_Kt8eUk",
+        "media_WWteBU",
+        "media_cUDyw4",
+        "media_CJWqy4",
+        "media_CUBmLq"
+      ],
+      "name": "Community Mosaic Grid",
+      "settings": {
+        "heading": "Our Funky Community",
+        "heading_size": 28,
+        "heading_alignment": "left",
+        "section_width": "page-width",
+        "gap": 10,
+        "overlay_opacity": 40,
+        "show_button": true,
+        "button_label": "JOIN OUR COMMUNITY",
+        "button_link": "",
+        "button_bg": "{{ settings.color_palette.foreground }}",
+        "button_color": "{{ settings.color_palette.foreground }}"
+      }
+    },
+    "featured_blog_posts_UGbMPW": {
+      "type": "featured-blog-posts",
+      "blocks": {
+        "static-blog-title": {
+          "type": "_featured-blog-posts-title",
+          "name": "t:names.title",
+          "static": true,
+          "settings": {
+            "text": "<p>The Happy Moment Blog</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "2rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-blog-post-card": {
+          "type": "_featured-blog-posts-card",
+          "name": "t:names.blog_card",
+          "static": true,
+          "settings": {
+            "show_read_time": true,
+            "show_read_more": true,
+            "read_more_text": "Read More",
+            "alignment": "left",
+            "gap": 8,
+            "background_color": "#f6f6f6",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "image": {
+              "type": "_featured-blog-posts-image",
+              "static": true,
+              "settings": {
+                "image_ratio": "square",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0
+              },
+              "blocks": {}
+            },
+            "title": {
+              "type": "_heading",
+              "name": "t:names.title",
+              "static": true,
+              "settings": {
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.5rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text": "<h4>{{ closest.article.title }}</h4>",
+                "read_only": false,
+                "alignment": "left",
+                "show_alignment": false,
+                "text_color": "",
+                "padding-block-start": 10,
+                "padding-block-end": 0,
+                "padding-inline-start": 20,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "blog-post-info-text": {
+              "type": "_blog-post-info-text",
+              "name": "t:names.details",
+              "disabled": true,
+              "static": true,
+              "settings": {
+                "show_date": true,
+                "show_author": true,
+                "type_preset": "",
+                "alignment": "left",
+                "text_color": "",
+                "show_alignment": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 20,
+                "padding-inline-end": 20
+              },
+              "blocks": {}
+            },
+            "blog-post-description": {
+              "type": "_blog-post-description",
+              "name": "t:names.excerpt",
+              "static": true,
+              "settings": {
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "",
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 20,
+                "padding-inline-end": 20
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        }
+      },
+      "custom_css": [
+        ".text-block--AcjJGOExJN0JYbVQ3V__static-blog-title p {font-size: 28px;}"
+      ],
+      "name": "t:names.blog_posts_grid",
+      "settings": {
+        "blog": "news",
+        "layout_type": "grid",
+        "carousel_on_mobile": true,
+        "post_limit": 3,
+        "columns": 3,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 8,
+        "rows_gap": 8,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 12,
+        "background_color": "",
+        "padding-block-start": 20,
+        "padding-block-end": 48
+      }
+    },
+    "section_n6QDL3": {
+      "type": "section",
+      "blocks": {
+        "group_V76kNV": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 16,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_YPi4LL": {
+              "type": "icon",
+              "settings": {
+                "icon": "none",
+                "image_upload": "shopify://shop_images/Frame_19.svg",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "group_pwreyC": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 4,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_8LCBJf": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>High Quality Fabrics</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_8LCBJf"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_YPi4LL",
+            "group_pwreyC"
+          ]
+        },
+        "group_GXt7zr": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 16,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_r48egt": {
+              "type": "icon",
+              "settings": {
+                "icon": "none",
+                "image_upload": "shopify://shop_images/Frame_20.svg",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "group_QWJAUa": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 4,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_yGwLYK": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Handmade Fairly In Bali</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_yGwLYK"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_r48egt",
+            "group_QWJAUa"
+          ]
+        },
+        "group_HAWgPX": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 16,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_jg39fK": {
+              "type": "icon",
+              "settings": {
+                "icon": "none",
+                "image_upload": "shopify://shop_images/Frame_21_1.svg",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "group_W4VmWz": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 4,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_nh8hzr": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>4 way stretch cotton</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_nh8hzr"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_jg39fK",
+            "group_W4VmWz"
+          ]
+        },
+        "group_Ggcr7m": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 16,
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "icon_yWgUJL": {
+              "type": "icon",
+              "settings": {
+                "icon": "none",
+                "image_upload": "shopify://shop_images/Frame.svg",
+                "width": 48,
+                "link": "",
+                "open_in_new_tab": false,
+                "icon_color": ""
+              },
+              "blocks": {}
+            },
+            "group_n93b8U": {
+              "type": "group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 4,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_YqgQ7p": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Original swiss artwork</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_YqgQ7p"
+              ]
+            }
+          },
+          "block_order": [
+            "icon_yWgUJL",
+            "group_n93b8U"
+          ]
+        }
+      },
+      "block_order": [
+        "group_V76kNV",
+        "group_GXt7zr",
+        "group_HAWgPX",
+        "group_Ggcr7m"
+      ],
+      "custom_css": [
+        "@media (max-width: 767px) {.spacing-style.layout-panel-flex.layout-panel-flex--row.section-content-wrapper.mobile-column {display: grid; grid-template-columns: 1fr 1fr; } p {text-align: center; }}"
+      ],
+      "name": "t:names.icons_with_text",
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 60,
+        "section_width": "page-width",
+        "section_height": "custom",
+        "section_height_custom": 0,
+        "background_media": "none",
+        "background_color": "#f6f6f6",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "tabbed_collection_carousel_XhDXhd",
+    "fabric_features_banner_NKYTKG",
+    "google_reviews_grid_LHeq7C",
+    "collection_list_HzNdCd",
+    "hero_feature_boxes_nACJ39",
+    "community_mosaic_grid_MbXXbA",
+    "featured_blog_posts_UGbMPW",
+    "section_n6QDL3"
+  ]
+}
