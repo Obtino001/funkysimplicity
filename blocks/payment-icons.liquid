@@ -1,7 +1,15 @@
 
 {% assign block_settings = block.settings %}
 
-{%- assign block_settings = block.settings -%}
+{% liquid
+  if block_settings.custom_payment_types != blank
+    assign payment_types = block_settings.custom_payment_types | split: ','
+  elsif shop.enabled_payment_types.size > 0
+    assign payment_types = shop.enabled_payment_types
+  else
+    assign payment_types = 'ideal,american_express,apple_pay,google_pay,klarna,maestro,master,paypal,shopify_pay,unionpay,visa' | split: ','
+  endif
+%}
 
 <div
   class="
@@ -12,6 +20,7 @@
     {% render 'spacing-padding', settings: block_settings %}
     --icon-gap: {{ block_settings.gap }}px;
     --alignment: {{ block_settings.horizontal_alignment }};
+    --icon-width: {{ block_settings.icon_width | default: 38 }}px;
   "
   {{ block.shopify_attributes }}
 >
@@ -20,10 +29,13 @@
     class="payment-icons__list"
     role="list"
   >
-    {%- for type in shop.enabled_payment_types -%}
-      <li class="payment-icons__item">
-        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-      </li>
+    {%- for type in payment_types -%}
+      {% assign clean_type = type | strip %}
+      {% if clean_type != blank %}
+        <li class="payment-icons__item">
+          {{ clean_type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </li>
+      {% endif %}
     {%- endfor -%}
   </ul>
 </div>
@@ -41,11 +53,21 @@
     gap: var(--icon-gap);
     margin: 0;
     padding: 0;
+    list-style: none;
   }
 
   .payment-icons__item {
     display: flex;
     align-items: center;
+    line-height: 1;
+  }
+
+  .payment-icons__item svg {
+    width: var(--icon-width, 38px);
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    display: block;
   }
 {% endstylesheet %}
 
@@ -77,6 +99,23 @@
         }
       ],
       "default": "flex-start"
+    },
+    {
+      "type": "text",
+      "id": "custom_payment_types",
+      "label": "Payment types (comma-separated)",
+      "default": "ideal, american_express, apple_pay, google_pay, klarna, maestro, master, paypal, shopify_pay, unionpay, visa",
+      "info": "Leave blank to use shop enabled payment types"
+    },
+    {
+      "type": "range",
+      "id": "icon_width",
+      "label": "Icon width",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 38
     },
     {
       "type": "range",
