@@ -46,6 +46,14 @@ export class ThemeDrawer extends Component {
   #modalQuery = window.matchMedia(`(max-width: ${MODAL_BREAKPOINT - 1}px)`);
 
   /**
+   * Cart and other overlay drawers always use a modal backdrop, including desktop.
+   * @returns {boolean}
+   */
+  get #useModal() {
+    return this.hasAttribute('data-always-modal') || this.#modalQuery.matches;
+  }
+
+  /**
    * @returns {boolean} Whether the drawer is currently open.
    */
   get isOpen() {
@@ -78,7 +86,7 @@ export class ThemeDrawer extends Component {
    */
   #onRestore() {
     const { panel } = this.refs;
-    if (this.#modalQuery.matches) {
+    if (this.#useModal) {
       lockScroll(panel);
     }
 
@@ -145,7 +153,7 @@ export class ThemeDrawer extends Component {
     panel.close();
     removeTrapFocus();
 
-    if (this.#modalQuery.matches) {
+    if (this.#useModal) {
       lockScroll(panel);
       panel.showModal();
     } else {
@@ -215,7 +223,7 @@ export class ThemeDrawer extends Component {
 
     this.#previouslyFocused = /** @type {HTMLElement | null} */ (document.activeElement);
 
-    if (this.#modalQuery.matches) {
+    if (this.#useModal) {
       lockScroll(panel);
       panel.showModal();
     } else {
@@ -251,7 +259,7 @@ export class ThemeDrawer extends Component {
     // In modal mode, dialogs live in the browser's top layer where z-index
     // is ignored — stacking follows showModal() call order. Re-calling
     // showModal() moves this dialog to the top of the stack.
-    if (this.#modalQuery.matches && panel.open) {
+    if (this.#useModal && panel.open) {
       lockScroll(panel);
       panel.close();
       panel.showModal();
