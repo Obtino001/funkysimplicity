@@ -11,6 +11,18 @@
 
 const SELECTED = 'is-selected';
 
+/**
+ * Shopify `money` in JSON keeps HTML entities (`&euro;`). textContent prints them raw.
+ * @param {string} value
+ * @returns {string}
+ */
+function decodeMoney(value) {
+  if (!value) return '';
+  const textarea = document.createElement('textarea');
+  textarea.innerHTML = value;
+  return textarea.value;
+}
+
 /* -------------------------------------------------------------------------- */
 /* Media carousels                                                            */
 /* -------------------------------------------------------------------------- */
@@ -95,7 +107,7 @@ function updateCard(card) {
   const match = variants.find((variant) => selection.every((value, index) => variant.options[index] === value));
 
   const price = card.querySelector('[data-recommendation-price]');
-  if (price && match) price.textContent = match.price;
+  if (price && match) price.textContent = decodeMoney(match.price);
 
   // Compare-at price and savings pill only exist on the complementary cards.
   const compare = card.querySelector('[data-recommendation-compare]');
@@ -104,12 +116,12 @@ function updateCard(card) {
 
   if (compare instanceof HTMLElement) {
     compare.hidden = !discounted;
-    if (discounted && match) compare.textContent = match.compare_at_price;
+    if (discounted && match) compare.textContent = decodeMoney(match.compare_at_price);
   }
 
   if (savings instanceof HTMLElement) {
     savings.hidden = !discounted;
-    if (discounted && match) savings.textContent = `Save ${match.savings}`;
+    if (discounted && match) savings.textContent = `Save ${decodeMoney(match.savings)}`;
   }
 
   const addButton = card.querySelector('[data-recommendation-add]');

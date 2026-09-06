@@ -358,10 +358,13 @@
 <script>
   (function() {
     function formatMoney(cents) {
+      let formatted = '$' + (cents / 100).toFixed(2);
       if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
-        return window.Shopify.formatMoney(cents);
+        formatted = window.Shopify.formatMoney(cents);
       }
-      return '$' + (cents / 100).toFixed(2);
+      const textarea = document.createElement('textarea');
+      textarea.innerHTML = formatted;
+      return textarea.value;
     }
 
     function initThemeProductCard(card) {
