@@ -119,7 +119,7 @@
       "settings": {
         "intro_heading": "How It All Began",
         "intro_text": "<p>A journey rooted in freedom and craftsmanship, Funky Simplicity began with a one-way ticket to Asia and a handmade pair of flared leggings in Bali, evolving over the past 30 years into a brand creating timeless cotton apparel that celebrates movement, comfort, and fair craftsmanship.</p>",
-        "intro_image": "shopify://shop_images/image_4.png",
+        "intro_image": "shopify://shop_images/image.png",
         "intro_heading_size": 32,
         "intro_heading_weight": "400",
         "intro_text_size": 16,
@@ -140,7 +140,7 @@
       "name": "Image with text",
       "settings": {
         "image_position": "right",
-        "image": "shopify://shop_images/image_5.png",
+        "image": "shopify://shop_images/image_1.png",
         "heading": "Meet the founder",
         "heading_size": 32,
         "heading_weight": "400",
