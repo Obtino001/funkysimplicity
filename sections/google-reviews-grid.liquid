@@ -1,10 +1,9 @@
 {%- comment -%}
   Google Customer Reviews Grid / Marquee Section
   Features:
-  - Header with title and "Rated 5/5 On Google Reviews" badge
+  - Header with title and "Rated 5/5 On Google Reviews" image logo
   - Dual-row review cards with smooth fade edges and optional auto-scrolling marquee
-  - Review cards with letter/photo avatars, Google verification badge, 5-star ratings, review text, and timestamp
-  - "VIEW ALL REVIEWS" centered pill button
+  - Inline card HTML (No external snippets needed)
 {%- endcomment -%}
 
 {%- liquid
@@ -12,13 +11,13 @@
   assign heading = section.settings.heading
   assign heading_size = section.settings.heading_size | default: 'h2'
   assign rating_prefix = section.settings.rating_prefix | default: 'Rated 5/5 On'
-  assign show_google_logo = section.settings.show_google_logo
+  assign google_logo = section.settings.google_logo
   assign enable_marquee = section.settings.enable_marquee
   assign marquee_speed = section.settings.marquee_speed | default: 35
   assign show_view_all = section.settings.show_view_all
   assign view_all_text = section.settings.view_all_text | default: 'VIEW ALL REVIEWS'
   assign view_all_link = section.settings.view_all_link | default: '#'
-  assign card_bg = section.settings.card_bg | default: '#f8f8f8'
+  assign card_bg = section.settings.card_bg | default: '#ffffff'
   assign text_color = section.settings.text_color | default: '#121212'
   assign star_color = section.settings.star_color | default: '#f59e0b'
   assign padding_top = section.settings.padding_top | default: 64
@@ -49,27 +48,8 @@
           <span class="gr-rating-text">{{ rating_prefix }}</span>
         {%- endif -%}
 
-        {%- if show_google_logo -%}
-          <div class="gr-google-brand">
-            <svg class="gr-google-svg" viewBox="0 0 74 24" height="24" width="74" aria-label="Google">
-              <path fill="#4285F4" d="M9.24 10.87v3.08h6.43c-.26 1.68-1.95 4.93-6.43 4.93-3.87 0-7.03-3.21-7.03-7.16s3.16-7.16 7.03-7.16c2.2 0 3.68.94 4.53 1.74l2.44-2.35C14.6 2.47 12.16 1.5 9.24 1.5 4.14 1.5 0 5.64 0 10.74s4.14 9.24 9.24 9.24c5.33 0 8.87-3.75 8.87-9.03 0-.61-.07-1.07-.15-1.53H9.24z"/>
-              <path fill="#EA4335" d="M24.78 11.23c0-3.32-2.58-5.83-5.84-5.83s-5.84 2.51-5.84 5.83c0 3.29 2.58 5.83 5.84 5.83s5.84-2.54 5.84-5.83zm-2.58 0c0 2.06-1.46 3.49-3.26 3.49s-3.26-1.43-3.26-3.49c0-2.09 1.46-3.49 3.26-3.49s3.26 1.4 3.26 3.49z"/>
-              <path fill="#FBBC05" d="M37.38 11.23c0-3.32-2.58-5.83-5.84-5.83s-5.84 2.51-5.84 5.83c0 3.29 2.58 5.83 5.84 5.83s5.84-2.54 5.84-5.83zm-2.58 0c0 2.06-1.46 3.49-3.26 3.49s-3.26-1.43-3.26-3.49c0-2.09 1.46-3.49 3.26-3.49s3.26 1.4 3.26 3.49z"/>
-              <path fill="#4285F4" d="M49.03 5.7h-2.47v1.07h-.08c-.46-.57-1.39-1.37-2.92-1.37-2.98 0-5.46 2.61-5.46 5.83 0 3.2 2.48 5.83 5.46 5.83 1.53 0 2.46-.8 2.92-1.39h.08v.88c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.52-1.12-2.92-2.06l-2.22.93c.64 1.55 2.33 3.47 5.14 3.47 2.99 0 5.51-1.76 5.51-6.07V5.7h.06zm-4.99 9.02c-1.8 0-3.26-1.45-3.26-3.49 0-2.06 1.46-3.49 3.26-3.49 1.77 0 3.2 1.43 3.2 3.49.01 2.04-1.42 3.49-3.2 3.49z"/>
-              <path fill="#34A853" d="M52.01 1.94h2.58v14.73h-2.58z"/>
-              <path fill="#EA4335" d="M62.66 12.83c-1.22 0-2.1-.56-2.65-1.64l7.29-3.02-.25-.61c-.46-1.25-1.89-3.56-4.81-3.56-2.9 0-5.32 2.29-5.32 5.83 0 3.26 2.39 5.83 5.74 5.83 2.7 0 4.26-1.66 4.91-2.61l-2.01-1.34c-.67.97-1.58 1.52-2.9 1.52zm-.17-5.32c.98 0 1.82.5 2.1 1.22l-5.01 2.08c0-2.33 1.66-3.3 2.91-3.3z"/>
-            </svg>
-            <div class="gr-google-sub">
-              <span class="gr-reviews-label">Reviews</span>
-              <div class="gr-stars-micro">
-                {%- for i in (1..5) -%}
-                  <svg class="gr-star-icon" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                  </svg>
-                {%- endfor -%}
-              </div>
-            </div>
-          </div>
+        {%- if google_logo != blank -%}
+          <img src="{{ google_logo | image_url: width: 150 }}" alt="Google Reviews" class="gr-google-logo-img" loading="lazy">
         {%- endif -%}
       </div>
     </div>
@@ -92,22 +72,12 @@
         <div class="gr-track-inner">
           {%- if total_blocks > 0 -%}
             {%- for block in section.blocks limit: half_count -%}
-              {%- render 'google-review-card', block: block -%}
+              {%- render 'google-review-card-inline', block: block -%}
             {%- endfor -%}
-            {%- comment -%} Duplicate for seamless infinite marquee loop {%- endcomment -%}
             {%- if enable_marquee -%}
               {%- for block in section.blocks limit: half_count -%}
-                {%- render 'google-review-card', block: block -%}
+                {%- render 'google-review-card-inline', block: block -%}
               {%- endfor -%}
-            {%- endif -%}
-          {%- else -%}
-            {%- render 'google-review-card-sample', name: 'Susann Schramm', initials: 'S', color: '#e06d53', rating: 5, text: "I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.", date: '4 months ago' -%}
-            {%- render 'google-review-card-sample', name: 'Monali Reddy', initials: 'M', color: '#b93815', rating: 5, text: "The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.", date: '4 months ago' -%}
-            {%- render 'google-review-card-sample', name: 'Nicoletta Lenchi', initials: 'N', color: '#4d7c0f', rating: 5, text: "This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.", date: '4 months ago' -%}
-            {%- if enable_marquee -%}
-              {%- render 'google-review-card-sample', name: 'Susann Schramm', initials: 'S', color: '#e06d53', rating: 5, text: "I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.", date: '4 months ago' -%}
-              {%- render 'google-review-card-sample', name: 'Monali Reddy', initials: 'M', color: '#b93815', rating: 5, text: "The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.", date: '4 months ago' -%}
-              {%- render 'google-review-card-sample', name: 'Nicoletta Lenchi', initials: 'N', color: '#4d7c0f', rating: 5, text: "This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.", date: '4 months ago' -%}
             {%- endif -%}
           {%- endif -%}
         </div>
@@ -118,22 +88,12 @@
         <div class="gr-track-inner">
           {%- if total_blocks > 0 -%}
             {%- for block in section.blocks offset: half_count -%}
-              {%- render 'google-review-card', block: block -%}
+              {%- render 'google-review-card-inline', block: block -%}
             {%- endfor -%}
-            {%- comment -%} Duplicate for seamless infinite marquee loop {%- endcomment -%}
             {%- if enable_marquee -%}
               {%- for block in section.blocks offset: half_count -%}
-                {%- render 'google-review-card', block: block -%}
+                {%- render 'google-review-card-inline', block: block -%}
               {%- endfor -%}
-            {%- endif -%}
-          {%- else -%}
-            {%- render 'google-review-card-sample', name: 'Brenda Sanchez', initials: 'B', color: '#c2410c', rating: 5, text: "I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.", date: '4 months ago' -%}
-            {%- render 'google-review-card-sample', name: 'Liila Fontana', initials: 'L', color: '#558b2f', rating: 5, text: "Looooove All The Amazing Beautiful And So Comfy Funky Wearings Some I Have For Years Now Still Like New. Sooo Good Quality. Big Thank Youuu Funky Simplicity!", date: '4 months ago' -%}
-            {%- render 'google-review-card-sample', name: 'Marc Margherita', initials: 'M', color: '#2e7d32', rating: 5, text: "I Love My Yoga Pants. I Have Two Pairs And After Wearing Them For Several Years They Look And Feel Like New. They Are My Go-To Comfy House Pants As Well As Stylish Leisure-Wear In The City.", date: '4 months ago' -%}
-            {%- if enable_marquee -%}
-              {%- render 'google-review-card-sample', name: 'Brenda Sanchez', initials: 'B', color: '#c2410c', rating: 5, text: "I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.", date: '4 months ago' -%}
-              {%- render 'google-review-card-sample', name: 'Liila Fontana', initials: 'L', color: '#558b2f', rating: 5, text: "Looooove All The Amazing Beautiful And So Comfy Funky Wearings Some I Have For Years Now Still Like New. Sooo Good Quality. Big Thank Youuu Funky Simplicity!", date: '4 months ago' -%}
-              {%- render 'google-review-card-sample', name: 'Marc Margherita', initials: 'M', color: '#2e7d32', rating: 5, text: "I Love My Yoga Pants. I Have Two Pairs And After Wearing Them For Several Years They Look And Feel Like New. They Are My Go-To Comfy House Pants As Well As Stylish Leisure-Wear In The City.", date: '4 months ago' -%}
             {%- endif -%}
           {%- endif -%}
         </div>
@@ -169,7 +129,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem;
+    gap: 3rem;
   }
 
   /* Header */
@@ -178,20 +138,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     padding-inline: 1.5rem;
   }
 
   .gr-heading {
     margin: 0;
     font-family: var(--font-heading--family, serif);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.01em;
   }
 
   .gr-heading.h1 { font-size: clamp(2rem, 4vw, 3rem); }
-  .gr-heading.h2 { font-size: clamp(1.75rem, 3.5vw, 2.25rem); }
+  .gr-heading.h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
   .gr-heading.h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   .gr-heading.h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
@@ -199,50 +159,18 @@
   .gr-rating-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 12px;
     font-family: var(--font-body--family, inherit);
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     color: #121212;
   }
-
-  .gr-google-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .gr-google-svg {
-    height: 22px;
+  
+  .gr-google-logo-img {
+    height: 48px;
     width: auto;
+    object-fit: contain;
     display: block;
-  }
-
-  .gr-google-sub {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1;
-    margin-left: 2px;
-  }
-
-  .gr-reviews-label {
-    font-size: 0.65rem;
-    color: #666;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    margin-bottom: 2px;
-  }
-
-  .gr-stars-micro {
-    display: flex;
-    gap: 1px;
-    color: #FBBC05;
-  }
-
-  .gr-stars-micro .gr-star-icon {
-    width: 10px;
-    height: 10px;
   }
 
   /* Tracks & Grid */
@@ -252,14 +180,14 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .gr-fade {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 10vw;
+    width: 12vw;
     max-width: 300px;
     z-index: 5;
     pointer-events: none;
@@ -291,7 +219,7 @@
 
   .gr-track-inner {
     display: flex;
-    gap: 1.25rem;
+    gap: 1.5rem;
     width: max-content;
     padding-inline: 2rem;
   }
@@ -311,53 +239,53 @@
 
   @keyframes grScrollLeft {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(calc(-50% - 0.75rem)); }
   }
 
   @keyframes grScrollRight {
-    0% { transform: translateX(-50%); }
+    0% { transform: translateX(calc(-50% - 0.75rem)); }
     100% { transform: translateX(0); }
   }
 
   /* Card */
   .gr-card {
-    background-color: var(--gr-card-bg, #f8f8f8);
-    border-radius: 4px;
-    padding: 1.5rem;
-    width: 320px;
-    flex: 0 0 320px;
+    background-color: var(--gr-card-bg, #ffffff);
+    border-radius: 6px;
+    padding: 1.75rem;
+    width: 360px;
+    flex: 0 0 360px;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 1rem;
     text-align: left;
     box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .gr-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   }
 
   .gr-card__header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
   .gr-card__avatar {
     position: relative;
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
-    overflow: visible;
   }
 
   .gr-card__avatar img {
@@ -371,26 +299,32 @@
     position: absolute;
     bottom: -2px;
     right: -2px;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     background: #ffffff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    padding: 3px;
+  }
+  
+  .gr-card__google-badge svg {
+    width: 100%;
+    height: 100%;
   }
 
   .gr-card__meta {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
 
   .gr-card__author {
     margin: 0;
     font-family: var(--font-body--family, inherit);
-    font-size: 0.92rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--gr-text-color, #121212);
   }
@@ -402,15 +336,15 @@
   }
 
   .gr-star {
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
   }
 
   .gr-card__text {
     margin: 0;
     font-family: var(--font-body--family, inherit);
-    font-size: 0.84rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: #444444;
     font-weight: 400;
     flex-grow: 1;
@@ -421,31 +355,30 @@
   }
 
   .gr-card__date {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #888888;
     text-align: right;
-    margin-top: auto;
+    margin-top: 0.5rem;
   }
 
   /* Footer */
   .gr-footer {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   .gr-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 25px;
+    padding: 14px 28px;
     border-radius: 9999px;
     border: 1px solid var(--gr-text-color, #121212);
     background: transparent;
     color: var(--gr-text-color, #121212);
-    
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
@@ -459,9 +392,9 @@
 
   @media screen and (max-width: 749px) {
     .gr-card {
-      width: 270px;
-      flex: 0 0 270px;
-      padding: 1.25rem;
+      width: 300px;
+      flex: 0 0 300px;
+      padding: 1.5rem;
     }
     .gr-tracks-wrapper {
       gap: 1rem;
@@ -469,8 +402,46 @@
   }
 </style>
 
-{%- comment -%} Custom Snippets for Cards {%- endcomment -%}
-{% capture _ %}
+{%- comment -%} Inline Card Snippet for ease of use {%- endcomment -%}
+{%- capture _ -%}
+  {%- snippet 'google-review-card-inline' -%}
+    <div class="gr-card" {{ block.shopify_attributes }}>
+      <div class="gr-card__header">
+        <div class="gr-card__avatar" style="background-color: {{ block.settings.avatar_color }}">
+          {%- if block.settings.avatar_image != blank -%}
+            <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy">
+          {%- else -%}
+            {{ block.settings.author | slice: 0 | upcase }}
+          {%- endif -%}
+          
+          {%- if block.settings.show_google_badge -%}
+            <div class="gr-card__google-badge">
+              <svg viewBox="0 0 24 24" aria-label="Google">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+          {%- endif -%}
+        </div>
+        
+        <div class="gr-card__meta">
+          <h3 class="gr-card__author">{{ block.settings.author }}</h3>
+          <div class="gr-card__stars">
+            {%- for i in (1..block.settings.rating) -%}
+              <svg class="gr-star" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+      
+      <p class="gr-card__text">{{ block.settings.text }}</p>
+      <div class="gr-card__date">{{ block.settings.date }}</div>
+    </div>
+  {%- endsnippet -%}
 {%- endcapture -%}
 
 {% schema %}
@@ -510,10 +481,10 @@
       "default": "Rated 5/5 On"
     },
     {
-      "type": "checkbox",
-      "id": "show_google_logo",
-      "label": "Show Google Reviews Logo & Stars",
-      "default": true
+      "type": "image_picker",
+      "id": "google_logo",
+      "label": "Google Reviews Logo Image",
+      "info": "Upload the custom Google Reviews image here (e.g. 114x64 format)."
     },
     {
       "type": "header",
@@ -539,7 +510,7 @@
       "type": "color",
       "id": "card_bg",
       "label": "Card Background Color",
-      "default": "#f8f8f8"
+      "default": "#ffffff"
     },
     {
       "type": "color",
@@ -658,74 +629,17 @@
         "heading": "Exceptional Cloths. Exceptional Ratings.",
         "heading_size": "h2",
         "rating_prefix": "Rated 5/5 On",
-        "show_google_logo": true,
         "enable_marquee": true,
         "show_view_all": true,
-        "view_all_text": "VIEW ALL REVIEWS",
-        "padding_top": 64,
-        "padding_bottom": 64
+        "view_all_text": "VIEW ALL REVIEWS"
       },
       "blocks": [
-        {
-          "type": "review",
-          "settings": {
-            "author": "Susann Schramm",
-            "avatar_color": "#e06d53",
-            "rating": 5,
-            "text": "I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.",
-            "date": "4 months ago"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "author": "Monali Reddy",
-            "avatar_color": "#b93815",
-            "rating": 5,
-            "text": "The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.",
-            "date": "4 months ago"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "author": "Nicoletta Lenchi",
-            "avatar_color": "#4d7c0f",
-            "rating": 5,
-            "text": "This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.",
-            "date": "4 months ago"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "author": "Brenda Sanchez",
-            "avatar_color": "#c2410c",
-            "rating": 5,
-            "text": "I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.",
-            "date": "4 months ago"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "author": "Liila Fontana",
-            "avatar_color": "#558b2f",
-            "rating": 5,
-            "text": "Looooove All The Amazing Beautiful And So Comfy Funky Wearings Some I Have For Years Now Still Like New. Sooo Good Quality. Big Thank Youuu Funky Simplicity!",
-            "date": "4 months ago"
-          }
-        },
-        {
-          "type": "review",
-          "settings": {
-            "author": "Marc Margherita",
-            "avatar_color": "#2e7d32",
-            "rating": 5,
-            "text": "I Love My Yoga Pants. I Have Two Pairs And After Wearing Them For Several Years They Look And Feel Like New. They Are My Go-To Comfy House Pants As Well As Stylish Leisure-Wear In The City.",
-            "date": "4 months ago"
-          }
-        }
+        { "type": "review", "settings": { "author": "Susann Schramm", "avatar_color": "#e06d53" } },
+        { "type": "review", "settings": { "author": "Monali Reddy", "avatar_color": "#b93815" } },
+        { "type": "review", "settings": { "author": "Nicoletta Lenchi", "avatar_color": "#4d7c0f" } },
+        { "type": "review", "settings": { "author": "Brenda Sanchez", "avatar_color": "#c2410c" } },
+        { "type": "review", "settings": { "author": "Liila Fontana", "avatar_color": "#558b2f" } },
+        { "type": "review", "settings": { "author": "Marc Margherita", "avatar_color": "#2e7d32" } }
       ]
     }
   ]
