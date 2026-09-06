@@ -299,25 +299,16 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "image_4e84gV": {
-                  "type": "image",
-                  "name": "t:names.image",
+                "payment_icons_hd": {
+                  "type": "payment-icons",
+                  "name": "Payment Icons",
                   "settings": {
-                    "image": "shopify://shop_images/image_13.svg",
-                    "link": "",
-                    "image_ratio": "adapt",
-                    "width": "custom",
-                    "custom_width": 70,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_color": "",
-                    "border_radius": 0,
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "horizontal_alignment": "center",
+                    "custom_payment_types": "ideal,american_express,apple_pay,google_pay,klarna,maestro,master,paypal,shopify_pay,unionpay,visa",
+                    "icon_width": 38,
+                    "gap": 8,
+                    "padding-block-start": 4,
+                    "padding-block-end": 4,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
@@ -325,7 +316,7 @@
                 }
               },
               "block_order": [
-                "image_4e84gV"
+                "payment_icons_hd"
               ]
             },
             "content_box_XezpMz": {
