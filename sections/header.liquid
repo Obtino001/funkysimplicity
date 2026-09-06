@@ -146,14 +146,7 @@
   endif
 
   assign show_language = section.settings.show_language
-  if localization.available_languages.size <= 1
-    assign show_language = false
-  endif
-
   assign show_country = section.settings.show_country
-  if localization.available_countries.size <= 1
-    assign show_country = false
-  endif
 
   assign bottom_row_blocks = ''
 
@@ -220,92 +213,168 @@
     assign localization_font_size = '--menu-localization-font-size: [localization_font_size]; ' | replace: '[localization_font_size]', section.settings.localization_font_size
     assign color_shadow = '--color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));'
     assign form_style = localization_font | append: localization_font_size | append: color_shadow
+
+    assign lang_iso = localization.language.iso_code | downcase
+    case lang_iso
+      when 'en'
+        assign current_lang_label = 'ENG'
+      when 'es'
+        assign current_lang_label = 'ESP'
+      when 'fr'
+        assign current_lang_label = 'FRA'
+      when 'de'
+        assign current_lang_label = 'DEU'
+      when 'it'
+        assign current_lang_label = 'ITA'
+      when 'nl'
+        assign current_lang_label = 'NLD'
+      when 'pt', 'pt-br', 'pt-pt'
+        assign current_lang_label = 'POR'
+      when 'ja'
+        assign current_lang_label = 'JPN'
+      when 'zh', 'zh-cn', 'zh-tw'
+        assign current_lang_label = 'ZHO'
+      when 'ru'
+        assign current_lang_label = 'RUS'
+      when 'sv'
+        assign current_lang_label = 'SWE'
+      when 'da'
+        assign current_lang_label = 'DAN'
+      when 'no', 'nb'
+        assign current_lang_label = 'NOR'
+      when 'fi'
+        assign current_lang_label = 'FIN'
+      when 'pl'
+        assign current_lang_label = 'POL'
+      else
+        assign current_lang_label = localization.language.iso_code | upcase
+    endcase
   %}
-  {% if show_language and show_country == false %}
-    <div class="dropdown-localization mobile:hidden">
-      {% render 'localization-form',
-        show_country: show_country,
-        show_language: show_language,
-        localization_style: 'dropdown',
-        form_style: form_style,
-        form_id: section.id
-      %}
-    </div>
-  {% elsif show_country %}
-    <dropdown-localization-component
-      class="dropdown-localization mobile:hidden"
-    >
-      <button
-        type="button"
-        class="button dropdown-localization__button localization-selector header-actions__action"
-        aria-expanded="false"
-        aria-controls="dropdown-localization-results"
-        ref="button"
-        on:click="/toggleSelector"
-        style="{{ localization_font }} {{ localization_font_size }}"
-      >
-        {% if show_country %}
-          {% if section.settings.country_selector_style == true %}
-            {% assign localization_background_color = 'background_color_[row]' | replace: '[row]', section.settings.localization_row %}
-            {% liquid
-              assign background_brightness = section.settings[localization_background_color] | color_brightness
-              if background_brightness < 64
-                assign shadow_size = 4
-              else
-                assign shadow_size = 2
-              endif
-            %}
-            <span
-              class="icon-flag"
-              style="
-                background-image: url({{- localization.country | image_url: width: 32 }});
-                --size-shadow: {{ shadow_size }}px;
-                --color-shadow: rgb(var(--color-foreground-rgb) / var(--opacity-30-60));
-              "
-            ></span>
-          {% endif %}
-          <span
-            class="currency-code"
-            data-testid="localization-currency-code"
+  {% if show_language or show_country %}
+    <div class="header-localization-group mobile:hidden">
+      {% if show_language %}
+        <dropdown-localization-component class="dropdown-localization dropdown-localization--language">
+          <button
+            type="button"
+            class="button dropdown-localization__button localization-selector header-actions__action"
+            aria-expanded="false"
+            aria-controls="dropdown-language-results"
+            ref="button"
+            on:click="/toggleSelector"
+            style="{{ localization_font }} {{ localization_font_size }}"
           >
-            {{- localization.country.currency.iso_code -}}
-          </span>
-        {% endif %}
-        <span
-          class="visually-hidden"
-          data-testid="localization-visually-hidden"
-        >
-          {{- 'accessibility.localization_region_and_language' | t -}}
-        </span>
+            <span class="language-code">{{ current_lang_label }}</span>
+            <span class="svg-wrapper icon-caret">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
 
-        {%- if show_country and show_language -%}
-          <span>/</span>
-        {%- endif -%}
+          <div
+            id="dropdown-language-results"
+            class="localization-wrapper dropdown-language-wrapper {{ section.settings.localization_position }}-bound color-custom-popover"
+            hidden
+            ref="panel"
+          >
+            <localization-form-component ref="localizationForm" style="{{ form_style }}">
+              {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form localization-form--language' -%}
+                <ul role="list" class="list-unstyled localization-form__list language-list">
+                  {%- for language in localization.available_languages -%}
+                    {% liquid
+                      assign item_iso = language.iso_code | downcase
+                      case item_iso
+                        when 'en'
+                          assign item_label = 'ENG'
+                        when 'es'
+                          assign item_label = 'ESP'
+                        when 'fr'
+                          assign item_label = 'FRA'
+                        when 'de'
+                          assign item_label = 'DEU'
+                        when 'it'
+                          assign item_label = 'ITA'
+                        when 'nl'
+                          assign item_label = 'NLD'
+                        when 'pt', 'pt-br', 'pt-pt'
+                          assign item_label = 'POR'
+                        when 'ja'
+                          assign item_label = 'JPN'
+                        when 'zh', 'zh-cn', 'zh-tw'
+                          assign item_label = 'ZHO'
+                        when 'ru'
+                          assign item_label = 'RUS'
+                        when 'sv'
+                          assign item_label = 'SWE'
+                        when 'da'
+                          assign item_label = 'DAN'
+                        when 'no', 'nb'
+                          assign item_label = 'NOR'
+                        when 'fi'
+                          assign item_label = 'FIN'
+                        when 'pl'
+                          assign item_label = 'POL'
+                        else
+                          assign item_label = language.iso_code | upcase
+                      endcase
+                    %}
+                    <li
+                      class="localization-form__list-item{% if language.iso_code == localization.language.iso_code %} is-selected{% endif %}"
+                      {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %}
+                      role="option"
+                      tabindex="-1"
+                      onclick="this.closest('form').querySelector('input[name=language_code]').value='{{ language.iso_code }}'; this.closest('form').submit();"
+                    >
+                      <span class="svg-wrapper icon-checkmark">
+                        {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                      </span>
+                      <span class="country language-name">{{ language.endonym_name | capitalize }}</span>
+                      <span class="localization-form__currency">{{ item_label }}</span>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+                <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+              {%- endform -%}
+            </localization-form-component>
+          </div>
+        </dropdown-localization-component>
+      {% endif %}
 
-        {%- if show_language -%}
-          <span>
-            {{ localization.language.iso_code | upcase }}
-          </span>
-        {%- endif -%}
-        <span class="svg-wrapper icon-caret">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
+      {% if show_country %}
+        <dropdown-localization-component class="dropdown-localization dropdown-localization--country">
+          <button
+            type="button"
+            class="button dropdown-localization__button localization-selector header-actions__action"
+            aria-expanded="false"
+            aria-controls="dropdown-country-results"
+            ref="button"
+            on:click="/toggleSelector"
+            style="{{ localization_font }} {{ localization_font_size }}"
+          >
+            <span class="localization-pill-dot" aria-hidden="true"></span>
+            <span class="currency-code" data-testid="localization-currency-code">
+              {{- localization.country.currency.iso_code }} {{ localization.country.currency.symbol -}}
+            </span>
+            <span class="svg-wrapper icon-caret">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
 
-      <div
-        class="localization-wrapper {{ section.settings.localization_position }}-bound color-custom-popover"
-        hidden
-        ref="panel"
-      >
-        {% render 'localization-form',
-          show_country: show_country,
-          show_language: show_language,
-          localization_style: 'dropdown',
-          form_style: form_style,
-          form_id: section.id
-        %}
-      </div>
-    </dropdown-localization-component>
+          <div
+            id="dropdown-country-results"
+            class="localization-wrapper dropdown-country-wrapper {{ section.settings.localization_position }}-bound color-custom-popover"
+            hidden
+            ref="panel"
+          >
+            {% render 'localization-form',
+              show_country: show_country,
+              show_language: false,
+              localization_style: 'dropdown',
+              form_style: form_style,
+              form_id: section.id
+            %}
+          </div>
+        </dropdown-localization-component>
+      {% endif %}
+    </div>
   {% endif %}
 {% endcapture %}
 
@@ -1220,42 +1289,70 @@
  
    
 
-    /* Text, Navigation Links & Actions inside Dark Pill */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link:visited,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-menu summary,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__link,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__btn,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .search-modal__button,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header__column {
-      color: var(--header-pill-text, #ffffff) !important;
+    /* Right Column, Actions & Localization Layout */
+    .header__column--right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+
+    .header-localization-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .dropdown-localization__button {
+      background: transparent;
+      border: 0;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
       font-family: 'DM Sans', var(--font-body--family, sans-serif) !important;
       font-size: 14px !important;
       font-weight: 500 !important;
+      line-height: 1;
+      transition: opacity var(--animation-speed) var(--animation-easing);
+      -webkit-font-smoothing: antialiased;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) svg {
-      stroke: var(--header-pill-text, #ffffff);
-      color: var(--header-pill-text, #ffffff);
+    .dropdown-localization__button:hover {
+      opacity: 0.8;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link:hover,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-menu summary:hover,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button:hover {
-      opacity: 0.82;
+    .dropdown-localization__button .svg-wrapper.icon-caret {
+      width: 10px;
+      height: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 2px;
+      transition: transform var(--animation-speed) var(--animation-easing);
+    }
+
+    .dropdown-localization__button .svg-wrapper.icon-caret svg {
+      width: 10px;
+      height: 10px;
+      fill: none !important;
+      stroke: currentColor !important;
+      stroke-width: 1.75px !important;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .dropdown-localization__button[aria-expanded='true'] .icon-caret svg {
+      transform: rotate(180deg);
     }
 
     /* Currency Blue Dot Indicator */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) dropdown-localization-component:last-of-type .dropdown-localization__button,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) dropdown-localization-component:has([name="country_code"]) .dropdown-localization__button {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) dropdown-localization-component:last-of-type .dropdown-localization__button::before,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) dropdown-localization-component:has([name="country_code"]) .dropdown-localization__button::before {
-      content: '';
+    .localization-pill-dot {
       display: inline-block;
       width: 8px;
       height: 8px;
@@ -1265,14 +1362,127 @@
       flex-shrink: 0;
     }
 
+    .currency-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Reset negative margins that pull items together */
+    .header__column--right .search-action,
+    .header__column--right header-actions {
+      margin-inline: 0 !important;
+    }
+
+    /* Text, Navigation Links & Actions inside Dark Pill */
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link:visited,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-menu summary,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__link,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__btn,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .search-modal__button,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header__column,
+    #header-component[transparent] .header__column--right .dropdown-localization__button,
+    #header-component[transparent] .header__column--right .header-actions__action {
+      color: var(--header-pill-text, #ffffff) !important;
+      font-family: 'DM Sans', var(--font-body--family, sans-serif) !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+    }
+
+    /* SVGs in Header: filled icons (cart and search) vs stroke carets */
+    .header-actions__cart-icon svg,
+    .search-action svg,
+    .search-modal__button svg {
+      stroke: none !important;
+      fill: currentColor !important;
+      width: 22px;
+      height: 22px;
+      color: var(--header-pill-text, #ffffff);
+    }
+
+    #header-component[transparent] .header-actions__cart-icon svg,
+    #header-component[transparent] .search-action svg {
+      color: var(--header-pill-text, #ffffff) !important;
+      fill: var(--header-pill-text, #ffffff) !important;
+    }
+
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__link:hover,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-menu summary:hover,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button:hover {
+      opacity: 0.82;
+    }
+
     /* Submenus & Popovers matching the Dark Theme */
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__submenu,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .localization-wrapper {
+    .localization-wrapper {
       background-color: var(--header-pill-bg, #4A4A4A) !important;
       color: var(--header-pill-text, #ffffff) !important;
       border: 1px solid rgba(255, 255, 255, 0.15) !important;
       border-radius: 14px !important;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+    }
+
+    /* Language popover dropdown */
+    .dropdown-language-wrapper {
+      min-width: 170px;
+      padding: 8px;
+    }
+
+    .dropdown-language-wrapper .language-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .dropdown-language-wrapper .localization-form__list-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--header-pill-text, #ffffff) !important;
+      font-size: 13.5px;
+      font-weight: 500;
+      font-family: 'DM Sans', var(--font-body--family, sans-serif);
+      transition: background-color 0.15s ease;
+    }
+
+    .dropdown-language-wrapper .localization-form__list-item:hover {
+      background-color: rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .dropdown-language-wrapper .localization-form__list-item[aria-current='true'],
+    .dropdown-language-wrapper .localization-form__list-item.is-selected {
+      background-color: rgba(255, 255, 255, 0.08);
+      font-weight: 600;
+    }
+
+    .dropdown-language-wrapper .language-name {
+      flex: 1;
+      text-align: left;
+    }
+
+    .dropdown-language-wrapper .language-iso {
+      font-size: 12px;
+      opacity: 0.7;
+      text-transform: uppercase;
+    }
+
+    .dropdown-language-wrapper .icon-checkmark {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+    }
+
+    .dropdown-language-wrapper .localization-form__list-item:not([aria-current='true']) .icon-checkmark {
+      visibility: hidden;
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__submenu a,

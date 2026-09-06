@@ -472,7 +472,9 @@ class DropdownLocalizationComponent extends Component {
    * Updates the width of the panel.
    */
   #updateWidth() {
-    this.style.setProperty('--width', `${this.refs.localizationForm.offsetWidth}px`);
+    if (this.refs.localizationForm?.offsetWidth) {
+      this.style.setProperty('--width', `${this.refs.localizationForm.offsetWidth}px`);
+    }
   }
 
   /**
