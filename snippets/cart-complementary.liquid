@@ -7,9 +7,15 @@
   de-duplicated. Complementary products are configured in the Shopify
   Search & Discovery app; when a product has none set, the panel stays hidden.
 
+  @param {string} [placement] - 'aside' for the desktop left column, 'inline' for mobile inside the drawer.
+
   @example
-  {% render 'cart-complementary' %}
+  {% render 'cart-complementary', placement: 'aside' %}
 {% enddoc %}
+
+{%- liquid
+  assign placement = placement | default: 'aside'
+-%}
 
 {%- if settings.cart_complementary_enabled and cart.item_count > 0 -%}
   {%- liquid
@@ -36,7 +42,7 @@
   ></script>
 
   <cart-complementary-panel
-    class="cart-complementary"
+    class="cart-complementary cart-complementary--{{ placement }}"
     data-url="{{ routes.product_recommendations_url }}"
     data-product-ids="{{ cart_product_ids }}"
     data-exclude-ids="{{ cart_product_ids }}"
@@ -78,9 +84,26 @@
     display: none;
   }
 
-  /* Not enough room for a second panel — the drawer alone takes the screen. */
+  .cart-complementary--inline {
+    position: static;
+    inset: auto;
+    width: 100%;
+    border-inline-end: 0;
+    border-block-start: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
+  }
+
+  .cart-complementary--inline .cart-complementary__scroller {
+    overflow: visible;
+  }
+
+  @media screen and (min-width: 1100px) {
+    .cart-complementary--inline {
+      display: none;
+    }
+  }
+
   @media screen and (max-width: 1099px) {
-    .cart-complementary {
+    .cart-complementary--aside {
       display: none;
     }
   }
@@ -200,9 +223,7 @@
   }
 
   .cart-complementary-card__option.is-unavailable {
-    background-color: rgb(var(--color-foreground-rgb) / 0.08);
-    color: rgb(var(--color-foreground-rgb) / 0.35);
-    cursor: not-allowed;
+    display: none;
   }
 
   .cart-complementary-card__add {

@@ -57,7 +57,7 @@
       {% endif %}
     >
       {%- if custom_drawer -%}
-        {% render 'cart-complementary' %}
+        {% render 'cart-complementary', placement: 'aside' %}
       {%- endif -%}
 
       <cart-drawer-component
@@ -130,7 +130,7 @@
             {%- if cart.empty? -%}
               {{ empty_cart_drawer_content }}
             {%- else -%}
-              <scroll-hint
+              <div
                 class="cart-drawer__content"
                 aria-label="{{ 'accessibility.cart' | t }}"
               >
@@ -138,32 +138,36 @@
                   {% render 'cart-free-shipping' %}
                 {%- endif -%}
 
-                <scroll-hint class="cart-drawer__items">
+                <div class="cart-drawer__items">
                   {% render 'cart-products', context: 'drawer' %}
-                </scroll-hint>
+                </div>
 
                 {%- if custom_drawer -%}
                   {% render 'cart-drawer-recommendations' %}
+                  {% render 'cart-complementary', placement: 'inline' %}
                 {%- endif -%}
+              </div>
 
-                <div class="cart-drawer__summary">
-                  {%- if custom_drawer -%}
-                    {% render 'cart-summary',
-                      section_id: 'cart-drawer-section',
-                      total_label: settings.cart_drawer_subtotal_label,
-                      tax_note: settings.cart_drawer_tax_note,
-                      note_label: settings.cart_drawer_note_label,
-                      note_layout: 'plain'
-                    %}
+              <div class="cart-drawer__summary">
+                {%- if custom_drawer -%}
+                  {% render 'cart-summary',
+                    section_id: 'cart-drawer-section',
+                    total_label: settings.cart_drawer_subtotal_label,
+                    tax_note: settings.cart_drawer_tax_note,
+                    note_label: settings.cart_drawer_note_label,
+                    note_layout: 'plain',
+                    hide_discount: true,
+                    hide_accelerated_checkout: true,
+                    hide_currency_code: true
+                  %}
 
-                    <div class="cart-drawer__payment-icons">
-                      {% render 'cart-payment-icons' %}
-                    </div>
-                  {%- else -%}
-                    {% render 'cart-summary', section_id: 'cart-drawer-section' %}
-                  {%- endif -%}
-                </div>
-              </scroll-hint>
+                  <div class="cart-drawer__payment-icons">
+                    {% render 'cart-payment-icons' %}
+                  </div>
+                {%- else -%}
+                  {% render 'cart-summary', section_id: 'cart-drawer-section' %}
+                {%- endif -%}
+              </div>
             {%- endif -%}
           {% endcapture %}
           {% render 'cart-items-component',
@@ -206,7 +210,8 @@
     flex-direction: column;
     padding: 0;
     background-color: var(--color-background);
-    flex-grow: 1;
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
   }
 
@@ -214,7 +219,6 @@
     display: flex;
     flex-direction: column;
     padding-inline: var(--cart-drawer-padding);
-    overflow-y: auto;
   }
 
   .cart-drawer__items .cart-items__table-row {
@@ -241,18 +245,15 @@
   .cart-drawer__summary {
     --cart-drawer-summary-padding: var(--padding-lg);
 
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-shrink: 0;
     gap: var(--gap-xl);
     padding: var(--cart-drawer-summary-padding);
-    margin-top: auto;
     background-color: var(--color-background);
-    /* stylelint-disable-next-line color-named */
-    mask-image: linear-gradient(to bottom, transparent, black var(--cart-drawer-summary-padding));
 
     @media screen and (min-width: 750px) {
       --cart-drawer-summary-padding: var(--padding-2xl);
@@ -261,11 +262,6 @@
 
   .theme-drawer__dialog[cart-summary-sticky='false'] .cart-drawer__summary {
     position: static;
-    mask-image: none;
-  }
-
-  .theme-drawer__dialog[cart-summary-sticky='false'] .cart-drawer__items {
-    overflow: unset;
   }
 
   .cart-actions summary {

@@ -62,13 +62,21 @@
       {%- unless product.has_only_default_variant -%}
         {%- for option in product.options_with_values -%}
           {%- liquid
+            assign option_key = option.name | downcase
             assign is_swatch = false
+            assign is_size = false
+            if option_key contains 'size'
+              assign is_size = true
+            endif
             for value in option.values
               if value.swatch.color or value.swatch.image
                 assign is_swatch = true
                 break
               endif
             endfor
+            unless is_swatch or is_size
+              continue
+            endunless
           -%}
 
           {%- if is_swatch -%}

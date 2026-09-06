@@ -1482,6 +1482,76 @@
       border: 1px solid rgba(255, 255, 255, 0.15) !important;
       border-radius: 14px !important;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+      --color-foreground: #ffffff !important;
+      --color-foreground-rgb: 255 255 255 !important;
+      --color-foreground-muted: rgba(255, 255, 255, 0.7) !important;
+      --color-foreground-subdued: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    /* All text, labels, and spans inside localization dropdown */
+    .localization-wrapper,
+    .localization-wrapper .localization-form,
+    .localization-wrapper .localization-form__list,
+    .localization-wrapper .localization-form__list-item,
+    .localization-wrapper .country,
+    .localization-wrapper .language-name,
+    .localization-wrapper .language-iso,
+    .localization-wrapper .currency-code,
+    .localization-wrapper .popular-countries,
+    .localization-wrapper .countries,
+    .localization-wrapper [role='option'],
+    .localization-wrapper li {
+      color: var(--header-pill-text, #ffffff) !important;
+    }
+
+    .localization-wrapper .localization-form__currency {
+      color: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    .localization-wrapper .icon-checkmark {
+      width: 14px;
+      height: 14px;
+      color: #ffffff !important;
+      stroke: #ffffff !important;
+    }
+
+    .localization-wrapper .icon-checkmark svg,
+    .localization-wrapper .icon-checkmark svg path {
+      stroke: #ffffff !important;
+      color: #ffffff !important;
+    }
+
+    /* Country search filter styling inside dark dropdown */
+    .localization-wrapper .country-filter {
+      padding: 8px 8px 4px;
+    }
+
+    .localization-wrapper .country-filter .field {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .localization-wrapper .country-filter__input {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: none !important;
+      padding: 8px 12px 8px 36px !important;
+      font-size: 13px !important;
+    }
+
+    .localization-wrapper .country-filter__input::placeholder {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    .localization-wrapper .country-filter__search-icon svg {
+      fill: rgba(255, 255, 255, 0.7) !important;
+      stroke: none !important;
+    }
+
+    .localization-wrapper .country-filter__reset-button svg {
+      fill: rgba(255, 255, 255, 0.7) !important;
     }
 
     /* Language popover dropdown */
@@ -1499,7 +1569,21 @@
       gap: 2px;
     }
 
-    .dropdown-language-wrapper .localization-form__list-item {
+    .dropdown-language-wrapper .language-name {
+      flex: 1;
+      text-align: left;
+      color: var(--header-pill-text, #ffffff) !important;
+    }
+
+    .dropdown-language-wrapper .language-iso {
+      font-size: 12px;
+      opacity: 0.7;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    /* List item hover and active states */
+    .localization-wrapper .localization-form__list-item {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -1513,44 +1597,40 @@
       transition: background-color 0.15s ease;
     }
 
-    .dropdown-language-wrapper .localization-form__list-item:hover {
+    .localization-wrapper .localization-form__list-item:hover,
+    .localization-wrapper .localization-form__list-item:focus-visible {
       background-color: rgba(255, 255, 255, 0.12) !important;
+      color: #ffffff !important;
     }
 
-    .dropdown-language-wrapper .localization-form__list-item[aria-current='true'],
-    .dropdown-language-wrapper .localization-form__list-item.is-selected {
-      background-color: rgba(255, 255, 255, 0.08);
+    .localization-wrapper .localization-form__list-item[aria-current='true'],
+    .localization-wrapper .localization-form__list-item.is-selected {
+      background-color: rgba(255, 255, 255, 0.08) !important;
       font-weight: 600;
+      color: #ffffff !important;
     }
 
-    .dropdown-language-wrapper .language-name {
-      flex: 1;
-      text-align: left;
-    }
-
-    .dropdown-language-wrapper .language-iso {
-      font-size: 12px;
-      opacity: 0.7;
-      text-transform: uppercase;
-    }
-
-    .dropdown-language-wrapper .icon-checkmark {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-    }
-
-    .dropdown-language-wrapper .localization-form__list-item:not([aria-current='true']) .icon-checkmark {
+    .localization-wrapper .localization-form__list-item:not([aria-current='true']) .icon-checkmark {
       visibility: hidden;
     }
 
+    /* Submenus inside dark pill header */
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu {
+      --color-foreground: #ffffff !important;
+      --color-foreground-rgb: 255 255 255 !important;
+      --color-foreground-muted: rgba(255, 255, 255, 0.7) !important;
+      --color-foreground-subdued: rgba(255, 255, 255, 0.7) !important;
+    }
+
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu a,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .localization-form__list-item button {
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu span,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu h2,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu h3 {
       color: var(--header-pill-text, #ffffff) !important;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu a:hover,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .localization-form__list-item:hover {
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu a:hover {
+      opacity: 0.8;
       background-color: rgba(255, 255, 255, 0.12) !important;
     }
 

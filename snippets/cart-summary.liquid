@@ -7,6 +7,9 @@
   @param {string} [tax_note] - Replaces the tax/shipping note with custom copy.
   @param {string} [note_label] - Visible label for the order note field.
   @param {string} [note_layout] - Pass 'plain' to render the order note as a labelled field instead of an accordion.
+  @param {boolean} [hide_discount] - Hide the discount-code accordion.
+  @param {boolean} [hide_accelerated_checkout] - Hide Shop Pay / PayPal / Google Pay buttons.
+  @param {boolean} [hide_currency_code] - Show money without the currency code suffix.
 {%- enddoc -%}
 
 {% render 'text-component-shimmer-styles' %}
@@ -45,7 +48,14 @@
     {%- endif -%}
   </div>
 
-  {% if settings.show_cart_note or settings.show_add_discount_code %}
+  {%- liquid
+    assign show_discount_field = settings.show_add_discount_code
+    if hide_discount
+      assign show_discount_field = false
+    endif
+  -%}
+
+  {% if settings.show_cart_note or show_discount_field %}
     <div class="cart-actions">
       {% if settings.show_cart_note %}
         <script
@@ -122,10 +132,10 @@
           {%- endif -%}
         </cart-note>
       {% endif %}
-      {% if settings.show_cart_note and settings.show_add_discount_code %}
+      {% if settings.show_cart_note and show_discount_field %}
         <div class="cart-actions__divider"></div>
       {% endif %}
-      {% if settings.show_add_discount_code %}
+      {% if show_discount_field %}
         {% liquid
           assign discount_codes = cart.cart_level_discount_applications | where: 'type', 'discount_code' | map: 'title'
           for item in cart.items
@@ -250,7 +260,7 @@
   {% endif %}
 
   {%- liquid
-    if settings.currency_code_enabled_cart_total
+    if settings.currency_code_enabled_cart_total and hide_currency_code != true
       assign total_price = cart.total_price | money_with_currency
     else
       assign total_price = cart.total_price | money
@@ -313,7 +323,7 @@
     </span>
   </button>
 
-  {% if additional_checkout_buttons and settings.show_accelerated_checkout_buttons %}
+  {% if additional_checkout_buttons and settings.show_accelerated_checkout_buttons and hide_accelerated_checkout != true %}
     <div
       class="
         additional-checkout-buttons

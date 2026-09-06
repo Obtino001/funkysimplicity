@@ -16,6 +16,7 @@
   .theme-drawer__dialog.cart-drawer--custom {
     --theme-drawer-padding: var(--padding-xl);
     --cart-drawer-padding: var(--padding-xl);
+    overflow: visible;
   }
 
   .cart-drawer--custom .theme-drawer__header {
@@ -258,11 +259,28 @@
   /* Summary                                                                 */
   /* ---------------------------------------------------------------------- */
 
+  .cart-drawer--custom .cart-drawer__title-icon {
+    display: none;
+  }
+
   .cart-drawer--custom .cart-drawer__summary {
     align-items: stretch;
     gap: var(--gap-md);
     border-block-start: 1px solid rgb(var(--color-foreground-rgb) / 0.12);
     background-color: rgb(var(--color-foreground-rgb) / 0.03);
+    position: relative;
+    mask-image: none;
+  }
+
+  .cart-drawer--custom .cart-drawer__items {
+    overflow: visible;
+  }
+
+  .cart-drawer--custom .additional-checkout-buttons,
+  .cart-drawer--custom .cart-discount,
+  .cart-drawer--custom .cart-totals__installments,
+  .cart-drawer--custom shopify-accelerated-checkout-cart {
+    display: none !important;
   }
 
   .cart-drawer--custom .cart-drawer__summary .cart-totals {
@@ -309,6 +327,16 @@
   .cart-drawer--custom .cart-drawer__payment-icons {
     width: 100%;
     margin-block-start: calc(-1 * var(--gap-xs));
+  }
+
+  .cart-drawer--custom .cart-payment-icons {
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+  .cart-drawer--custom .cart-payment-icons__icon {
+    width: 36px;
   }
 
   .cart-drawer--custom .cart-drawer__payment-icons:empty {

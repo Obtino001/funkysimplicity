@@ -61,6 +61,19 @@
         {{- 'icon-chevron-right.svg' | inline_asset_content -}}
       </button>
     {%- endif -%}
+
+    <button
+      type="button"
+      class="cart-recommendation__add"
+      data-recommendation-add
+      data-variant-id="{{ variant.id }}"
+      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
+    >
+      <span class="cart-recommendation__add-icon">
+        {{- 'icon-cart.svg' | inline_asset_content -}}
+      </span>
+      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
+    </button>
   </div>
 
   <div class="cart-recommendation__info">
@@ -74,13 +87,21 @@
       <div class="cart-recommendation__options">
         {%- for option in product.options_with_values -%}
           {%- liquid
+            assign option_key = option.name | downcase
             assign is_swatch = false
+            assign is_size = false
+            if option_key contains 'size'
+              assign is_size = true
+            endif
             for value in option.values
               if value.swatch.color or value.swatch.image
                 assign is_swatch = true
                 break
               endif
             endfor
+            unless is_swatch or is_size
+              continue
+            endunless
           -%}
 
           {%- if is_swatch -%}
@@ -131,18 +152,5 @@
         {%- endfor -%}
       </div>
     {%- endunless -%}
-
-    <button
-      type="button"
-      class="cart-recommendation__add"
-      data-recommendation-add
-      data-variant-id="{{ variant.id }}"
-      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
-    >
-      <span class="cart-recommendation__add-icon">
-        {{- 'icon-cart.svg' | inline_asset_content -}}
-      </span>
-      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
-    </button>
   </div>
 </div>
