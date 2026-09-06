@@ -1258,7 +1258,10 @@
     /* =========================================================================
        DARK PILL HEADER STYLE (APPLIED ONLY ON NON-TRANSPARENT HEADER)
        ========================================================================= */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) {
+    /* =========================================================================
+       DARK PILL HEADER STYLE (APPLIED ONLY ON NON-TRANSPARENT HEADER)
+       ========================================================================= */
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) {
       background: transparent !important;
       box-shadow: none !important;
       padding-block: 10px;
@@ -1266,7 +1269,7 @@
       box-sizing: border-box;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header__row--top {
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top {
       background: transparent !important;
       border-bottom: none !important;
       max-width: var(--page-width, 1400px);
@@ -1274,7 +1277,7 @@
       box-sizing: border-box;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header__row--top .header__columns {
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
       background-color: var(--header-pill-bg, #4A4A4A);
       border-radius: 9999px;
       padding: 8px 26px;
@@ -1287,8 +1290,12 @@
       box-sizing: border-box;
       transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
- 
-   
+
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__link,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__link:visited,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-menu summary {
+      color: var(--header-pill-text, #ffffff) !important;
+    }
 
     /* Right Column, Actions & Localization Layout */
     .header__column--right {
@@ -1377,17 +1384,65 @@
     }
 
     /* Text & Actions inside Dark Pill */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__link,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header-actions__btn,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .search-modal__button,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header__column,
-    #header-component[transparent] .header__column--right .dropdown-localization__button,
-    #header-component[transparent] .header__column--right .header-actions__action {
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .dropdown-localization__button,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__link,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__btn,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .search-modal__button,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__column {
       color: var(--header-pill-text, #ffffff);
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
       font-size: 14px;
       font-weight: 500;
+    }
+
+    /* Transparent Header - Styling when not sticky active */
+    #header-component[transparent]:not([data-sticky-state='active']) {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .header__row {
+      background: transparent !important;
+      background-color: transparent !important;
+      border-bottom: none !important;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .header__columns {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .header__underlay-closed {
+      display: none !important;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .menu-list__link,
+    #header-component[transparent]:not([data-sticky-state='active']) .menu-list__link:visited,
+    #header-component[transparent]:not([data-sticky-state='active']) .header-menu summary {
+      color: var(--color-transparent-text, #ffffff) !important;
+      font-family: 'DM Sans', var(--font-body--family, sans-serif);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .menu-list__link:hover,
+    #header-component[transparent]:not([data-sticky-state='active']) .dropdown-localization__button:hover,
+    #header-component[transparent]:not([data-sticky-state='active']) .search-action:hover,
+    #header-component[transparent]:not([data-sticky-state='active']) .search-modal__button:hover,
+    #header-component[transparent]:not([data-sticky-state='active']) .header-actions__action:hover {
+      opacity: 0.8;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .dropdown-localization__button,
+    #header-component[transparent]:not([data-sticky-state='active']) .header-actions__action,
+    #header-component[transparent]:not([data-sticky-state='active']) .search-action,
+    #header-component[transparent]:not([data-sticky-state='active']) .search-modal__button {
+      color: var(--color-transparent-text, #ffffff) !important;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .dropdown-localization__button .svg-wrapper.icon-caret svg {
+      stroke: var(--color-transparent-text, #ffffff) !important;
+      fill: none !important;
     }
 
     /* SVGs in Header: filled icons (cart and search) vs stroke carets */
@@ -1402,17 +1457,25 @@
     }
 
     #header-component[transparent] .header-actions__cart-icon svg,
-    #header-component[transparent] .search-action svg {
-      color: var(--header-pill-text, #ffffff);
-      fill: var(--header-pill-text, #ffffff);
+    #header-component[transparent] .search-action svg,
+    #header-component[transparent] .search-modal__button svg {
+      color: var(--color-transparent-text, #ffffff) !important;
+      fill: var(--color-transparent-text, #ffffff) !important;
+      stroke: none !important;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .dropdown-localization__button:hover {
+    /* Hide account button per user request */
+    .account-button,
+    shopify-account {
+      display: none !important;
+    }
+
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .dropdown-localization__button:hover {
       opacity: 0.82;
     }
 
     /* Submenus & Popovers matching the Dark Theme */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__submenu,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu,
     .localization-wrapper {
       background-color: var(--header-pill-bg, #4A4A4A) !important;
       color: var(--header-pill-text, #ffffff) !important;
@@ -1481,22 +1544,22 @@
       visibility: hidden;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__submenu a,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .localization-form__list-item button {
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu a,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .localization-form__list-item button {
       color: var(--header-pill-text, #ffffff) !important;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .menu-list__submenu a:hover,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .localization-form__list-item:hover {
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu a:hover,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .localization-form__list-item:hover {
       background-color: rgba(255, 255, 255, 0.12) !important;
     }
 
     @media screen and (max-width: 749px) {
-      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) .header__row--top .header__columns {
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
         padding: 6px 16px;
         border-radius: 9999px;
       }
-      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-stuck="true"])):not([data-transparent="true"]) {
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) {
       padding-inline: 10px !important;
 
   }
