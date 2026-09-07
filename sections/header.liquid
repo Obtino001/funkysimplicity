@@ -1271,9 +1271,17 @@
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) {
       background: transparent !important;
       box-shadow: none !important;
-      padding-block: 6px;
+      padding-block: 4px;
       width: 100%;
       box-sizing: border-box;
+    }
+
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__underlay,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__underlay-closed,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__underlay-open {
+      display: none !important;
+      height: 0 !important;
+      background: transparent !important;
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top {
@@ -1291,7 +1299,7 @@
 
       background-color: var(--header-pill-bg, #4A4A4A);
       border-radius: 9999px;
-      padding: 4px 24px;
+      padding: 2px 22px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       color: var(--header-pill-text, #ffffff);
       display: flex;
@@ -1299,16 +1307,18 @@
       justify-content: space-between;
       width: 100%;
       box-sizing: border-box;
+      min-height: 0;
       transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image {
-      height: 34px;
+      height: 28px;
       width: auto;
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo {
       min-height: 0;
+      height: auto;
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__link,
@@ -1662,17 +1672,17 @@
 
     @media screen and (max-width: 749px) {
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) {
-        padding-block: 6px;
+        padding-block: 4px;
         padding-inline: 10px !important;
       }
 
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
-        padding: 4px 14px;
+        padding: 2px 12px;
         border-radius: 9999px;
       }
 
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image {
-        height: 26px;
+        height: 22px;
         width: auto;
       }
     }
