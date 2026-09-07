@@ -26,7 +26,7 @@
         "background_opacity": 60,
         "text_color": "{{ settings.color_palette.foreground }}",
         "font_size": 14,
-        "mobile_font_size": 12,
+        "mobile_font_size": 14,
         "font_weight": "400",
         "letter_spacing": 0,
         "padding_y": 10,

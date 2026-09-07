@@ -112,15 +112,22 @@
   }
 
   .timeline-milestone {
-    border: 1px solid rgba(var(--color-foreground, 17, 17, 17), 0.12);
-    border-radius: 8px;
-    padding: 17px 24px 17px 14px;
+    position: relative;
+    border: 1px solid rgb(0 0 0 / 0.05);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-block-start: 24px;
   }
 
   .timeline-milestone__year {
+    position: absolute;
+    top: -20px;
+    left: 24px;
+    margin: 0;
+    padding-inline: 6px;
+    background: #fff;
     font-size: var(--milestone-year-size, 24px);
     font-weight: var(--milestone-year-weight, 600);
-    margin-bottom: 4px;
   }
 
   .timeline-milestone__title {
