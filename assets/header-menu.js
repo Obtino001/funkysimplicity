@@ -4,6 +4,8 @@ import { MegaMenuHoverEvent } from '@theme/events';
 
 /** Skim filter: pointer must dwell this long before MegaMenuHoverEvent fires. */
 const HOVER_COMMIT_DELAY_MS = 150;
+/** Keep the mega menu open while the pointer travels between top-level items. */
+const MEGA_MENU_CLOSE_DELAY_MS = 180;
 
 /**
  * A custom element that manages a header menu.
@@ -29,6 +31,9 @@ class HeaderMenu extends Component {
   /** @type {ReturnType<typeof setTimeout> | undefined} */
   #hoverDispatchTimer;
 
+  /** @type {ReturnType<typeof setTimeout> | undefined} */
+  #closeTimer;
+
   connectedCallback() {
     super.connectedCallback();
 
@@ -52,6 +57,8 @@ class HeaderMenu extends Component {
     this.#cleanupMutationObserver();
     clearTimeout(this.#hoverDispatchTimer);
     this.#hoverDispatchTimer = undefined;
+    clearTimeout(this.#closeTimer);
+    this.#closeTimer = undefined;
   }
 
   /**
@@ -268,28 +275,27 @@ class HeaderMenu extends Component {
 
     if (!item || item == this.#state.activeItem) return;
 
+    clearTimeout(this.#closeTimer);
+    this.#closeTimer = undefined;
+
     // Derive the slot context from the list item rather than `event.target`.
     const listItem = item.closest('.menu-list__list-item');
     const slot = listItem instanceof HTMLElement ? listItem.slot : '';
     const isMoreTrigger = slot === 'more';
     const isDefaultSlot = slot === '';
     const overflowItem = isMoreTrigger ? this.#getFirstOverflowMenuItem() : null;
+    const nextSubmenu = findSubmenu(item) || (isMoreTrigger ? findSubmenu(overflowItem) : null);
+
+    // Leaf links have no panel — close the open mega menu instead of flashing an empty overlay.
+    if (!nextSubmenu && isDefaultSlot) {
+      this.#deactivate(this.#state.activeItem, { force: true });
+      return;
+    }
 
     this.dataset.overflowExpanded = (!isDefaultSlot).toString();
 
     const previouslyActiveItem = this.#state.activeItem;
     const previouslyActiveOverflowItem = this.#state.activeOverflowItem;
-
-    if (previouslyActiveItem) {
-      this.#expandableFor(previouslyActiveItem).ariaExpanded = 'false';
-      const previousSubmenu = findSubmenu(previouslyActiveItem);
-      if (previousSubmenu) previousSubmenu.inert = true;
-    }
-    if (previouslyActiveOverflowItem && previouslyActiveOverflowItem !== previouslyActiveItem) {
-      this.#expandableFor(previouslyActiveOverflowItem).ariaExpanded = 'false';
-      const previousOverflowSubmenu = findSubmenu(previouslyActiveOverflowItem);
-      if (previousOverflowSubmenu) previousOverflowSubmenu.inert = true;
-    }
 
     this.#state.activeItem = item;
     this.#state.activeOverflowItem = overflowItem;
@@ -332,6 +338,28 @@ class HeaderMenu extends Component {
       // inert so their contents cannot be reached (visibility:hidden alone can be
       // overridden by descendants that re-assert visibility).
       submenu.inert = false;
+
+      // Collapse the previous item only after the new panel is visible, so hovering
+      // from "Shop By Style" to "Shop By Prices" does not flash a closed frame.
+      if (previouslyActiveItem && previouslyActiveItem !== item) {
+        this.#expandableFor(previouslyActiveItem).ariaExpanded = 'false';
+        const previousSubmenu = findSubmenu(previouslyActiveItem);
+        if (previousSubmenu && previousSubmenu !== submenu) {
+          previousSubmenu.inert = true;
+          delete previousSubmenu.dataset.active;
+        }
+      }
+      if (
+        previouslyActiveOverflowItem &&
+        previouslyActiveOverflowItem !== item &&
+        previouslyActiveOverflowItem !== overflowItem
+      ) {
+        this.#expandableFor(previouslyActiveOverflowItem).ariaExpanded = 'false';
+        const previousOverflowSubmenu = findSubmenu(previouslyActiveOverflowItem);
+        if (previousOverflowSubmenu && previousOverflowSubmenu !== submenu) {
+          previousOverflowSubmenu.inert = true;
+        }
+      }
 
       // Cleanup any existing mutation observer from previous menu activations
       this.#cleanupMutationObserver();
@@ -389,6 +417,8 @@ class HeaderMenu extends Component {
    * Close the open mega menu from the page overlay.
    */
   closeMegaMenu = () => {
+    clearTimeout(this.#closeTimer);
+    this.#closeTimer = undefined;
     this.#deactivate(this.#state.activeItem, { force: true });
   };
 
@@ -430,9 +460,11 @@ class HeaderMenu extends Component {
       event.target.contains(event.relatedTarget);
     const isMovingWithinMenu = event.relatedTarget instanceof Node && menu?.contains(document.activeElement);
     const isMovingToSubmenu =
-      event.relatedTarget instanceof Node && event.type === 'blur' && menu?.contains(event.relatedTarget);
+      event.relatedTarget instanceof Node && menu?.contains(event.relatedTarget);
     const isMovingToOverflowMenu =
       event.relatedTarget instanceof Element && Boolean(event.relatedTarget.closest('[slot="overflow"]'));
+    const isMovingToHeaderMenu =
+      event.relatedTarget instanceof Element && Boolean(event.relatedTarget.closest('header-menu'));
 
     if (isMovingWithinItem || isMovingWithinMenu || isMovingToOverflowMenu || isMovingToSubmenu) {
       if (this.#state.activeItem) {
@@ -441,7 +473,15 @@ class HeaderMenu extends Component {
       return;
     }
 
-    this.#deactivate();
+    clearTimeout(this.#closeTimer);
+    this.#closeTimer = setTimeout(() => {
+      this.#closeTimer = undefined;
+      this.#deactivate();
+    }, MEGA_MENU_CLOSE_DELAY_MS);
+
+    if (isMovingToHeaderMenu && this.#state.activeItem) {
+      this.#stopPointerTracking(this.#state.activeItem);
+    }
   }
 
   /**
@@ -450,6 +490,9 @@ class HeaderMenu extends Component {
    */
   #deactivate = (item = this.#state.activeItem, { force = false } = {}) => {
     if (!item || item != this.#state.activeItem) return;
+
+    clearTimeout(this.#closeTimer);
+    this.#closeTimer = undefined;
 
     // Don't deactivate if the overflow menu or overflow list is still being hovered,
     // unless the close was explicitly requested (Escape or the disclosure toggle),
