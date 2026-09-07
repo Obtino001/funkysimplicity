@@ -1690,7 +1690,6 @@
     }
 
     @media screen and (max-width: 749px) {
-      /* Search + lang stay in the menu overlay only — do not hide drawer locales */
       #header-component .search-action {
         display: none !important;
       }
@@ -1705,7 +1704,6 @@
         display: flex !important;
       }
 
-      /* Keep top: -1px so the sticky observer can flip to data-sticky-state=active */
       .header-section:has(> #header-component[sticky='always']),
       .header-section:has(> #header-component[sticky='scroll-up'][data-sticky-state='active']) {
         top: -1px;
@@ -1717,7 +1715,11 @@
         min-height: 65px;
       }
 
-      #header-component,
+      #header-component {
+        contain: none;
+        overflow: visible;
+      }
+
       #header-component[transparent][data-sticky-state='active'] {
         position: relative !important;
         top: auto !important;
@@ -1725,18 +1727,24 @@
         right: auto !important;
       }
 
-      /* Home at rest: overlay hero, no pill */
       #header-component[transparent]:not([data-sticky-state='active']) {
         position: absolute !important;
         top: 0;
         left: 0;
         right: 0;
-        padding: 10px !important;
+        padding: 0 !important;
         width: 100%;
         box-sizing: border-box;
       }
 
-      /* Menu | centered logo | bag — 3 slots, not the 5-col / flex fight */
+      #header-component .header__row,
+      #header-component .header__row--top,
+      #header-component .header__columns {
+        overflow: visible;
+        max-width: none;
+      }
+
+      /* Keep Horizon's 5-slot mobile grid so logo stays centered */
       #header-component .header__column,
       #header-component[data-menu-style='drawer'] .header__column {
         display: contents !important;
@@ -1750,38 +1758,41 @@
       #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns,
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
         display: grid !important;
-        grid-template-columns: 32px minmax(0, 1fr) 32px !important;
-        grid-template-areas: 'menu logo cart' !important;
+        grid-template-columns: 44px 44px minmax(0, 1fr) 44px 48px !important;
+        grid-template-areas: 'leftA leftB center rightA rightB' !important;
         align-items: center;
-        column-gap: 8px !important;
+        column-gap: 0 !important;
+        width: 100% !important;
         box-sizing: border-box;
+        overflow: visible;
       }
 
-      #header-component .header__drawer,
-      #header-component header-drawer,
-      #header-component .header-drawer {
-        grid-area: menu;
+      #header-component[data-menu-style='drawer'] .header__drawer,
+      #header-component[data-menu-style='drawer'] .header__columns .header__drawer {
+        grid-area: leftA !important;
         justify-self: start;
         align-self: center;
+        width: auto;
         min-height: 0;
-        width: 24px;
+        min-width: 0;
       }
 
-      #header-component .header-logo {
-        grid-area: logo;
+      #header-component[data-menu-style='drawer'] .header__columns .header-logo {
+        grid-area: center !important;
         justify-self: center;
         align-self: center;
       }
 
-      #header-component header-actions {
-        grid-area: cart;
+      #header-component[data-menu-style='drawer'] .header__columns header-actions {
+        grid-area: rightB !important;
         justify-self: end;
         align-self: center;
+        overflow: visible;
       }
 
       #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
       #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
-        padding: 0 !important;
+        padding: 10px 16px !important;
         min-height: 45px;
         height: auto;
         background: transparent !important;
@@ -1795,7 +1806,6 @@
         max-width: 170px;
       }
 
-      /* Inner pages + scrolled home: 55px charcoal pill */
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]),
       #header-component[transparent][data-sticky-state='active'] {
         padding: 10px !important;
@@ -1813,7 +1823,7 @@
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns,
       #header-component[transparent][data-sticky-state='active'] .header__row--top .header__columns,
       #header-component[data-menu-style='drawer']:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
-        padding: 5px 20px !important;
+        padding: 5px 16px !important;
         min-height: 55px;
         height: 55px;
         border-radius: 999px;
@@ -1847,6 +1857,11 @@
 
       #header-component .header-actions__action {
         color: #ffffff !important;
+        overflow: visible;
+      }
+
+      #header-component .header-actions__cart-icon {
+        overflow: visible;
       }
 
       #header-component .header-actions__cart-icon svg {
