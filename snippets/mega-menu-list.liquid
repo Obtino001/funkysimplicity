@@ -249,7 +249,7 @@
 {% style %}
   [data-menu-grid-id="{{ id }}"] {
     {% if menu_content_type == 'collection_images' %}
-      --menu-columns-desktop: {{ grid_columns_count_collection_images }};
+      --menu-columns-desktop: {{ grid_columns_count }};
       --menu-columns-tablet: {{ grid_columns_count_tablet }};
     {% else %}
       --menu-columns-desktop: {{ grid_columns_count }};
@@ -259,7 +259,7 @@
 
   [data-menu-list-id="{{ id }}"] {
     {% if menu_content_type == 'collection_images' %}
-      --menu-columns-desktop: {{ grid_columns_count_collection_images }};
+      --menu-columns-desktop: {{ grid_columns_count }};
       --menu-columns-tablet: {{ max_menu_columns_tablet }};
     {% else %}
       --menu-columns-desktop: {{ max_menu_columns }};
