@@ -1042,6 +1042,14 @@
       --padding-block-end: var(--header-padding);
     }
 
+    @media screen and (min-width: 750px) {
+      .header:not(.header--compact) .header__columns {
+        --header-padding: 25px;
+        --padding-block-start: 25px;
+        --padding-block-end: 25px;
+      }
+    }
+
     .header:not(.header--compact) .header__row--bottom {
       --header-padding: var(--padding-xs);
     }
@@ -1340,7 +1348,7 @@
       gap: 4px;
       cursor: pointer;
       font-family: 'DM Sans', var(--font-body--family, sans-serif) !important;
-      font-size: 14px !important;
+      font-size: 15px !important;
       font-weight: 500 !important;
       line-height: 1;
       transition: opacity var(--animation-speed) var(--animation-easing);
@@ -1407,7 +1415,7 @@
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__column {
       color: var(--header-pill-text, #ffffff);
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
     }
 
@@ -1438,8 +1446,17 @@
 
     #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
     #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
-      padding-inline: var(--page-margin, 20px) !important;
+      padding-inline: 60px !important;
+      padding-block: 25px !important;
       width: 100% !important;
+    }
+
+    @media screen and (max-width: 749px) {
+      #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
+      #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
+        padding-inline: var(--page-margin, 16px) !important;
+        padding-block: 12px !important;
+      }
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .menu-list__link,
@@ -1447,7 +1464,7 @@
     #header-component[transparent]:not([data-sticky-state='active']) .header-menu summary {
       color: var(--color-transparent-text, #ffffff) !important;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 500;
     }
 
@@ -1987,7 +2004,7 @@
         background: #ffffff;
         color: #111111 !important;
         font-family: var(--font-body--family);
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 500;
         letter-spacing: 0;
         text-transform: none;

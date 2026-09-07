@@ -571,6 +571,21 @@ a.hero-secondary_button {
     min-height: calc(var(--hero-min-height) - var(--hero-height-offset));
   }
 
+  @media screen and (min-width: 750px) {
+    .hero {
+      --hero-min-height: 924px;
+      --hero-height-offset: 0px;
+      min-height: 924px;
+    }
+
+    .hero__content-wrapper .h1,
+    .hero__content-wrapper .text-block--h1 {
+      max-width: 623px;
+      font-size: 46px;
+      line-height: normal;
+    }
+  }
+
   .hero[data-shopify-visual-preview] {
     --hero-min-height: 600px;
 
