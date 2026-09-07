@@ -1425,10 +1425,12 @@
       font-weight: 500;
     }
 
-    /* Transparent Header - Styling when not sticky active */
+    /* Transparent Header - compact when at top of page (not scrolled) */
     #header-component[transparent]:not([data-sticky-state='active']) {
       background: transparent !important;
       box-shadow: none !important;
+      --header-padding: 4px;
+      padding-block: 0;
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .header__row {
@@ -1438,8 +1440,28 @@
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .header__columns {
+      --header-padding: 4px;
+      --padding-block-start: 4px;
+      --padding-block-end: 4px;
       background: transparent !important;
       box-shadow: none !important;
+      padding-block: 4px !important;
+      min-height: 0;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .header-logo {
+      min-height: 0;
+      height: auto;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
+      height: 28px;
+      width: auto;
+    }
+
+    #header-component[transparent]:not([data-sticky-state='active']) .header__drawer {
+      --header-drawer-min-height: 36px;
+      min-height: 0;
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .header__underlay-closed {
@@ -1692,7 +1714,7 @@
     /* ---------------------------------------------------------------------- */
     .mega-menu-page-overlay {
       position: fixed;
-      inset: 0;
+      inset: var(--header-group-height, var(--header-height, 80px)) 0 0 0;
       z-index: 3;
       margin: 0;
       padding: 0;
@@ -1725,25 +1747,33 @@
       }
 
       .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
-        --submenu-gap: 16px;
+        --submenu-gap: 0px;
         --mega-menu-surface: rgb(45 45 45 / 0.94);
 
-        top: calc(100% + var(--submenu-gap)) !important;
+        top: 100% !important;
         left: 0;
         width: 100%;
         clip-path: none !important;
-        padding: 36px 40px 28px !important;
-        background-color: var(--mega-menu-surface) !important;
+        padding: 16px 0 0 !important;
+        background-color: transparent !important;
         border: 0 !important;
-        border-radius: 28px !important;
-        box-shadow: 0 24px 60px rgb(0 0 0 / 0.35) !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
         overflow: visible;
+      }
+
+      .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::after {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 16px;
+        pointer-events: auto;
       }
 
       .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before {
         content: '';
         position: absolute;
-        top: -10px;
+        top: 6px;
         left: var(--mega-caret-left, 50%);
         width: 0;
         height: 0;
@@ -1751,6 +1781,7 @@
         border-block-end: 10px solid var(--mega-menu-surface, rgb(45 45 45 / 0.94));
         transform: translateX(-50%);
         pointer-events: none;
+        z-index: 1;
       }
 
       .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu[inert]::before {
@@ -1759,9 +1790,12 @@
 
       .menu-list__submenu-inner {
         transform: none !important;
-        padding: 0 !important;
+        padding: 32px 40px 28px !important;
         max-height: calc(100vh - var(--header-height, 80px) - 64px);
         overflow: visible;
+        background-color: var(--mega-menu-surface, rgb(45 45 45 / 0.94));
+        border-radius: 28px;
+        box-shadow: 0 24px 60px rgb(0 0 0 / 0.35);
       }
 
       .menu-list__submenu .mega-menu {
