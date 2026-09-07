@@ -1410,68 +1410,28 @@
       font-weight: 500;
     }
 
-    /* Transparent Header - compact pill when at top of page (not scrolled) */
+    /* Static homepage header: transparent over the hero. Do NOT use the sticky pill. */
     #header-component[transparent]:not([data-sticky-state='active']) {
       background: transparent !important;
       box-shadow: none !important;
-      --header-padding: 0px;
-      --header-logo-image-height: 28px;
-      --header-logo-image-height-mobile: 22px;
-      padding-block: 4px;
+      padding-block: 0;
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .header__row {
       background: transparent !important;
       background-color: transparent !important;
       border-bottom: none !important;
-    }
-
-    #header-component[transparent]:not([data-sticky-state='active']) .header__row--top {
-      max-width: var(--page-width, 1400px);
-      margin-inline: auto;
-      box-sizing: border-box;
+      max-width: none;
+      margin-inline: 0;
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
     #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
-      --header-padding: 0px;
-      --padding-block-start: 0px;
-      --padding-block-end: 0px;
-      background: var(--header-pill-bg, #4A4A4A) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
-      padding: 2px 22px !important;
-      border-radius: 9999px;
-      min-height: 0;
-    }
-
-    #header-component[transparent]:not([data-sticky-state='active']) .header-logo {
-      min-height: 0;
-      height: auto;
-    }
-
-    #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
-      height: 28px !important;
-      width: auto !important;
-      max-height: 28px;
-    }
-
-    #header-component[transparent]:not([data-sticky-state='active']) .header__drawer {
-      --header-drawer-min-height: 36px;
-      min-height: 0;
-    }
-
-    #header-component[transparent]:not([data-sticky-state='active']) .header-actions__action,
-    #header-component[transparent]:not([data-sticky-state='active']) .menu-list__list-item,
-    #header-component[transparent]:not([data-sticky-state='active']) .menu-list__link {
-      min-height: 0;
-    }
-
-    #header-component[transparent]:not([data-sticky-state='active']) .header__underlay,
-    #header-component[transparent]:not([data-sticky-state='active']) .header__underlay-closed,
-    #header-component[transparent]:not([data-sticky-state='active']) .header__underlay-open {
-      display: none !important;
-      height: 0 !important;
       background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      padding-inline: var(--page-margin, 20px) !important;
+      min-height: 0;
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .menu-list__link,
@@ -1712,20 +1672,6 @@
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image {
         height: 22px;
         width: auto;
-      }
-
-      #header-component[transparent]:not([data-sticky-state='active']) {
-        padding-inline: 10px !important;
-      }
-
-      #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
-        padding: 2px 12px !important;
-      }
-
-      #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
-        height: 22px !important;
-        max-height: 22px;
-        width: auto !important;
       }
     }
      
