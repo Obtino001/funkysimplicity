@@ -280,4 +280,40 @@
   .cart-complementary-card__prices [hidden] {
     display: none;
   }
+
+  @media screen and (max-width: 749px) {
+    .cart-complementary--inline .cart-complementary-card__quick-add {
+      opacity: 1;
+      transform: none;
+      inset: auto 9px 10px auto;
+      width: auto;
+    }
+
+    .cart-complementary--inline .cart-complementary-card__options,
+    .cart-complementary--inline .cart-complementary-card__swatches {
+      display: none;
+    }
+
+    .cart-complementary--inline .cart-complementary-card__add {
+      position: absolute;
+      inset-block-end: 10px;
+      inset-inline-end: 9px;
+      width: 39px;
+      height: 38px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 2px 14px 0 rgb(0 0 0 / 0.25);
+      font-size: 0;
+      color: transparent;
+    }
+
+    .cart-complementary--inline .cart-complementary-card__add .cart-recommendation__add-icon,
+    .cart-complementary--inline .cart-complementary-card__add svg {
+      width: 19px;
+      height: 18px;
+      color: #000;
+    }
+  }
 {% endstylesheet %}

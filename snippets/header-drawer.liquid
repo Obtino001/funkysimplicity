@@ -1492,16 +1492,18 @@ stroke: #000000 !important;
   }
 
   /* ---------------------------------------------------------------------- */
-  /* Mobile menu overlay (Figma)                                             */
+  /* Mobile menu overlay (Figma 1:4505)                                      */
   /* ---------------------------------------------------------------------- */
   @media screen and (max-width: 749px) {
     .menu-drawer {
-      width: 100%;
-      max-width: none;
+      --drawer-width: 100%;
+      --drawer-max-width: 100%;
+      width: 100% !important;
+      max-width: none !important;
       height: 100dvh;
-      padding-block: 8px 20px;
       background-color: rgb(0 0 0 / 0.9) !important;
       padding: 20px !important;
+      gap: 20px;
       border-right: 0;
       color: #ffffff;
       --color-foreground: #ffffff;
@@ -1523,10 +1525,11 @@ stroke: #000000 !important;
 
     .menu-drawer > .menu-drawer__close-button.button {
       align-self: flex-start;
-      width: 48px;
-      height: 48px;
+      width: 34px;
+      height: 34px;
       min-height: 0;
-      margin: 4px 8px 0;
+      min-width: 34px;
+      margin: 0;
       padding: 0;
       background: transparent !important;
       border: 0 !important;
@@ -1543,17 +1546,19 @@ stroke: #000000 !important;
 
     .menu-drawer > .menu-drawer__close-button .svg-wrapper,
     .menu-drawer > .menu-drawer__close-button svg {
-      width: 22px;
-      height: 22px;
+      width: 34px;
+      height: 34px;
     }
 
     .menu-drawer__search {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 8px;
-      margin: 4px 0 8px;
-      padding-block-end: 12px;
-      border-block-end: 1px solid rgb(255 255 255 / 0.85);
+      margin: 0;
+      min-height: 55px;
+      padding-block: 15px;
+      border-block-end: 1px solid rgb(255 255 255 / 0.1);
     }
 
     .menu-drawer__search-input {
@@ -1563,10 +1568,12 @@ stroke: #000000 !important;
       border: 0;
       outline: none;
       box-shadow: none;
-      padding: 6px 0;
+      padding: 0;
       color: #ffffff;
       font-size: 16px;
+      font-weight: 500;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
+      text-transform: capitalize;
       -webkit-appearance: none;
       appearance: none;
     }
@@ -1588,12 +1595,12 @@ stroke: #000000 !important;
 
     .menu-drawer__search-submit .svg-wrapper,
     .menu-drawer__search-submit svg {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
     }
 
     .menu-drawer__navigation {
-      flex: 0 1 auto;
+      flex: 1 1 auto;
       min-height: 0;
     }
 
@@ -1614,11 +1621,13 @@ stroke: #000000 !important;
       font-weight: 500;
       letter-spacing: 0.01em;
       color: #ffffff;
+      text-transform: capitalize;
     }
 
-    .menu-drawer__menu-item--mainlist .icon-caret--forward {
-      width: 12px;
-      height: 12px;
+    .menu-drawer__menu-item--mainlist .icon-caret--forward,
+    .menu-drawer__menu-item--mainlist .icon-caret--forward svg {
+      width: 24px;
+      height: 24px;
       color: #ffffff;
     }
 
@@ -1727,15 +1736,15 @@ stroke: #000000 !important;
     .menu-drawer__utility-links {
       display: block;
       flex-shrink: 0;
-      margin-block: 28px 24px !important;
-      margin-inline: 24px !important;
+      margin: 0 !important;
       padding: 0;
+      margin-block-start: auto !important;
     }
 
     .menu-drawer__localization-group {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 20px;
       position: relative;
     }
 
@@ -1754,20 +1763,21 @@ stroke: #000000 !important;
       box-shadow: none !important;
       color: #ffffff !important;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
-    .menu-drawer__locale-button .icon-caret {
-      width: 10px;
-      height: 10px;
+    .menu-drawer__locale-button .icon-caret,
+    .menu-drawer__locale-button .icon-caret svg {
+      width: 16px;
+      height: 16px;
     }
 
     .menu-drawer__locale-button .localization-pill-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background-color: var(--header-pill-dot, #3b82f6);
     }
