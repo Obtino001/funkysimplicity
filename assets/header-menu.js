@@ -36,6 +36,7 @@ class HeaderMenu extends Component {
     window.addEventListener('resize', this.#resizeListener);
     this.addEventListener('keydown', this.#onKeydown);
     this.overflowMenu?.addEventListener('pointerleave', this.#overflowSubmenuListener);
+    this.#pageOverlay?.addEventListener('click', this.closeMegaMenu);
   }
 
   disconnectedCallback() {
@@ -47,6 +48,7 @@ class HeaderMenu extends Component {
       this.#stopPointerTracking(this.#state.activeItem);
     }
     this.overflowMenu?.removeEventListener('pointerleave', this.#overflowSubmenuListener);
+    this.#pageOverlay?.removeEventListener('click', this.closeMegaMenu);
     this.#cleanupMutationObserver();
     clearTimeout(this.#hoverDispatchTimer);
     this.#hoverDispatchTimer = undefined;
@@ -251,6 +253,10 @@ class HeaderMenu extends Component {
     return /** @type {HTMLElement | null} */ (this.closest('header-component'));
   }
 
+  get #pageOverlay() {
+    return this.headerComponent?.querySelector('.mega-menu-page-overlay');
+  }
+
   /**
    * Activate the selected menu item immediately
    * @param {PointerEvent | FocusEvent} event
@@ -376,7 +382,37 @@ class HeaderMenu extends Component {
     this.#setFullOpenHeaderHeight(finalHeight, headerVisibleHeight);
     this.style.setProperty('--submenu-opacity', '1');
     this.#startPointerTracking(item, previouslyActiveItem);
+    this.#positionMegaCaret(item, submenu);
   };
+
+  /**
+   * Close the open mega menu from the page overlay.
+   */
+  closeMegaMenu = () => {
+    this.#deactivate(this.#state.activeItem, { force: true });
+  };
+
+  /**
+   * Align the mega-menu caret with the hovered top-level link.
+   * @param {HTMLElement} item
+   * @param {HTMLElement | null} submenu
+   */
+  #positionMegaCaret(item, submenu) {
+    if (!submenu || submenu === this.overflowMenu) return;
+
+    requestAnimationFrame(() => {
+      const listItem = item.closest('.menu-list__list-item');
+      const trigger = listItem?.querySelector('.menu-list__link') ?? item;
+      if (!(trigger instanceof HTMLElement)) return;
+
+      const triggerRect = trigger.getBoundingClientRect();
+      const submenuRect = submenu.getBoundingClientRect();
+      if (submenuRect.width === 0) return;
+
+      const caretLeft = triggerRect.left + triggerRect.width / 2 - submenuRect.left;
+      submenu.style.setProperty('--mega-caret-left', `${caretLeft}px`);
+    });
+  }
 
   /**
    * Deactivate the active item after a delay

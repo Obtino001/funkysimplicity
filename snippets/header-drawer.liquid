@@ -91,6 +91,35 @@
           {{- 'icon-close-menu.svg' | inline_asset_content -}}
         </span>
       </button>
+      <form
+        action="{{ routes.search_url }}"
+        method="get"
+        role="search"
+        class="menu-drawer__search"
+      >
+        <label
+          class="visually-hidden"
+          for="HeaderDrawer-Search"
+        >
+          {{ 'content.search' | t }}
+        </label>
+        <input
+          id="HeaderDrawer-Search"
+          type="search"
+          name="q"
+          placeholder="{{ 'content.search' | t }}"
+          class="menu-drawer__search-input"
+        >
+        <button
+          type="submit"
+          class="button-unstyled menu-drawer__search-submit"
+          aria-label="{{ 'content.search' | t }}"
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-search.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      </form>
       <nav
         class="menu-drawer__navigation"
         style="
@@ -106,7 +135,7 @@
           {%- comment -%}
             Handle menus with fewer than 3 levels of links
           {%- endcomment -%}
-          {% if linklist.levels < 3 %}
+          {% if linklist.levels < 3 and block_settings.menu_style != 'collection_images' %}
             {% assign first_accordion_open = false %}
             {% assign animation_index = 0 %}
             {%- for link in linklist.links -%}
@@ -514,6 +543,11 @@
                             </li>
                           {%- endfor -%}
                         </ul>
+                        {%- if render_link_image -%}
+                          <a href="{{ link.url }}" class="menu-drawer__view-all">
+                            {{ 'actions.view_all' | t }}
+                          </a>
+                        {%- endif -%}
                         {% liquid
                           if eager_loading
                             if block_settings.menu_style == 'featured_collections'
@@ -1488,5 +1522,177 @@ stroke: #000000 !important;
 
   .drawer-localization .language-selector .svg-wrapper.icon-caret svg {
     transform: none;
+  }
+
+  /* ---------------------------------------------------------------------- */
+  /* Mobile menu overlay (Figma)                                             */
+  /* ---------------------------------------------------------------------- */
+  @media screen and (max-width: 749px) {
+    .menu-drawer {
+      width: 100%;
+      max-width: none;
+      background-color: rgb(22 22 22 / 0.92);
+      border-right: 0;
+      color: #ffffff;
+      --color-foreground: #ffffff;
+      --color-foreground-rgb: 255 255 255;
+      --menu-top-level-font-color: #ffffff;
+      --menu-parent-font-color: #ffffff;
+      --menu-child-font-color: #ffffff;
+    }
+
+    .menu-drawer__backdrop {
+      background: rgb(0 0 0 / 0.4);
+      backdrop-filter: none;
+    }
+
+    .menu-drawer > .menu-drawer__close-button {
+      padding: 16px 20px;
+      color: #ffffff;
+    }
+
+    .menu-drawer > .button.close-button.menu-drawer__close-button svg,
+    .menu-drawer > .button.close-button.menu-drawer__close-button svg path {
+      stroke: #ffffff !important;
+      color: #ffffff !important;
+    }
+
+    .menu-drawer__search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 20px 20px;
+      padding-block-end: 10px;
+      border-block-end: 1px solid rgb(255 255 255 / 0.28);
+    }
+
+    .menu-drawer__search-input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: 0;
+      padding: 8px 0;
+      color: #ffffff;
+      font-size: 16px;
+      font-family: var(--font-body--family);
+    }
+
+    .menu-drawer__search-input::placeholder {
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    .menu-drawer__search-submit {
+      display: flex;
+      color: #ffffff;
+      padding: 4px;
+    }
+
+    .menu-drawer__search-submit svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .menu-drawer__menu.has-submenu {
+      padding-inline: 20px;
+    }
+
+    .menu-drawer__menu-item--mainlist {
+      padding-block: 14px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .menu-drawer__submenu {
+      background-color: rgb(22 22 22 / 0.96);
+      color: #ffffff;
+    }
+
+    .menu-drawer__nav-buttons--with-title {
+      grid-template-columns: auto 1fr;
+      padding-inline: 8px;
+    }
+
+    .menu-drawer__nav-buttons--with-title .menu-drawer__close-button {
+      display: none;
+    }
+
+    .menu-drawer__title,
+    .menu-drawer__title .menu-drawer__menu-item-text {
+      justify-self: start;
+      font-family: var(--font-heading--family);
+      font-size: 22px;
+      font-weight: 400;
+      color: #ffffff;
+    }
+
+    .menu-drawer__back-button {
+      color: #ffffff;
+      padding: 16px;
+    }
+
+    .menu-drawer__menu--grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px 10px;
+      padding-inline: 20px;
+      padding-block-start: 12px;
+    }
+
+    .menu-drawer__menu-item:has(> .menu-drawer__link-image) {
+      align-items: center;
+      row-gap: 8px;
+    }
+
+    .menu-drawer__link-image {
+      aspect-ratio: 1 / 1;
+      border-radius: 2px;
+    }
+
+    .menu-drawer__menu--grid .menu-drawer__menu-item-text {
+      width: 100%;
+      color: #ffffff;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .menu-drawer__view-all {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-width: 148px;
+      height: 48px;
+      margin: auto auto 28px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #111111;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .menu-drawer__utility-links {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      margin: auto 20px 24px;
+      color: #ffffff;
+    }
+
+    .menu-drawer__localization,
+    .menu-drawer__localization .drawer-localization__button,
+    .menu-drawer__localization .currency-code,
+    .menu-drawer__localization .mobile-localization {
+      color: #ffffff;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .menu-drawer__search,
+    .menu-drawer__view-all {
+      display: none;
+    }
   }
 {% endstylesheet %}

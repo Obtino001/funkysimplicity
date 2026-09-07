@@ -439,6 +439,13 @@
   <div
     class="header__underlay header__underlay-open"
   ></div>
+  <button
+    type="button"
+    class="mega-menu-page-overlay"
+    aria-label="{{ 'actions.close' | t }}"
+    tabindex="-1"
+    on:click="header-menu/closeMegaMenu"
+  ></button>
   {%- if request.page_type == 'index' -%}
     <h1 class="visually-hidden">{{ shop.name }}</h1>
   {%- endif -%}
@@ -1634,6 +1641,12 @@
       background-color: rgba(255, 255, 255, 0.12) !important;
     }
 
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .mega-menu__link:hover,
+    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .mega-menu__view-all:hover {
+      background-color: transparent !important;
+      opacity: 1;
+    }
+
     @media screen and (max-width: 749px) {
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
         padding: 6px 16px;
@@ -1645,13 +1658,152 @@
   }
     }
      
-    .menu-list__submenu.background-matches-parent .mega-menu__grid ul li .mega-menu__link span{
-      color:#000 !important;
-    } 
+    /* ---------------------------------------------------------------------- */
+    /* Desktop mega menu — floating card (Figma)                              */
+    /* ---------------------------------------------------------------------- */
+    .mega-menu-page-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 3;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: rgb(0 0 0 / 0.5);
+      opacity: 0;
+      pointer-events: none;
+      cursor: pointer;
+      transition: opacity var(--submenu-animation-speed, 0.35s) var(--ease-out-cubic, ease);
+    }
 
-    header#shopify-section-sections--30344852504903__header_section .menu-list__submenu.background-matches-parent{
-      background-color: transparent !important;
-      box-shadow: none !important;
+    header-component:has(header-menu[aria-expanded='true']) .mega-menu-page-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media screen and (min-width: 990px) {
+      .header__underlay-open {
+        display: none !important;
+      }
+
+      header-component:has(header-menu[aria-expanded='true']) {
+        overflow: visible;
+      }
+
+      .header-section:has(header-menu[aria-expanded='true']),
+      #header-group:has(header-menu[aria-expanded='true']) {
+        overflow: visible;
+        z-index: var(--layer-overlay);
+      }
+
+      .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
+        --submenu-gap: 16px;
+        --mega-menu-surface: rgb(45 45 45 / 0.94);
+
+        top: calc(100% + var(--submenu-gap)) !important;
+        left: 0;
+        width: 100%;
+        clip-path: none !important;
+        padding: 36px 40px 28px !important;
+        background-color: var(--mega-menu-surface) !important;
+        border: 0 !important;
+        border-radius: 28px !important;
+        box-shadow: 0 24px 60px rgb(0 0 0 / 0.35) !important;
+        overflow: visible;
+      }
+
+      .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: var(--mega-caret-left, 50%);
+        width: 0;
+        height: 0;
+        border-inline: 10px solid transparent;
+        border-block-end: 10px solid var(--mega-menu-surface, rgb(45 45 45 / 0.94));
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+
+      .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu[inert]::before {
+        display: none;
+      }
+
+      .menu-list__submenu-inner {
+        transform: none !important;
+        padding: 0 !important;
+        max-height: calc(100vh - var(--header-height, 80px) - 64px);
+        overflow: visible;
+      }
+
+      .menu-list__submenu .mega-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .mega-menu__grid {
+        --menu-vertical-gap: 28px;
+        --menu-horizontal-gap: 20px;
+      }
+
+      .mega-menu__link:has(.mega-menu__link-image) {
+        padding-block: 0;
+        row-gap: 10px;
+      }
+
+      .mega-menu__link-image,
+      .mega-menu__grid:has(.mega-menu__link-image)
+        .mega-menu__column
+        > div
+        > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
+        aspect-ratio: 3 / 4;
+        margin-bottom: 0;
+        border-radius: 2px;
+      }
+
+      .mega-menu__link span,
+      .menu-list__submenu.background-matches-parent .mega-menu__grid ul li .mega-menu__link span {
+        color: #ffffff !important;
+        font-family: var(--font-heading--family);
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.3;
+        text-align: center;
+      }
+
+      .mega-menu__view-all {
+        align-self: flex-end;
+        margin-block-start: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 148px;
+        height: 48px;
+        padding: 0 28px;
+        border-radius: 999px;
+        background: #ffffff;
+        color: #111111 !important;
+        font-family: var(--font-body--family);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      .mega-menu__view-all:hover {
+        opacity: 0.88;
+      }
+    }
+
+    @media screen and (max-width: 989px) {
+      .mega-menu-page-overlay {
+        display: none;
+      }
+
+      .mega-menu__view-all {
+        display: none;
+      }
     }
 {% endstylesheet %}
 
