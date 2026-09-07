@@ -1078,8 +1078,10 @@
 
     /* Optimize layout performance for hidden menus */
     .header-menu .menu-list__submenu {
-      content-visibility: auto;
-      contain-intrinsic-size: 0px 500px;
+      content-visibility: visible;
+      contain-intrinsic-size: auto;
+      height: auto;
+      min-height: 0;
     }
 
     /* Force visibility when open/animating and in overflow submenu to prevent layout issues */
@@ -1736,20 +1738,19 @@
       left: 0;
       right: 0;
       height: 100vh;
-      z-index: 1;
+      z-index: 0;
       margin: 0;
       padding: 0;
       border: 0;
       background: rgb(0 0 0 / 0.5);
       opacity: 0;
-      pointer-events: none;
+      pointer-events: none !important;
       cursor: pointer;
       transition: opacity var(--submenu-animation-speed, 0.35s) var(--ease-out-cubic, ease);
     }
 
     header-component:has(.menu-list__submenu:not([inert])) .mega-menu-page-overlay {
       opacity: 1;
-      pointer-events: auto;
     }
 
     @media screen and (min-width: 990px) {
@@ -1757,55 +1758,59 @@
         display: none !important;
       }
 
+      header-component,
       header-component:has(header-menu[aria-expanded='true']) {
         overflow: visible;
       }
 
+      .header-section,
       .header-section:has(header-menu[aria-expanded='true']),
       #header-group:has(header-menu[aria-expanded='true']) {
         overflow: visible;
         z-index: var(--layer-overlay);
       }
 
+      .menu-list__list-item:where(:not([slot='overflow'])) {
+        position: static;
+      }
+
       .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
         --submenu-gap: 0px;
         --mega-menu-surface: rgb(45 45 45 / 0.94);
+        --full-open-header-height: 0px;
+        --submenu-height: auto;
 
-        top: 100% !important;
+        top: calc(100% - 2px) !important;
         left: 0;
         width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
         clip-path: none !important;
         transition: none !important;
-        padding: 16px 0 0 !important;
+        padding: 0 24px 16px !important;
+        margin: 0 !important;
         background-color: transparent !important;
         border: 0 !important;
         border-radius: 0 !important;
         box-shadow: none !important;
-        overflow: visible;
+        overflow: visible !important;
         pointer-events: auto;
-        z-index: calc(var(--layer-header-menu) + 2);
-      }
-
-      .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::after {
-        content: '';
-        position: absolute;
-        inset: 0 0 auto 0;
-        height: 16px;
-        pointer-events: auto;
+        z-index: calc(var(--layer-header-menu) + 4);
       }
 
       .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before {
         content: '';
         position: absolute;
-        top: 6px;
+        top: 4px;
         left: var(--mega-caret-left, 50%);
         width: 0;
         height: 0;
-        border-inline: 10px solid transparent;
-        border-block-end: 10px solid var(--mega-menu-surface, rgb(45 45 45 / 0.94));
+        border-inline: 9px solid transparent;
+        border-block-end: 9px solid var(--mega-menu-surface, rgb(45 45 45 / 0.94));
         transform: translateX(-50%);
         pointer-events: none;
-        z-index: 1;
+        z-index: 2;
       }
 
       .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu[inert]::before {
@@ -1814,30 +1819,51 @@
 
       .menu-list__submenu-inner {
         transform: none !important;
-        padding: 32px 40px 28px !important;
-        max-height: calc(100vh - var(--header-height, 80px) - 64px);
-        overflow: visible;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+        padding: 18px 24px 16px !important;
+        overflow: visible !important;
         background-color: var(--mega-menu-surface, rgb(45 45 45 / 0.94));
-        border-radius: 28px;
+        border-radius: 20px;
         box-shadow: 0 24px 60px rgb(0 0 0 / 0.35);
         opacity: 1 !important;
         transition: none !important;
       }
 
-      .menu-list__submenu .mega-menu {
+      .menu-list__submenu .mega-menu,
+      .menu-list__submenu .mega-menu.section {
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        justify-content: flex-start;
       }
 
       .mega-menu__grid {
-        --menu-vertical-gap: 28px;
-        --menu-horizontal-gap: 20px;
+        --menu-vertical-gap: 10px;
+        --menu-horizontal-gap: 12px;
+        height: auto;
+        min-height: 0;
+      }
+
+      .mega-menu__grid:has(.mega-menu__link-image) {
+        --menu-columns-desktop: 8;
+      }
+
+      .mega-menu__list {
+        height: auto;
+        min-height: 0;
       }
 
       .mega-menu__link:has(.mega-menu__link-image) {
         padding-block: 0;
-        row-gap: 10px;
+        row-gap: 6px;
       }
 
       .mega-menu__link-image,
@@ -1845,35 +1871,39 @@
         .mega-menu__column
         > div
         > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 1 / 1 !important;
+        height: 112px !important;
+        max-height: 112px !important;
+        width: 100%;
         margin-bottom: 0;
-        border-radius: 2px;
+        border-radius: 4px;
+        object-fit: cover;
       }
 
       .mega-menu__link span,
       .menu-list__submenu.background-matches-parent .mega-menu__grid ul li .mega-menu__link span {
         color: #ffffff !important;
         font-family: var(--font-heading--family);
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 400;
-        line-height: 1.3;
+        line-height: 1.2;
         text-align: center;
       }
 
       .mega-menu__view-all {
         align-self: flex-end;
-        margin-block-start: 24px;
+        margin-block-start: 12px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 148px;
-        height: 48px;
-        padding: 0 28px;
+        min-width: 120px;
+        height: 36px;
+        padding: 0 20px;
         border-radius: 999px;
         background: #ffffff;
         color: #111111 !important;
         font-family: var(--font-body--family);
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;

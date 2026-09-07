@@ -41,7 +41,7 @@ class HeaderMenu extends Component {
     window.addEventListener('resize', this.#resizeListener);
     this.addEventListener('keydown', this.#onKeydown);
     this.overflowMenu?.addEventListener('pointerleave', this.#overflowSubmenuListener);
-    this.#pageOverlay?.addEventListener('click', this.closeMegaMenu);
+    document.addEventListener('pointerdown', this.#onDocumentPointerDown, true);
   }
 
   disconnectedCallback() {
@@ -53,7 +53,7 @@ class HeaderMenu extends Component {
       this.#stopPointerTracking(this.#state.activeItem);
     }
     this.overflowMenu?.removeEventListener('pointerleave', this.#overflowSubmenuListener);
-    this.#pageOverlay?.removeEventListener('click', this.closeMegaMenu);
+    document.removeEventListener('pointerdown', this.#onDocumentPointerDown, true);
     this.#cleanupMutationObserver();
     clearTimeout(this.#hoverDispatchTimer);
     this.#hoverDispatchTimer = undefined;
@@ -260,9 +260,17 @@ class HeaderMenu extends Component {
     return /** @type {HTMLElement | null} */ (this.closest('header-component'));
   }
 
-  get #pageOverlay() {
-    return this.headerComponent?.querySelector('.mega-menu-page-overlay');
-  }
+  /**
+   * Close when clicking outside the menu. The dim overlay is visual-only so it
+   * cannot steal hover between the header and the floating card.
+   * @param {PointerEvent} event
+   */
+  #onDocumentPointerDown = (event) => {
+    if (!this.#state.activeItem) return;
+    if (!(event.target instanceof Node)) return;
+    if (this.contains(event.target)) return;
+    this.closeMegaMenu();
+  };
 
   /**
    * Activate the selected menu item immediately
@@ -275,9 +283,6 @@ class HeaderMenu extends Component {
 
     if (!item || item == this.#state.activeItem) return;
 
-    clearTimeout(this.#closeTimer);
-    this.#closeTimer = undefined;
-
     // Derive the slot context from the list item rather than `event.target`.
     const listItem = item.closest('.menu-list__list-item');
     const slot = listItem instanceof HTMLElement ? listItem.slot : '';
@@ -286,11 +291,18 @@ class HeaderMenu extends Component {
     const overflowItem = isMoreTrigger ? this.#getFirstOverflowMenuItem() : null;
     const nextSubmenu = findSubmenu(item) || (isMoreTrigger ? findSubmenu(overflowItem) : null);
 
-    // Leaf links have no panel — close the open mega menu instead of flashing an empty overlay.
+    // Passing over a leaf link (Sale, About) must not snap the open panel shut.
     if (!nextSubmenu && isDefaultSlot) {
-      this.#deactivate(this.#state.activeItem, { force: true });
+      clearTimeout(this.#closeTimer);
+      this.#closeTimer = setTimeout(() => {
+        this.#closeTimer = undefined;
+        this.#deactivate(this.#state.activeItem, { force: true });
+      }, MEGA_MENU_CLOSE_DELAY_MS);
       return;
     }
+
+    clearTimeout(this.#closeTimer);
+    this.#closeTimer = undefined;
 
     this.dataset.overflowExpanded = (!isDefaultSlot).toString();
 

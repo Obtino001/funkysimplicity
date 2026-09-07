@@ -248,7 +248,7 @@
 
 {% style %}
   [data-menu-grid-id="{{ id }}"] {
-    {% if menu_content_type == 'collection_images' and parent_link.links.size < 5 %}
+    {% if menu_content_type == 'collection_images' %}
       --menu-columns-desktop: {{ grid_columns_count_collection_images }};
       --menu-columns-tablet: {{ grid_columns_count_tablet }};
     {% else %}
@@ -258,7 +258,7 @@
   }
 
   [data-menu-list-id="{{ id }}"] {
-    {% if menu_content_type == 'collection_images' and parent_link.links.size < 5 %}
+    {% if menu_content_type == 'collection_images' %}
       --menu-columns-desktop: {{ grid_columns_count_collection_images }};
       --menu-columns-tablet: {{ max_menu_columns_tablet }};
     {% else %}
