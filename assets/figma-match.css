@@ -435,8 +435,16 @@
 
   .grg-heading,
   .google-reviews-grid h2,
-  .tcc-heading {
+  .gr-heading,
+  .tcc-heading,
+  .tcc-header h2 {
     font-size: 28px !important;
     line-height: 1.15;
+  }
+
+  .main-page h1,
+  .page-title,
+  .shopify-section .text-block--h2 h1 {
+    font-size: 36px;
   }
 }
