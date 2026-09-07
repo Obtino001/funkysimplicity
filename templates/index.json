@@ -2217,7 +2217,7 @@
         "image_4AwDLy": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_10.webp",
+            "image": "shopify://shop_images/image.png",
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
