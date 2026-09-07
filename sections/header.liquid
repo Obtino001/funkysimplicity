@@ -613,6 +613,13 @@
 
       z-index: var(--layer-overlay);
 
+      &[data-sticky-state='active'] {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+      }
+
       &[transparent='not-sticky'][data-sticky-state='active'] {
         --header-logo-display: unset;
         --header-logo-inverse-display: unset;
@@ -1454,8 +1461,7 @@
     @media screen and (max-width: 749px) {
       #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
       #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
-        padding-inline: var(--page-margin, 16px) !important;
-        padding-block: 12px !important;
+        padding: 0 !important;
       }
     }
 
@@ -1684,21 +1690,176 @@
     }
 
     @media screen and (max-width: 749px) {
-      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) {
-        padding-block: 4px;
-        padding-inline: 10px !important;
+      /* Search + lang stay in the menu overlay only — do not hide drawer locales */
+      #header-component .search-action {
+        display: none !important;
       }
 
+      #header-component .header-localization-group {
+        display: none !important;
+      }
+
+      #header-component .menu-drawer .dropdown-localization,
+      #header-component .menu-drawer .menu-drawer__localization-group,
+      #header-component .menu-drawer .menu-drawer__search {
+        display: flex !important;
+      }
+
+      /* Keep top: -1px so the sticky observer can flip to data-sticky-state=active */
+      .header-section:has(> #header-component[sticky='always']),
+      .header-section:has(> #header-component[sticky='scroll-up'][data-sticky-state='active']) {
+        top: -1px;
+        overflow: visible;
+        background: transparent !important;
+      }
+
+      .header-section:has(> #header-component[transparent]:not([data-sticky-state='active'])) {
+        min-height: 65px;
+      }
+
+      #header-component,
+      #header-component[transparent][data-sticky-state='active'] {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+      }
+
+      /* Home at rest: overlay hero, no pill */
+      #header-component[transparent]:not([data-sticky-state='active']) {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 10px !important;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Menu | centered logo | bag — 3 slots, not the 5-col / flex fight */
+      #header-component .header__column,
+      #header-component[data-menu-style='drawer'] .header__column {
+        display: contents !important;
+      }
+
+      #header-component .header__columns,
+      #header-component .header__row--top .header__columns,
+      #header-component[data-menu-style='drawer'] .header__columns,
+      #header-component[data-menu-style='drawer'] .header__row--top .header__columns,
+      #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
+      #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns,
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
-        padding: 5px 20px;
-        min-height: 55px;
-        border-radius: 9999px;
+        display: grid !important;
+        grid-template-columns: 32px minmax(0, 1fr) 32px !important;
+        grid-template-areas: 'menu logo cart' !important;
+        align-items: center;
+        column-gap: 8px !important;
+        box-sizing: border-box;
       }
 
-      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image {
-        height: 35px;
-        width: auto;
+      #header-component .header__drawer,
+      #header-component header-drawer,
+      #header-component .header-drawer {
+        grid-area: menu;
+        justify-self: start;
+        align-self: center;
+        min-height: 0;
+        width: 24px;
+      }
+
+      #header-component .header-logo {
+        grid-area: logo;
+        justify-self: center;
+        align-self: center;
+      }
+
+      #header-component header-actions {
+        grid-area: cart;
+        justify-self: end;
+        align-self: center;
+      }
+
+      #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
+      #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
+        padding: 0 !important;
+        min-height: 45px;
+        height: auto;
+        background: transparent !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+
+      #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
+        height: 45px !important;
+        width: auto !important;
+        max-width: 170px;
+      }
+
+      /* Inner pages + scrolled home: 55px charcoal pill */
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]),
+      #header-component[transparent][data-sticky-state='active'] {
+        padding: 10px !important;
+        width: 100%;
+        box-sizing: border-box;
+        background: transparent !important;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top,
+      #header-component[transparent][data-sticky-state='active'] .header__row--top {
+        max-width: none;
+        margin-inline: 0;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns,
+      #header-component[transparent][data-sticky-state='active'] .header__row--top .header__columns,
+      #header-component[data-menu-style='drawer']:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
+        padding: 5px 20px !important;
+        min-height: 55px;
+        height: 55px;
+        border-radius: 999px;
+        background-color: var(--header-pill-bg, #4d4d4d) !important;
+        box-shadow: none;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image,
+      #header-component[transparent][data-sticky-state='active'] .header-logo__image {
+        height: 35px !important;
+        width: auto !important;
         max-width: 132px;
+      }
+
+      #header-component .header__row--top .menu-drawer-container .header__icon--summary,
+      #header-component .header__row--top .header__icon--menu {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        padding: 0 !important;
+        color: #ffffff !important;
+      }
+
+      #header-component .header__row--top .header__icon--menu svg,
+      #header-component .header__row--top .header-drawer-icon--open svg {
+        width: 24px;
+        height: 24px;
+        color: inherit;
+        stroke: currentColor;
+      }
+
+      #header-component .header-actions__action {
+        color: #ffffff !important;
+      }
+
+      #header-component .header-actions__cart-icon svg {
+        width: 23px;
+        height: 21px;
+        color: #ffffff !important;
+        fill: #ffffff !important;
+      }
+
+      #header-component .header__underlay,
+      #header-component .header__underlay-closed,
+      #header-component .header__underlay-open {
+        display: none !important;
       }
     }
      
