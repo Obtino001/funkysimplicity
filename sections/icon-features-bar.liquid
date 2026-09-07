@@ -307,27 +307,34 @@
     }
   }
 
-  @media screen and (max-width: 549px) {
+  @media screen and (max-width: 749px) {
     .icon-features-bar {
-      padding-block: 28px;
+      padding-block: 0;
+      background: #f6f6f6;
     }
 
     .ifb-grid {
       grid-template-columns: repeat(2, 1fr);
-      row-gap: 1.5rem;
+      row-gap: 0;
+      column-gap: 0;
     }
 
     .ifb-item {
-      padding-inline: 0.75rem;
+      padding: 18px 13px;
     }
 
     .ifb-item__title {
       font-size: 16px;
     }
 
+    .ifb-item__icon-wrap,
     .ifb-item__img {
       width: 50px;
       height: 50px;
+    }
+
+    .ifb-grid--dividers .ifb-item::after {
+      display: none;
     }
   }
 </style>

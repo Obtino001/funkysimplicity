@@ -586,6 +586,22 @@ a.hero-secondary_button {
     }
   }
 
+  @media screen and (max-width: 749px) {
+    .hero {
+      --hero-min-height: 735px;
+      --hero-height-offset: 0px;
+      min-height: 735px;
+    }
+
+    .hero__content-wrapper .h1,
+    .hero__content-wrapper .text-block--h1,
+    .hero__content-wrapper .h1 p {
+      max-width: none;
+      font-size: 24px;
+      line-height: normal;
+    }
+  }
+
   .hero[data-shopify-visual-preview] {
     --hero-min-height: 600px;
 

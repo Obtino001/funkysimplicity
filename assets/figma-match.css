@@ -42,13 +42,14 @@
   }
 }
 
-/* Feature / trust bar under hero — 2×2 on mobile */
+/* Feature / trust bar under hero — 2×2 on mobile (114px) */
 @media screen and (max-width: 767px) {
   .spacing-style.layout-panel-flex.layout-panel-flex--row.section-content-wrapper.mobile-column {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 10px;
     padding-inline: 11px;
+    min-height: 114px;
   }
 }
 
@@ -102,6 +103,21 @@
 }
 
 @media screen and (max-width: 749px) {
+  .collection-wrapper .section,
+  [class*='collection'] .text-block--h1,
+  .collection-wrapper h1 {
+    font-size: 36px !important;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .collection-wrapper .rte,
+  .collection-wrapper .text-block p {
+    font-size: 14px !important;
+    text-align: center;
+    padding-inline: 20px;
+  }
+
   .collection-tabs {
     padding-inline: 10px;
     gap: 10px;
@@ -110,6 +126,26 @@
   .collection-tab {
     font-size: 12px;
     padding: 8px 16px;
+  }
+
+  .product-grid-container .product-card__title,
+  .product-grid .product-card .text-block,
+  .tcc-card__title {
+    font-size: 14px !important;
+    font-weight: 500;
+  }
+
+  .product-grid-container .price,
+  .tcc-card__price {
+    font-size: 12px !important;
+  }
+
+  .product-grid-container .product-card__image,
+  .product-grid .product-card img,
+  .tcc-card__media-wrapper,
+  .resource-list__item img {
+    aspect-ratio: 176 / 267;
+    object-fit: cover;
   }
 }
 
@@ -129,8 +165,24 @@
 
   .product-information .h1,
   .product-information h1 {
-    font-size: 22px;
-    line-height: 1.2;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  .product-information .buy-buttons-block .button,
+  .product-form-buttons .button {
+    width: 100%;
+    height: 48px;
+    border-radius: 999px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .product-information .accordion,
+  .product-information details.disclosure {
+    padding-inline: 10px;
   }
 }
 
@@ -267,8 +319,36 @@
 
 @media screen and (max-width: 749px) {
   .footer,
+  .shopify-section-group-footer-group .section {
+    background: #000;
+    color: #fff;
+    padding: 30px !important;
+  }
+
+  .footer .menu__heading,
+  .footer h2,
+  .footer .footer-content .h4,
+  .footer-block__heading {
+    font-family: var(--font-heading--family);
+    font-size: 20px !important;
+    font-weight: 300;
+    color: #fff;
+  }
+
+  .footer a,
+  .footer p,
+  .footer-utilities,
+  .footer-copyright {
+    font-size: 14px;
+    color: #fff;
+  }
+
+  .footer-content {
+    gap: 20px;
+  }
+
   .footer-utilities {
-    padding-inline: 20px;
+    padding-inline: 0;
   }
 }
 
@@ -317,5 +397,46 @@
     padding: 15px 25px;
     font-size: 14px;
     font-weight: 600;
+  }
+}
+
+/* Sale / compare-at gold */
+.price--on-sale .price-item--sale,
+.tcc-card .price--on-sale,
+.cart-drawer--custom .price--on-sale {
+  color: var(--fs-gold);
+}
+
+/* Collection heading desktop */
+@media screen and (min-width: 750px) {
+  .collection-wrapper h1,
+  .collection-wrapper .text-block--h1 {
+    font-size: 46px;
+  }
+
+  .collection-wrapper .rte,
+  .collection-wrapper .text-block p {
+    font-size: 16px;
+    max-width: 746px;
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
+/* Mobile page inset — all templates */
+@media screen and (max-width: 749px) {
+  :root {
+    --page-margin: 10px;
+  }
+
+  .shopify-section:not(.header-section):not(.announcement-bar-section) .section {
+    --page-margin: 10px;
+  }
+
+  .grg-heading,
+  .google-reviews-grid h2,
+  .tcc-heading {
+    font-size: 28px !important;
+    line-height: 1.15;
   }
 }
