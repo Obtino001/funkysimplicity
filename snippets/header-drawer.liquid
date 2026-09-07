@@ -133,9 +133,9 @@
           role="list"
         >
           {%- comment -%}
-            Handle menus with fewer than 3 levels of links
+            Figma mobile menu always uses a drill-down panel for parent links.
           {%- endcomment -%}
-          {% if linklist.levels < 3 and block_settings.menu_style != 'collection_images' %}
+          {% if false %}
             {% assign first_accordion_open = false %}
             {% assign animation_index = 0 %}
             {%- for link in linklist.links -%}
@@ -629,14 +629,7 @@
       >
         {% liquid
           assign show_language = section.settings.show_language
-          if localization.available_languages.size <= 1
-            assign show_language = false
-          endif
-
           assign show_country = section.settings.show_country
-          if localization.available_countries.size <= 1
-            assign show_country = false
-          endif
         %}
         {% if data_header_drawer_type == 'mobile-drawer' and show_country or show_language %}
           {% liquid
@@ -1599,7 +1592,7 @@ stroke: #000000 !important;
     }
 
     .menu-drawer__navigation {
-      flex: 1;
+      flex: 0 1 auto;
       min-height: 0;
     }
 
@@ -1613,7 +1606,7 @@ stroke: #000000 !important;
     }
 
     .menu-drawer__menu-item--mainlist {
-      padding-block: 16px;
+      padding-block: 15px;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
       font-size: 16px;
       font-weight: 400;
@@ -1622,8 +1615,8 @@ stroke: #000000 !important;
     }
 
     .menu-drawer__menu-item--mainlist .icon-caret--forward {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       color: #ffffff;
     }
 
@@ -1639,7 +1632,7 @@ stroke: #000000 !important;
     .menu-drawer__nav-buttons--with-title {
       grid-template-columns: auto 1fr;
       align-items: center;
-      padding: 8px 12px 16px 4px;
+      padding: 8px 12px 12px 4px;
     }
 
     .menu-drawer__nav-buttons--with-title .menu-drawer__close-button {
@@ -1675,10 +1668,10 @@ stroke: #000000 !important;
     .menu-drawer__menu--grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px 8px;
-      flex: 1;
+      gap: 4px 4px;
+      flex: none;
       width: 100%;
-      padding-inline: 16px;
+      padding-inline: 12px;
       padding-block-start: 4px;
     }
 
@@ -1689,7 +1682,7 @@ stroke: #000000 !important;
 
     .menu-drawer__menu-item:has(> .menu-drawer__link-image) {
       align-items: center !important;
-      row-gap: 8px;
+      row-gap: 6px;
     }
 
     .menu-drawer__link-image {
@@ -1716,7 +1709,7 @@ stroke: #000000 !important;
       width: fit-content;
       min-width: 148px;
       height: 46px;
-      margin: 20px auto 12px;
+      margin: 28px auto 16px;
       padding: 0 28px;
       border-radius: 999px;
       background: #ffffff;
@@ -1732,7 +1725,8 @@ stroke: #000000 !important;
     .menu-drawer__utility-links {
       display: block;
       flex-shrink: 0;
-      margin: 12px 24px 8px;
+      margin-block: 28px 24px !important;
+      margin-inline: 24px !important;
       padding: 0;
     }
 
@@ -1741,6 +1735,10 @@ stroke: #000000 !important;
       align-items: center;
       gap: 28px;
       position: relative;
+    }
+
+    .menu-drawer .dropdown-localization {
+      display: flex;
     }
 
     .menu-drawer__locale-button.button {
