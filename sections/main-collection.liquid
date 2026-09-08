@@ -162,20 +162,34 @@
     } 
     @media screen and (max-width: 749px) {
       .collection-tabs-wrapper {
-        margin-bottom: 10px;
+        margin-bottom: 14px;
         padding-inline: 0;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .collection-tabs-wrapper::-webkit-scrollbar {
+        display: none;
       }
       .collection-tabs {
-        gap: 10px;
+        gap: 8px;
+        padding-inline: 16px;
+        display: flex;
+        align-items: center;
+        width: max-content;
+        min-width: 100%;
       }
       .collection-tab {
-        padding: 8px 16px;
-        font-size: 12px;
+        padding: 7px 15px;
+        font-size: 13px;
+        border-radius: 4px;
+        flex-shrink: 0;
       }
       .product-grid {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 14px 10px;
-        padding-inline: 0;
+        gap: 16px 12px;
+        padding-inline: 16px;
       }
       .tcc-card .tcc-quick-shop,
       .tcc-card:focus-within .tcc-quick-shop,
