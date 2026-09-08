@@ -616,24 +616,54 @@
     background-color: rgb(13 13 13 / 0.97) !important;
   }
 
-  /* ── Divider lines between every top-level menu item ── */
+  /* ── Divider lines between every top-level menu item (no double border below search) ── */
   .menu-drawer .menu-drawer__list-item {
     border-block-end: 1px solid rgb(255 255 255 / 0.1);
   }
   .menu-drawer .menu-drawer__list-item:first-child {
-    border-block-start: 1px solid rgb(255 255 255 / 0.1);
+    border-block-start: none !important;
   }
 
-  /* ── Show the forward caret (>) arrow on items with submenus ── */
-  .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward {
+  /* ── Show the forward caret (>) arrow on items with submenus / mega menus ── */
+  .menu-drawer summary.menu-drawer__menu-item--mainlist,
+  .menu-drawer .menu-drawer__menu-item--mainlist {
     display: flex !important;
-    opacity: 1 !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    list-style: none !important;
+    cursor: pointer;
   }
-  .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward,
+  .menu-drawer summary.menu-drawer__menu-item--mainlist::-webkit-details-marker {
+    display: none !important;
+  }
+  .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
   .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward svg {
-    width: 20px !important;
-    height: 20px !important;
-    color: rgb(255 255 255 / 0.6) !important;
+    display: block !important;
+    width: 12px !important;
+    height: 12px !important;
+    stroke: #ffffff !important;
+    stroke-width: 1.75px !important;
+    fill: none !important;
+    transform: rotate(-90deg) !important;
+    opacity: 0.85 !important;
+  }
+  .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward svg path {
+    stroke: #ffffff !important;
+    stroke-width: 1.75px !important;
+    fill: none !important;
   }
 
   /* ── Search row: transparent bg, no border-radius box ── */
