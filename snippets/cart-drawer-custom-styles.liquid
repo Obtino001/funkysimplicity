@@ -16,7 +16,12 @@
   .theme-drawer__dialog.cart-drawer--custom {
     --theme-drawer-padding: var(--padding-xl);
     --cart-drawer-padding: var(--padding-xl);
+    max-width: 500px;
     overflow: visible;
+  }
+
+  .cart-drawer--custom .cart-drawer__inner {
+    max-width: 500px;
   }
 
   .theme-drawer__dialog.cart-drawer--custom::backdrop {
@@ -386,6 +391,10 @@
       --cart-drawer-padding: 10px;
       --theme-drawer-width: 100%;
       width: 100%;
+      max-width: 100%;
+    }
+
+    .cart-drawer--custom .cart-drawer__inner {
       max-width: 100%;
     }
 

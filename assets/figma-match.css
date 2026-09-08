@@ -280,6 +280,10 @@
     max-width: 100%;
   }
 
+  .cart-drawer--custom .cart-drawer__inner {
+    max-width: 100%;
+  }
+
   .cart-drawer--custom .theme-drawer__title {
     font-size: 18px !important;
     font-weight: 600 !important;

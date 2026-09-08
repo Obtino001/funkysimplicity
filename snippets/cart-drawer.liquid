@@ -54,7 +54,7 @@
       aria-labelledby="cart-drawer-heading"
       cart-summary-sticky="true"
       {% if custom_drawer %}
-        style="--theme-drawer-width: {{ settings.cart_drawer_width | default: 610 }}px;"
+        style="--theme-drawer-width: {{ settings.cart_drawer_width | default: 500 }}px; max-width: 500px;"
       {% endif %}
     >
       {%- if custom_drawer -%}
