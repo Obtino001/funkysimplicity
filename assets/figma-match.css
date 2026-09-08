@@ -404,6 +404,30 @@
 .button-secondary,
 .button-custom {
   border-radius: 999px;
+  transition:
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.22s ease,
+    opacity 0.2s ease;
+  will-change: transform;
+}
+
+.button:hover,
+.button-secondary:hover,
+.button-custom:hover,
+.collection-section_view_all_button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.button:active,
+.button-secondary:active,
+.button-custom:active,
+.collection-section_view_all_button:active {
+  transform: translateY(0px) scale(0.97);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
 @media screen and (min-width: 750px) {

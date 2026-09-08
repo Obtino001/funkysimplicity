@@ -223,7 +223,9 @@
 {% endcase %}
 
 {% style %}
-  .header__underlay {
+  /* Set on #header-component so --color-submenu cascades to both
+     .header__underlay AND .menu-list__submenu (they share this ancestor) */
+  #header-component {
     --color-submenu: rgb({{effective_submenu_color.rgb}});
   }
 {% endstyle %}
@@ -636,6 +638,13 @@
     overflow-x: hidden;
     scrollbar-width: thin;
     scrollbar-color: rgb(var(--color-foreground-rgb) / var(--opacity-40)) transparent;
+  }
+
+  /* For non-overflow mega menus: remove inline padding so the
+     .mega-menu.section grid can apply page-width / full-width correctly
+     without double-padding on top of its own section margins. */
+  .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu .menu-list__submenu-inner {
+    padding-inline: 0;
   }
 
   .mega-menu__link {

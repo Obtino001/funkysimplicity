@@ -74,82 +74,86 @@
       {%- endif -%}
     </div>
 
-    {%- comment -%} 4 Feature Boxes Grid {%- endcomment -%}
+    {%- comment -%} 4 Feature Boxes Grid / Swiper {%- endcomment -%}
     {%- if section.blocks.size > 0 -%}
-      <div class="hfb-grid">
-        {%- for block in section.blocks -%}
-          <div class="hfb-box" {{ block.shopify_attributes }}>
-            <div class="hfb-box__icon-wrap">
-              {%- if block.settings.custom_svg != blank -%}
-                <div class="hfb-box__svg">
-                  {{ block.settings.custom_svg }}
-                </div>
-              {%- elsif block.settings.custom_image != blank -%}
-                <img
-                  src="{{ block.settings.custom_image | image_url: width: 120 }}"
-                  alt="{{ block.settings.title | escape }}"
-                  class="hfb-box__icon-img"
-                  width="51"
-                  height="49"
-                  loading="lazy"
-                >
-              {%- else -%}
-                {%- case block.settings.icon -%}
-                  {%- when 'stretch' -%}
-                    {%- comment -%} 4-Way Stretch Icon (51x49) {%- endcomment -%}
-                    <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4.5 4.5C12 12 12 37 4.5 44.5C12 37 39 37 46.5 44.5C39 37 39 12 46.5 4.5C39 12 12 12 4.5 4.5Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M25.5 17L28 22.5L33.5 24.5L28 26.5L25.5 32L23 26.5L17.5 24.5L23 22.5L25.5 17Z" fill="currentColor"/>
-                      <!-- 4 Corner Arrows -->
-                      <path d="M16 19L19.5 15.5M16 19H19M16 19V16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M35 19L31.5 15.5M35 19H32M35 19V16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M16 30L19.5 33.5M16 30H19M16 30V33" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M35 30L31.5 33.5M35 30H32M35 30V33" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-
-                  {%- when 'feather' -%}
-                    {%- comment -%} Buttery-Soft Feather Icon (51x49) {%- endcomment -%}
-                    <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M42.5 6.5C33.5 6.5 16 13 13.5 29C13 32 10.5 35 7.5 37.5C14.5 38.5 20.5 36 24 32.5C38 18 42.5 6.5 42.5 6.5Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M13.5 29C20 25.5 29 18 35.5 12.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                      <path d="M21 29.5L25.5 32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                      <path d="M26 23.5L32 25.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                    </svg>
-
-                  {%- when 'needle_thread' -%}
-                    {%- comment -%} Balinese Craftsmanship Needle & Thread Icon (51x49) {%- endcomment -%}
-                    <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <!-- Needle -->
-                      <path d="M37.5 7.5L12.5 39.5L10 41.5L12 39L24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <line x1="34" y1="11" x2="36" y2="9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-                      <!-- Thread Loop -->
-                      <path d="M36 9.5C39 6.5 44 8.5 42 13.5C39 21 27 21 29 27C31 33 39 31 40 37" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-
-                  {%- when 'fabric_layers' -%}
-                    {%- comment -%} High Quality Fabrics Stacking Icon (51x49) {%- endcomment -%}
-                    <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <!-- Top Layer with Texture Dots -->
-                      <path d="M25.5 10.5L42.5 17.5L25.5 24.5L8.5 17.5L25.5 10.5Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="21" cy="16" r="1" fill="currentColor"/>
-                      <circle cx="25.5" cy="14.5" r="1" fill="currentColor"/>
-                      <circle cx="30" cy="16" r="1" fill="currentColor"/>
-                      <circle cx="25.5" cy="18" r="1" fill="currentColor"/>
-                      <circle cx="21" cy="19.5" r="1" fill="currentColor"/>
-                      <circle cx="30" cy="19.5" r="1" fill="currentColor"/>
-                      <!-- Middle Layer -->
-                      <path d="M8.5 23.5L25.5 30.5L42.5 23.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <!-- Bottom Layer -->
-                      <path d="M8.5 29.5L25.5 36.5L42.5 29.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                {%- endcase -%}
-              {%- endif -%}
+      <div class="hfb-slider-wrapper">
+        <div class="hfb-grid">
+          {%- for block in section.blocks -%}
+            <div class="hfb-box" {{ block.shopify_attributes }}>
+              <div class="hfb-box__icon-wrap">
+                {%- if block.settings.custom_svg != blank -%}
+                  <div class="hfb-box__svg">
+                    {{ block.settings.custom_svg }}
+                  </div>
+                {%- elsif block.settings.custom_image != blank -%}
+                  <img
+                    src="{{ block.settings.custom_image | image_url: width: 120 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    class="hfb-box__icon-img"
+                    width="51"
+                    height="49"
+                    loading="lazy"
+                  >
+                {%- else -%}
+                  {%- case block.settings.icon -%}
+                    {%- when 'stretch' -%}
+                      {%- comment -%} 4-Way Stretch Icon (51x49) {%- endcomment -%}
+                      <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.5 4.5C12 12 12 37 4.5 44.5C12 37 39 37 46.5 44.5C39 37 39 12 46.5 4.5C39 12 12 12 4.5 4.5Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M25.5 17L28 22.5L33.5 24.5L28 26.5L25.5 32L23 26.5L17.5 24.5L23 22.5L25.5 17Z" fill="currentColor"/>
+                        <!-- 4 Corner Arrows -->
+                        <path d="M16 19L19.5 15.5M16 19H19M16 19V16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M35 19L31.5 15.5M35 19H32M35 19V16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 30L19.5 33.5M16 30H19M16 30V33" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M35 30L31.5 33.5M35 30H32M35 30V33" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+  
+                    {%- when 'feather' -%}
+                      {%- comment -%} Buttery-Soft Feather Icon (51x49) {%- endcomment -%}
+                      <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M42.5 6.5C33.5 6.5 16 13 13.5 29C13 32 10.5 35 7.5 37.5C14.5 38.5 20.5 36 24 32.5C38 18 42.5 6.5 42.5 6.5Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.5 29C20 25.5 29 18 35.5 12.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M21 29.5L25.5 32" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M26 23.5L32 25.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                      </svg>
+  
+                    {%- when 'needle_thread' -%}
+                      {%- comment -%} Balinese Craftsmanship Needle & Thread Icon (51x49) {%- endcomment -%}
+                      <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M37.5 7.5L12.5 39.5L10 41.5L12 39L24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="34" y1="11" x2="36" y2="9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M36 9.5C39 6.5 44 8.5 42 13.5C39 21 27 21 29 27C31 33 39 31 40 37" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+  
+                    {%- when 'fabric_layers' -%}
+                      {%- comment -%} High Quality Fabrics Stacking Icon (51x49) {%- endcomment -%}
+                      <svg class="hfb-box__icon-svg" viewBox="0 0 51 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.5 10.5L42.5 17.5L25.5 24.5L8.5 17.5L25.5 10.5Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="21" cy="16" r="1" fill="currentColor"/>
+                        <circle cx="25.5" cy="14.5" r="1" fill="currentColor"/>
+                        <circle cx="30" cy="16" r="1" fill="currentColor"/>
+                        <circle cx="25.5" cy="18" r="1" fill="currentColor"/>
+                        <circle cx="21" cy="19.5" r="1" fill="currentColor"/>
+                        <circle cx="30" cy="19.5" r="1" fill="currentColor"/>
+                        <path d="M8.5 23.5L25.5 30.5L42.5 23.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8.5 29.5L25.5 36.5L42.5 29.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  {%- endcase -%}
+                {%- endif -%}
+              </div>
+  
+              <h3 class="hfb-box__title">{{ block.settings.title }}</h3>
+              <div class="hfb-box__desc">{{ block.settings.text }}</div>
             </div>
-
-            <h3 class="hfb-box__title">{{ block.settings.title }}</h3>
-            <div class="hfb-box__desc">{{ block.settings.text }}</div>
-          </div>
-        {%- endfor -%}
+          {%- endfor -%}
+        </div>
+        
+        {%- comment -%} Mobile Pagination Dots {%- endcomment -%}
+        <div class="hfb-pagination">
+          {%- for block in section.blocks -%}
+            <button class="hfb-dot {% if forloop.first %}is-active{% endif %}" aria-label="Go to slide {{ forloop.index }}"></button>
+          {%- endfor -%}
+        </div>
       </div>
     {%- endif -%}
   </div>
@@ -233,13 +237,17 @@
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
   }
 
-  /* 4 Feature Boxes Grid */
+  /* 4 Feature Boxes Grid Desktop */
   .hfb-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
     width: 100%;
     margin-top: 50px;
+  }
+
+  .hfb-pagination {
+    display: none; /* Hidden on desktop */
   }
 
   .hfb-box {
@@ -320,31 +328,143 @@
     }
   }
 
+  /* Mobile Swiper (100% Match to target image) */
   @media screen and (max-width: 749px) {
     .hero-feature-boxes {
-      padding-inline: 1.25rem;
+      padding-inline: 0; /* Let grid handle padding for scroll effect */
       padding-block: 40px;
-      min-height: auto;
+      min-height: 100svh; /* Gives it full viewport height to spread content out */
     }
 
     .hfb-container {
-      gap: 2.5rem;
+      justify-content: space-between; /* Pushes heading top, slider bottom */
+      height: 100%;
+    }
+
+    .hfb-header {
+      padding-inline: 1.25rem;
+      text-align: center;
+      margin-inline: auto;
+      margin-top: 2rem;
     }
 
     .hfb-heading {
-      font-size: clamp(2rem, 7vw, 2.75rem);
+      font-size: clamp(2.25rem, 8vw, 2.75rem);
+      line-height: 1.1;
+    }
+
+    .hfb-slider-wrapper {
+      width: 100%;
+      margin-top: auto; /* Ensure it stays at the bottom */
+      margin-bottom: 2rem;
     }
 
     .hfb-grid {
-      grid-template-columns: 1fr;
-      gap: 0.85rem;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+      gap: 1rem;
+      padding-inline: 1.5rem; /* Space on left and right of slider */
+      margin-top: 0;
+      padding-bottom: 1rem;
+    }
+
+    .hfb-grid::-webkit-scrollbar {
+      display: none;
     }
 
     .hfb-box {
-      padding: 1.35rem 1.25rem;
+      flex: 0 0 100%; /* Take full width of container */
+      scroll-snap-align: center; /* Snap to center */
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.15); /* Slightly darker glassmorphism to match image */
+    }
+
+    .hfb-box:hover {
+      transform: none; /* Disable hover float on mobile */
+    }
+
+    /* Mobile Pagination Dots */
+    .hfb-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .hfb-dot {
+      background-color: #ffffff;
+      border: none;
+      padding: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .hfb-dot.is-active {
+      width: 28px;
+      height: 6px;
+      border-radius: 4px;
+      opacity: 1;
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.querySelector('#HeroFeatureBoxes-{{ section_id }}');
+    if (!section) return;
+    
+    const grid = section.querySelector('.hfb-grid');
+    const boxes = section.querySelectorAll('.hfb-box');
+    const dots = section.querySelectorAll('.hfb-dot');
+
+    if (boxes.length > 0 && dots.length > 0 && window.innerWidth <= 749) {
+      const observerOptions = {
+        root: grid,
+        rootMargin: '0px',
+        threshold: 0.6 // Trigger when block is 60% visible
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Array.from(boxes).indexOf(entry.target);
+            // Update dots
+            dots.forEach((dot, i) => {
+              if (i === index) {
+                dot.classList.add('is-active');
+              } else {
+                dot.classList.remove('is-active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      boxes.forEach(box => observer.observe(box));
+      
+      // Optional: Add click events to dots to scroll to that slide
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          boxes[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+          });
+        });
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
