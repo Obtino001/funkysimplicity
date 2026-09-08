@@ -15,7 +15,7 @@
   assign box_border_color = section.settings.box_border_color | default: '#ffffff'
   assign box_border_opacity = section.settings.box_border_opacity | default: 40
   assign box_bg_opacity = section.settings.box_bg_opacity | default: 8
-  assign section_min_height = section.settings.section_min_height | default: '700px'
+  assign section_min_height = section.settings.section_min_height | default: '600px'
   assign padding_top = section.settings.padding_top | default: 60
   assign padding_bottom = section.settings.padding_bottom | default: 60
 -%}
@@ -146,6 +146,12 @@
 </section>
 
 <style>
+  .shopify-section.section-hero-feature-boxes {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
   /* 1. SECTION WRAPPER */
   .hero-feature-boxes {
     position: relative;
@@ -159,8 +165,26 @@
   }
 
   /* 2. BACKGROUND */
-  .hfb-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
-  .hfb-bg picture, .hfb-bg__image { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .hfb-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .hfb-bg picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .hfb-bg__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
   .hfb-bg__placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #44372e 0%, #292019 100%); }
   .hfb-bg__overlay { position: absolute; inset: 0; background-color: var(--hfb-overlay-color, #000000); opacity: var(--hfb-overlay-opacity, 0.2); z-index: 2; }
 
@@ -238,127 +262,159 @@
   ------------------------------------------- */
   @media screen and (max-width: 749px) {
     .hero-feature-boxes {
-      min-height: 100svh; /* Forces exact screen height */
-      height: 100%;
+      height: 600px;
+      min-height: 600px;
+      max-height: 600px;
     }
-    
+
     .hfb-container {
-      padding-inline: 0; 
-      padding-top: 15vh; /* Pushes the title down slightly from the very top */
-      padding-bottom: 6vh; /* Pushes slider up slightly from the bottom */
-      
-      /* Bulletproof Top/Bottom Split */
+      padding: 24px 0 20px;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 100svh;
+      min-height: 0;
+      height: 100%;
     }
 
     .hfb-header {
       padding-inline: 20px;
       text-align: center;
       margin-inline: auto;
-      margin-bottom: auto; /* Forces title to top */
+      flex: 0 0 auto;
     }
-    
+
     .hfb-heading {
-      font-size: clamp(2rem, 8vw, 2.75rem);
+      font-size: 28px;
+      line-height: 1.15;
     }
 
     .hfb-slider-wrapper {
-      margin-top: auto; /* Forces slider to bottom */
+      margin-top: auto;
       width: 100%;
-      overflow: hidden;
+      overflow: visible;
+      flex: 0 0 auto;
     }
 
     .hfb-grid {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
+      overflow-y: hidden;
       scroll-snap-type: x mandatory;
-      scrollbar-width: none; 
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
       -ms-overflow-style: none;
-      
-      /* Exact Spacing to center card and show the peek */
-      gap: 16px; 
-      padding: 0 9vw; /* Centers the 82vw wide card perfectly */
+      gap: 12px;
+      padding: 0 16px;
     }
-    
-    .hfb-grid::-webkit-scrollbar { display: none; } 
+
+    .hfb-grid::-webkit-scrollbar { display: none; }
 
     .hfb-box {
-      /* Card width is exactly 82% of screen, leaving room for the next card to peek */
-      flex: 0 0 82vw; 
-      max-width: 350px;
-      scroll-snap-align: center;
-      padding: 2rem 1.5rem;
-      
-      /* Matching the Darker Glassmorphism perfectly */
-      background: rgba(0, 0, 0, 0.45); 
+      flex: 0 0 calc(100% - 48px);
+      max-width: none;
+      scroll-snap-align: start;
+      padding: 20px 18px;
+      background: rgba(0, 0, 0, 0.45);
       border: 1px solid rgba(255, 255, 255, 0.35);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
 
-    /* Pagination Dots matching image exactly */
     .hfb-pagination {
-      display: flex;
+      display: flex !important;
       justify-content: center;
       align-items: center;
       gap: 8px;
       width: 100%;
-      margin-top: 24px; /* Space between box and dots */
+      margin-top: 16px;
+      position: relative;
+      z-index: 4;
     }
-    
+
     .hfb-dot {
       background-color: #ffffff;
       border: none;
       padding: 0;
+      margin: 0;
       width: 6px;
       height: 6px;
+      min-width: 6px;
       border-radius: 50%;
       opacity: 0.5;
-      transition: all 0.3s ease;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: width 0.25s ease, border-radius 0.25s ease, opacity 0.25s ease;
     }
-    
+
     .hfb-dot.is-active {
-      width: 28px; /* Longer pill shape */
+      width: 28px;
+      min-width: 28px;
       height: 6px;
-      border-radius: 4px;
+      border-radius: 999px;
       opacity: 1;
     }
   }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const section = document.querySelector('#HeroFeatureBoxes-{{ section_id }}');
-    if (!section) return;
-    
-    const grid = section.querySelector('.hfb-grid');
-    const boxes = section.querySelectorAll('.hfb-box');
-    const dots = section.querySelectorAll('.hfb-dot');
+  (function () {
+    const initHeroFeatureBoxes = () => {
+      const section = document.querySelector('#HeroFeatureBoxes-{{ section_id }}');
+      if (!section) return;
 
-    if (boxes.length > 0 && dots.length > 0 && window.innerWidth <= 749) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const index = Array.from(boxes).indexOf(entry.target);
-            dots.forEach((dot, i) => {
-              if (i === index) dot.classList.add('is-active');
-              else dot.classList.remove('is-active');
-            });
+      const grid = section.querySelector('.hfb-grid');
+      const boxes = section.querySelectorAll('.hfb-box');
+      const dots = section.querySelectorAll('.hfb-dot');
+      if (!grid || !boxes.length || !dots.length) return;
+
+      const setActive = (index) => {
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === index);
+        });
+      };
+
+      const nearestIndex = () => {
+        const left = grid.scrollLeft;
+        let best = 0;
+        let bestDist = Infinity;
+        boxes.forEach((box, i) => {
+          const dist = Math.abs(box.offsetLeft - left);
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = i;
           }
         });
-      }, {
-        root: grid,
-        threshold: 0.6
+        return best;
+      };
+
+      grid.addEventListener(
+        'scroll',
+        () => {
+          setActive(nearestIndex());
+        },
+        { passive: true }
+      );
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          boxes[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+          setActive(i);
+        });
       });
 
-      boxes.forEach(box => observer.observe(box));
+      setActive(0);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroFeatureBoxes);
+    } else {
+      initHeroFeatureBoxes();
     }
-  });
+  })();
 </script>
 
 {% schema %}
@@ -481,7 +537,7 @@
         { "value": "800px", "label": "800px" },
         { "value": "100vh", "label": "Full Screen (100vh)" }
       ],
-      "default": "700px"
+      "default": "600px"
     },
     {
       "type": "range",
