@@ -44,12 +44,27 @@
 
 /* Feature / trust bar under hero — 2×2 on mobile (114px) */
 @media screen and (max-width: 767px) {
-  div[id*="section_6zhiU4"] .spacing-style.layout-panel-flex.layout-panel-flex--row.section-content-wrapper.mobile-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 10px;
-    padding-inline: 11px;
-    min-height: 114px;
+  div[id*="section_6zhiU4"] .spacing-style.layout-panel-flex.layout-panel-flex--row.section-content-wrapper.mobile-column,
+  [id*="section_6zhiU4"] .section-content-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 10px !important;
+    padding-inline: 11px !important;
+    min-height: 114px !important;
+    align-items: center !important;
+  }
+
+  [id*="section_6zhiU4"] p,
+  [id*="section_6zhiU4"] .text-block,
+  [id*="section_6zhiU4"] .text-block p,
+  [id*="section_6zhiU4"] .text-block span {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+  }
+
+  [id*="section_6zhiU4"] .group-block {
+    min-width: 0 !important;
   }
 }
 
