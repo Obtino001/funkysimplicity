@@ -375,6 +375,46 @@
     display: flex !important;
   }
 
+  /* ── Solid dark background (not see-through) ── */
+  .menu-drawer {
+    background-color: rgb(13 13 13 / 0.97) !important;
+  }
+
+  /* ── Divider lines between every top-level menu item ── */
+  .menu-drawer .menu-drawer__list-item {
+    border-block-end: 1px solid rgb(255 255 255 / 0.1);
+  }
+  .menu-drawer .menu-drawer__list-item:first-child {
+    border-block-start: 1px solid rgb(255 255 255 / 0.1);
+  }
+
+  /* ── Show the forward caret (>) arrow on items with submenus ── */
+  .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward {
+    display: flex !important;
+    opacity: 1 !important;
+  }
+  .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward,
+  .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward svg {
+    width: 20px !important;
+    height: 20px !important;
+    color: rgb(255 255 255 / 0.6) !important;
+  }
+
+  /* ── Search row: transparent bg, no border-radius box ── */
+  .menu-drawer .menu-drawer__search-input {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+  }
+  .menu-drawer .menu-drawer__search-input::placeholder {
+    color: rgb(255 255 255 / 0.7) !important;
+  }
+
   #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
     height: 45px !important;
     width: auto !important;
