@@ -320,17 +320,26 @@
     }
 
     .ifb-item {
-      padding: 18px 13px;
+      padding: 10px 8px;
+    }
+
+    .ifb-item__inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.45rem;
+      text-align: left;
     }
 
     .ifb-item__title {
-      font-size: 16px;
+      font-size: 11px;
+      letter-spacing: 0;
     }
 
     .ifb-item__icon-wrap,
     .ifb-item__img {
-      width: 50px;
-      height: 50px;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
     }
 
     .ifb-grid--dividers .ifb-item::after {

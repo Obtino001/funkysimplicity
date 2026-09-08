@@ -365,10 +365,6 @@
 /* -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 749px) {
-  #header-component .search-action {
-    display: none !important;
-  }
-
   #header-component .header-localization-group {
     display: none !important;
   }
