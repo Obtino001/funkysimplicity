@@ -102,7 +102,8 @@
   endcapture
 
   if shop.customer_accounts_enabled
-    assign search_class = 'search-action--hidden-on-drawer'
+    # search_class left blank so search icon stays visible on mobile too
+    assign search_class = ''
   endif
 
   # Handle localization positioning
