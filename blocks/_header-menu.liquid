@@ -499,15 +499,16 @@
     left: 0;
     top: calc(100% - 1px + var(--border-bottom-width) - (var(--full-open-header-height) - var(--submenu-height)));
     z-index: var(--layer-header-menu);
-    padding-inline: var(--padding-inline);
+    /* Removed padding-inline so the inner mega-menu section grid controls page-width spacing */
     clip-path: rect(var(--submenu-clip-top) 100% var(--full-open-header-height) 0); /* stylelint-disable-line */
     transition: clip-path var(--submenu-animation-speed) var(--ease-out-cubic); /* stylelint-disable-line */
   }
 
-  /* Keep the submenu transparent (color-custom paints an opaque bg) so the
-     bridged band shows the header row; the underlay paints the dropdown. */
+  /* Give the submenu a solid background so the header's white/blur does not
+     bleed through when the page has not been scrolled (non-transparent state).
+     --color-submenu is set by the underlay system from the block background_color setting. */
   .menu-list__list-item > .menu-list__submenu {
-    background-color: transparent;
+    background-color: var(--color-submenu, var(--color-background));
   }
 
   [data-submenu-overlap-bottom-row] {
