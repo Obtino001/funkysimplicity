@@ -76,7 +76,7 @@
     "show_add_discount_code": true,
     "cart_drawer_custom_style": true,
     "cart_drawer_title": "My Bag",
-    "cart_drawer_width": 610,
+    "cart_drawer_width": 500,
     "cart_free_shipping_bar": true,
     "cart_free_shipping_threshold": "100",
     "cart_free_shipping_progress_text": "Spend [amount] more and get free shipping",
