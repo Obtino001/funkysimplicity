@@ -2017,9 +2017,13 @@
         height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-        padding: 28px var(--page-margin, 40px) 24px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 28px var(--page-margin, 30px) 24px !important;
+        max-width: var(--page-width, 1280px) !important;
+        margin-inline: auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
         overflow: visible !important;
         background: transparent !important;
         border-radius: 0 !important;
@@ -2031,6 +2035,9 @@
       #header-component[transparent]:not([data-sticky-state='active']) .mega-menu__grid {
         --menu-vertical-gap: 20px;
         --menu-horizontal-gap: 16px;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
       }
 
       #header-component[transparent]:not([data-sticky-state='active']) .mega-menu__grid:has(.mega-menu__link-image) {
@@ -2050,7 +2057,7 @@
         > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
         aspect-ratio: 3 / 4 !important;
         height: auto !important;
-        max-height: none !important;
+        max-height: 260px !important;
         width: 100%;
         margin-bottom: 0;
         border-radius: 2px;
@@ -2134,10 +2141,14 @@
         height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
+        align-items: center !important;
+        justify-content: center !important;
         flex-wrap: nowrap !important;
         padding: 32px 40px 28px !important;
+        max-width: var(--page-width, 1280px) !important;
+        margin-inline: auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
         overflow: visible !important;
         background-color: var(--mega-menu-surface, #4A4A4A);
         border-radius: 28px;
@@ -2153,6 +2164,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        max-width: 100% !important;
         height: auto !important;
         min-height: 0 !important;
         justify-content: flex-start;
@@ -2165,6 +2177,9 @@
         --menu-columns-desktop: 6;
         height: auto;
         min-height: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-inline: auto !important;
       }
 
       #header-component[data-sticky-state='active'] .mega-menu__grid:has(.mega-menu__link-image),
@@ -2192,7 +2207,7 @@
         > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
         aspect-ratio: 3 / 4 !important;
         height: auto !important;
-        max-height: none !important;
+        max-height: 260px !important;
         width: 100%;
         margin-bottom: 0;
         border-radius: 2px;
@@ -2204,6 +2219,8 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        max-width: var(--page-width, 1280px) !important;
+        margin-inline: auto !important;
         height: auto !important;
         min-height: 0 !important;
         justify-content: flex-start;

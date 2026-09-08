@@ -144,7 +144,7 @@
                 style="{% render 'submenu-font-styles', settings: block_settings %}"
               >
                 {% assign list_id = 'MegaMenuList-' | append: forloop.index %}
-                <div class="mega-menu section section--full-width-margin section--{{ section.settings.section_width }}">
+                <div class="mega-menu section section--{{ section.settings.section_width | default: 'page-width' }}">
                   <div
                     class="mega-menu__grid"
                     data-menu-grid-id="{{ list_id }}"

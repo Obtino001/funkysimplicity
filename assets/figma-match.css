@@ -42,6 +42,29 @@
   }
 }
 
+/* Uploaded icon SVGs: keep a square box so mixed artboards render the same size */
+img.icon-block__media {
+  object-fit: contain !important;
+  aspect-ratio: 1 / 1;
+}
+
+/* Feature / trust bar under hero — equal icon boxes */
+[id*="section_6zhiU4"] .icon-block {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+}
+
+[id*="section_6zhiU4"] .icon-block__media,
+[id*="section_6zhiU4"] .icon-block img,
+[id*="section_6zhiU4"] .icon-block svg {
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+  object-fit: contain !important;
+}
+
 /* Feature / trust bar under hero — 2×2 on mobile (114px) */
 @media screen and (max-width: 767px) {
   div[id*="section_6zhiU4"] .spacing-style.layout-panel-flex.layout-panel-flex--row.section-content-wrapper.mobile-column,
@@ -878,4 +901,38 @@ a.skip-to-content-link:focus-visible {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
   pointer-events: auto !important;
 }
+
+/* -------------------------------------------------------------------------- */
+/* Desktop Mega Menu — Constrain to Page Width                                */
+/* -------------------------------------------------------------------------- */
+
+@media screen and (min-width: 750px) {
+  .menu-list__submenu-inner {
+    max-width: var(--page-width, 1280px) !important;
+    margin-inline: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding-inline: var(--page-margin, 30px) !important;
+  }
+
+  .menu-list__submenu .mega-menu,
+  .menu-list__submenu .mega-menu.section {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  .mega-menu__grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  .mega-menu__link-image,
+  .mega-menu__grid:has(.mega-menu__link-image) .mega-menu__column > div > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
+    max-height: 260px !important;
+    object-fit: cover !important;
+  }
+}
+
 

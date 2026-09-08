@@ -39,10 +39,14 @@
   .icon-block {
     display: flex;
     flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
   }
 
   .icon-block__media {
-    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 {% endstylesheet %}
 

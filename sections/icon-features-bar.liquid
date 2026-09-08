@@ -266,20 +266,22 @@
     color: var(--ifb-icon-color, #121212);
     width: var(--ifb-icon-size, 38px);
     height: var(--ifb-icon-size, 38px);
+    min-width: var(--ifb-icon-size, 38px);
+    min-height: var(--ifb-icon-size, 38px);
     flex-shrink: 0;
+    overflow: hidden;
   }
 
+  .ifb-item__icon-wrap svg,
+  .ifb-item__icon-wrap img,
   .ifb-svg,
-  .ifb-item__svg svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-
+  .ifb-item__svg,
+  .ifb-item__svg svg,
   .ifb-item__img {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
     object-fit: contain;
     display: block;
   }

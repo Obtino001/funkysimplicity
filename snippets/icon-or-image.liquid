@@ -31,10 +31,10 @@
     assign widths = '240, 352, 832, 1200'
   %}
 
-  {% assign image_style = 'width: ' | append: width | append: 'px;' %}
+  {% assign image_style = 'width: ' | append: width | append: 'px; height: ' | append: width | append: 'px; max-width: ' | append: width | append: 'px; max-height: ' | append: width | append: 'px; object-fit: contain; display: block;' %}
   {{
     image_upload
     | image_url: width: 1200
-    | image_tag: widths: widths, class: class_name, style: image_style, sizes: sizes
+    | image_tag: widths: widths, class: class_name, style: image_style, sizes: sizes, width: width, height: width
   }}
 {%- endif -%}
