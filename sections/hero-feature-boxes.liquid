@@ -1,5 +1,5 @@
 {%- comment -%}
-  Hero Feature Boxes Banner Section (Bali Family / Material & Craftsmanship)
+  Hero Feature Boxes Banner Section
 {%- endcomment -%}
 
 {%- liquid
@@ -152,7 +152,7 @@
     width: 100%;
     min-height: var(--hfb-min-height, 700px);
     display: flex;
-    flex-direction: column; /* Force vertical stacking layout */
+    flex-direction: column;
     color: var(--hfb-text-color, #ffffff);
     box-sizing: border-box;
     overflow: hidden;
@@ -164,20 +164,17 @@
   .hfb-bg__placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #44372e 0%, #292019 100%); }
   .hfb-bg__overlay { position: absolute; inset: 0; background-color: var(--hfb-overlay-color, #000000); opacity: var(--hfb-overlay-opacity, 0.2); z-index: 2; }
 
-  /* 3. MAIN CONTAINER */
+  /* 3. MAIN CONTAINER (Desktop Default) */
   .hfb-container {
     position: relative;
     z-index: 3;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    
-    /* CRITICAL FIX: Forces elements to split top/bottom */
-    flex: 1 1 auto; 
+    flex: 1; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    
+    justify-content: flex-end; 
     padding-top: var(--hfb-padding-top, 60px);
     padding-bottom: var(--hfb-padding-bottom, 60px);
     padding-inline: 2rem;
@@ -187,8 +184,6 @@
   .hfb-header {
     width: 100%;
     max-width: var(--hfb-heading-max-width, 560px);
-    margin: 0 auto;
-    text-align: center;
   }
   .hfb-heading {
     margin: 0;
@@ -214,7 +209,7 @@
   }
   .hfb-pagination { display: none; }
 
-  /* 6. BOX STYLING */
+  /* 6. BOX STYLING (Desktop Default) */
   .hfb-box {
     position: relative;
     box-sizing: border-box;
@@ -234,70 +229,88 @@
   .hfb-box__title { margin: 0; font-family: 'DM Sans', var(--font-body--family, sans-serif); font-size: 18px; font-weight: 700; line-height: 1.15; }
   .hfb-box__desc { margin: 0; font-family: 'DM Sans', var(--font-body--family, sans-serif); font-size: 16px; font-weight: 400; line-height: 1.4; opacity: 0.92; }
 
-  /* -------------------------------------------
-     MOBILE ADJUSTMENTS (100% Match) 
-  ------------------------------------------- */
   @media screen and (max-width: 1024px) {
     .hfb-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* -------------------------------------------
+     MOBILE ADJUSTMENTS (100% Match to Image 2)
+  ------------------------------------------- */
   @media screen and (max-width: 749px) {
     .hero-feature-boxes {
-      min-height: 100vh; /* Fallback for full screen */
-      min-height: 100dvh; /* Dynamic full screen (fixes mobile browser bars) */
+      min-height: 100svh; /* Forces exact screen height */
+      height: 100%;
     }
     
     .hfb-container {
-      padding-inline: 0; /* Remove side padding so slider can hit edges */
-      padding-top: 60px;
-      padding-bottom: 40px;
+      padding-inline: 0; 
+      padding-top: 15vh; /* Pushes the title down slightly from the very top */
+      padding-bottom: 6vh; /* Pushes slider up slightly from the bottom */
+      
+      /* Bulletproof Top/Bottom Split */
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100svh;
     }
 
     .hfb-header {
       padding-inline: 20px;
+      text-align: center;
+      margin-inline: auto;
+      margin-bottom: auto; /* Forces title to top */
     }
+    
     .hfb-heading {
-      font-size: clamp(2.25rem, 8vw, 2.75rem);
+      font-size: clamp(2rem, 8vw, 2.75rem);
     }
 
     .hfb-slider-wrapper {
-      margin-top: auto; /* Ensure it sticks completely to the bottom */
+      margin-top: auto; /* Forces slider to bottom */
       width: 100%;
       overflow: hidden;
     }
 
-    /* CSS Only Scroll-Snap Swiper */
     .hfb-grid {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      scrollbar-width: none; /* Firefox hide scrollbar */
-      -ms-overflow-style: none; /* IE/Edge */
+      scrollbar-width: none; 
+      -ms-overflow-style: none;
       
-      /* Spacing for mobile */
+      /* Exact Spacing to center card and show the peek */
       gap: 16px; 
-      padding-inline: 20px; /* Gives that peek effect on the right/left */
-      padding-bottom: 20px; /* Space between box and dots */
+      padding: 0 9vw; /* Centers the 82vw wide card perfectly */
     }
-    .hfb-grid::-webkit-scrollbar { display: none; } /* Chrome hide scrollbar */
+    
+    .hfb-grid::-webkit-scrollbar { display: none; } 
 
     .hfb-box {
-      /* Card width slightly less than screen so the next card peeks in */
-      flex: 0 0 calc(100vw - 40px); 
-      max-width: calc(100vw - 40px);
+      /* Card width is exactly 82% of screen, leaving room for the next card to peek */
+      flex: 0 0 82vw; 
+      max-width: 350px;
       scroll-snap-align: center;
-      background: rgba(0, 0, 0, 0.2); /* Slightly darker glass for legibility */
+      padding: 2rem 1.5rem;
+      
+      /* Matching the Darker Glassmorphism perfectly */
+      background: rgba(0, 0, 0, 0.45); 
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    /* Pagination Dots matching screenshot precisely */
+    /* Pagination Dots matching image exactly */
     .hfb-pagination {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 8px;
       width: 100%;
+      margin-top: 24px; /* Space between box and dots */
     }
+    
     .hfb-dot {
       background-color: #ffffff;
       border: none;
@@ -308,8 +321,9 @@
       opacity: 0.5;
       transition: all 0.3s ease;
     }
+    
     .hfb-dot.is-active {
-      width: 24px; /* The Pill Shape */
+      width: 28px; /* Longer pill shape */
       height: 6px;
       border-radius: 4px;
       opacity: 1;
@@ -327,7 +341,6 @@
     const dots = section.querySelectorAll('.hfb-dot');
 
     if (boxes.length > 0 && dots.length > 0 && window.innerWidth <= 749) {
-      // Setup Intersection Observer to change dot active states as you swipe
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -340,7 +353,7 @@
         });
       }, {
         root: grid,
-        threshold: 0.6 // Card must be 60% visible to trigger dot change
+        threshold: 0.6
       });
 
       boxes.forEach(box => observer.observe(box));
@@ -394,7 +407,8 @@
       "type": "textarea",
       "id": "heading",
       "label": "Heading Text",
-      "default": "The Perfect Leggings\nFrom Our Bali Family"
+      "default": "The Perfect Leggings\nFrom Our Bali Family",
+      "info": "Use 'Enter' to create a line break"
     },
     {
       "type": "range",
