@@ -101,10 +101,8 @@
     render 'header-actions', customer_account_menu: section.settings.customer_account_menu, display_style: section.settings.actions_display_style, section: section
   endcapture
 
-  if shop.customer_accounts_enabled
-    # search_class left blank so search icon stays visible on mobile too
-    assign search_class = ''
-  endif
+  # search_class left blank so search icon stays visible on mobile too
+  assign search_class = ''
 
   # Handle localization positioning
   if section.settings.localization_position == 'left'
@@ -1691,8 +1689,51 @@
     }
 
     @media screen and (max-width: 749px) {
-      #header-component .search-action {
+      /* Hide duplicate search in left column, show search in right column */
+      #header-component .header__column--left .search-action,
+      #header-component .search-action--hidden-on-menu {
         display: none !important;
+      }
+
+      #header-component .search-action,
+      #header-component .header__column--right .search-action {
+        display: flex !important;
+        grid-area: rightA !important;
+        justify-self: end;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        border: 0 !important;
+        cursor: pointer;
+      }
+
+      #header-component .search-action button,
+      #header-component .search-action .header-actions__action {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 100% !important;
+        height: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        border: 0 !important;
+        color: #ffffff !important;
+      }
+
+      #header-component .search-action svg {
+        width: 20px !important;
+        height: 20px !important;
+        color: #ffffff !important;
+        fill: #ffffff !important;
+        display: block !important;
       }
 
       #header-component .header-localization-group {
