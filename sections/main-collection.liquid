@@ -163,7 +163,7 @@
     @media screen and (max-width: 749px) {
       .collection-tabs-wrapper {
         margin-bottom: 10px;
-        padding-inline: 10px;
+        padding-inline: 0;
       }
       .collection-tabs {
         gap: 10px;
@@ -175,27 +175,51 @@
       .product-grid {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 14px 10px;
-        padding-inline: 10px;
+        padding-inline: 0;
       }
       .tcc-card .tcc-quick-shop,
       .tcc-card:focus-within .tcc-quick-shop,
       .tcc-card.is-quick-shop-open .tcc-quick-shop {
         opacity: 1 !important;
         transform: none !important;
-        pointer-events: auto !important;
-        inset: auto 8px 10px auto;
-        left: auto;
-        right: 8px;
-        bottom: 10px;
-        width: 39px;
-        height: 38px;
-        padding: 10px;
-        border-radius: 999px;
-        background: #ffffff;
-        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+        pointer-events: none;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        inset: 0;
+        width: auto;
+        height: auto;
+        padding: 0 8px 10px 0;
+        background: transparent !important;
+        box-shadow: none;
+        border-radius: 0;
+        backdrop-filter: none;
       }
       .tcc-option-group {
         display: none !important;
+      }
+      .tcc-card .tcc-add-btn:not(.mobile) {
+        display: none !important;
+      }
+      .tcc-card .tcc-add-btn.mobile {
+        display: flex !important;
+        pointer-events: auto;
+        width: 39px;
+        height: 38px;
+        min-height: 0;
+        padding: 0;
+        border-radius: 999px;
+        background: #ffffff;
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+        align-items: center;
+        justify-content: center;
+      }
+      .tcc-card .tcc-add-btn_icon,
+      .tcc-card .tcc-add-btn_icon img {
+        display: block;
+        width: 19px;
+        height: 18px;
+        object-fit: contain;
       }
     }
 </style>
