@@ -1251,7 +1251,7 @@ a.skip-to-content-link:focus-visible {
 
   .mega-menu__link-image,
   .mega-menu__grid:has(.mega-menu__link-image) .mega-menu__column > div > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
-    max-height: 260px !important;
+    max-height: 180px !important;
     object-fit: cover !important;
   }
 }
