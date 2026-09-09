@@ -667,10 +667,24 @@ img.icon-block__media {
 /* -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 749px) {
-  /* Search is in the menu overlay only — hide header-bar search icons */
+  /* One search icon on the right, same size as menu + bag */
   #header-component .header__columns > .search-action,
-  #header-component .header__row .search-action {
+  #header-component .header__row .search-action:not(.search-action--hidden-on-menu) {
+    display: flex !important;
+    grid-area: rightA !important;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #header-component .search-action--hidden-on-menu {
     display: none !important;
+  }
+
+  #header-component .search-action svg {
+    width: 24px !important;
+    height: 24px !important;
   }
 
   #header-component .header__icon--menu,

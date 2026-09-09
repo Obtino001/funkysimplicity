@@ -101,8 +101,8 @@
     render 'header-actions', customer_account_menu: section.settings.customer_account_menu, display_style: section.settings.actions_display_style, section: section
   endcapture
 
-  # Desktop search only — mobile search lives in the menu overlay, not the header bar
-  assign search_class = 'mobile:hidden'
+  # One search icon in the header (desktop + mobile). Duplicate drawer_search stays off.
+  assign search_class = ''
 
   # Handle localization positioning
   if section.settings.localization_position == 'left'
@@ -1684,11 +1684,46 @@
     }
 
     @media screen and (max-width: 749px) {
-      /* Search belongs in the menu overlay, not the header bar */
-      #header-component .header__columns > .search-action,
-      #header-component .header__row .search-action,
+      /* One search icon only — hide Horizon's extra drawer_search copy */
       #header-component .search-action--hidden-on-menu {
         display: none !important;
+      }
+
+      #header-component .header__columns > .search-action,
+      #header-component .header__row .search-action {
+        display: flex !important;
+        grid-area: rightA !important;
+        justify-self: end;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        min-height: 24px;
+        padding: 0;
+        margin: 0;
+      }
+
+      #header-component .search-action button,
+      #header-component .search-action .header-actions__action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: 0;
+        color: inherit;
+      }
+
+      #header-component .search-action svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+        display: block;
       }
 
       #header-component .header-localization-group {
@@ -1777,6 +1812,12 @@
       #header-component[data-menu-style='drawer'] .header__columns .header-logo {
         grid-area: center !important;
         justify-self: center;
+        align-self: center;
+      }
+
+      #header-component[data-menu-style='drawer'] .header__columns .search-action {
+        grid-area: rightA !important;
+        justify-self: end;
         align-self: center;
       }
 
