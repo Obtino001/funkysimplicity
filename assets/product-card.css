@@ -432,32 +432,19 @@
   }
 
   .tcc-card .tcc-quick-shop {
-    opacity: 1 !important;
-    transform: none !important;
-    pointer-events: none;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    inset: 0;
-    width: auto;
-    height: auto;
-    padding: 0 8px 10px 0;
-    background: transparent !important;
-    box-shadow: none;
-    border-radius: 0;
-    backdrop-filter: none;
-  }
-
-  .tcc-option-group {
-    display: none !important;
+    display: none;
   }
 
   .tcc-card .tcc-add-btn:not(.mobile) {
     display: none !important;
   }
 
-  .tcc-card .tcc-add-btn.mobile {
+  .tcc-card__media-wrapper .tcc-add-btn.mobile {
     display: flex !important;
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+    z-index: 5;
     pointer-events: auto;
     width: 39px;
     height: 38px;
@@ -470,32 +457,6 @@
     justify-content: center;
   }
 
-  .tcc-card.is-quick-shop-open .tcc-quick-shop {
-    pointer-events: auto !important;
-    align-items: stretch;
-    justify-content: flex-end;
-    flex-direction: column;
-    inset: auto 0 0;
-    padding: 8px 10px;
-    gap: 6px;
-    background: #f6f6f6b2 !important;
-    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .tcc-card.is-quick-shop-open .tcc-option-group {
-    display: flex !important;
-  }
-
-  .tcc-card.is-quick-shop-open .tcc-add-btn:not(.mobile) {
-    display: flex !important;
-  }
-
-  .tcc-card.is-quick-shop-open .tcc-add-btn.mobile {
-    display: none !important;
-  }
-
   .tcc-card .tcc-add-btn_icon,
   .tcc-card .tcc-add-btn_icon img {
     display: block;
@@ -503,4 +464,135 @@
     height: 18px;
     object-fit: contain;
   }
+}
+
+/* Full-screen bottom sheet — portaled to body so carousel overflow can't clip it */
+.tcc-quick-shop-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.tcc-quick-shop-sheet.is-visible {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.tcc-quick-shop-sheet__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+
+.tcc-quick-shop-sheet.is-open .tcc-quick-shop-sheet__backdrop {
+  opacity: 1;
+}
+
+.tcc-quick-shop-sheet__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  padding: 10px 20px 28px;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tcc-quick-shop-sheet.is-open .tcc-quick-shop-sheet__panel {
+  transform: translateY(0);
+}
+
+.tcc-quick-shop-sheet__handle {
+  width: 40px;
+  height: 4px;
+  background: #d9d9d9;
+  border-radius: 99px;
+  margin: 4px auto 14px;
+}
+
+.tcc-quick-shop-sheet__close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  color: #111;
+  cursor: pointer;
+  padding: 0;
+}
+
+.tcc-quick-shop-sheet__title {
+  margin: 0 36px 4px 0;
+  font-family: 'DM Sans', var(--font-body--family, sans-serif);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #111;
+}
+
+.tcc-quick-shop-sheet__price {
+  margin: 0 0 16px;
+  font-family: 'DM Sans', var(--font-body--family, sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+}
+
+.tcc-quick-shop-sheet .tcc-quick-shop {
+  position: static !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  inset: auto !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.tcc-quick-shop-sheet .tcc-option-group {
+  display: flex !important;
+}
+
+.tcc-quick-shop-sheet .tcc-option-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+}
+
+.tcc-quick-shop-sheet .tcc-add-btn:not(.mobile) {
+  display: flex !important;
+  width: 100%;
+  min-height: 48px;
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+}
+
+.tcc-quick-shop-sheet .tcc-add-btn.mobile {
+  display: none !important;
+}
+
+html.tcc-quick-shop-sheet-lock,
+html.tcc-quick-shop-sheet-lock body {
+  overflow: hidden;
 }

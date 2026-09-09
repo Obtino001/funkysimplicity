@@ -435,6 +435,96 @@
 
 <script>
   (function() {
+    if (!window.tccQuickShopSheet) {
+      window.tccQuickShopSheet = (function () {
+        let activeCard = null;
+        let marker = null;
+        let closeTimer = null;
+
+        function ensure() {
+          let root = document.getElementById('tcc-quick-shop-sheet');
+          if (root) return root;
+          root = document.createElement('div');
+          root.id = 'tcc-quick-shop-sheet';
+          root.className = 'tcc-quick-shop-sheet';
+          root.innerHTML =
+            '<div class="tcc-quick-shop-sheet__backdrop" data-tcc-sheet-close></div>' +
+            '<div class="tcc-quick-shop-sheet__panel" role="dialog" aria-modal="true">' +
+            '<div class="tcc-quick-shop-sheet__handle"></div>' +
+            '<button type="button" class="tcc-quick-shop-sheet__close" data-tcc-sheet-close aria-label="Close">×</button>' +
+            '<p class="tcc-quick-shop-sheet__title"></p>' +
+            '<p class="tcc-quick-shop-sheet__price"></p>' +
+            '<div class="tcc-quick-shop-sheet__body"></div>' +
+            '</div>';
+          document.body.appendChild(root);
+          root.addEventListener('click', function (e) {
+            if (e.target.closest('[data-tcc-sheet-close]')) close();
+          });
+          return root;
+        }
+
+        function restore() {
+          const root = document.getElementById('tcc-quick-shop-sheet');
+          const shop = root ? root.querySelector('.tcc-quick-shop') : null;
+          if (shop && marker && marker.parentNode) {
+            marker.parentNode.insertBefore(shop, marker);
+            marker.remove();
+          } else if (shop && activeCard) {
+            const media = activeCard.querySelector('.tcc-card__media-wrapper');
+            if (media) media.appendChild(shop);
+          }
+          marker = null;
+          if (activeCard) activeCard.classList.remove('is-quick-shop-open');
+          activeCard = null;
+          if (root) root.classList.remove('is-open', 'is-visible');
+          document.documentElement.classList.remove('tcc-quick-shop-sheet-lock');
+        }
+
+        function close() {
+          const root = document.getElementById('tcc-quick-shop-sheet');
+          if (!root || !root.classList.contains('is-visible')) {
+            restore();
+            return;
+          }
+          root.classList.remove('is-open');
+          clearTimeout(closeTimer);
+          closeTimer = setTimeout(restore, 340);
+        }
+
+        function open(card) {
+          if (!card) return;
+          if (activeCard === card) {
+            close();
+            return;
+          }
+          const shop = card.querySelector('.tcc-quick-shop');
+          if (!shop) return;
+          clearTimeout(closeTimer);
+          restore();
+          const root = ensure();
+          const body = root.querySelector('.tcc-quick-shop-sheet__body');
+          marker = document.createComment('tcc-quick-shop-slot');
+          shop.parentNode.insertBefore(marker, shop);
+          body.appendChild(shop);
+          const titleEl = card.querySelector('.tcc-card__title');
+          const priceEl = card.querySelector('.tcc-card__price-row');
+          root.querySelector('.tcc-quick-shop-sheet__title').textContent = titleEl ? titleEl.textContent.trim() : '';
+          root.querySelector('.tcc-quick-shop-sheet__price').textContent = priceEl ? priceEl.textContent.trim() : '';
+          activeCard = card;
+          card.classList.add('is-quick-shop-open');
+          document.documentElement.classList.add('tcc-quick-shop-sheet-lock');
+          root.classList.add('is-visible');
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              root.classList.add('is-open');
+            });
+          });
+        }
+
+        return { open: open, close: close };
+      })();
+    }
+
     function initTabbedCarousel(sectionEl) {
       if (!sectionEl || sectionEl.dataset.tccInitialized) return;
       sectionEl.dataset.tccInitialized = 'true';
@@ -803,10 +893,7 @@
             if (addBtn) addBtn.click();
             return;
           }
-          document.querySelectorAll('.tcc-card.is-quick-shop-open').forEach((openCard) => {
-            if (openCard !== card) openCard.classList.remove('is-quick-shop-open');
-          });
-          card.classList.toggle('is-quick-shop-open');
+          window.tccQuickShopSheet.open(card);
         });
       }
 
@@ -885,7 +972,7 @@
               }
 
               addBtn.textContent = 'ADDED ✓';
-              card.classList.remove('is-quick-shop-open');
+              window.tccQuickShopSheet.close();
               setTimeout(() => {
                 addBtn.classList.remove('is-loading');
                 addBtn.disabled = false;

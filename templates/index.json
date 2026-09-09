@@ -2641,11 +2641,11 @@
       "settings": {
         "blog": "news",
         "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "carousel_on_mobile": true,
         "post_limit": 3,
         "columns": 3,
         "mobile_columns": "2",
-        "mobile_card_size": "176px",
+        "mobile_card_size": "72cqw",
         "columns_gap": 8,
         "rows_gap": 8,
         "icons_style": "arrow",

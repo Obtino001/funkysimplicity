@@ -88,7 +88,24 @@
       {%- endif -%}
     </a>
 
-    {%- comment -%} IN-CARD QUICK SHOP OVERLAY (Shows options + Add to Cart button on hover) {%- endcomment -%}
+    <button
+      type="button"
+      class="tcc-add-btn mobile"
+      data-variant-id="{{ current_variant.id }}"
+      {% unless current_variant.available %}disabled{% endunless %}
+    >
+      {%- if current_variant.available -%}
+        <div class="tcc-add-btn_icon">
+          <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
+        </div>
+      {%- else -%}
+        <div class="tcc-add-btn_icon disable">
+          <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
+        </div>
+      {%- endif -%}
+    </button>
+
+    {%- comment -%} Desktop hover overlay; on mobile this is portaled into a full-screen bottom sheet {%- endcomment -%}
     <div class="tcc-quick-shop">
       {%- unless product.has_only_default_variant -%}
         {%- for option in product.options_with_values -%}
@@ -126,22 +143,6 @@
           ADD TO CART
         {%- else -%}
           SOLD OUT
-        {%- endif -%}
-      </button>
-      <button
-        type="button"
-        class="tcc-add-btn mobile"
-        data-variant-id="{{ current_variant.id }}"
-        {% unless current_variant.available %}disabled{% endunless %}
-      >
-        {%- if current_variant.available -%}
-          <div class="tcc-add-btn_icon">
-            <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
-          </div>
-        {%- else -%}
-          <div class="tcc-add-btn_icon disable">
-            <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
-          </div>
         {%- endif -%}
       </button>
     </div>
