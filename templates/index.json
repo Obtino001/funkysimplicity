@@ -1795,9 +1795,7 @@
         "feature_hy6fBg",
         "feature_PXR4Kd"
       ],
-      "custom_css": [
-        "@media (max-width: 767px) {.ffb-bg__overlay {background-color: #000; opacity: 1; }}"
-      ],
+      "custom_css": [],
       "name": "Fabric Features Banner",
       "settings": {
         "image": "shopify://shop_images/d4634c7f704b130d7d468145893455118200b32d.webp",
