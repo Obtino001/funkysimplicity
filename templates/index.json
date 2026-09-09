@@ -1082,7 +1082,7 @@
             "placement": "below_image",
             "horizontal_alignment": "center",
             "vertical_alignment": "center",
-            "collection_card_gap": 14,
+            "collection_card_gap": 8,
             "background_color": "",
             "border": "none",
             "border_width": 1,
