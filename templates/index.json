@@ -1405,7 +1405,7 @@
         "columns": 3,
         "mobile_columns": "2",
         "mobile_card_size": "176px",
-        "columns_gap": 20,
+        "columns_gap": 10,
         "bento_gap": 20,
         "rows_gap": 20,
         "max_collections": 4,
