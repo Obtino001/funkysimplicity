@@ -641,7 +641,14 @@
         });
         if (hasNew) initAllProductCards();
       });
-      observer.observe(document.body, { childList: true, subtree: true });
+      const observeBody = () => {
+        if (document.body) observer.observe(document.body, { childList: true, subtree: true });
+      };
+      if (document.body) {
+        observeBody();
+      } else {
+        document.addEventListener('DOMContentLoaded', observeBody, { once: true });
+      }
     }
 
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
