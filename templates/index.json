@@ -166,7 +166,7 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/fc137816b0ef94c66b7c63352e1672fdf39a5894.png",
+        "image_1": "shopify://shop_images/Funkyweb5_997bca77-dda2-43f5-bb7a-cea477c59943.jpg",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
@@ -184,7 +184,7 @@
         "vertical_alignment_flex_direction_column": "center",
         "gap": 24,
         "section_width": "page-width",
-        "section_height": "full-screen",
+        "section_height": "auto",
         "section_height_custom": 50,
         "background_color": "rgba(0,0,0,0)",
         "toggle_overlay": false,
