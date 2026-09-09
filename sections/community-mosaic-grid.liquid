@@ -564,13 +564,15 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Responsive tablet/mobile: 2-col mosaic that stays flush */
+    /* Responsive tablet/mobile: equal 2-col squares so image 2 matches image 1 */
     @media screen and (max-width: 1024px) {
       .cm-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: repeat(5, minmax(0, auto));
-        gap: 10px;
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+        gap: 8px;
+        align-items: stretch;
       }
 
       .cm-item--1,
@@ -581,47 +583,32 @@
       .cm-item--6,
       .cm-item--7,
       .cm-item--8 {
+        grid-column: auto !important;
+        grid-row: auto !important;
         width: 100%;
         min-width: 0;
+        min-height: 0;
         height: auto;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 1 / 1 !important;
+        overflow: hidden;
+        position: relative;
       }
 
-      .cm-item--1 {
-        grid-column: 1 !important;
-        grid-row: 1 / span 2 !important;
-        aspect-ratio: auto;
+      .cm-card {
+        position: absolute;
+        inset: 0;
+        width: 100%;
         height: 100%;
       }
-      .cm-item--2 {
-        grid-column: 2 !important;
-        grid-row: 1 !important;
-      }
-      .cm-item--3 {
-        grid-column: 2 !important;
-        grid-row: 2 !important;
-      }
-      .cm-item--4 {
-        grid-column: 1 !important;
-        grid-row: 3 !important;
-      }
-      .cm-item--5 {
-        grid-column: 2 !important;
-        grid-row: 3 !important;
-      }
-      .cm-item--6 {
-        grid-column: 1 !important;
-        grid-row: 4 / span 2 !important;
-        aspect-ratio: auto;
+
+      .cm-card__img,
+      .cm-card__placeholder {
+        position: absolute;
+        inset: 0;
+        width: 100%;
         height: 100%;
-      }
-      .cm-item--7 {
-        grid-column: 2 !important;
-        grid-row: 4 !important;
-      }
-      .cm-item--8 {
-        grid-column: 2 !important;
-        grid-row: 5 !important;
+        object-fit: cover;
+        object-position: center;
       }
 
       .cm-lightbox__nav--prev {
@@ -683,9 +670,11 @@
 
     .cm-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: repeat(5, minmax(0, auto));
-      gap: 10px;
+      grid-template-rows: none;
+      grid-auto-rows: auto;
+      gap: 8px;
       width: 100%;
+      align-items: stretch;
     }
 
     .cm-item--1,
@@ -696,58 +685,32 @@
     .cm-item--6,
     .cm-item--7,
     .cm-item--8 {
+      grid-column: auto !important;
+      grid-row: auto !important;
       width: 100%;
       min-width: 0;
+      min-height: 0;
       height: auto;
-      aspect-ratio: 1 / 1;
-    }
-
-    .cm-item--1 {
-      grid-column: 1 !important;
-      grid-row: 1 / span 2 !important;
-      aspect-ratio: auto;
-      height: 100%;
-    }
-    .cm-item--2 {
-      grid-column: 2 !important;
-      grid-row: 1 !important;
-    }
-    .cm-item--3 {
-      grid-column: 2 !important;
-      grid-row: 2 !important;
-    }
-    .cm-item--4 {
-      grid-column: 1 !important;
-      grid-row: 3 !important;
-    }
-    .cm-item--5 {
-      grid-column: 2 !important;
-      grid-row: 3 !important;
-    }
-    .cm-item--6 {
-      grid-column: 1 !important;
-      grid-row: 4 / span 2 !important;
-      aspect-ratio: auto;
-      height: 100%;
-    }
-    .cm-item--7 {
-      grid-column: 2 !important;
-      grid-row: 4 !important;
-    }
-    .cm-item--8 {
-      grid-column: 2 !important;
-      grid-row: 5 !important;
+      aspect-ratio: 1 / 1 !important;
+      overflow: hidden;
+      position: relative;
     }
 
     .cm-card {
+      position: absolute;
+      inset: 0;
       min-width: 0;
+      width: 100%;
       height: 100%;
     }
 
     .cm-card__img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
 
     /* Lightbox */
@@ -817,12 +780,11 @@
       width: 100%;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: repeat(5, minmax(0, auto));
+      grid-template-rows: none;
+      grid-auto-rows: auto;
       gap: 8px;
+      align-items: stretch;
     }
-
-
-    /* 2-col mosaic: tall left tiles span two square rows */
 
     .cm-item--1,
     .cm-item--2,
@@ -832,70 +794,37 @@
     .cm-item--6,
     .cm-item--7,
     .cm-item--8 {
+      grid-column: auto !important;
+      grid-row: auto !important;
       width: 100%;
       min-width: 0;
+      min-height: 0;
       height: auto;
-      aspect-ratio: 1 / 1;
-    }
-
-    .cm-item--1 {
-      grid-column: 1 !important;
-      grid-row: 1 / span 2 !important;
-      aspect-ratio: auto;
-      height: 100%;
-    }
-    .cm-item--2 {
-      grid-column: 2 !important;
-      grid-row: 1 !important;
-    }
-    .cm-item--3 {
-      grid-column: 2 !important;
-      grid-row: 2 !important;
-    }
-    .cm-item--4 {
-      grid-column: 1 !important;
-      grid-row: 3 !important;
-    }
-    .cm-item--5 {
-      grid-column: 2 !important;
-      grid-row: 3 !important;
-    }
-    .cm-item--6 {
-      grid-column: 1 !important;
-      grid-row: 4 / span 2 !important;
-      aspect-ratio: auto;
-      height: 100%;
-    }
-    .cm-item--7 {
-      grid-column: 2 !important;
-      grid-row: 4 !important;
-    }
-    .cm-item--8 {
-      grid-column: 2 !important;
-      grid-row: 5 !important;
+      aspect-ratio: 1 / 1 !important;
+      overflow: hidden;
+      position: relative;
     }
 
 
     /* Card */
 
     .cm-card {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-
       min-width: 0;
-
-      display: block;
-
       overflow: hidden;
     }
 
     .cm-card__img,
     .cm-card__placeholder {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-
       object-fit: cover;
-
+      object-position: center;
       display: block;
     }
 

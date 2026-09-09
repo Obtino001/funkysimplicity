@@ -1157,4 +1157,43 @@ a.skip-to-content-link:focus-visible {
   }
 }
 
+/* Community mosaic — mobile/tablet: every cell the same size (fixes short image 2) */
+@media screen and (max-width: 1024px) {
+  .cm-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: auto !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+  }
+
+  .community-mosaic-section .cm-item {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  .community-mosaic-section .cm-card {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .community-mosaic-section .cm-card__img,
+  .community-mosaic-section .cm-card__placeholder {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
 
