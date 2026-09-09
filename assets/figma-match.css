@@ -830,12 +830,14 @@ img.icon-block__media {
 }
 
 .cm-btn {
-  background-color: var(--cm-btn-bg, #000);
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
 }
 
 .cm-btn:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   border-color: #000;
 }
 

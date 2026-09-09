@@ -2501,8 +2501,8 @@
         "show_button": true,
         "button_label": "JOIN OUR COMMUNITY",
         "button_link": "",
-        "button_bg": "{{ settings.color_palette.foreground }}",
-        "button_color": "{{ settings.color_palette.foreground }}"
+        "button_bg": "#ffffff",
+        "button_color": "#000000"
       }
     },
     "featured_blog_posts_NaHffm": {
