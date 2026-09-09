@@ -573,7 +573,7 @@
       display: none;
     }
 
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 990px) {
       #header-component[data-menu-style='menu'] :is(.header-menu, .header-localization-group .dropdown-localization) {
         display: flex;
       }
@@ -583,7 +583,7 @@
       display: contents;
     }
 
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 990px) {
       #header-component[data-menu-style='menu'] .header__navigation-bar-row {
         display: none;
       }
@@ -1297,13 +1297,18 @@
       padding: 4px 28px;
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
       color: var(--header-pill-text, #ffffff);
-      display: flex;
       align-items: center;
-      justify-content: space-between;
       width: 100%;
       box-sizing: border-box;
       min-height: 0;
       transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    @media screen and (min-width: 990px) {
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
+        display: flex;
+        justify-content: space-between;
+      }
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image {
@@ -1445,14 +1450,16 @@
       margin-inline: 0 !important;
     }
 
-    #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
-    #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
-      padding-inline: 60px !important;
-      padding-block: 25px !important;
-      width: 100% !important;
+    @media screen and (min-width: 990px) {
+      #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
+      #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
+        padding-inline: 60px !important;
+        padding-block: 25px !important;
+        width: 100% !important;
+      }
     }
 
-    @media screen and (max-width: 749px) {
+    @media screen and (max-width: 989px) {
       #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
       #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
         padding: 0 !important;
@@ -1682,12 +1689,13 @@
       opacity: 1;
     }
 
-    @media screen and (max-width: 749px) {
-      /* Search belongs in the menu overlay, not the header bar */
-      #header-component .header__columns > .search-action,
-      #header-component .header__row .search-action,
+    @media screen and (max-width: 989px) {
       #header-component .search-action--hidden-on-menu {
         display: none !important;
+      }
+
+      #header-component .header-menu {
+        display: none;
       }
 
       #header-component .header-localization-group {
@@ -1763,8 +1771,9 @@
         overflow: visible;
       }
 
-      #header-component[data-menu-style='drawer'] .header__drawer,
-      #header-component[data-menu-style='drawer'] .header__columns .header__drawer {
+      #header-component .header__drawer,
+      #header-component .header__columns .header__drawer {
+        display: flex;
         grid-area: leftA !important;
         justify-self: start;
         align-self: center;
@@ -1773,13 +1782,13 @@
         min-width: 0;
       }
 
-      #header-component[data-menu-style='drawer'] .header__columns .header-logo {
+      #header-component .header__columns .header-logo {
         grid-area: center !important;
         justify-self: center;
         align-self: center;
       }
 
-      #header-component[data-menu-style='drawer'] .header__columns header-actions {
+      #header-component .header__columns header-actions {
         grid-area: rightB !important;
         justify-self: end;
         align-self: center;
@@ -2017,12 +2026,13 @@
         .mega-menu__column
         > div
         > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 2 / 3;
         height: auto;
         max-height: 260px;
         width: 100%;
         margin-bottom: 0;
-        border-radius: 2px;
+        border: 0;
+        border-radius: 0;
         object-fit: cover;
       }
 

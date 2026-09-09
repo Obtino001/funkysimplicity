@@ -242,7 +242,7 @@
     min-height: var(--header-drawer-min-height);
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 990px) {
     #header-component[data-menu-style='menu'] .header__drawer {
       display: none;
       min-height: 0;
@@ -701,10 +701,13 @@
   .mega-menu__link-image {
     width: 100%;
     position: relative;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 2 / 3;
     margin-bottom: var(--padding-sm);
     object-fit: cover;
-    border-radius: var(--menu-image-border-radius);
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 0;
   }
  
   /* Fix alignment for collection image mode links without images */
@@ -727,11 +730,11 @@
     content: '';
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 2 / 3;
     margin-bottom: var(--padding-sm);
     background-color: var(--color-foreground-muted);
     opacity: 0.1;
-    border-radius: var(--menu-image-border-radius);
+    border-radius: 0;
   }
 
   .mega-menu__grid {

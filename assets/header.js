@@ -145,7 +145,12 @@ class HeaderComponent extends Component {
    * between `.page-wrapper` (desktop) and `document.scrollingElement` (mobile),
    * so cached bindings from initialization become stale after a resize.
    */
+  #handleMenuBreakpointChange = () => {
+    setHeaderMenuStyle();
+  };
+
   #handleBreakpointChange = () => {
+    this.#handleMenuBreakpointChange();
     const stickyMode = this.getAttribute('sticky');
     if (!stickyMode) return;
 
@@ -225,6 +230,7 @@ class HeaderComponent extends Component {
     super.connectedCallback();
     this.#resizeObserver.observe(this);
     this.addEventListener('overflowMinimum', this.#handleOverflowMinimum);
+    scrollContainerMediaQuery.addEventListener('change', this.#handleMenuBreakpointChange);
 
     const stickyMode = this.getAttribute('sticky');
     if (stickyMode) {
@@ -244,6 +250,7 @@ class HeaderComponent extends Component {
     this.#resizeObserver.disconnect();
     this.#intersectionObserver?.disconnect();
     this.removeEventListener('overflowMinimum', this.#handleOverflowMinimum);
+    scrollContainerMediaQuery.removeEventListener('change', this.#handleMenuBreakpointChange);
     scrollContainerMediaQuery.removeEventListener('change', this.#handleBreakpointChange);
     this.#scrollContainer?.removeEventListener('scroll', this.#handleWindowScroll);
     this.#scrollContainer = null;

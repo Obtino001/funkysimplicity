@@ -861,7 +861,7 @@
   }
 
   details.menu-open .header__icon--menu .header-drawer-icon--close {
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 990px) {
       display: none;
     }
   }
@@ -869,7 +869,7 @@
   details.menu-open .header__icon--menu .header-drawer-icon--open {
     display: none;
 
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 990px) {
       display: flex;
     }
   }
@@ -1167,13 +1167,25 @@
     justify-content: flex-start;
     row-gap: var(--padding-3xs);
     padding: 0;
+    overflow: hidden;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    background: transparent;
   }
 
   .menu-drawer__link-image {
+    display: block;
     width: 100%;
+    height: auto;
     position: relative;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 2 / 3;
     object-fit: cover;
+    object-position: center;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    background: transparent;
   }
 
   /* Fix alignment for collection image mode links without images in drawer */
@@ -1193,10 +1205,11 @@
     content: '';
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 2 / 3;
     background-color: var(--color-foreground-muted);
     opacity: 0.1;
-    border-radius: var(--menu-image-border-radius);
+    border: 0;
+    border-radius: 0;
   }
 
   .menu-drawer__close-button {
@@ -1347,7 +1360,10 @@ stroke: #000000 !important;
   .menu-drawer__featured-product-image,
   .menu-drawer__featured-collection-image,
   .menu-drawer__featured-collection-link::before {
-    border-radius: var(--menu-image-border-radius);
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    border-radius: 0;
   }
 
   @keyframes menu-drawer-nav-open {
@@ -1494,7 +1510,7 @@ stroke: #000000 !important;
   /* ---------------------------------------------------------------------- */
   /* Mobile menu overlay (Figma 1:4505)                                      */
   /* ---------------------------------------------------------------------- */
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 989px) {
     .menu-drawer {
       --drawer-width: 100%;
       --drawer-max-width: 100%;
@@ -1725,10 +1741,17 @@ stroke: #000000 !important;
     .menu-drawer__menu-item:has(> .menu-drawer__link-image) {
       align-items: center !important;
       row-gap: 6px;
+      overflow: hidden;
+      border: 0;
+      outline: 0;
+      box-shadow: none;
     }
 
     .menu-drawer__link-image {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 2 / 3;
+      border: 0;
+      outline: 0;
+      box-shadow: none;
       border-radius: 0;
       object-fit: cover;
     }
@@ -1823,7 +1846,7 @@ stroke: #000000 !important;
     }
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 990px) {
     .menu-drawer__search,
     .menu-drawer__view-all,
     .menu-drawer__localization-group {

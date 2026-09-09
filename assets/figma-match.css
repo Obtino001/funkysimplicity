@@ -715,7 +715,11 @@ img.icon-block__media {
 /* Mobile header — homepage transparent / inner + scroll pill                 */
 /* -------------------------------------------------------------------------- */
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 989px) {
+  #header-component .header-menu {
+    display: none;
+  }
+
   /* One search icon on the right, same size as menu + bag */
   #header-component .header__columns > .search-action,
   #header-component .header__row .search-action:not(.search-action--hidden-on-menu) {
