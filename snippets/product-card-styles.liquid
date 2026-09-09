@@ -36,7 +36,8 @@
       }
 
       const optPills = card.querySelectorAll('.tcc-opt-pill');
-      const addBtn = card.querySelector('.tcc-add-btn');
+      const addBtn = card.querySelector('.tcc-add-btn:not(.mobile)');
+      const mobileBtn = card.querySelector('.tcc-add-btn.mobile');
       const priceRegular = card.querySelector('.tcc-price--regular');
       const priceSale = card.querySelector('.tcc-price--sale');
       const priceCompare = card.querySelector('.tcc-price--compare');
@@ -196,6 +197,21 @@
         swatch.addEventListener('mouseenter', selectSwatch);
       });
 
+      if (mobileBtn) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!card.querySelector('.tcc-option-group')) {
+            if (addBtn) addBtn.click();
+            return;
+          }
+          document.querySelectorAll('.tcc-card.is-quick-shop-open').forEach((openCard) => {
+            if (openCard !== card) openCard.classList.remove('is-quick-shop-open');
+          });
+          card.classList.toggle('is-quick-shop-open');
+        });
+      }
+
       if (addBtn) {
         addBtn.addEventListener('click', async (e) => {
           e.preventDefault();
@@ -260,6 +276,8 @@
               if (themeDrawer && typeof themeDrawer.open === 'function') {
                 themeDrawer.open();
               }
+
+              card.classList.remove('is-quick-shop-open');
             } else {
               console.error('Error adding to cart');
             }
@@ -282,6 +300,13 @@
 
     document.addEventListener('DOMContentLoaded', initAllProductCards);
     document.addEventListener('shopify:section:load', initAllProductCards);
+
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.tcc-card')) return;
+      document.querySelectorAll('.tcc-card.is-quick-shop-open').forEach((openCard) => {
+        openCard.classList.remove('is-quick-shop-open');
+      });
+    });
 
     // Dynamic Observer for infinite scroll & AJAX filter product grid updates
     if (typeof MutationObserver !== 'undefined') {

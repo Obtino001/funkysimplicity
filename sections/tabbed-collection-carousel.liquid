@@ -612,6 +612,9 @@
     }
 
     function initProductCard(card) {
+      if (!card || card.dataset.tccCardInitialized) return;
+      card.dataset.tccCardInitialized = 'true';
+
       const dataScript = card.querySelector('.tcc-product-json');
       if (!dataScript) return;
 
@@ -623,7 +626,8 @@
       }
 
       const optPills = card.querySelectorAll('.tcc-opt-pill');
-      const addBtn = card.querySelector('.tcc-add-btn');
+      const addBtn = card.querySelector('.tcc-add-btn:not(.mobile)');
+      const mobileBtn = card.querySelector('.tcc-add-btn.mobile');
       const priceRegular = card.querySelector('.tcc-price--regular');
       const priceSale = card.querySelector('.tcc-price--sale');
       const priceCompare = card.querySelector('.tcc-price--compare');
@@ -791,6 +795,21 @@
         swatch.addEventListener('mouseenter', selectSwatch);
       });
 
+      if (mobileBtn) {
+        mobileBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!card.querySelector('.tcc-option-group')) {
+            if (addBtn) addBtn.click();
+            return;
+          }
+          document.querySelectorAll('.tcc-card.is-quick-shop-open').forEach((openCard) => {
+            if (openCard !== card) openCard.classList.remove('is-quick-shop-open');
+          });
+          card.classList.toggle('is-quick-shop-open');
+        });
+      }
+
       // Add to Cart Click
       if (addBtn) {
         addBtn.addEventListener('click', async (e) => {
@@ -866,6 +885,7 @@
               }
 
               addBtn.textContent = 'ADDED ✓';
+              card.classList.remove('is-quick-shop-open');
               setTimeout(() => {
                 addBtn.classList.remove('is-loading');
                 addBtn.disabled = false;
