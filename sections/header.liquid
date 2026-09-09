@@ -101,8 +101,8 @@
     render 'header-actions', customer_account_menu: section.settings.customer_account_menu, display_style: section.settings.actions_display_style, section: section
   endcapture
 
-  # search_class left blank so search icon stays visible on mobile too
-  assign search_class = ''
+  # Desktop search only — mobile search lives in the menu overlay, not the header bar
+  assign search_class = 'mobile:hidden'
 
   # Handle localization positioning
   if section.settings.localization_position == 'left'
@@ -132,13 +132,8 @@
     render 'search', style: search_style, class: search_class, display_style: section.settings.actions_display_style
   endcapture
 
-  # Skip drawer search under specific conditions:
-  # Always render if search_row is bottom
-  # Don't render when shop.customer_accounts_enabled is false and search_position is left and search_style is not none
-  assign skip_drawer_search = false
-  if shop.customer_accounts_enabled == false and section.settings.search_position == 'left' and search_style != 'none'
-    assign skip_drawer_search = true
-  endif
+  # Skip the extra mobile header search icon. Search is in the drawer overlay (Figma).
+  assign skip_drawer_search = true
 
   if section.settings.search_row == 'bottom' or search_style != 'none' and skip_drawer_search == false
     # Mobile search duplicate for when search is not in the right order for mobile layout
@@ -1689,51 +1684,11 @@
     }
 
     @media screen and (max-width: 749px) {
-      /* Hide duplicate search in left column, show search in right column */
-      #header-component .header__column--left .search-action,
+      /* Search belongs in the menu overlay, not the header bar */
+      #header-component .header__columns > .search-action,
+      #header-component .header__row .search-action,
       #header-component .search-action--hidden-on-menu {
         display: none !important;
-      }
-
-      #header-component .search-action,
-      #header-component .header__column--right .search-action {
-        display: flex !important;
-        grid-area: rightA !important;
-        justify-self: end;
-        align-self: center;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        min-width: 32px;
-        min-height: 32px;
-        padding: 0 !important;
-        margin: 0 !important;
-        background: transparent !important;
-        border: 0 !important;
-        cursor: pointer;
-      }
-
-      #header-component .search-action button,
-      #header-component .search-action .header-actions__action {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 100% !important;
-        height: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        background: transparent !important;
-        border: 0 !important;
-        color: #ffffff !important;
-      }
-
-      #header-component .search-action svg {
-        width: 20px !important;
-        height: 20px !important;
-        color: #ffffff !important;
-        fill: #ffffff !important;
-        display: block !important;
       }
 
       #header-component .header-localization-group {
@@ -1825,12 +1780,6 @@
         align-self: center;
       }
 
-      #header-component[data-menu-style='drawer'] .header__columns .search-action {
-        grid-area: rightA !important;
-        justify-self: end;
-        align-self: center;
-      }
-
       #header-component[data-menu-style='drawer'] .header__columns header-actions {
         grid-area: rightB !important;
         justify-self: end;
@@ -1887,10 +1836,12 @@
       }
 
       #header-component .header__row--top .menu-drawer-container .header__icon--summary,
-      #header-component .header__row--top .header__icon--menu {
+      #header-component .header__row--top .header__icon--menu,
+      #header-component .header-actions__action:not(.account-button) {
         width: 24px;
         height: 24px;
         min-width: 24px;
+        min-height: 24px;
         padding: 0 !important;
         color: #ffffff !important;
       }
@@ -1901,6 +1852,16 @@
         height: 24px;
         color: inherit;
         stroke: currentColor;
+        fill: none;
+      }
+
+      #header-component .header-actions__cart-icon svg,
+      #header-component .header-actions__action:not(.account-button) svg {
+        width: 24px;
+        height: 24px;
+        color: inherit;
+        fill: currentColor;
+        object-fit: contain;
       }
 
       #header-component .header-actions__action {
@@ -1910,20 +1871,8 @@
 
       #header-component .header-actions__cart-icon {
         overflow: visible;
-      }
-
-      #header-component .header-actions__cart-icon svg {
-        width: 23px;
-        height: 21px;
-        color: #ffffff !important;
-        fill: #ffffff !important;
-      }
-
-      #header-component .search-action svg {
-        width: 20px !important;
-        height: 20px !important;
-        color: #ffffff !important;
-        fill: #ffffff !important;
+        width: 24px;
+        height: 24px;
       }
 
       #header-component .header__underlay,

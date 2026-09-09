@@ -667,6 +667,34 @@ img.icon-block__media {
 /* -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 749px) {
+  /* Search is in the menu overlay only — hide header-bar search icons */
+  #header-component .header__columns > .search-action,
+  #header-component .header__row .search-action {
+    display: none !important;
+  }
+
+  #header-component .header__icon--menu,
+  #header-component .header__icon--menu svg,
+  #header-component .header-drawer-icon--open svg,
+  #header-component .header-actions__cart-icon,
+  #header-component .header-actions__cart-icon svg,
+  #header-component .header-actions__action:not(.account-button) .svg-wrapper,
+  #header-component .header-actions__action:not(.account-button) svg {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  #header-component .header__icon--menu,
+  #header-component .header-actions__cart-icon,
+  #header-component .header-actions__action:not(.account-button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
   #header-component .header-localization-group {
     display: none !important;
   }

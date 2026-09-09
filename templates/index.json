@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>Handmade In bali since 1994</p>",
+            "text": "<p>Handmade in Bali since 1994</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Timeless Cotton Active Wear Mad With Soul</p>",
+            "text": "<p>Timeless Cotton Active Wear Made With Soul</p>",
             "width": "100%",
             "max_width": "none",
             "alignment": "center",
@@ -108,7 +108,7 @@
               "type": "button",
               "name": "t:names.button",
               "settings": {
-                "label": "shop now in",
+                "label": "shop now",
                 "link": "shopify://collections/all",
                 "open_in_new_tab": false,
                 "style_class": "button-custom",
