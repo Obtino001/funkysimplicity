@@ -1937,7 +1937,7 @@
         min-height: 0 !important;
         clip-path: none !important;
         transition: none !important;
-        padding: 14px 0 0 !important;
+        padding: 10px 0 0 !important;
         margin: 0 !important;
         background-color: transparent !important;
         border: 0 !important;
@@ -1952,6 +1952,12 @@
 
       #header-component[transparent]:not([data-sticky-state='active'])
         .menu-list__list-item:where(:not([slot='overflow']))
+        > .menu-list__submenu {
+        top: calc(100% - 25px) !important;
+      }
+
+      #header-component[transparent]:not([data-sticky-state='active'])
+        .menu-list__list-item:where(:not([slot='overflow']))
         > .menu-list__submenu::before,
       #header-component[data-sticky-state='active']
         .menu-list__list-item:where(:not([slot='overflow']))
@@ -1961,7 +1967,7 @@
         > .menu-list__submenu::before {
         content: '';
         position: absolute;
-        top: 4px;
+        top: 0;
         left: var(--mega-caret-left, 50%);
         width: 0;
         height: 0;
@@ -1994,7 +2000,7 @@
         align-items: center !important;
         justify-content: center !important;
         flex-wrap: nowrap !important;
-        padding: 20px 32px 16px !important;
+        padding: 32px 40px 28px !important;
         max-width: var(--page-width, 1280px) !important;
         margin-inline: auto !important;
         width: 100% !important;
@@ -2004,8 +2010,6 @@
         border-radius: 28px;
         opacity: 1 !important;
         transition: none !important;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
       }
 
       #header-component[data-sticky-state='active'] .menu-list__submenu .mega-menu,
@@ -2025,8 +2029,8 @@
 
       #header-component[data-sticky-state='active'] .mega-menu__grid,
       #header-component:not([transparent]) .mega-menu__grid {
-        --menu-vertical-gap: 12px;
-        --menu-horizontal-gap: 14px;
+        --menu-vertical-gap: 22px;
+        --menu-horizontal-gap: 16px;
         --menu-columns-desktop: 6;
         height: auto;
         min-height: 0;
@@ -2060,7 +2064,7 @@
         > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
         aspect-ratio: 3 / 4 !important;
         height: auto !important;
-        max-height: 180px !important;
+        max-height: 260px !important;
         width: 100%;
         margin-bottom: 0;
         border-radius: 2px;
@@ -2082,8 +2086,8 @@
       }
 
       .mega-menu__grid {
-        --menu-vertical-gap: 12px;
-        --menu-horizontal-gap: 14px;
+        --menu-vertical-gap: 22px;
+        --menu-horizontal-gap: 16px;
         height: auto;
         min-height: 0;
       }
