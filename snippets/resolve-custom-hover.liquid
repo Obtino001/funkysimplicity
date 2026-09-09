@@ -28,6 +28,13 @@
 {% enddoc %}
 
 {%- liquid
+  assign base_bg_alpha = base_bg.alpha | default: 1
+  assign base_bg_brightness = base_bg | color_brightness | default: 255
+  assign invert_to_dark = false
+  if base_bg_alpha < 0.4 or base_bg_brightness > 128
+    assign invert_to_dark = true
+  endif
+
   if hover_bg != blank
     assign effective_hover_bg = hover_bg
     if hover_bg.alpha == 1
@@ -35,40 +42,26 @@
     else
       assign hover_bg_has_alpha = true
     endif
+  elsif invert_to_dark
+    assign effective_hover_bg = '#000000'
+    assign hover_bg_has_alpha = false
   else
-    capture effective_hover_bg
-      render 'util-palette-hover-shift', color: base_bg
-    endcapture
-    if base_bg.alpha == 1
-      assign hover_bg_has_alpha = false
-    else
-      assign hover_bg_has_alpha = true
-    endif
+    assign effective_hover_bg = '#ffffff'
+    assign hover_bg_has_alpha = false
   endif
 
   if hover_text != blank
     assign effective_hover_text = hover_text
-  elsif hover_bg_has_alpha and base_text != blank
-    assign effective_hover_text = base_text
+  elsif invert_to_dark
+    assign effective_hover_text = '#ffffff'
   else
-    assign hover_bg_brightness = effective_hover_bg | color_brightness
-    if hover_bg_brightness > 128
-      assign effective_hover_text = 'var(--palette-darkest)'
-    else
-      assign effective_hover_text = 'var(--palette-lightest)'
-    endif
+    assign effective_hover_text = '#000000'
   endif
 
   if hover_border != blank
     assign effective_hover_border = hover_border
   else
-    if base_border == base_bg
-      assign effective_hover_border = effective_hover_bg
-    else
-      capture effective_hover_border
-        render 'util-palette-hover-shift', color: base_border
-      endcapture
-    endif
+    assign effective_hover_border = '#000000'
   endif
 -%}
 {%- comment -%} Output: bg||text||border, parsed by the caller via split: '||'. {%- endcomment -%}

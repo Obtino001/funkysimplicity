@@ -769,37 +769,229 @@ img.icon-block__media {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Buttons                                                                    */
+/* Hover animations — Figma invert / zoom / overlay / underline / arrows     */
 /* -------------------------------------------------------------------------- */
 
 .button,
 .button-secondary,
-.button-custom {
+.button-custom,
+.collection-section_view_all_button,
+.fc-btn,
+.cm-btn {
   border-radius: 999px;
   transition:
-    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.22s ease,
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
     opacity 0.2s ease;
-  will-change: transform;
 }
 
 .button:hover,
 .button-secondary:hover,
 .button-custom:hover,
-.collection-section_view_all_button:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.collection-section_view_all_button:hover,
+.fc-btn:hover,
+.cm-btn:hover {
+  transform: none;
 }
 
-.button:active,
-.button-secondary:active,
-.button-custom:active,
-.collection-section_view_all_button:active {
-  transform: translateY(0px) scale(0.97);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.1s ease,
-    box-shadow 0.1s ease;
+.button-secondary:hover,
+.add-to-cart-button:hover {
+  box-shadow: inset 0 0 0 1px var(--color-primary-button-hover-border, #000);
+}
+
+.cm-btn {
+  background-color: var(--cm-btn-bg, #000);
+}
+
+.cm-btn:hover {
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+}
+
+.fc-btn:hover {
+  transform: none;
+}
+
+.tcc-add-btn:hover:not(:disabled) {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  /* Collection / category cards — zoom + darken */
+  .collection-card__inner,
+  .collection-card--image-bg .collection-card__image,
+  .resource-card__media,
+  .resource-card__image-wrapper {
+    overflow: hidden;
+  }
+
+  .collection-card--image-bg .collection-card__image img,
+  .collection-card--image-bg .resource-image__image,
+  .collection-card--image-bg .collection-card__image .resource-image__image,
+  .resource-card__image,
+  .resource-card__collection-image {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .collection-card--image-bg:hover .collection-card__image img,
+  .collection-card--image-bg:hover .resource-image__image,
+  .resource-card:hover .resource-card__image,
+  .resource-card:hover .resource-card__collection-image {
+    transform: scale(1.06);
+  }
+
+  .collection-card--image-bg .collection-card__inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.22);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .collection-card--image-bg:hover .collection-card__inner::after {
+    opacity: 1;
+  }
+
+  .collection-card--image-bg .collection-card__content {
+    z-index: 2;
+  }
+
+  /* Product cards — slight zoom when there is no hover-swap image */
+  .tcc-card:hover .tcc-card__img--primary:not(.has-secondary) {
+    transform: scale(1.04);
+  }
+
+  /* Blog cards */
+  .featured-blog-posts-card__image-container,
+  .blog-post-card__image {
+    overflow: hidden;
+  }
+
+  .featured-blog-posts-card__image,
+  .featured-blog-posts-card img,
+  .blog-post-card img {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .featured-blog-posts-card:hover .featured-blog-posts-card__image,
+  .featured-blog-posts-card:hover img,
+  .blog-post-card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Accordion / disclosure rows */
+  .product-information .details__header,
+  .disclosures .details__header,
+  .product-information summary,
+  .disclosures summary {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+    transition:
+      color 0.2s ease,
+      text-decoration-color 0.2s ease;
+  }
+
+  .product-information summary:hover,
+  .disclosures summary:hover,
+  .product-information summary:hover .details__header,
+  .disclosures summary:hover .details__header {
+    color: #000;
+    text-decoration-color: currentColor;
+  }
+
+  /* Header + footer text links */
+  .menu-list__link-title,
+  .mega-menu a,
+  .footer a:not(.button, .button-secondary, .button-custom) {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .menu-list__list-item:hover .menu-list__link-title,
+  .mega-menu a:hover,
+  .footer a:not(.button, .button-secondary, .button-custom):hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Product gallery arrows — hidden until hover, white circle + black chevron */
+  .product-information slideshow-arrows,
+  media-gallery slideshow-arrows {
+    mix-blend-mode: normal;
+  }
+
+  .product-information slideshow-arrows .slideshow-control,
+  media-gallery slideshow-arrows .slideshow-control {
+    opacity: 0 !important;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .product-information slideshow-component:hover slideshow-arrows .slideshow-control,
+  .product-information slideshow-component:focus-within slideshow-arrows .slideshow-control,
+  media-gallery slideshow-component:hover slideshow-arrows .slideshow-control,
+  media-gallery slideshow-component:focus-within slideshow-arrows .slideshow-control {
+    opacity: 1 !important;
+  }
+
+  .media-gallery--carousel slideshow-arrows .slideshow-control {
+    opacity: 0 !important;
+  }
+
+  media-gallery.media-gallery--carousel slideshow-component:hover slideshow-arrows .slideshow-control,
+  media-gallery.media-gallery--carousel slideshow-component:focus-within slideshow-arrows .slideshow-control {
+    opacity: 1 !important;
+  }
+
+  /* Thumbnails — hover / active */
+  .product-information .slideshow-controls__thumbnail,
+  media-gallery .slideshow-controls__thumbnail {
+    opacity: 0.55;
+    outline: 1px solid transparent;
+    outline-offset: 2px;
+    transition: opacity 0.2s ease, outline-color 0.2s ease;
+  }
+
+  .product-information .slideshow-controls__thumbnail:hover,
+  media-gallery .slideshow-controls__thumbnail:hover,
+  .product-information .slideshow-controls__thumbnail[aria-current='true'],
+  media-gallery .slideshow-controls__thumbnail[aria-current='true'] {
+    opacity: 1;
+    outline-color: #000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button-secondary,
+  .button-custom,
+  .collection-card--image-bg .collection-card__image img,
+  .cm-card__img,
+  .tcc-card__img,
+  .fc-card__img {
+    transition: none;
+  }
 }
 
 @media screen and (min-width: 750px) {

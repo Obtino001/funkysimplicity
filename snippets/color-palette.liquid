@@ -24,7 +24,7 @@
   endfor
 %}
 
-{% comment %} Primary button effective values {% endcomment %}
+{% comment %} Primary button effective values — invert on hover (outline ↔ filled) {% endcomment %}
 {% liquid
   if settings.palette_primary_button_background.alpha == 0
     assign effective_primary_button_focus_outline = settings.palette_primary_button_text
@@ -32,67 +32,29 @@
     assign effective_primary_button_focus_outline = settings.palette_primary_button_background
   endif
 
-  capture effective_primary_button_hover_background
-    render 'util-palette-hover-shift', color: settings.palette_primary_button_background
-  endcapture
-  if settings.palette_primary_button_background.alpha == 1
-    assign primary_hover_background_has_alpha = false
+  assign primary_bg_brightness = settings.palette_primary_button_background | color_brightness
+  if settings.palette_primary_button_background.alpha < 0.4 or primary_bg_brightness > 128
+    assign effective_primary_button_hover_background = palette_darkest
+    assign effective_primary_button_hover_text = palette_lightest
+    assign effective_primary_button_hover_border = palette_darkest
   else
-    assign primary_hover_background_has_alpha = true
-  endif
-
-  assign primary_hover_brightness = effective_primary_button_hover_background | color_brightness
-  if primary_hover_brightness > 128
-    assign primary_button_hover_contrast = palette_darkest
-  else
-    assign primary_button_hover_contrast = palette_lightest
-  endif
-
-  if primary_hover_background_has_alpha
-    assign effective_primary_button_hover_text = settings.palette_primary_button_text
-  else
-    assign effective_primary_button_hover_text = primary_button_hover_contrast
-  endif
-
-  if settings.palette_primary_button_border == settings.palette_primary_button_background
-    assign effective_primary_button_hover_border = effective_primary_button_hover_background
-  else
-    capture effective_primary_button_hover_border
-      render 'util-palette-hover-shift', color: settings.palette_primary_button_border
-    endcapture
+    assign effective_primary_button_hover_background = palette_lightest
+    assign effective_primary_button_hover_text = palette_darkest
+    assign effective_primary_button_hover_border = palette_darkest
   endif
 %}
 
-{% comment %} Secondary button hover effective values {% endcomment %}
+{% comment %} Secondary button hover — invert on hover (filled ↔ outline) {% endcomment %}
 {% liquid
-  capture effective_secondary_button_hover_background
-    render 'util-palette-hover-shift', color: settings.palette_secondary_button_background
-  endcapture
-  if settings.palette_secondary_button_background.alpha == 1
-    assign secondary_hover_background_has_alpha = false
+  assign secondary_bg_brightness = settings.palette_secondary_button_background | color_brightness
+  if settings.palette_secondary_button_background.alpha < 0.4 or secondary_bg_brightness > 128
+    assign effective_secondary_button_hover_background = palette_darkest
+    assign effective_secondary_button_hover_text = palette_lightest
+    assign effective_secondary_button_hover_border = palette_darkest
   else
-    assign secondary_hover_background_has_alpha = true
-  endif
-
-  assign secondary_hover_brightness = effective_secondary_button_hover_background | color_brightness
-  if secondary_hover_brightness > 128
-    assign secondary_button_hover_contrast = palette_darkest
-  else
-    assign secondary_button_hover_contrast = palette_lightest
-  endif
-
-  if secondary_hover_background_has_alpha
-    assign effective_secondary_button_hover_text = settings.palette_secondary_button_text
-  else
-    assign effective_secondary_button_hover_text = secondary_button_hover_contrast
-  endif
-
-  if settings.palette_secondary_button_border == settings.palette_secondary_button_background
-    assign effective_secondary_button_hover_border = effective_secondary_button_hover_background
-  else
-    capture effective_secondary_button_hover_border
-      render 'util-palette-hover-shift', color: settings.palette_secondary_button_border
-    endcapture
+    assign effective_secondary_button_hover_background = palette_lightest
+    assign effective_secondary_button_hover_text = palette_darkest
+    assign effective_secondary_button_hover_border = palette_darkest
   endif
 %}
 
@@ -182,15 +144,15 @@
     --color-primary-button-border: rgb({{ settings.palette_primary_button_border.rgba }});
     --color-primary-button-focus-outline: rgb({{ effective_primary_button_focus_outline.rgb }});
     --color-primary-button-hover-text: rgb({{ effective_primary_button_hover_text.rgba }});
-    --color-primary-button-hover-background: {{ effective_primary_button_hover_background }};
-    --color-primary-button-hover-border: {{ effective_primary_button_hover_border }};
+    --color-primary-button-hover-background: rgb({{ effective_primary_button_hover_background.rgb }});
+    --color-primary-button-hover-border: rgb({{ effective_primary_button_hover_border.rgb }});
 
     --color-secondary-button-text: rgb({{ settings.palette_secondary_button_text.rgba }});
     --color-secondary-button-background: rgb({{ settings.palette_secondary_button_background.rgba }});
     --color-secondary-button-border: rgb({{ settings.palette_secondary_button_border.rgba }});
     --color-secondary-button-hover-text: rgb({{ effective_secondary_button_hover_text.rgba }});
-    --color-secondary-button-hover-background: {{ effective_secondary_button_hover_background }};
-    --color-secondary-button-hover-border: {{ effective_secondary_button_hover_border }};
+    --color-secondary-button-hover-background: rgb({{ effective_secondary_button_hover_background.rgb }});
+    --color-secondary-button-hover-border: rgb({{ effective_secondary_button_hover_border.rgb }});
 
     --color-input-background: rgb({{ settings.palette_input_background.rgba }});
     --color-input-text: rgb({{ settings.palette_input_text.rgba }});

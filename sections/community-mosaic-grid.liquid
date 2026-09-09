@@ -20,7 +20,6 @@
   assign gap = section.settings.gap | default: 12
   assign section_width = section.settings.section_width | default: 'page-width' 
   assign overlay_opacity = section.settings.overlay_opacity | default: 40
-  assign expand_icon_url = 'https://cdn.shopify.com/s/files/1/0646/0761/files/arrow-expand-round.png?v=1787680681'
 -%}
 
 <section
@@ -54,6 +53,9 @@
             assign link = block.settings.link
             assign alt_text = img.alt | default: heading
             assign item_class = 'cm-item cm-item--' | append: forloop.index
+            assign hover_title = block.settings.hover_title | default: alt_text
+            assign hover_text = block.settings.hover_text
+            assign hover_cta = block.settings.hover_cta | default: section.settings.overlay_cta_label | default: 'Lookbook →'
           -%}
           <div class="{{ item_class }}" {{ block.shopify_attributes }}>
             <button
@@ -82,17 +84,16 @@
                 {{ 'image' | placeholder_svg_tag: 'cm-card__placeholder' }}
               {%- endif -%}
 
-              {%- comment -%} Hover Overlay with Fullscreen Expand Icon {%- endcomment -%}
+              {%- comment -%} Hover overlay: caption + lookbook CTA {% endcomment -%}
               <div class="cm-card__overlay">
-                <div class="cm-card__icon-wrap">
-                  <img
-                    src="{{ expand_icon_url }}"
-                    alt="Expand full screen"
-                    class="cm-card__expand-icon"
-                    width="36"
-                    height="36"
-                    loading="lazy"
-                  >
+                <div class="cm-card__caption">
+                  {%- if hover_title != blank -%}
+                    <p class="cm-card__title">{{ hover_title }}</p>
+                  {%- endif -%}
+                  {%- if hover_text != blank -%}
+                    <p class="cm-card__text">{{ hover_text }}</p>
+                  {%- endif -%}
+                  <span class="cm-card__cta">{{ hover_cta }}</span>
                 </div>
               </div>
             </button>
@@ -112,15 +113,9 @@
             >
               {{ 'image' | placeholder_svg_tag: 'cm-card__placeholder' }}
               <div class="cm-card__overlay">
-                <div class="cm-card__icon-wrap">
-                  <img
-                    src="{{ expand_icon_url }}"
-                    alt="Expand full screen"
-                    class="cm-card__expand-icon"
-                    width="36"
-                    height="36"
-                    loading="lazy"
-                  >
+                <div class="cm-card__caption">
+                  <p class="cm-card__title">{{ heading }}</p>
+                  <span class="cm-card__cta">Lookbook →</span>
                 </div>
               </div>
             </button>
@@ -332,14 +327,15 @@
       display: block;
     }
 
-    /* Hover Overlay & Expand Icon */
+    /* Hover Overlay */
     .cm-card__overlay {
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, var(--cm-overlay-opacity, 0.4));
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 16px 18px;
       opacity: 0;
       transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 2;
@@ -350,26 +346,44 @@
       opacity: 1;
     }
 
-    .cm-card__icon-wrap {
+    .cm-card__caption {
+      color: #fff;
+      text-align: left;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
+      flex-direction: column;
+      gap: 4px;
+      transform: translateY(8px);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      transform: scale(0.85);
     }
 
-    .cm-card:hover .cm-card__icon-wrap {
-      transform: scale(1);
+    .cm-card:hover .cm-card__caption,
+    .cm-card:focus-visible .cm-card__caption {
+      transform: translateY(0);
     }
 
-    .cm-card__expand-icon {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+    .cm-card__title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.25;
+      color: #fff;
+    }
+
+    .cm-card__text {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .cm-card__cta {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* Button */
@@ -387,7 +401,8 @@
       padding: 15px 25px;
       border-radius: 999px;
 
-      color: var(--cm-btn-color, #000);
+      color: var(--cm-btn-color, #fff);
+      background-color: var(--cm-btn-bg, #000);
       border: 1px solid var(--cm-btn-bg, #000000);
       font-size: 14px;
       font-weight: 400;
@@ -400,9 +415,9 @@
     }
 
     .cm-btn:hover {
-      background-color: #000;
+      background-color: #fff;
       border-color: #000;
-      color: #fff;
+      color: #000;
     }
 
     /* =========================================================================
@@ -809,23 +824,19 @@
 
     .cm-card__overlay {
       opacity: 0;
+      padding: 12px;
     }
 
     .cm-card:active .cm-card__overlay {
       opacity: 1;
     }
 
-
-    /* Expand Icon */
-
-    .cm-card__icon-wrap {
-      width: 38px;
-      height: 38px;
+    .cm-card__title {
+      font-size: 13px;
     }
 
-    .cm-card__expand-icon {
-      width: 20px;
-      height: 20px;
+    .cm-card__cta {
+      font-size: 12px;
     }
 
 
@@ -1016,18 +1027,6 @@
     .cm-item--1,
     .cm-item--6 {
       aspect-ratio: 2 / 3;
-    }
-
-
-    .cm-card__icon-wrap {
-      width: 32px;
-      height: 32px;
-    }
-
-
-    .cm-card__expand-icon {
-      width: 18px;
-      height: 18px;
     }
 
 
@@ -1311,6 +1310,12 @@
       "default": 40
     },
     {
+      "type": "text",
+      "id": "overlay_cta_label",
+      "label": "Hover CTA Label",
+      "default": "Lookbook →"
+    },
+    {
       "type": "header",
       "content": "Call To Action Button"
     },
@@ -1354,6 +1359,22 @@
           "type": "image_picker",
           "id": "image",
           "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "hover_title",
+          "label": "Hover Title"
+        },
+        {
+          "type": "textarea",
+          "id": "hover_text",
+          "label": "Hover Description"
+        },
+        {
+          "type": "text",
+          "id": "hover_cta",
+          "label": "Hover Link Label",
+          "default": "Lookbook →"
         },
         {
           "type": "url",
