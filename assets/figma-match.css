@@ -1228,31 +1228,30 @@ a.skip-to-content-link:focus-visible {
 /* -------------------------------------------------------------------------- */
 
 @media screen and (min-width: 750px) {
-  .menu-list__submenu-inner {
-    max-width: var(--page-width, 1280px) !important;
-    margin-inline: auto !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    padding-inline: var(--page-margin, 30px) !important;
+  #header-component .menu-list__submenu-inner {
+    max-width: var(--page-width, 1280px);
+    margin-inline: auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .menu-list__submenu .mega-menu,
-  .menu-list__submenu .mega-menu.section {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin-inline: auto !important;
+  #header-component .menu-list__submenu .mega-menu,
+  #header-component .menu-list__submenu .mega-menu.section {
+    max-width: 100%;
+    width: 100%;
+    margin-inline: auto;
   }
 
-  .mega-menu__grid {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-inline: auto !important;
+  #header-component .mega-menu__grid {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
   }
 
-  .mega-menu__link-image,
-  .mega-menu__grid:has(.mega-menu__link-image) .mega-menu__column > div > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
-    max-height: 260px !important;
-    object-fit: cover !important;
+  #header-component .mega-menu__link-image,
+  #header-component .mega-menu__grid:has(.mega-menu__link-image) .mega-menu__column > div > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
+    max-height: 260px;
+    object-fit: cover;
   }
 }
 

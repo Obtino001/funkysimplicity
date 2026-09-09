@@ -1517,18 +1517,17 @@
       opacity: 0.82;
     }
 
-    /* Submenus & Popovers matching the Dark Theme */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu,
+    /* Localization popover — not the mega menu */
     .localization-wrapper {
-      background-color: var(--header-pill-bg, #4A4A4A) !important;
-      color: var(--header-pill-text, #ffffff) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-      border-radius: 14px !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
-      --color-foreground: #ffffff !important;
-      --color-foreground-rgb: 255 255 255 !important;
-      --color-foreground-muted: rgba(255, 255, 255, 0.7) !important;
-      --color-foreground-subdued: rgba(255, 255, 255, 0.7) !important;
+      background-color: var(--header-pill-bg, #4a4a4a);
+      color: var(--header-pill-text, #ffffff);
+      border: 1px solid rgb(255 255 255 / 0.15);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+      --color-foreground: #ffffff;
+      --color-foreground-rgb: 255 255 255;
+      --color-foreground-muted: rgb(255 255 255 / 0.7);
+      --color-foreground-subdued: rgb(255 255 255 / 0.7);
     }
 
     /* All text, labels, and spans inside localization dropdown */
@@ -1886,9 +1885,7 @@
     /* Desktop mega menu — floating card (Figma)                              */
     /* ---------------------------------------------------------------------- */
     .mega-menu-page-overlay {
-      display: none !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
+      display: none;
     }
 
     @media screen and (min-width: 990px) {
@@ -1908,63 +1905,41 @@
         position: static;
       }
 
-      /* ------------------------------------------------------------------ */
-      /* Mega menu: same floating card at rest, scrolled, and inner pages   */
-      /* ------------------------------------------------------------------ */
-      #header-component[transparent]:not([data-sticky-state='active']) .header__underlay-open,
-      #header-component[data-sticky-state='active'] .header__underlay-open,
-      #header-component:not([transparent]) .header__underlay-open {
-        display: none !important;
+      #header-component .header__underlay-open {
+        display: none;
       }
 
-      #header-component[transparent]:not([data-sticky-state='active'])
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu,
-      #header-component[data-sticky-state='active']
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu,
-      #header-component:not([transparent])
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu {
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
         --submenu-gap: 0px;
         --mega-menu-surface: #000000e5;
         --full-open-header-height: 0px;
-
-        top: 100% !important;
-        left: 0;
-        width: 100%;
-        height: auto !important;
-        min-height: 0 !important;
-        clip-path: none !important;
-        transition: none !important;
-        padding: 10px 0 0 !important;
-        margin: 0 !important;
-        background-color: transparent !important;
-        border: 0 !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        overflow: visible !important;
-        pointer-events: auto;
-        z-index: calc(var(--layer-header-menu) + 4);
         --submenu-padding-block-start: 0px;
         --submenu-padding-block-end: 0px;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        clip-path: none;
+        transition: none;
+        padding: 10px 0 0;
+        margin: 0;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        overflow: visible;
+        pointer-events: auto;
+        z-index: calc(var(--layer-header-menu) + 4);
       }
 
       #header-component[transparent]:not([data-sticky-state='active'])
         .menu-list__list-item:where(:not([slot='overflow']))
         > .menu-list__submenu {
-        top: calc(100% - 25px) !important;
+        top: calc(100% - 25px);
       }
 
-      #header-component[transparent]:not([data-sticky-state='active'])
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu::before,
-      #header-component[data-sticky-state='active']
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu::before,
-      #header-component:not([transparent])
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu::before {
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before {
         content: '';
         position: absolute;
         top: 0;
@@ -1978,128 +1953,86 @@
         z-index: 2;
       }
 
-      #header-component[transparent]:not([data-sticky-state='active'])
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu[inert]::before,
-      #header-component[data-sticky-state='active']
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu[inert]::before,
-      #header-component:not([transparent])
-        .menu-list__list-item:where(:not([slot='overflow']))
-        > .menu-list__submenu[inert]::before {
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu[inert]::before {
         display: none;
       }
 
-      #header-component[transparent]:not([data-sticky-state='active']) .menu-list__submenu-inner,
-      #header-component[data-sticky-state='active'] .menu-list__submenu-inner,
-      #header-component:not([transparent]) .menu-list__submenu-inner {
-        transform: none !important;
-        height: auto !important;
-        min-height: 0 !important;
-        max-height: none !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex-wrap: nowrap !important;
-        padding: 32px 40px 28px !important;
-        max-width: var(--page-width, 1280px) !important;
-        margin-inline: auto !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        overflow: visible !important;
+      #header-component .menu-list__submenu-inner {
+        transform: none;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        padding: 32px 40px 28px;
+        max-width: var(--page-width, 1280px);
+        margin-inline: auto;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: visible;
         background-color: #000000e5;
         border-radius: 28px;
-        opacity: 1 !important;
-        transition: none !important;
+        opacity: 1;
+        transition: none;
       }
 
-      #header-component[data-sticky-state='active'] .menu-list__submenu .mega-menu,
-      #header-component[data-sticky-state='active'] .menu-list__submenu .mega-menu.section,
-      #header-component:not([transparent]) .menu-list__submenu .mega-menu,
-      #header-component:not([transparent]) .menu-list__submenu .mega-menu.section {
+      #header-component .menu-list__submenu .mega-menu,
+      #header-component .menu-list__submenu .mega-menu.section {
         display: flex;
         flex-direction: column;
         width: 100%;
-        max-width: 100% !important;
-        height: auto !important;
-        min-height: 0 !important;
-        padding-block: 0 !important;
-        padding-inline: 0 !important;
+        max-width: 100%;
+        margin-inline: auto;
+        height: auto;
+        min-height: 0;
+        padding-block: 0;
+        padding-inline: 0;
         justify-content: flex-start;
       }
 
-      #header-component[data-sticky-state='active'] .mega-menu__grid,
-      #header-component:not([transparent]) .mega-menu__grid {
+      #header-component .mega-menu__grid {
         --menu-vertical-gap: 22px;
         --menu-horizontal-gap: 16px;
         --menu-columns-desktop: 6;
         height: auto;
         min-height: 0;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-inline: auto !important;
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
       }
 
-      #header-component[data-sticky-state='active'] .mega-menu__grid:has(.mega-menu__link-image),
-      #header-component:not([transparent]) .mega-menu__grid:has(.mega-menu__link-image) {
+      #header-component .mega-menu__grid:has(.mega-menu__link-image) {
         --menu-columns-desktop: 6;
       }
 
-      #header-component[data-sticky-state='active'] .mega-menu__link:has(.mega-menu__link-image),
-      #header-component:not([transparent]) .mega-menu__link:has(.mega-menu__link-image) {
+      #header-component .mega-menu__link:has(.mega-menu__link-image) {
         padding-block: 0;
         row-gap: 10px;
       }
 
-      #header-component[data-sticky-state='active'] .mega-menu__link-image,
-      #header-component[data-sticky-state='active']
-        .mega-menu__grid:has(.mega-menu__link-image)
-        .mega-menu__column
-        > div
-        > .mega-menu__link:not(:has(.mega-menu__link-image))::before,
-      #header-component:not([transparent]) .mega-menu__link-image,
-      #header-component:not([transparent])
+      #header-component .mega-menu__link-image,
+      #header-component
         .mega-menu__grid:has(.mega-menu__link-image)
         .mega-menu__column
         > div
         > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
-        aspect-ratio: 3 / 4 !important;
-        height: auto !important;
-        max-height: 260px !important;
+        aspect-ratio: 3 / 4;
+        height: auto;
+        max-height: 260px;
         width: 100%;
         margin-bottom: 0;
         border-radius: 2px;
         object-fit: cover;
       }
 
-      .menu-list__submenu .mega-menu,
-      .menu-list__submenu .mega-menu.section {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        max-width: 100% !important;
-        margin-inline: auto !important;
-        height: auto !important;
-        min-height: 0 !important;
-        padding-block: 0 !important;
-        padding-inline: 0 !important;
-        justify-content: flex-start;
-      }
-
-      .mega-menu__grid {
-        --menu-vertical-gap: 22px;
-        --menu-horizontal-gap: 16px;
+      #header-component .mega-menu__list {
         height: auto;
         min-height: 0;
       }
 
-      .mega-menu__list {
-        height: auto;
-        min-height: 0;
-      }
-
-      .mega-menu__link span,
-      .menu-list__submenu.background-matches-parent .mega-menu__grid ul li .mega-menu__link span {
-        color: #ffffff !important;
+      #header-component .mega-menu__link span {
+        color: #ffffff;
         font-family: var(--font-heading--family);
         font-size: 15px;
         font-weight: 400;
