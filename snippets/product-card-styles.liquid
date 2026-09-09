@@ -1,13 +1,15 @@
 {%- doc -%}
   Theme-wide product card styles and interactive functionality.
-  Applies the tabbed carousel product card styling:
-  - In-card Quick Shop overlay on hover (variation pills + Add to Cart button)
-  - Color swatches with live image switching
-  - Dynamic AJAX add-to-cart with cart drawer integration
-  - Portrait image aspect ratio and secondary hover image
+
+  Rendered from the layout so Shopify collects this CSS into the head bundle
+  before product cards paint. A snippet stylesheet is only collected when the
+  snippet renders, so body-only renders flash unstyled cards.
+
+  @example
+    {% render 'product-card-styles' %}
 {%- enddoc -%}
 
-<style>
+{% stylesheet %}
   /* =========================================================================
      GLOBAL THEME PRODUCT CARD STYLES
      ========================================================================= */
@@ -354,9 +356,9 @@
     border-color: #000;
     box-shadow: 0 0 0 1px #000;
   }
-</style>
+{% endstylesheet %}
 
-<script>
+{% javascript %}
   (function() {
     function formatMoney(cents) {
       let formatted = '$' + (cents / 100).toFixed(2);
@@ -646,4 +648,4 @@
       initAllProductCards();
     }
   })();
-</script>
+{% endjavascript %}
