@@ -1810,7 +1810,7 @@
         "subtext": "Ready to experience something different",
         "button_label": "SHOP NOW",
         "button_link": "",
-        "button_style": "outline",
+        "button_style": "solid",
         "section_width": "full",
         "columns_desktop": 3,
         "section_min_height": "auto",
