@@ -53,55 +53,6 @@
         "sticky_header_offset": 0
       }
     },
-    "header_announcements_9jGBFp": {
-      "type": "header-announcements",
-      "blocks": {
-        "announcement_F9fUdB": {
-          "type": "_announcement",
-          "name": "t:names.announcement",
-          "settings": {
-            "text": "Shop our latest arrivals!",
-            "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none",
-            "text_color": ""
-          },
-          "blocks": {}
-        },
-        "announcement_BxgCk9": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Free shipping for orders over €150",
-            "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none",
-            "text_color": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "announcement_F9fUdB",
-        "announcement_BxgCk9"
-      ],
-      "disabled": true,
-      "name": "t:names.announcement_bar",
-      "settings": {
-        "speed": 5,
-        "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.background }}",
-        "divider_width": 1,
-        "divider_color": "{{ settings.color_palette.color2 }}",
-        "padding-block-start": 15,
-        "padding-block-end": 15
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -191,7 +142,6 @@
   },
   "order": [
     "announcement_bar_RV73L9",
-    "header_announcements_9jGBFp",
     "header_section"
   ]
 }
