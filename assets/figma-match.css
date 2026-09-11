@@ -77,12 +77,12 @@
     height: 14px;
   }
 
-  /* The Figma navigation occupies 128px below the 23px announcement strip. */
+  /* Compact transparent navigation below the announcement strip. */
   #header-component[transparent]:not([data-sticky-state='active']) .header__row--top,
   #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
   #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
-    height: 128px !important;
-    min-height: 128px !important;
+    height: 80px !important;
+    min-height: 80px !important;
   }
 
   #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
