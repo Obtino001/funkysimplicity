@@ -35,7 +35,7 @@
       'recommendations/products' +
       '?product_id=' +
       productId +
-      '&limit=2' +
+      '&limit=8' +
       '&section_id=mo-compare-recommendations' +
       '&intent=related';
 
@@ -82,13 +82,38 @@
 }
 .mo-compare-recommendations__products {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 12px;
 }
-@media (max-width:767px){
-  product-component .cart-recommendation {
-      grid-template-columns: 120px minmax(0, 1fr);
-  }
+.mo-compare-recommendations__products::-webkit-scrollbar {
+    display: none;
+}
+.mo-compare-recommendations__item {
+    flex: 0 0 45%;
+    scroll-snap-align: start;
+    min-width: 0;
+}
+.mo-compare-product__recommendations .cart-recommendation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.mo-compare-product__recommendations .cart-recommendation__media {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+}
+.mo-compare-product__recommendations .cart-recommendation__info {
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .mo-compare-recommendations__item {
+        flex: 0 0 calc(33.333% - 11px);
+    }
 }
 </style>
 {% schema %}

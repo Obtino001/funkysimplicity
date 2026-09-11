@@ -218,7 +218,7 @@
     }
 
     .custom-banner__content {
-      top: 26%;
+      top: 50%;
       left: 50%;
       width: calc(100% - 32px);
       gap: 12px;
@@ -236,12 +236,14 @@
 
     .custom-banner__actions {
       gap: 8px;
+      width: 100%;
     }
 
     .custom-banner__button {
-      min-width: 112px;
+      flex: 1;
+      min-width: 0;
       min-height: 36px;
-      padding: 10px 15px;
+      padding: 10px 10px;
       font-size: 10px;
     }
   }
@@ -291,7 +293,7 @@
       "max": 70,
       "step": 1,
       "unit": "%",
-      "default": 46
+      "default": 50
     },
     {
       "type": "range",

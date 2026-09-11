@@ -10,7 +10,7 @@
 
     <div class="mo-compare-recommendations__products">
 
-      {% for recommended_product in recommendations.products limit: 2 %}
+      {% for recommended_product in recommendations.products limit: 8 %}
 
         <div class="mo-compare-recommendations__item">
           {% render 'mo-compare-product',
