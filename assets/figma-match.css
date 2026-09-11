@@ -1348,6 +1348,35 @@ img.icon-block__media {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/* Mobile carousel interaction fallback                                        */
+/* -------------------------------------------------------------------------- */
+/* The shared slideshow only enables scrolling after its viewport observer has
+   run. On mobile that observer can be delayed, leaving every carousel with
+   `overflow: hidden` and no swipe interaction. Native horizontal scrolling is
+   safe for these card tracks and keeps every collection/blog carousel usable
+   immediately. */
+@media screen and (max-width: 749px) {
+  slideshow-component:not([disabled='true']):not([mobile-disabled]) > slideshow-container > slideshow-slides {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    touch-action: pan-x pan-y;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabbed-collection-carousel .tcc-panels-container,
+  .tabbed-collection-carousel .tcc-tab-panel {
+    overflow: hidden;
+  }
+
+  .tabbed-collection-carousel .tcc-slider-track {
+    touch-action: pan-y;
+  }
+}
+
 /* Sale / compare-at gold */
 .price--on-sale .price-item--sale,
 .tcc-card .price--on-sale,
