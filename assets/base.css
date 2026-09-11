@@ -1545,7 +1545,7 @@ label:has(input[type='checkbox']:disabled) {
   }
 
   50% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   100% {

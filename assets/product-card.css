@@ -344,7 +344,7 @@
 
 .tcc-swatch-item:hover,
 .tcc-swatch-item.is-selected {
-  transform: scale(1.2);
+  transform: scale(1.1);
   border-color: #000;
   box-shadow: 0 0 0 1px #000;
 }
