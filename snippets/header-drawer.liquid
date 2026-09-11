@@ -803,13 +803,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--padding-lg);
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    margin: 0;
   }
 
   .header__icon--summary .header-drawer-icon {
-    margin: auto;
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+  }
+
+  .header__icon--summary .header-drawer-icon svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    stroke: currentColor;
+    fill: none;
   }
 
   .menu-drawer__featured-content {
