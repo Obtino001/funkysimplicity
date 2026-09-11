@@ -870,37 +870,81 @@ img.icon-block__media {
 /* -------------------------------------------------------------------------- */
 
 @media screen and (max-width: 749px) {
-  .footer,
-  .shopify-section-group-footer-group .section {
+  footer,
+  .shopify-section-group-footer-group .section,
+  .shopify-section-group-footer-group .section-background {
     background: #000;
     color: #fff;
-    padding: 30px !important;
   }
 
-  .footer .menu__heading,
-  .footer h2,
-  .footer .footer-content .h4,
-  .footer-block__heading {
+  /* Keep the footer on the same 16px page gutter as the sections above it.
+     The section grid already supplies that gutter, so extra inline padding here
+     would indent every footer block twice. */
+  .shopify-section-group-footer-group .section {
+    padding-block: 30px !important;
+    padding-inline: 0 !important;
+  }
+
+  footer .menu__heading,
+  footer h2,
+  footer .footer-content .h4,
+  footer .footer-block__heading {
     font-family: var(--font-heading--family);
     font-size: 20px !important;
     font-weight: 300;
     color: #fff;
   }
 
-  .footer a,
-  .footer p,
-  .footer-utilities,
-  .footer-copyright {
+  footer a,
+  footer p,
+  footer .footer-utilities,
+  footer .footer-copyright {
     font-size: 14px;
     color: #fff;
   }
 
-  .footer-content {
+  footer .footer-content {
     gap: 20px;
+    width: 100%;
+    min-width: 0;
   }
 
-  .footer-utilities {
-    padding-inline: 0;
+  footer .footer-content :is(.group-block, .group-block-content, .text-block) {
+    min-width: 0;
+  }
+
+  footer .footer-content > .group-block,
+  footer .footer-content > .group-block > .group-block-content,
+  footer .footer-content > .group-block > .group-block-content > .group-block {
+    width: 100%;
+  }
+
+  /* Contact rows: one consistent icon column, with every text line aligned. */
+  footer .footer-content > .group-block:first-child
+    > .group-block-content
+    > .group-block:first-child
+    > .group-block-content
+    > .group-block:nth-child(n + 3)
+    > .group-block-content {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    align-items: start;
+    column-gap: 12px;
+    width: 100%;
+  }
+
+  footer .footer-content > .group-block:first-child
+    > .group-block-content
+    > .group-block:first-child
+    > .group-block-content
+    > .group-block:nth-child(n + 3)
+    :is(.icon-block, .image-block) {
+    width: 24px;
+    flex: none;
+  }
+
+  footer .footer-utilities {
+    padding-inline: 0 !important;
   }
 }
 

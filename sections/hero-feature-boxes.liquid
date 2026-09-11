@@ -267,6 +267,10 @@
       max-height: 600px;
     }
 
+    .hfb-bg__image {
+      object-position: 60% center;
+    }
+
     .hfb-container {
       padding: 24px 0 20px;
       flex: 1;
@@ -278,7 +282,8 @@
     }
 
     .hfb-header {
-      padding-inline: 20px;
+      max-width: 340px;
+      padding-inline: 24px;
       text-align: center;
       margin-inline: auto;
       flex: 0 0 auto;
@@ -299,28 +304,44 @@
     .hfb-grid {
       display: flex;
       flex-wrap: nowrap;
+      box-sizing: border-box;
       overflow-x: auto;
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
+      scroll-padding-inline: 32px;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
       gap: 12px;
-      padding: 0 16px;
+      padding-inline: 32px;
     }
 
     .hfb-grid::-webkit-scrollbar { display: none; }
 
     .hfb-box {
-      flex: 0 0 calc(100% - 48px);
+      flex: 0 0 100%;
+      height: 190px;
+      min-height: 190px;
       max-width: none;
       scroll-snap-align: start;
-      padding: 20px 18px;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      scroll-snap-stop: always;
+      padding: 18px 16px;
+      gap: 10px;
+      background: linear-gradient(110deg, rgba(28, 23, 19, 0.7), rgba(28, 23, 19, 0.38));
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hfb-box__title {
+      font-size: 18px;
+      line-height: 1.15;
+    }
+
+    .hfb-box__desc {
+      font-size: 15px;
+      line-height: 1.35;
     }
 
     .hfb-pagination {
@@ -329,7 +350,7 @@
       align-items: center;
       gap: 8px;
       width: 100%;
-      margin-top: 16px;
+      margin-top: 12px;
       position: relative;
       z-index: 4;
     }
