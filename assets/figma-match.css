@@ -618,10 +618,9 @@ img.icon-block__media {
   }
 
   .tabbed-collection-carousel .tcc-card__title {
-    min-height: 30px;
     margin-top: 0;
     font-size: 12px !important;
-    line-height: 1.25;
+    line-height: 1.5;
   }
 
   .tabbed-collection-carousel .tcc-card__price-row,
