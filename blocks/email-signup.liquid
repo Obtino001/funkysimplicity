@@ -81,7 +81,7 @@
         {% endif %}
       >
         {% if block_settings.display_type == 'text' %}
-          {{ block_settings.label }}
+          <span class="email-signup__button-label">{{ block_settings.label }}</span>
         {% else %}
           <svg
             viewBox="0 0 20 20"
@@ -392,6 +392,22 @@
 
     color: rgb(var(--hover-color-rgb) / var(--opacity-70));
     cursor: pointer;
+  }
+
+  /* The footer has a dark background and a white integrated submit button.
+     Keep its text explicit instead of inheriting the footer's white colour. */
+  footer .email-signup__button.email-signup__button--text {
+    --button-color: #111111 !important;
+    color: #111111 !important;
+    background-color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 600;
+  }
+
+  footer .email-signup__button-label {
+    display: block;
+    color: inherit;
+    line-height: 1;
   }
 
   .email-signup__message {
