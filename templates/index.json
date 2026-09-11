@@ -9,6 +9,56 @@
  */
 {
   "sections": {
+    "custom_banner_M7gQKd": {
+      "type": "custom-banner",
+      "blocks": {
+        "heading_taxaiG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Handmade in Bali since 1994"
+          }
+        },
+        "subheading_NwhfTq": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "<p>Timeless Cotton Active Wear Made With Soul</p>"
+          }
+        },
+        "buttons_6NWKDN": {
+          "type": "buttons",
+          "settings": {
+            "button_text": "shop now",
+            "button_link": "",
+            "button_text2": "",
+            "button_link2": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_taxaiG",
+        "subheading_NwhfTq",
+        "buttons_6NWKDN"
+      ],
+      "name": "Image Custom Banner",
+      "settings": {
+        "color_scheme": "",
+        "media_type": "image",
+        "image": "shopify://shop_images/Funkyweb5_997bca77-dda2-43f5-bb7a-cea477c59943.jpg",
+        "overlay_opacity": 0,
+        "heading_size_desktop": 48,
+        "subheading_size_desktop": 16,
+        "content_width": 650,
+        "min_height_desktop": 600,
+        "adapt_height_desktop": false,
+        "heading_size_mobile": 36,
+        "min_height_mobile": 400,
+        "adapt_height_mobile": false,
+        "show_mobile_content_below": true,
+        "text_position_top": 50,
+        "text_position_left": 50,
+        "text_alignment": "center"
+      }
+    },
     "hero_jVaWmY": {
       "type": "hero",
       "blocks": {
@@ -156,6 +206,7 @@
         "text_YLPk4p",
         "group_Gmx9Et"
       ],
+      "disabled": true,
       "custom_css": [
         ".h1 {max-width: 623px; font-size: 46px; line-height: normal;}",
         ".button-custom {font-size: 14px; font-weight: 600;}",
@@ -2425,6 +2476,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_2_9.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
@@ -2432,6 +2486,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3_388bdfab-4302-4898-b5f1-6b94ad94eda6.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
@@ -2439,6 +2496,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_5.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
@@ -2446,6 +2506,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_4_2fd5a6c0-8322-46d7-9f8b-e7c09f08f32f.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
@@ -2453,6 +2516,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_6_47badc9d-98b3-402c-86b2-284dc796b3e3.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
@@ -2460,6 +2526,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_2_10.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
@@ -2467,6 +2536,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_3_1_7779fab5-962d-446a-ba42-5f15da46dad8.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
@@ -2474,6 +2546,9 @@
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_5_1_36e2322a-a217-4f9d-b65a-17e7049fdba5.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         }
@@ -2496,6 +2571,7 @@
         "section_width": "page-width",
         "gap": 10,
         "overlay_opacity": 40,
+        "overlay_cta_label": "Lookbook →",
         "show_button": true,
         "button_label": "JOIN OUR COMMUNITY",
         "button_link": "",
@@ -2770,6 +2846,7 @@
     }
   },
   "order": [
+    "custom_banner_M7gQKd",
     "hero_jVaWmY",
     "section_6zhiU4",
     "collection_list_LDzpc3",
