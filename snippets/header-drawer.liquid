@@ -1694,6 +1694,20 @@ stroke: #000000 !important;
       fill: none;
     }
 
+    /* Keep every top-level label visible when its details item is hovered,
+       focused, or open. The stock hover token resolves to the page foreground
+       (black), which disappears against this dark drawer. */
+    .menu-drawer .menu-drawer__menu-item--mainlist,
+    .menu-drawer .menu-drawer__menu-item--mainlist .menu-drawer__menu-item-text,
+    .menu-drawer .menu-drawer__menu-item--mainlist:hover,
+    .menu-drawer .menu-drawer__menu-item--mainlist:focus-visible,
+    .menu-drawer details[open] > .menu-drawer__menu-item--mainlist,
+    .menu-drawer details[open] > summary.menu-drawer__menu-item--mainlist {
+      color: #ffffff !important;
+      opacity: 1 !important;
+      text-shadow: none;
+    }
+
     .menu-drawer__submenu {
       background-color: rgb(18 18 18 / 0.94) !important;
       color: #ffffff;
