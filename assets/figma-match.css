@@ -119,6 +119,68 @@
   #header-component .header__column--right {
     gap: 18px;
   }
+
+  /* Compact sticky pill: the static hero header keeps its separate 128px size. */
+  #header-component[data-sticky-state='active'] {
+    padding-block: 10px !important;
+    padding-inline: 30px !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header__row--top,
+  #header-component[data-sticky-state='active'] .header__row--top .header__columns {
+    height: 64px !important;
+    min-height: 64px !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header__row--top .header__columns {
+    padding: 0 30px !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header-logo__image {
+    width: auto !important;
+    height: 24px !important;
+  }
+
+  /* The global unstyled-button reset clips the bag and its count bubble. */
+  #header-component .header-actions__action,
+  #header-component .header-actions__cart-icon,
+  #header-component .header-actions__cart-icon .svg-wrapper {
+    overflow: visible !important;
+  }
+
+  #header-component .header-actions__action,
+  #header-component .header-actions__cart-icon {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    min-height: 24px;
+    padding: 0 !important;
+  }
+
+  #header-component .header-actions__cart-icon .svg-wrapper,
+  #header-component .header-actions__cart-icon svg {
+    display: block;
+    width: 23px !important;
+    height: 21px !important;
+  }
+
+  #header-component .header-actions__cart-icon {
+    --cart-bubble-size: 16px;
+    --cart-bubble-top: 11px;
+    --cart-bubble-right: -8px;
+  }
+
+  #header-component .header-actions__cart-icon .cart-bubble {
+    width: 16px !important;
+    height: 16px !important;
+    top: 11px !important;
+    right: -8px !important;
+    padding: 0 !important;
+  }
+
+  #header-component .header-actions__cart-icon .cart-bubble__text {
+    font-size: 9px;
+  }
 }
 
 /* Uploaded icon SVGs: keep a square box so mixed artboards render the same size */
@@ -295,7 +357,7 @@ img.icon-block__media {
 @media screen and (max-width: 749px) {
   .section-resource-list,
   .product-grid-container,
-  .tcc-section,
+  .tabbed-collection-carousel,
   .featured-collection-split {
     --page-margin: 10px;
   }
@@ -572,6 +634,111 @@ img.icon-block__media {
     width: 19px !important;
     height: 18px !important;
     object-fit: contain;
+  }
+
+  /* Compact mobile best-sellers carousel from the Figma landing page. */
+  .tabbed-collection-carousel {
+    --tcc-padding-top: 32px !important;
+    --tcc-padding-bottom: 32px !important;
+    padding-block: 32px !important;
+  }
+
+  .tabbed-collection-carousel .tcc-header {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .tabbed-collection-carousel .tcc-header__left {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .tabbed-collection-carousel .tcc-heading,
+  .tabbed-collection-carousel .tcc-heading.h2 {
+    font-size: 18px !important;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .tabbed-collection-carousel .tcc-tabs-nav {
+    width: 100%;
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+
+  .tabbed-collection-carousel .tcc-tab-btn {
+    flex: 0 0 auto;
+    padding: 7px 12px;
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  .tabbed-collection-carousel .tcc-slider-track {
+    gap: 8px;
+    padding-top: 0;
+    padding-bottom: 4px;
+  }
+
+  .tabbed-collection-carousel .tcc-slide-item {
+    flex: 0 0 clamp(150px, 40vw, 176px);
+    width: clamp(150px, 40vw, 176px);
+  }
+
+  .tabbed-collection-carousel .tcc-card__media-wrapper--portrait {
+    aspect-ratio: 2 / 3;
+  }
+
+  .tabbed-collection-carousel .tcc-card__info {
+    gap: 2px;
+    padding: 7px 0 2px;
+  }
+
+  .tabbed-collection-carousel .tcc-card__title {
+    min-height: 30px;
+    margin-top: 0;
+    font-size: 12px !important;
+    line-height: 1.25;
+  }
+
+  .tabbed-collection-carousel .tcc-card__price-row,
+  .tabbed-collection-carousel .tcc-price--regular,
+  .tabbed-collection-carousel .tcc-price--sale,
+  .tabbed-collection-carousel .tcc-price--compare {
+    gap: 4px;
+    font-size: 11px !important;
+    line-height: 1.2;
+  }
+
+  .tabbed-collection-carousel .tcc-save-badge {
+    padding: 2px 5px;
+    font-size: 8px;
+  }
+
+  .tabbed-collection-carousel .tcc-swatches {
+    gap: 4px;
+    margin-top: 2px;
+  }
+
+  .tabbed-collection-carousel .tcc-swatch-item {
+    width: 9px;
+    height: 9px;
+  }
+
+  .tabbed-collection-carousel .tcc-add-btn.mobile,
+  .tabbed-collection-carousel .tcc-card__media-wrapper .tcc-add-btn.mobile {
+    display: none !important;
+  }
+
+  .tabbed-collection-carousel .tcc-footer {
+    margin-top: 20px;
+  }
+
+  .tabbed-collection-carousel .tcc-view-all-btn {
+    min-width: 87px;
+    min-height: 34px;
+    padding: 9px 15px;
+    font-size: 10px;
+    line-height: 1;
   }
 }
 
@@ -1391,4 +1558,3 @@ a.skip-to-content-link:focus-visible {
 .tcc-quick-shop-sheet .tcc-add-btn:not(.mobile) {
   display: flex !important;
 }
-
