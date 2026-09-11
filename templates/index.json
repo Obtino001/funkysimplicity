@@ -41,7 +41,7 @@
       ],
       "name": "Image Custom Banner",
       "settings": {
-        "color_scheme": "",
+        "color_scheme": "background-2",
         "media_type": "image",
         "image": "shopify://shop_images/Funkyweb5_997bca77-dda2-43f5-bb7a-cea477c59943.jpg",
         "mobile_image": "shopify://shop_images/fc0be5b040ce74ff20d6fc5bb77a4014a7fdd592.png",
