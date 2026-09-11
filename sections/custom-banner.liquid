@@ -65,34 +65,31 @@
 /* BLOCK: SUBHEADING */
 #custom-banner-{{ section.id }} .banner-subheading {
   font-size: {{ section.settings.subheading_size_desktop }}px;
-
-font-weight: 500;
-line-height: 120%;
-
+  font-weight: 500;
+  line-height: 120%;
 }
 
 #custom-banner-{{ section.id }} .banner-review-block {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
-font-weight: 500;
-font-style: Medium;
-font-size: 14px;
-leading-trim: NONE;
-line-height: 100%;
-letter-spacing: 0%;
-    margin-bottom: 20px;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  margin-bottom: 20px;
 }
 .banner-review-stars {
   display: flex;
-  color: #282828; /* Bright pink for stars, or change to match your brand */
+  color: #282828; 
   font-size: 14px;
 }
 .banner-review-custom-svg {
   display: flex;
   align-items: center;
-  width: 80px; /* Adjust if your SVG is wider */
+  width: 80px;
 }
 .banner-review-custom-svg svg {
   width: 100%;
@@ -248,10 +245,17 @@ letter-spacing: 0%;
   "name": "Image Custom Banner",
   "settings": [
     {
-      "type": "color_scheme",
+      "type": "select",
       "id": "color_scheme",
+      "options": [
+        { "value": "accent-1", "label": "Accent 1" },
+        { "value": "accent-2", "label": "Accent 2" },
+        { "value": "background-1", "label": "Background 1" },
+        { "value": "background-2", "label": "Background 2" },
+        { "value": "inverse", "label": "Inverse" }
+      ],
+      "default": "background-1",
       "label": "Color Scheme",
-      "default": "scheme-1",
       "info": "Applies to text overlay on desktop, and the stacked background on mobile."
     },
     {
