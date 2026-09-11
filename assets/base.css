@@ -9,13 +9,15 @@ body {
   flex-direction: column;
   margin: 0;
   min-height: 100svh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   font-variation-settings: 'slnt' 0;
 }
 
 :root {
   --hover-shadow-color: var(--color-shadow);
   --hover-transition-duration: 0.25s;
-  --hover-transition-timing: ease-out;
+  --hover-transition-timing: cubic-bezier(0.22, 1, 0.36, 1);
   --surface-transition-duration: 0.3s;
   --surface-transition-timing: var(--ease-out-quad);
   --submenu-animation-speed: 360ms;
@@ -75,11 +77,43 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  contain: layout paint;
 }
 
 img {
   width: 100%;
   height: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .product-card,
+  .collection-card,
+  .predictive-search-results__card,
+  .card-gallery,
+  .product-card__image,
+  .collection-card__image,
+  a,
+  button,
+  summary,
+  input,
+  textarea,
+  select {
+    transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
+      opacity var(--hover-transition-duration) var(--hover-transition-timing),
+      box-shadow var(--hover-transition-duration) var(--hover-transition-timing),
+      background-color var(--hover-transition-duration) var(--hover-transition-timing),
+      border-color var(--hover-transition-duration) var(--hover-transition-timing),
+      color var(--hover-transition-duration) var(--hover-transition-timing);
+  }
+}
+
+.product-card:hover,
+.collection-card:hover,
+.predictive-search-results__card:hover,
+.product-card:focus-within,
+.collection-card:focus-within,
+.predictive-search-results__card:focus-within {
+  will-change: transform, box-shadow;
 }
 
 input,
