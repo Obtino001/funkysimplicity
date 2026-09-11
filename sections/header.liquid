@@ -1965,6 +1965,39 @@
         height: 24px;
       }
 
+      /* Vertically center every mobile control inside the 55px pill.  Some of
+         the custom-element wrappers otherwise keep their intrinsic line box,
+         which makes the visible icons/logo sit a few pixels off centre. */
+      #header-component .header__row--top .header__columns {
+        align-content: center !important;
+        align-items: center !important;
+      }
+
+      #header-component .header__columns .header__drawer,
+      #header-component .header__columns .header-logo,
+      #header-component .header__columns .search-action,
+      #header-component .header__columns header-actions {
+        align-self: stretch !important;
+        align-items: center !important;
+        min-height: 0 !important;
+        height: 100% !important;
+        line-height: 0;
+      }
+
+      #header-component .header__columns .header__drawer,
+      #header-component .header__columns .header__drawer > details {
+        display: flex;
+        align-items: center;
+      }
+
+      #header-component .header__columns .header-logo__image-container {
+        line-height: 0;
+      }
+
+      #header-component .header__columns .header-logo__image {
+        display: block;
+      }
+
       #header-component .header__underlay,
       #header-component .header__underlay-closed,
       #header-component .header__underlay-open {

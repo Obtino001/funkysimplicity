@@ -360,6 +360,7 @@
   }
 
   .gr-track-inner {
+    --gr-track-half-gap: 0.75rem;
     display: flex;
     gap: 1.5rem;
     width: max-content;
@@ -381,11 +382,11 @@
 
   @keyframes grScrollLeft {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 0.75rem)); }
+    100% { transform: translateX(calc(-50% - var(--gr-track-half-gap, 0.75rem))); }
   }
 
   @keyframes grScrollRight {
-    0% { transform: translateX(calc(-50% - 0.75rem)); }
+    0% { transform: translateX(calc(-50% - var(--gr-track-half-gap, 0.75rem))); }
     100% { transform: translateX(0); }
   }
 
@@ -530,6 +531,59 @@
   .gr-btn:hover {
     background: var(--gr-text-color, #121212);
     color: var(--color-background, #ffffff);
+  }
+
+  /* Desktop proportions from the Figma review strip. */
+  @media screen and (min-width: 750px) {
+    .gr-container {
+      gap: 24px;
+    }
+
+    .gr-header {
+      gap: 24px;
+    }
+
+    .gr-tracks-wrapper {
+      gap: 8px;
+    }
+
+    .gr-track-inner {
+      --gr-track-half-gap: 4px;
+      gap: 8px;
+      padding-inline: 32px;
+    }
+
+    .gr-card {
+      width: 320px;
+      height: 276px;
+      flex: 0 0 320px;
+      padding: 20px;
+      gap: 12px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .gr-card__header {
+      gap: 12px;
+    }
+
+    .gr-card__author {
+      font-size: 14px;
+    }
+
+    .gr-card__text {
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .gr-card__date {
+      font-size: 12px;
+      margin-top: 0;
+    }
+
+    .gr-footer {
+      margin-top: 0;
+    }
   }
 
   @media screen and (max-width: 749px) {

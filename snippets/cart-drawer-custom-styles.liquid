@@ -243,14 +243,42 @@
     position: absolute;
     inset-block-start: 0;
     inset-inline-end: 0;
-    width: 28px;
-    height: 28px;
-    min-height: 0;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #111111 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline-color: currentColor;
+    box-shadow: none !important;
+    --button-background-color: transparent;
+    --button-border-color: transparent;
+    --button-border-width: 0px;
   }
 
   .cart-drawer--custom .cart-drawer__items .cart-items__remove svg {
-    width: 20px;
-    height: 20px;
+    display: block !important;
+    width: 20px !important;
+    height: 20px !important;
+    color: #111111 !important;
+    stroke: currentColor !important;
+    fill: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible;
+  }
+
+  .cart-drawer--custom .cart-drawer__items .cart-items__remove svg path {
+    stroke: currentColor !important;
+    fill: none !important;
   }
 
   .cart-drawer--custom .cart-items__title-row {
