@@ -25,6 +25,13 @@
     margin-inline: auto;
   }
 
+  /* Keep markers attached to their text in centered rich-text blocks. */
+  .text-block--align-center > :is(ul, ol) {
+    width: fit-content;
+    max-inline-size: 100%;
+    text-align: start;
+  }
+
   .text-block--align-right,
   .text-block--align-right > * {
     margin-inline-start: auto;

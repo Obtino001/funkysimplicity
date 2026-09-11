@@ -163,19 +163,11 @@
     flex-shrink: 0;
     view-timeline-name: var(--slideshow-timeline);
     view-timeline-axis: inline;
-    content-visibility: auto;
-    contain-intrinsic-size: auto none;
+    content-visibility: visible;
+    contain: layout paint style;
     border-radius: var(--corner-radius, 0);
     overflow: hidden;
-
-    slideshow-component[actioned] &,
-    &[aria-hidden='false'] {
-      content-visibility: visible;
-    }
-
-    slideshow-component slideshow-slide:not([aria-hidden='false']) {
-      content-visibility: hidden;
-    }
+  }
 
     &[hidden]:not([reveal]) {
       display: none;
