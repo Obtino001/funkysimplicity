@@ -227,13 +227,9 @@
   }
 
   .header-actions__cart-icon.header-actions__cart-icon--has-cart svg {
-    /* Create donut mask where the cart bubble sits */
-    mask: radial-gradient(
-      calc(var(--cart-bubble-size) + 2px) at calc(100% - var(--cart-bubble-right)) var(--cart-bubble-top),
-      transparent 45.45%,
-      #fff 45.45%,
-      #fff 100%
-    );
+    /* Keep the complete bag visible; the old bubble mask removed its right side. */
+    -webkit-mask: none;
+    mask: none;
   }
 
   .cart-bubble.cart-bubble--animating .cart-bubble__background {
