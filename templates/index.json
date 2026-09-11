@@ -56,7 +56,7 @@
         "show_mobile_content_below": true,
         "text_position_top": 50,
         "text_position_left": 50,
-        "text_alignment": "left"
+        "text_alignment": "center"
       }
     },
     "hero_jVaWmY": {
@@ -206,6 +206,7 @@
         "text_YLPk4p",
         "group_Gmx9Et"
       ],
+      "disabled": true,
       "custom_css": [
         ".h1 {max-width: 623px; font-size: 46px; line-height: normal;}",
         ".button-custom {font-size: 14px; font-weight: 600;}",
