@@ -1309,6 +1309,26 @@
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top .header__columns {
         display: flex;
         justify-content: space-between;
+        height: 60px !important;
+        min-height: 60px !important;
+        padding-block: 0 !important;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) {
+        padding-block: 8px !important;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-localization-group,
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .dropdown-localization__button,
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .currency-code {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__action,
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__cart-icon,
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__cart-icon .svg-wrapper {
+        overflow: visible !important;
       }
     }
 
