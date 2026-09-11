@@ -1201,7 +1201,8 @@
     dropdown-localization-component .localization-wrapper {
       box-shadow: var(--shadow-popover);
       border: var(--style-border-popover);
-      background-color: var(--color-background);
+      background-color: var(--color-submenu, var(--color-background));
+      color: var(--color-foreground, #ffffff);
       max-height: 27.5rem;
       position: absolute;
       top: calc(100% + 10px);
@@ -1524,17 +1525,16 @@
       opacity: 0.82;
     }
 
-    /* Localization popover — not the mega menu */
+    /* Localization popover — match the mega-menu submenu surface */
     .localization-wrapper {
-      background-color: var(--header-pill-bg, #4a4a4a);
-      color: var(--header-pill-text, #ffffff);
-      border: 1px solid rgb(255 255 255 / 0.15);
+      background-color: var(--color-submenu, var(--color-background));
+      color: var(--color-foreground, #ffffff);
+      border: 1px solid rgb(var(--color-foreground-rgb, 255 255 255) / 0.15);
       border-radius: 14px;
       box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
-      --color-foreground: #ffffff;
-      --color-foreground-rgb: 255 255 255;
-      --color-foreground-muted: rgb(255 255 255 / 0.7);
-      --color-foreground-subdued: rgb(255 255 255 / 0.7);
+      --color-foreground-rgb: var(--color-foreground-rgb, 255 255 255);
+      --color-foreground-muted: rgb(var(--color-foreground-rgb, 255 255 255) / 0.7);
+      --color-foreground-subdued: rgb(var(--color-foreground-rgb, 255 255 255) / 0.7);
     }
 
     /* All text, labels, and spans inside localization dropdown */
@@ -1550,24 +1550,24 @@
     .localization-wrapper .countries,
     .localization-wrapper [role='option'],
     .localization-wrapper li {
-      color: var(--header-pill-text, #ffffff) !important;
+      color: var(--color-foreground, #ffffff) !important;
     }
 
     .localization-wrapper .localization-form__currency {
-      color: rgba(255, 255, 255, 0.75) !important;
+      color: rgb(var(--color-foreground-rgb, 255 255 255) / 0.75) !important;
     }
 
     .localization-wrapper .icon-checkmark {
       width: 14px;
       height: 14px;
-      color: #ffffff !important;
-      stroke: #ffffff !important;
+      color: var(--color-foreground, #ffffff) !important;
+      stroke: var(--color-foreground, #ffffff) !important;
     }
 
     .localization-wrapper .icon-checkmark svg,
     .localization-wrapper .icon-checkmark svg path {
-      stroke: #ffffff !important;
-      color: #ffffff !important;
+      stroke: var(--color-foreground, #ffffff) !important;
+      color: var(--color-foreground, #ffffff) !important;
     }
 
     /* Country search filter styling inside dark dropdown */
@@ -1621,14 +1621,14 @@
     .dropdown-language-wrapper .language-name {
       flex: 1;
       text-align: left;
-      color: var(--header-pill-text, #ffffff) !important;
+      color: var(--color-foreground, #ffffff) !important;
     }
 
     .dropdown-language-wrapper .language-iso {
       font-size: 12px;
       opacity: 0.7;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7) !important;
+      color: rgb(var(--color-foreground-rgb, 255 255 255) / 0.7) !important;
     }
 
     /* List item hover and active states */
@@ -1639,7 +1639,7 @@
       padding: 8px 12px;
       border-radius: 8px;
       cursor: pointer;
-      color: var(--header-pill-text, #ffffff) !important;
+      color: var(--color-foreground, #ffffff) !important;
       font-size: 13.5px;
       font-weight: 500;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
@@ -1648,15 +1648,15 @@
 
     .localization-wrapper .localization-form__list-item:hover,
     .localization-wrapper .localization-form__list-item:focus-visible {
-      background-color: rgba(255, 255, 255, 0.12) !important;
-      color: #ffffff !important;
+      background-color: rgb(var(--color-foreground-rgb, 255 255 255) / 0.12) !important;
+      color: var(--color-foreground, #ffffff) !important;
     }
 
     .localization-wrapper .localization-form__list-item[aria-current='true'],
     .localization-wrapper .localization-form__list-item.is-selected {
-      background-color: rgba(255, 255, 255, 0.08) !important;
+      background-color: rgb(var(--color-foreground-rgb, 255 255 255) / 0.08) !important;
       font-weight: 600;
-      color: #ffffff !important;
+      color: var(--color-foreground, #ffffff) !important;
     }
 
     .localization-wrapper .localization-form__list-item:not([aria-current='true']) .icon-checkmark {
