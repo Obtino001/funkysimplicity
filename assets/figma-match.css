@@ -54,29 +54,6 @@
     z-index: calc(var(--layer-menu-drawer) + 1) !important;
   }
 
-  #header-group .announcement-bar {
-    height: 23px;
-    min-height: 23px;
-  }
-
-  #header-group .announcement-bar__content {
-    height: 23px;
-    min-height: 23px;
-    padding-block: 0 !important;
-    font-size: 12px;
-    line-height: 1;
-  }
-
-  #header-group .announcement-bar__icon {
-    width: 14px;
-    height: 14px;
-  }
-
-  #header-group .announcement-bar__icon svg {
-    width: 14px;
-    height: 14px;
-  }
-
   /* Compact transparent navigation below the announcement strip. */
   #header-component[transparent]:not([data-sticky-state='active']) .header__row--top,
   #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
