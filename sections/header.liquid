@@ -1330,6 +1330,25 @@
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__cart-icon .svg-wrapper {
         overflow: visible !important;
       }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__cart-icon {
+        --cart-bubble-size: 16px;
+        --cart-bubble-top: 14px;
+        --cart-bubble-right: -10px;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__cart-icon.header-actions__cart-icon--has-cart svg {
+        -webkit-mask: none !important;
+        mask: none !important;
+      }
+
+      header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-actions__cart-icon .cart-bubble {
+        width: 16px !important;
+        height: 16px !important;
+        top: 14px !important;
+        right: -10px !important;
+        padding: 0 !important;
+      }
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image {
