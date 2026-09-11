@@ -162,8 +162,16 @@ img.icon-block__media {
   [id*="section_6zhiU4"] .text-block p,
   [id*="section_6zhiU4"] .text-block span {
     font-size: 12px !important;
+    color: #111111 !important;
     white-space: nowrap !important;
     line-height: 1.2 !important;
+  }
+
+  [id*="section_6zhiU4"],
+  [id*="section_6zhiU4"] .section-content-wrapper,
+  [id*="section_6zhiU4"] .group-block,
+  [id*="section_6zhiU4"] .group-block-content {
+    color: #111111 !important;
   }
 
   [id*="section_6zhiU4"] .group-block {
@@ -1444,25 +1452,76 @@ a.skip-to-content-link:focus-visible {
   }
 }
 
-/* Community mosaic — mobile/tablet: every cell the same size (fixes short image 2) */
-@media screen and (max-width: 1024px) {
-  .cm-grid {
+/* Community mosaic — mobile editorial layout from the Figma frame. */
+@media screen and (max-width: 749px) {
+  .community-mosaic-section {
+    --page-margin: 8px;
+  }
+
+  .community-mosaic-section .cm-container {
+    gap: 10px !important;
+    padding-block: 26px 30px !important;
+  }
+
+  .community-mosaic-section .cm-heading {
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+  }
+
+  .community-mosaic-section .cm-grid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-template-rows: none !important;
-    grid-auto-rows: auto !important;
+    grid-template-rows: repeat(4, calc((100vw - 24px) * 0.4)) !important;
+    grid-auto-rows: 0 !important;
     gap: 8px !important;
     align-items: stretch !important;
   }
 
   .community-mosaic-section .cm-item {
-    grid-column: auto !important;
-    grid-row: auto !important;
-    aspect-ratio: 1 / 1 !important;
-    height: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
     min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
     overflow: hidden !important;
     position: relative !important;
+  }
+
+  /* Figma order: tall left, two stacked right; repeat once. */
+  .community-mosaic-section .cm-item--8 {
+    display: block !important;
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+  }
+
+  .community-mosaic-section .cm-item--1 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  .community-mosaic-section .cm-item--2 {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  .community-mosaic-section .cm-item--3 {
+    grid-column: 1 !important;
+    grid-row: 3 / span 2 !important;
+  }
+
+  .community-mosaic-section .cm-item--5 {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+  }
+
+  .community-mosaic-section .cm-item--4 {
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+  }
+
+  .community-mosaic-section .cm-item--6,
+  .community-mosaic-section .cm-item--7 {
+    display: none !important;
   }
 
   .community-mosaic-section .cm-card {
@@ -1480,6 +1539,18 @@ a.skip-to-content-link:focus-visible {
     height: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
+  }
+
+  .community-mosaic-section .cm-footer {
+    margin-top: 8px !important;
+  }
+
+  .community-mosaic-section .cm-btn {
+    width: auto !important;
+    min-width: 154px;
+    min-height: 38px;
+    padding: 10px 18px;
+    font-size: 10px;
   }
 }
 

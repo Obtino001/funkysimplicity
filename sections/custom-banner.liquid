@@ -1,369 +1,362 @@
-{%- style -%}
-#custom-banner-{{ section.id }} {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
+{%- liquid
+  assign desktop_image = section.settings.image
+  assign mobile_image = section.settings.mobile_image | default: desktop_image
+  assign image_alt = desktop_image.alt | default: section.settings.heading
+-%}
 
-#custom-banner-{{ section.id }} .banner-image-wrapper {
-  position: relative;
-  width: 100%;
-  display: block;
-  {% if section.settings.adapt_height_desktop %}
-    height: auto;
-  {% else %}
-    height: {{ section.settings.min_height_desktop }}px;
-  {% endif %}
-}
-
-/* Dark Overlay */
-#custom-banner-{{ section.id }} .banner-image-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
-  z-index: 1;
-}
-
-#custom-banner-{{ section.id }} .banner-image,
-#custom-banner-{{ section.id }} .hp-hero__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-#custom-banner-{{ section.id }} .banner-content {
-  position: absolute;
-  top: {{ section.settings.text_position_top }}%;
-  left: 50%;
-  transform: translate(-50%, -{{ section.settings.text_position_top }}%);
-  z-index: 2;
-  text-align: {{ section.settings.text_alignment }};
-  max-width: var(--page-width);
-  width: 100%;
-  padding: 20px 5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: {% if section.settings.text_alignment == 'left' %}flex-start{% elsif section.settings.text_alignment == 'right' %}flex-end{% else %}center{% endif %};
-  box-sizing: border-box;
-}
-
-/* BLOCK: HEADING */
-#custom-banner-{{ section.id }} .banner-heading {
-  font-size: {{ section.settings.heading_size_desktop }}px;
-  line-height: 1.1;
-  margin: 0;
-  font-weight: 400;
-  color: inherit;
-}
-
-/* BLOCK: SUBHEADING */
-#custom-banner-{{ section.id }} .banner-subheading {
-  font-size: {{ section.settings.subheading_size_desktop }}px;
-  font-weight: 500;
-  line-height: 120%;
-}
-
-#custom-banner-{{ section.id }} .banner-review-block {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 500;
-  font-style: Medium;
-  font-size: 14px;
-  leading-trim: NONE;
-  line-height: 100%;
-  letter-spacing: 0%;
-  margin-bottom: 20px;
-}
-.banner-review-stars {
-  display: flex;
-  color: #282828; 
-  font-size: 14px;
-}
-.banner-review-custom-svg {
-  display: flex;
-  align-items: center;
-  width: 80px;
-}
-.banner-review-custom-svg svg {
-  width: 100%;
-  height: auto;
-}
-
-/* BLOCK: BUTTONS */
-#custom-banner-{{ section.id }} .btn-custom-banner {
-  display: flex;
-  gap: 15px;
-  z-index: 3;
-  justify-content: {% if section.settings.text_alignment == 'left' %}flex-start{% elsif section.settings.text_alignment == 'right' %}flex-end{% else %}center{% endif %};
-}
-
-/* Rounded Pill Button Style */
-#custom-banner-{{ section.id }} .btn-style-pill {
-  border-radius: 50px !important;
-  padding: 12px 30px;
-  font-weight: 500;
-}
-
-@media (max-width: 800px) {
-  #custom-banner-{{ section.id }} .banner-image-wrapper {
-    {% if section.settings.adapt_height_mobile %}
-      height: auto;
-    {% else %}
-      height: {{ section.settings.min_height_mobile }}px;
-    {% endif %}
-  }
-
-  {% if section.settings.show_mobile_content_below %}
-    #custom-banner-{{ section.id }} .banner-content.mobile-stacked {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: none;
-      padding: 40px 20px;
-      display: flex !important;
-    }
-    #custom-banner-{{ section.id }} .banner-image-wrapper::after { display: none; }
-    #custom-banner-{{ section.id }} .banner-image-wrapper .banner-content { display: none; }
-  {% else %}
-     #custom-banner-{{ section.id }} .banner-content.mobile-stacked { display: none; }
-  {% endif %}
-
-  #custom-banner-{{ section.id }} .banner-heading {
-    font-size: {{ section.settings.heading_size_mobile }}px;
-  }
-  #custom-banner-{{ section.id }} .banner-content {
-    left: 50%;
-    transform: translate(-50%, -90%);
-    text-align: center;
-    max-width: 100%;
-    align-items: center;
-    justify-content: end;
-    gap: 0;
-    padding: 20px 1.5rem 0;
-  }
-}
-
-@media (min-width: 800px) {
-  .mobile-stacked { display: none !important; }
-}
-{%- endstyle -%}
-
-<div id="custom-banner-{{ section.id }}" class="custom-banner-section color-{{ section.settings.color_scheme }} gradient">
-  
-  <div class="banner-image-wrapper">
-    {%- if section.settings.media_type == 'video' and section.settings.video != blank -%}
-      {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, class: 'hp-hero__video' }}
-    {%- elsif section.settings.image != blank -%}
+<section
+  id="CustomBanner-{{ section.id }}"
+  class="custom-banner"
+  style="
+    --banner-height: {{ section.settings.desktop_height }}px;
+    --banner-height-mobile: {{ section.settings.mobile_height }}px;
+    --banner-content-x: {{ section.settings.content_x }}%;
+    --banner-content-y: {{ section.settings.content_y }}%;
+    --banner-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --banner-text-color: {{ section.settings.text_color }};
+  "
+>
+  <div class="custom-banner__media">
+    {%- if desktop_image != blank -%}
       <picture>
-        {% if section.settings.mobile_image != blank %}
-          <source media="(max-width: 800px)" srcset="{{ section.settings.mobile_image | image_url: width: 800 }}">
-        {% endif %}
-        <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt }}" class="banner-image" loading="eager" width="2000" height="auto">
+        {%- if section.settings.mobile_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_image | image_url: width: 480 }} 480w,
+              {{ mobile_image | image_url: width: 750 }} 750w,
+              {{ mobile_image | image_url: width: 1000 }} 1000w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          desktop_image
+          | image_url: width: 2560
+          | image_tag:
+            class: 'custom-banner__image',
+            widths: '750, 1200, 1440, 1920, 2560',
+            sizes: '100vw',
+            loading: 'eager',
+            fetchpriority: 'high',
+            alt: image_alt
+        }}
       </picture>
+    {%- else -%}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'custom-banner__image custom-banner__placeholder' }}
+    {%- endif -%}
+    <span class="custom-banner__overlay" aria-hidden="true"></span>
+  </div>
+
+  <div class="custom-banner__content">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="custom-banner__eyebrow">{{ section.settings.eyebrow | escape }}</p>
     {%- endif -%}
 
-    <div class="banner-content">
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          
-          {%- when 'review_badge' -%}
-            <div class="banner-review-block" {{ block.shopify_attributes }}>
-              {%- if block.settings.custom_svg != blank -%}
-                <div class="banner-review-custom-svg">{{ block.settings.custom_svg }}</div>
-              {%- else -%}
-                <div class="banner-review-stars">★★★★★</div>
-              {%- endif -%}
-              <span>{{ block.settings.review_text }}</span>
-            </div>
+    {%- if section.settings.heading != blank -%}
+      <h2 class="custom-banner__heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
 
-          {%- when 'heading' -%}
-            <h2 class="banner-heading" {{ block.shopify_attributes }}>
-              {{ block.settings.heading | newline_to_br }}
-            </h2>
+    {%- if section.settings.primary_label != blank or section.settings.secondary_label != blank -%}
+      <div class="custom-banner__actions">
+        {%- if section.settings.primary_label != blank -%}
+          <a
+            class="custom-banner__button custom-banner__button--primary"
+            href="{{ section.settings.primary_link | default: routes.all_products_collection_url }}"
+          >
+            {{- section.settings.primary_label | escape -}}
+          </a>
+        {%- endif -%}
 
-          {%- when 'subheading' -%}
-            <div class="banner-subheading" {{ block.shopify_attributes }}>
-              {{ block.settings.subheading }}
-            </div>
-
-          {%- when 'buttons' -%}
-            <div class="btn-custom-banner" {{ block.shopify_attributes }}>
-              {% if block.settings.button_text != blank %}
-                <a href="{{ block.settings.button_link }}" class="button button--primary">{{ block.settings.button_text }}</a>
-              {% endif %}
-              {% if block.settings.button_text2 != blank %}
-                <a href="{{ block.settings.button_link2 }}" class="button button--secondary">{{ block.settings.button_text2 }}</a>
-              {% endif %}
-            </div>
-
-        {%- endcase -%}
-      {%- endfor -%}
-    </div>
+        {%- if section.settings.secondary_label != blank -%}
+          <a
+            class="custom-banner__button custom-banner__button--secondary"
+            href="{{ section.settings.secondary_link | default: routes.all_products_collection_url }}"
+          >
+            {{- section.settings.secondary_label | escape -}}
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
+</section>
 
+{% stylesheet %}
+  .custom-banner {
+    position: relative;
+    width: 100%;
+    height: var(--banner-height);
+    min-height: var(--banner-height);
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--banner-text-color, #ffffff);
+  }
 
-  <div class="banner-content mobile-stacked"> 
-    {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when 'review_badge' -%}
-            <div class="banner-review-block">
-              {%- if block.settings.custom_svg != blank -%}
-                <div class="banner-review-custom-svg">{{ block.settings.custom_svg }}</div>
-              {%- else -%}
-                <div class="banner-review-stars">★★★★★</div>
-              {%- endif -%}
-              <span>{{ block.settings.review_text }}</span>
-            </div>
-          {%- when 'heading' -%}
-            <h2 class="banner-heading">{{ block.settings.heading | newline_to_br }}</h2>
-          {%- when 'subheading' -%}
-            <div class="banner-subheading">{{ block.settings.subheading }}</div>
-          {%- when 'buttons' -%}
-            <div class="btn-custom-banner">
-              {% if block.settings.button_text != blank %}
-                <a href="{{ block.settings.button_link }}" class="button button--primary btn-style-pill">{{ block.settings.button_text }}</a>
-              {% endif %}
-              {% if block.settings.button_text2 != blank %}
-                <a href="{{ block.settings.button_link2 }}" class="button button--secondary btn-style-pill">{{ block.settings.button_text2 }}</a>
-              {% endif %}
-            </div>
-        {%- endcase -%}
-      {%- endfor -%}
-  </div>
+  .custom-banner__media,
+  .custom-banner__media picture,
+  .custom-banner__image,
+  .custom-banner__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-</div>
+  .custom-banner__media picture,
+  .custom-banner__image {
+    display: block;
+  }
+
+  .custom-banner__image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .custom-banner__placeholder {
+    background: #2c9ed9;
+  }
+
+  .custom-banner__overlay {
+    z-index: 1;
+    background: #000000;
+    opacity: var(--banner-overlay-opacity, 0);
+    pointer-events: none;
+  }
+
+  .custom-banner__content {
+    position: absolute;
+    z-index: 2;
+    top: var(--banner-content-y);
+    left: var(--banner-content-x);
+    width: min(623px, calc(100% - 48px));
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    color: inherit;
+    text-align: center;
+  }
+
+  .custom-banner__eyebrow {
+    margin: 0;
+    font-family: var(--font-body--family, sans-serif);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .custom-banner__heading {
+    max-width: 623px;
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-heading--family, serif);
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .custom-banner__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 2px;
+  }
+
+  .custom-banner__button {
+    display: inline-flex;
+    min-width: 150px;
+    min-height: 48px;
+    padding: 12px 24px;
+    border: 1px solid #ffffff;
+    border-radius: 999px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: var(--font-body--family, sans-serif);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  .custom-banner__button--primary {
+    color: #111111;
+    background: #ffffff;
+  }
+
+  .custom-banner__button--secondary {
+    background: rgb(255 255 255 / 0.2);
+  }
+
+  .custom-banner__button--primary:hover {
+    color: #ffffff;
+    background: #111111;
+    border-color: #111111;
+  }
+
+  .custom-banner__button--secondary:hover {
+    color: #111111;
+    background: #ffffff;
+  }
+
+  @media screen and (max-width: 749px) {
+    .custom-banner {
+      height: var(--banner-height-mobile);
+      min-height: var(--banner-height-mobile);
+    }
+
+    .custom-banner__image {
+      object-position: center top;
+    }
+
+    .custom-banner__content {
+      top: 26%;
+      left: 50%;
+      width: calc(100% - 32px);
+      gap: 12px;
+    }
+
+    .custom-banner__eyebrow {
+      font-size: 10px;
+    }
+
+    .custom-banner__heading {
+      max-width: 340px;
+      font-size: 24px;
+      line-height: 1.12;
+    }
+
+    .custom-banner__actions {
+      gap: 8px;
+    }
+
+    .custom-banner__button {
+      min-width: 112px;
+      min-height: 36px;
+      padding: 10px 15px;
+      font-size: 10px;
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Image Custom Banner",
+  "name": "Custom banner",
+  "tag": "div",
+  "class": "custom-banner-section",
   "settings": [
     {
-      "type": "header",
-      "content": "Media"
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop image"
     },
     {
-      "type": "select",
-      "id": "media_type",
-      "label": "Media Type",
-      "options": [
-        { "value": "image", "label": "Static Image" },
-        { "value": "video", "label": "Background Video" }
-      ],
-      "default": "image"
-    },
-    { "type": "video", "id": "video", "label": "Banner Video" },
-    { "type": "image_picker", "id": "image", "label": "Desktop Image" },
-    { "type": "image_picker", "id": "mobile_image", "label": "Mobile Image" },
-    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 90, "step": 5, "unit": "%", "label": "Overlay Opacity", "default": 20 },
-    {
-      "type": "header",
-      "content": "Desktop Sizing"
-    },
-    { "type": "range", "id": "heading_size_desktop", "min": 20, "max": 100, "step": 2, "unit": "px", "label": "Heading Size", "default": 48 },
-    { "type": "range", "id": "subheading_size_desktop", "min": 12, "max": 40, "step": 1, "unit": "px", "label": "Subheading Size", "default": 16 },
-    { "type": "range", "id": "content_width", "min": 400, "max": 1200, "step": 50, "unit": "px", "label": "Max Content Width", "default": 650 },
-    { "type": "range", "id": "min_height_desktop", "min": 300, "max": 1000, "step": 50, "unit": "px", "label": "Banner Height", "default": 600 },
-    { "type": "checkbox", "id": "adapt_height_desktop", "label": "Adapt to Image Height", "default": false },
-    {
-      "type": "header",
-      "content": "Mobile Sizing"
-    },
-    { "type": "range", "id": "heading_size_mobile", "min": 18, "max": 60, "step": 2, "unit": "px", "label": "Heading Size", "default": 36 },
-    { "type": "range", "id": "min_height_mobile", "min": 200, "max": 800, "step": 50, "unit": "px", "label": "Mobile Height", "default": 400 },
-    { "type": "checkbox", "id": "adapt_height_mobile", "label": "Adapt Height (Mobile)", "default": false },
-    { "type": "checkbox", "id": "show_mobile_content_below", "label": "Stack Content Below Image", "default": true },
-    {
-      "type": "header",
-      "content": "Content Positioning"
-    },
-    { "type": "range", "id": "text_position_top", "min": 0, "max": 100, "default": 50, "unit": "%", "label": "Vertical Position" },
-    { "type": "range", "id": "text_position_left", "min": 0, "max": 100, "default": 50, "unit": "%", "label": "Horizontal Position" },
-    {
-      "type": "select",
-      "id": "text_alignment",
-      "label": "Text Alignment",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ],
-      "default": "left"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "review_badge",
-      "name": "Review / Trust Badge",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "review_text",
-          "label": "Badge Text",
-          "default": "4.8 Stars | Trusted By 500+ Women"
-        },
-        {
-          "type": "html",
-          "id": "custom_svg",
-          "label": "Custom SVG (Overrides default stars)",
-          "info": "Paste SVG code here if you want to use a specific logo/stars."
-        }
-      ]
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
     },
     {
-      "type": "heading",
-      "name": "Heading",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "textarea",
-          "id": "heading",
-          "label": "Heading Text",
-          "default": "Feel safe, comfortable, and confident — even on your period"
-        }
-      ]
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Desktop height",
+      "min": 500,
+      "max": 1000,
+      "step": 5,
+      "unit": "px",
+      "default": 705
     },
     {
-      "type": "subheading",
-      "name": "Subheading",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "richtext",
-          "id": "subheading",
-          "label": "Subheading Text",
-          "default": "<p>Arvenixo menstrual underwear replaces cheap chargers and cables with hidden protection that's gentle on your body and the environment.</p>"
-        }
-      ]
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile height",
+      "min": 500,
+      "max": 900,
+      "step": 5,
+      "unit": "px",
+      "default": 735
     },
     {
-      "type": "buttons",
-      "name": "Buttons",
-      "limit": 1,
-      "settings": [
-        { "type": "text", "id": "button_text", "label": "Button 1 Label", "default": "Shop Period Underwear" },
-        { "type": "url", "id": "button_link", "label": "Button 1 Link" },
-        { "type": "text", "id": "button_text2", "label": "Button 2 Label" },
-        { "type": "url", "id": "button_link2", "label": "Button 2 Link" }
-      ]
+      "type": "range",
+      "id": "content_x",
+      "label": "Desktop content horizontal position",
+      "min": 20,
+      "max": 70,
+      "step": 1,
+      "unit": "%",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "content_y",
+      "label": "Desktop content vertical position",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "%",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "HANDMADE IN BALI SINCE 1994"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Timeless Cotton Active Wear Made With Soul"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "SHOP BY PRINTS"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
     }
   ],
   "presets": [
-    { 
-      "name": "Image Custom Banner",
-      "blocks": [
-        { "type": "review_badge" },
-        { "type": "heading" },
-        { "type": "subheading" },
-        { "type": "buttons" }
-      ]
+    {
+      "name": "Custom banner"
     }
   ]
 }
