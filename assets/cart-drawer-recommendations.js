@@ -247,6 +247,11 @@ class CartDrawerRecommendations extends HTMLElement {
     this.#load();
   }
 
+  /** Re-fetch after the cart drawer is hydrated following a cart update. */
+  refresh() {
+    this.#load();
+  }
+
   disconnectedCallback() {
     this.#controller?.abort();
   }
@@ -283,6 +288,22 @@ class CartDrawerRecommendations extends HTMLElement {
     }
   }
 }
+
+// The cart drawer updates its markup through Shopify hydration, which can
+// preserve an already-connected custom element. In that path
+// `connectedCallback` does not run again, so re-request recommendations once
+// the refreshed cart markup is in the DOM. A hard page reload used to be the
+// only way to make "Compare Your Style" return.
+function refreshDrawerRecommendations() {
+  window.setTimeout(() => {
+    document.querySelectorAll('cart-drawer-recommendations').forEach((element) => {
+      if (element instanceof CartDrawerRecommendations && element.isConnected) element.refresh();
+    });
+  }, 350);
+}
+
+document.addEventListener('cart:updated', refreshDrawerRecommendations);
+document.addEventListener('shopify:cart:lines-update', refreshDrawerRecommendations);
 
 /**
  * Other modules render cards sharing the `data-cart-recommendation` contract and
