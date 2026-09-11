@@ -42,6 +42,85 @@
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/* Desktop homepage header — 1296px Figma frame                               */
+/* -------------------------------------------------------------------------- */
+
+@media screen and (min-width: 990px) {
+  /* Keep the translucent shipping strip above the hero artwork. */
+  #header-group > .announcement-bar-section,
+  #header-group > .section-announcement-bar {
+    position: relative;
+    z-index: calc(var(--layer-menu-drawer) + 1) !important;
+  }
+
+  #header-group .announcement-bar {
+    height: 23px;
+    min-height: 23px;
+  }
+
+  #header-group .announcement-bar__content {
+    height: 23px;
+    min-height: 23px;
+    padding-block: 0 !important;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  #header-group .announcement-bar__icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  #header-group .announcement-bar__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* The Figma navigation occupies 128px below the 23px announcement strip. */
+  #header-component[transparent]:not([data-sticky-state='active']) .header__row--top,
+  #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
+  #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
+    height: 128px !important;
+    min-height: 128px !important;
+  }
+
+  #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
+  #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
+    padding-block: 0 !important;
+    padding-inline: clamp(30px, 5.4vw, 70px) !important;
+  }
+
+  #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
+    width: auto !important;
+    height: 40px !important;
+  }
+
+  /* Localization buttons are text controls, not primary CTA pills. */
+  #header-component .header-localization-group .dropdown-localization__button.button {
+    display: inline-flex !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: inherit !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  #header-component .header-localization-group {
+    gap: 10px;
+  }
+
+  #header-component .header__column--right {
+    gap: 18px;
+  }
+}
+
 /* Uploaded icon SVGs: keep a square box so mixed artboards render the same size */
 img.icon-block__media {
   object-fit: contain !important;
@@ -1312,5 +1391,4 @@ a.skip-to-content-link:focus-visible {
 .tcc-quick-shop-sheet .tcc-add-btn:not(.mobile) {
   display: flex !important;
 }
-
 
