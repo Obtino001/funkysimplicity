@@ -630,8 +630,12 @@ a.hero-secondary_button {
     }
   }
 
+  /* The hero image is full bleed, so its content must use the same full-width
+     grid. Keeping this in the page-width column shifted the visual centre on
+     wide screens even though the content itself was center aligned. */
   .hero__content-wrapper.page-width {
-    grid-column: 2 / 3;
+    grid-column: 1 / -1;
+    width: 100%;
   }
 
   .hero__content-wrapper {

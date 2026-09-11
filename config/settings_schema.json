@@ -1665,7 +1665,7 @@
         "max": 780,
         "step": 10,
         "unit": "px",
-        "default": 500,
+        "default": 600,
         "visible_if": "{{ settings.cart_type == 'drawer' }}"
       },
       {

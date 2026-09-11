@@ -127,7 +127,9 @@
     position: absolute;
     z-index: 2;
     top: var(--banner-content-y);
-    left: var(--banner-content-x);
+    /* Keep the text group centred against the full banner, independent of the
+       product image's visual weight. */
+    left: 50%;
     width: min(623px, calc(100% - 48px));
     transform: translate(-50%, -50%);
     display: flex;
