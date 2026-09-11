@@ -31,6 +31,15 @@
     {% endif %}
 
     {%- render 'meta-tags' -%}
+
+    {%- comment -%}
+      Shopify injects the page-specific section/block stylesheet and deferred
+      scripts here. Keep this near the start of <head> so those assets are
+      discovered before the storefront can render and cause a flash of
+      unstyled section content.
+    {%- endcomment -%}
+    {{ content_for_header }}
+
     {%- render 'stylesheets' -%}
     {%- render 'card-hover-effect-styles' -%}
     {%- render 'product-card-styles' -%}
@@ -42,8 +51,6 @@
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
-
-    {{ content_for_header }}
   </head>
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
