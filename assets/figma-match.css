@@ -120,6 +120,90 @@
     gap: 18px;
   }
 
+  /* Compact scrolled header pill shown over the hero/content. */
+  #header-component[data-sticky-state='active'] {
+    padding-block: 8px !important;
+    padding-inline: 30px !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header__row--top,
+  #header-component[data-sticky-state='active'] .header__row--top .header__columns {
+    height: 56px !important;
+    min-height: 56px !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header__row--top .header__columns {
+    padding: 0 24px !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header-logo__image {
+    width: auto !important;
+    height: 22px !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header-localization-group,
+  #header-component[data-sticky-state='active'] .dropdown-localization__button,
+  #header-component[data-sticky-state='active'] .currency-code {
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+  }
+
+  #header-component[data-sticky-state='active'] .header-localization-group {
+    gap: 8px;
+  }
+
+  /* button-unstyled sets overflow:hidden, which clips the bag/count. */
+  #header-component .header-actions__action,
+  #header-component .header-actions__cart-icon,
+  #header-component .header-actions__cart-icon .svg-wrapper {
+    overflow: visible !important;
+  }
+
+  #header-component .header-actions__action {
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    min-height: 28px;
+    padding: 0 !important;
+  }
+
+  #header-component .header-actions__cart-icon,
+  #header-component .header-actions__cart-icon .svg-wrapper {
+    display: flex;
+    width: 24px !important;
+    min-width: 24px;
+    height: 24px !important;
+    min-height: 24px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #header-component .header-actions__cart-icon svg {
+    display: block;
+    width: 23px !important;
+    height: 21px !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+
+  #header-component .header-actions__cart-icon {
+    --cart-bubble-size: 15px;
+    --cart-bubble-top: 13px;
+    --cart-bubble-right: -7px;
+  }
+
+  #header-component .header-actions__cart-icon .cart-bubble {
+    width: 15px !important;
+    height: 15px !important;
+    top: 13px !important;
+    right: -7px !important;
+    padding: 0 !important;
+  }
+
+  #header-component .header-actions__cart-icon .cart-bubble__text {
+    font-size: 9px;
+  }
+
 }
 
 /* Uploaded icon SVGs: keep a square box so mixed artboards render the same size */
