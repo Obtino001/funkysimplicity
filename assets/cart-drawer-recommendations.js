@@ -304,6 +304,10 @@ function refreshDrawerRecommendations() {
 
 document.addEventListener('cart:updated', refreshDrawerRecommendations);
 document.addEventListener('shopify:cart:lines-update', refreshDrawerRecommendations);
+document.addEventListener('theme-drawer:open', (event) => {
+  const drawer = event.target instanceof Element ? event.target : null;
+  if (drawer?.id === 'cart-drawer') refreshDrawerRecommendations();
+});
 
 /**
  * Other modules render cards sharing the `data-cart-recommendation` contract and

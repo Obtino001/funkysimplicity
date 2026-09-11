@@ -26,15 +26,16 @@
       assign progress = 100
     endif
 
+    assign remaining_money = remaining | money
+
     if remaining > 0
-      assign fs_message = settings.cart_free_shipping_progress_text | replace: '[amount]', remaining | money
+      assign fs_message = settings.cart_free_shipping_progress_text | replace: '[amount]', remaining_money
     else
       assign fs_message = settings.cart_free_shipping_success_text
     endif
 
     # A legacy setting saved as just "[amount]" renders only a price (for
     # example €0.00) in the drawer. Keep the progress copy complete.
-    assign remaining_money = remaining | money
     if fs_message == blank or fs_message == remaining_money
       if remaining > 0
         assign fs_message = 'Spend [amount] more and get free shipping' | replace: '[amount]', remaining_money
