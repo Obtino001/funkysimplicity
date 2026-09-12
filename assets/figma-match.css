@@ -1618,21 +1618,7 @@ a.skip-to-content-link:focus-visible {
 }
 
 @media screen and (max-width: 749px) {
-  .cm-heading,
-  .custom-banner__heading,
-  .ffb-heading,
-  .fc-heading,
-  .fcs-banner__heading,
-  .gr-heading,
-  .hfb-heading,
-  .image-text-os__heading,
-  .image-text__heading,
-  .mo-compare-recommendations__title,
-  .page-banner__heading,
-  .page-banner-wide__heading,
-  .tcc-heading,
-  .process-section__heading,
-  .timeline-section__intro-heading {
+.custom-font-size, .custom-font-size>* {
     font-size: 19px !important;
   }
 }
