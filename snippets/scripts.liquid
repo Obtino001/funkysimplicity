@@ -35,7 +35,23 @@
       "@theme/sticky-add-to-cart": "{{ 'sticky-add-to-cart.js' | asset_url }}",
       "@theme/fly-to-cart": "{{ 'fly-to-cart.js' | asset_url }}",
       "@theme/scroll-container": "{{ 'scroll-container.js' | asset_url }}",
-      "@theme/theme-drawer": "{{ 'theme-drawer.js' | asset_url }}"
+      "@theme/theme-drawer": "{{ 'theme-drawer.js' | asset_url }}",
+      "@theme/accordion-custom": "{{ 'accordion-custom.js' | asset_url }}",
+      "@theme/media": "{{ 'media.js' | asset_url }}",
+      "@theme/product-price": "{{ 'product-price.js' | asset_url }}",
+      "@theme/product-sku": "{{ 'product-sku.js' | asset_url }}",
+      "@theme/product-inventory": "{{ 'product-inventory.js' | asset_url }}",
+      "@theme/show-more": "{{ 'show-more.js' | asset_url }}",
+      "@theme/slideshow": "{{ 'slideshow.js' | asset_url }}",
+      "@theme/layered-slideshow": "{{ 'layered-slideshow.js' | asset_url }}",
+      "@theme/anchored-popover": "{{ 'anchored-popover.js' | asset_url }}",
+      "@theme/floating-panel": "{{ 'floating-panel.js' | asset_url }}",
+      "@theme/video-background": "{{ 'video-background.js' | asset_url }}",
+      "@theme/rte-formatter": "{{ 'rte-formatter.js' | asset_url }}",
+      "@theme/volume-pricing": "{{ 'volume-pricing.js' | asset_url }}",
+      "@theme/price-per-item": "{{ 'price-per-item.js' | asset_url }}",
+      "@theme/volume-pricing-info": "{{ 'volume-pricing-info.js' | asset_url }}",
+      "@theme/localization": "{{ 'localization.js' | asset_url }}"
     }
   }
 </script>
@@ -173,98 +189,17 @@
   fetchpriority="low"
 ></script>
 <script
-  src="{{ 'accordion-custom.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'media.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'product-price.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'product-sku.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'product-inventory.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'show-more.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'slideshow.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'layered-slideshow.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'anchored-popover.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'floating-panel.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'video-background.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'component-quantity-selector.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'media-gallery.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'rte-formatter.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'volume-pricing.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'price-per-item.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-<script
-  src="{{ 'volume-pricing-info.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-
-<script
-  src="{{ 'localization.js' | asset_url }}"
+  src="{{ 'component-loader.js' | asset_url }}"
   type="module"
   fetchpriority="low"
 ></script>
 
 {% if template == 'product' or template.name == 'product' or request.page_type == 'product' %}
+  <script
+    src="{{ 'product-media-gallery-custom.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
   <script
     src="{{ 'sticky-add-to-cart.js' | asset_url }}"
     type="module"

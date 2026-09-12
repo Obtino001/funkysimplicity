@@ -14,6 +14,8 @@
   assign text_color = section.settings.text_color | default: '#ffffff'
   assign box_border_color = section.settings.box_border_color | default: '#ffffff'
   assign box_border_opacity = section.settings.box_border_opacity | default: 40
+  assign box_border_alpha = box_border_opacity | divided_by: 100.0
+  assign box_border_with_opacity = box_border_color | color_modify: 'alpha', box_border_alpha
   assign box_bg_opacity = section.settings.box_bg_opacity | default: 8
   assign section_min_height = section.settings.section_min_height | default: '600px'
   assign padding_top = section.settings.padding_top | default: 60
@@ -27,7 +29,7 @@
     --hfb-text-color: {{ text_color }};
     --hfb-overlay-color: {{ overlay_color }};
     --hfb-overlay-opacity: {{ overlay_opacity | divided_by: 100.0 }};
-    --hfb-box-border: {{ box_border_color }}{{ box_border_opacity | times: 2.55 | round | format: '%02x' }};
+    --hfb-box-border: {{ box_border_with_opacity }};
     --hfb-box-bg: rgba(255, 255, 255, {{ box_bg_opacity | divided_by: 100.0 }});
     --hfb-heading-size: {{ heading_size }}px;
     --hfb-heading-max-width: {{ heading_max_width }}px;
@@ -387,10 +389,14 @@
       const section = document.querySelector('#HeroFeatureBoxes-{{ section_id }}');
       if (!section) return;
 
+      if (section.dataset.heroFeatureBoxesInitialized === 'true') return;
+
       const grid = section.querySelector('.hfb-grid');
       const boxes = section.querySelectorAll('.hfb-box');
       const dots = section.querySelectorAll('.hfb-dot');
       if (!grid || !boxes.length || !dots.length) return;
+
+      section.dataset.heroFeatureBoxesInitialized = 'true';
 
       const setActive = (index) => {
         dots.forEach((dot, i) => {
@@ -434,6 +440,14 @@
       document.addEventListener('DOMContentLoaded', initHeroFeatureBoxes);
     } else {
       initHeroFeatureBoxes();
+    }
+
+    window.__heroFeatureBoxesSections = window.__heroFeatureBoxesSections || new Set();
+    if (!window.__heroFeatureBoxesSections.has('{{ section_id }}')) {
+      window.__heroFeatureBoxesSections.add('{{ section_id }}');
+      document.addEventListener('shopify:section:load', (event) => {
+        if (event.detail?.sectionId === '{{ section_id }}') initHeroFeatureBoxes();
+      });
     }
   })();
 </script>

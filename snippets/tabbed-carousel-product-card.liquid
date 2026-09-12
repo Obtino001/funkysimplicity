@@ -92,15 +92,16 @@
       type="button"
       class="tcc-add-btn mobile"
       data-variant-id="{{ current_variant.id }}"
+      aria-label="{% if current_variant.available %}Add {{ product.title | escape }} to cart{% else %}{{ product.title | escape }} is sold out{% endif %}"
       {% unless current_variant.available %}disabled{% endunless %}
     >
       {%- if current_variant.available -%}
         <div class="tcc-add-btn_icon">
-          <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
+          <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="20" width="20" alt="">
         </div>
       {%- else -%}
         <div class="tcc-add-btn_icon disable">
-          <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="" width="" alt="" loading="">
+          <img src="https://cdn.shopify.com/s/files/1/0646/0761/files/Frame_1.svg?v=1788359788" height="20" width="20" alt="">
         </div>
       {%- endif -%}
     </button>

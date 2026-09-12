@@ -600,3 +600,38 @@ export default class VariantPicker extends Component {
 if (!customElements.get('variant-picker')) {
   customElements.define('variant-picker', VariantPicker);
 }
+
+/**
+ * Keeps non-variant product-property pills in sync, including after Shopify's
+ * theme editor replaces the block markup without reloading the page.
+ */
+class CustomPropertyPills extends HTMLElement {
+  connectedCallback() {
+    if (this.hasAttribute('data-initialized')) return;
+
+    this.setAttribute('data-initialized', '');
+    this.addEventListener('change', this.#handleChange);
+    this.#updateSelectedValue();
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('change', this.#handleChange);
+    this.removeAttribute('data-initialized');
+  }
+
+  #handleChange = (event) => {
+    if (!(event.target instanceof HTMLInputElement) || !event.target.matches('[data-custom-property-input]')) return;
+    this.#updateSelectedValue(event.target.value);
+  };
+
+  #updateSelectedValue(value) {
+    const input = this.querySelector('[data-custom-property-input]:checked');
+    const selectedValue = this.querySelector('[data-custom-property-selected-value]');
+
+    if (selectedValue) selectedValue.textContent = value ?? input?.value ?? '';
+  }
+}
+
+if (!customElements.get('custom-property-pills')) {
+  customElements.define('custom-property-pills', CustomPropertyPills);
+}

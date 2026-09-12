@@ -49,7 +49,7 @@
         {%- endif -%}
 
         {%- if google_logo != blank -%}
-          <img src="{{ google_logo | image_url: width: 150 }}" alt="Google Reviews" class="gr-google-logo-img" loading="lazy">
+          <img src="{{ google_logo | image_url: width: 150 }}" alt="Google Reviews" class="gr-google-logo-img" loading="lazy" width="{{ google_logo.width }}" height="{{ google_logo.height }}">
         {%- endif -%}
       </div>
     </div>
@@ -76,7 +76,7 @@
                 <div class="gr-card__header">
                   <div class="gr-card__avatar" style="background-color: {{ block.settings.avatar_color }}">
                     {%- if block.settings.avatar_image != blank -%}
-                      <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy">
+                      <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy" width="{{ block.settings.avatar_image.width }}" height="{{ block.settings.avatar_image.height }}">
                     {%- else -%}
                       {{ block.settings.author | slice: 0 | upcase }}
                     {%- endif -%}
@@ -116,7 +116,7 @@
                   <div class="gr-card__header">
                     <div class="gr-card__avatar" style="background-color: {{ block.settings.avatar_color }}">
                       {%- if block.settings.avatar_image != blank -%}
-                        <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy">
+                        <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy" width="{{ block.settings.avatar_image.width }}" height="{{ block.settings.avatar_image.height }}">
                       {%- else -%}
                         {{ block.settings.author | slice: 0 | upcase }}
                       {%- endif -%}
@@ -163,7 +163,7 @@
                 <div class="gr-card__header">
                   <div class="gr-card__avatar" style="background-color: {{ block.settings.avatar_color }}">
                     {%- if block.settings.avatar_image != blank -%}
-                      <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy">
+                      <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy" width="{{ block.settings.avatar_image.width }}" height="{{ block.settings.avatar_image.height }}">
                     {%- else -%}
                       {{ block.settings.author | slice: 0 | upcase }}
                     {%- endif -%}
@@ -203,7 +203,7 @@
                   <div class="gr-card__header">
                     <div class="gr-card__avatar" style="background-color: {{ block.settings.avatar_color }}">
                       {%- if block.settings.avatar_image != blank -%}
-                        <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy">
+                        <img src="{{ block.settings.avatar_image | image_url: width: 100 }}" alt="{{ block.settings.author }}" loading="lazy" width="{{ block.settings.avatar_image.width }}" height="{{ block.settings.avatar_image.height }}">
                       {%- else -%}
                         {{ block.settings.author | slice: 0 | upcase }}
                       {%- endif -%}

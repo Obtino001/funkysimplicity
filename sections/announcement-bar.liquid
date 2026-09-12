@@ -32,7 +32,6 @@
   assign schedule_enabled = section.settings.schedule_enabled
   assign schedule_start = section.settings.schedule_start
   assign schedule_end = section.settings.schedule_end
-  assign sticky_header_offset = section.settings.sticky_header_offset
   assign mobile_font_size = section.settings.mobile_font_size
   assign mobile_padding_y = section.settings.mobile_padding_y
   assign hide_on_mobile = section.settings.hide_on_mobile
@@ -107,7 +106,7 @@
         <button
           type="button"
           class="announcement-bar__close"
-          aria-label="{{ 'accessibility.close' | t }}"
+          aria-label="Close announcement"
           onclick="this.closest('.announcement-bar').style.display='none'; localStorage.setItem('announcementClosed-{{ section_id }}', 'true');"
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

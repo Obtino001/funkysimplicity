@@ -50,7 +50,6 @@
         {%- for block in section.blocks limit: 8 -%}
           {%- liquid
             assign img = block.settings.image
-            assign link = block.settings.link
             assign alt_text = img.alt | default: heading
             assign item_class = 'cm-item cm-item--' | append: forloop.index
             assign hover_title = block.settings.hover_title | default: alt_text
@@ -178,7 +177,7 @@
       </button>
 
       <div class="cm-lightbox__media">
-        <img src="" alt="" class="cm-lightbox__img">
+        <img alt="" class="cm-lightbox__img" width="1200" height="1500">
       </div>
 
       <button type="button" class="cm-lightbox__nav cm-lightbox__nav--next" data-cm-next aria-label="Next photo">

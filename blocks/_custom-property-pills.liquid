@@ -3,8 +3,6 @@
   submitted as a cart line item property. Visually matches the native variant option buttons
   by reusing the theme's `variant-option` classes and `variant-picker-styles` stylesheet.
 
-  @example
-  {% render '_custom-property-pills', block: block %}
 {%- enddoc -%}
 
 {%- liquid
@@ -20,7 +18,7 @@
   assign wrapper_id = 'CustomPropertyPills-' | append: block.id
 -%}
 
-<div
+<custom-property-pills
   id="{{ wrapper_id }}"
   class="custom-property-pills spacing-style"
   style="{% render 'spacing-style', settings: block_settings %}"
@@ -60,23 +58,9 @@
       {%- endif -%}
     {%- endfor -%}
   </fieldset>
-</div>
+</custom-property-pills>
 
 {% render 'variant-picker-styles' %}
-
-<script>
-  (function () {
-    var wrapper = document.getElementById('{{ wrapper_id }}');
-    if (!wrapper) return;
-    var selectedValueEl = wrapper.querySelector('[data-custom-property-selected-value]');
-    var inputs = wrapper.querySelectorAll('[data-custom-property-input]');
-    inputs.forEach(function (input) {
-      input.addEventListener('change', function () {
-        if (selectedValueEl) selectedValueEl.textContent = input.value;
-      });
-    });
-  })();
-</script>
 
 {% schema %}
 {

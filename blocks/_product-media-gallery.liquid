@@ -1,6 +1,7 @@
 {% assign mo_gallery_id = 'mo-gallery-' | append: section.id %}
 <style>
     #{{ mo_gallery_id }} {
+      display: block;
       width: 100%;
     }
 
@@ -15,85 +16,50 @@
       background: #f4f4f4;
     }
 
-    /* Keep first paint stable before Slick is available. Without this guard,
-       every product image is laid out vertically until DOMContentLoaded. */
-    #{{ mo_gallery_id }} .mo-product-main-slider:not(.slick-initialized) {
+    /* Reserve the final media area before JavaScript runs. */
+    #{{ mo_gallery_id }} .mo-product-main-slider {
       aspect-ratio: 4 / 5;
     }
 
-    #{{ mo_gallery_id }} .mo-product-main-slider:not(.slick-initialized) > .mo-main-slide {
+    #{{ mo_gallery_id }} .mo-main-slide {
       display: none;
+      position: absolute;
+      inset: 0;
     }
 
-    #{{ mo_gallery_id }} .mo-product-main-slider:not(.slick-initialized) > .mo-main-slide:first-child {
+    #{{ mo_gallery_id }} .mo-main-slide:first-child,
+    #{{ mo_gallery_id }} .mo-main-slide.is-active {
       display: block;
     }
 
-    #{{ mo_gallery_id }} .mo-product-thumb-slider:not(.slick-initialized) {
+    #{{ mo_gallery_id }} .mo-product-main-slider.is-ready > .mo-main-slide:not(.is-active) {
+      display: none;
+    }
+
+    #{{ mo_gallery_id }} .mo-product-thumb-slider {
       display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      overflow: hidden;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 40px) / 6);
+      gap: 8px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-width: none;
+      scroll-snap-type: inline proximity;
     }
 
-    #{{ mo_gallery_id }} .mo-product-thumb-slider:not(.slick-initialized) > .mo-thumb-slide:nth-child(n + 7) {
+    #{{ mo_gallery_id }} .mo-product-thumb-slider::-webkit-scrollbar {
       display: none;
-    }
-
-    /* Scoped Slick core styles are kept locally so a slow/blocked CDN
-       stylesheet cannot break the gallery layout. */
-    #{{ mo_gallery_id }} .slick-slider {
-      position: relative;
-      display: block;
-      box-sizing: border-box;
-      user-select: none;
-      touch-action: pan-y;
-    }
-
-    #{{ mo_gallery_id }} .slick-list {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    #{{ mo_gallery_id }} .slick-track {
-      position: relative;
-      top: 0;
-      left: 0;
-      display: block;
-      margin-inline: auto;
-    }
-
-    #{{ mo_gallery_id }} .slick-track::before,
-    #{{ mo_gallery_id }} .slick-track::after {
-      display: table;
-      content: '';
-    }
-
-    #{{ mo_gallery_id }} .slick-track::after {
-      clear: both;
-    }
-
-    #{{ mo_gallery_id }} .slick-slide {
-      display: none;
-      float: left;
-      min-height: 1px;
-    }
-
-    #{{ mo_gallery_id }} .slick-initialized .slick-slide {
-      display: block;
     }
 
     #{{ mo_gallery_id }} .mo-main-slide {
       width: 100%;
-      position: relative;
+      height: 100%;
       background: #f4f4f4;
     }
 
     #{{ mo_gallery_id }} .mo-main-slide-inner {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      height: 100%;
       position: relative;
       display: flex !important;
       align-items: center;
@@ -197,17 +163,17 @@
       width: 100%;
     }
 
-    #{{ mo_gallery_id }} .mo-product-thumb-slider .slick-list {
-      margin: 0 -4px;
-    }
-
-    #{{ mo_gallery_id }} .mo-product-thumb-slider .slick-track {
-      margin-left: 0 !important;
-    }
     #{{ mo_gallery_id }} .mo-thumb-slide {
-      padding: 0 4px;
+      width: 100%;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: inherit;
       cursor: pointer;
       outline: none;
+      scroll-snap-align: start;
     }
 
     #{{ mo_gallery_id }} .mo-thumb-inner {
@@ -233,20 +199,14 @@
       object-fit: cover;
       object-position: center;
     }
-    #{{ mo_gallery_id }} .mo-product-thumb-slider .slick-current .mo-thumb-inner {
+    #{{ mo_gallery_id }} .mo-product-thumb-slider .mo-thumb-slide.is-active .mo-thumb-inner {
       border-color: #222;
     }
-    #{{ mo_gallery_id }} .slick-slide {
-      height: auto;
-    }
 
-    #{{ mo_gallery_id }} .slick-slide > div {
-      height: 100%;
-    }
-
-    #{{ mo_gallery_id }} .slick-list,
-    #{{ mo_gallery_id }} .slick-track {
-      touch-action: pan-y;
+    #{{ mo_gallery_id }} .mo-slick-prev:disabled,
+    #{{ mo_gallery_id }} .mo-slick-next:disabled {
+      opacity: 0.35;
+      cursor: default;
     }
     .hero-product__row {
       display: flex !important;
@@ -316,14 +276,6 @@
         backdrop-filter: blur(34px);
       }
 
-      #{{ mo_gallery_id }} .mo-thumb-slide {
-        padding: 0 3px;
-      }
-
-      #{{ mo_gallery_id }} .mo-product-thumb-slider .slick-list {
-        margin: 0 -3px;
-      }
-
       #{{ mo_gallery_id }} .mo-slick-prev,
       #{{ mo_gallery_id }} .mo-slick-next { 
         display:none !important;
@@ -341,7 +293,7 @@
     }
 </style>
 
-<div
+<mo-product-gallery
   id="{{ mo_gallery_id }}"
   class="mo-product-gallery-section sticky-content"
 >
@@ -349,9 +301,11 @@
     <div class="mo-product-main-slider">
       {% for media in product.media %}
         <div
-          class="mo-main-slide"
+          class="mo-main-slide{% if forloop.first %} is-active{% endif %}"
           data-media-id="{{ media.id }}"
           data-index="{{ forloop.index0 }}"
+          aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+          {% unless forloop.first %}hidden{% endunless %}
         >
           <div class="mo-main-slide-inner">
             {% case media.media_type %}
@@ -381,12 +335,28 @@
         </div>
       {% endfor %}
     </div>
+    {%- if product.media.size > 1 -%}
+      <button type="button" class="mo-slick-prev" aria-label="Previous image" data-gallery-previous disabled>
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false">
+          <path d="M12.5 4.5 7 10l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button type="button" class="mo-slick-next" aria-label="Next image" data-gallery-next>
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false">
+          <path d="m7.5 4.5 5.5 5.5-5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {%- endif -%}
     <div class="mo-thumbnail-wrapper">
       <div class="mo-product-thumb-slider">
         {% for media in product.media %}
-          <div
-            class="mo-thumb-slide"
+          <button
+            type="button"
+            class="mo-thumb-slide{% if forloop.first %} is-active{% endif %}"
             data-media-id="{{ media.id }}"
+            data-index="{{ forloop.index0 }}"
+            aria-label="View product media {{ forloop.index }}"
+            {% if forloop.first %}aria-current="true"{% endif %}
           >
             <div class="mo-thumb-inner">
               {% if media.preview_image %}
@@ -408,148 +378,12 @@
                 >
               {% endif %}
             </div>
-          </div>
+          </button>
         {% endfor %}
       </div>
     </div>
   </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
-<script>
-  (function () {
-    var dependencyAttempts = 0;
-
-    function initProductGallery() {
-      var $ = window.jQuery;
-      if (!$ || !$.fn || typeof $.fn.slick !== 'function') return false;
-
-      var gallery = $('#{{ mo_gallery_id }}');
-      if (!gallery.length) return true;
-
-      var mainSlider = gallery.find('.mo-product-main-slider');
-
-      var thumbSlider = gallery.find('.mo-product-thumb-slider');
-      if (!mainSlider.hasClass('slick-initialized')) {
-        mainSlider.slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: true,
-          fade: false,
-          infinite: false,
-          adaptiveHeight: false,
-          asNavFor: '#{{ mo_gallery_id }} .mo-product-thumb-slider',
-          prevArrow: `
-            <button type="button" class="mo-slick-prev" aria-label="Previous image">
-              <img 
-                src="https://cdn.shopify.com/s/files/1/0646/0761/files/elements_1.png?v=1788280060" 
-                alt="Previous"
-              >
-            </button>
-          `,
-          nextArrow: `
-            <button type="button" class="mo-slick-next" aria-label="Next image">
-              <img 
-                src="https://cdn.shopify.com/s/files/1/0646/0761/files/elements.png?v=1788280046" 
-                alt="Next"
-              >
-            </button>
-          `,
-        });
-      }
-      if (!thumbSlider.hasClass('slick-initialized')) {
-        thumbSlider.slick({
-          slidesToShow: 6,
-          slidesToScroll: 1,
-          asNavFor: '#{{ mo_gallery_id }} .mo-product-main-slider',
-          focusOnSelect: true,
-          centerMode: false,
-          infinite: false,
-          arrows: false,
-          dots: false,
-          responsive: [
-            {
-              breakpoint: 1200,
-              settings: {
-                slidesToShow: 6,
-              },
-            },
-            {
-              breakpoint: 990,
-              settings: {
-                slidesToShow: 6,
-              },
-            },
-            {
-              breakpoint: 767,
-              settings: {
-                slidesToShow: 6,
-              },
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 6,
-              },
-            },
-          ],
-        });
-      }
-
-      $(document)
-        .off('click.moProductGallery{{ section.id }}', '.hammock-swatch')
-        .on('click.moProductGallery{{ section.id }}', '.hammock-swatch', function () {
-          var mediaId = $(this).data('variant-media-id');
-          if (!mediaId) {
-            return;
-          }
-          var targetSlide = gallery.find('.mo-main-slide[data-media-id="' + mediaId + '"]');
-          if (targetSlide.length) {
-            var targetIndex = targetSlide.data('index');
-            mainSlider.slick('slickGoTo', targetIndex);
-          }
-        });
-
-      mainSlider.off('beforeChange.moProductGallery').on('beforeChange.moProductGallery', function () {
-        $(this)
-          .find('video')
-          .each(function () {
-            this.pause();
-          });
-      });
-
-      requestAnimationFrame(function () {
-        mainSlider.slick('setPosition');
-        thumbSlider.slick('setPosition');
-      });
-
-      return true;
-    }
-
-    function initWhenDependenciesAreReady() {
-      if (initProductGallery()) return;
-
-      dependencyAttempts += 1;
-      if (dependencyAttempts < 100) {
-        window.setTimeout(initWhenDependenciesAreReady, 50);
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initWhenDependenciesAreReady, { once: true });
-    } else {
-      initWhenDependenciesAreReady();
-    }
-
-    document.addEventListener('shopify:section:load', function (event) {
-      if (event.detail?.sectionId === '{{ section.id }}') {
-        dependencyAttempts = 0;
-        initWhenDependenciesAreReady();
-      }
-    });
-  })();
-</script>
+</mo-product-gallery>
 {% schema %}
 {
   "name": "t:names.product_media",

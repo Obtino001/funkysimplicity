@@ -435,6 +435,9 @@
 
 <script>
   (function() {
+    if (window.__tabbedCollectionCarouselInitialized) return;
+    window.__tabbedCollectionCarouselInitialized = true;
+
     if (!window.tccQuickShopSheet) {
       window.tccQuickShopSheet = (function () {
         let activeCard = null;
