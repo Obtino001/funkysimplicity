@@ -2158,7 +2158,7 @@
         "banner_overlay_opacity": 0,
         "show_view_all": true,
         "view_all_text": "VIEW ALL",
-        "view_all_link": "",
+        "view_all_link": "shopify://collections/all",
         "padding_top": 32,
         "padding_bottom": 64
       }
@@ -2739,7 +2739,7 @@
         "section_width": "page-width",
         "card_aspect_ratio": "4 / 3",
         "gap": 20,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_text": "VIEW ALL",
         "view_all_link": "",
         "padding_top": 64,
