@@ -70,7 +70,7 @@
 
   #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
     width: auto !important;
-    height: 40px !important;
+    height: 50px !important;
   }
 
   /* Localization buttons are text controls, not primary CTA pills. */
