@@ -1623,3 +1623,8 @@ a.skip-to-content-link:focus-visible {
     font-size: 19px !important;
   }
 }
+
+.size-chart-dialog__heading.h3{
+    text-align: center;
+    padding: 0;
+}
