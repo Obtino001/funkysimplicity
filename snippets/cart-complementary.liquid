@@ -172,14 +172,16 @@
   /* Size grid + add-to-cart, revealed over the bottom of the image. */
   .cart-complementary-card__quick-add {
     position: absolute;
-    inset-inline: 8px;
-    inset-block-end: 8px;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding: 20px 8px 8px 8px;
     display: flex;
     flex-direction: column;
     gap: 6px;
     opacity: 0;
     transform: translateY(6px);
     transition: opacity var(--animation-speed, 0.2s) ease, transform var(--animation-speed, 0.2s) ease;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 60%, rgba(255,255,255,0) 100%);
   }
 
   .cart-complementary-card__media:hover .cart-complementary-card__quick-add,
@@ -288,6 +290,8 @@
       transform: none;
       inset: auto 9px 10px auto;
       width: auto;
+      background: none;
+      padding: 0;
     }
 
     .cart-complementary--inline .cart-complementary-card__options,
