@@ -62,18 +62,56 @@
       </button>
     {%- endif -%}
 
-    <button
-      type="button"
-      class="cart-recommendation__add"
-      data-recommendation-add
-      data-variant-id="{{ variant.id }}"
-      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
-    >
-      <span class="cart-recommendation__add-icon">
-        {{- 'icon-cart.svg' | inline_asset_content -}}
-      </span>
-      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
-    </button>
+    {%- if product.has_only_default_variant -%}
+      <button
+        type="button"
+        class="cart-recommendation__add"
+        data-recommendation-add
+        data-variant-id="{{ variant.id }}"
+        aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
+      >
+        <span class="cart-recommendation__add-icon">
+          {{- 'icon-cart.svg' | inline_asset_content -}}
+        </span>
+        <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
+      </button>
+    {%- else -%}
+      {% render 'quick-add', product: product, section_id: 'cart-drawer-recommendations' %}
+      <style>
+        .cart-recommendation__media quick-add-component {
+          position: absolute;
+          inset-block-end: 8px;
+          inset-inline-end: 8px;
+          z-index: 2;
+        }
+        .cart-recommendation__media .quick-add__button {
+          width: 39px !important;
+          height: 39px !important;
+          border-radius: 50% !important;
+          padding: 0 !important;
+          min-width: 0 !important;
+          background-color: #fff !important;
+          color: #000 !important;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          font-size: 0 !important;
+          letter-spacing: 0 !important;
+        }
+        @media screen and (max-width: 749px) {
+          .cart-recommendation__media .quick-add__button {
+            width: 28px !important;
+            height: 28px !important;
+          }
+        }
+        .cart-recommendation__media .quick-add__button .add-to-cart-icon {
+          width: 19px !important;
+          height: 18px !important;
+          margin: 0 !important;
+        }
+      </style>
+    {%- endif -%}
   </div>
 
   <div class="cart-recommendation__info">

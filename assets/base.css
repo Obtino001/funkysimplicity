@@ -1964,3 +1964,23 @@ div#shopify-section-template--30252635423047__page_banner_WGKNcm>.page-banner__c
     font-size: 15px;
   }
 }
+/* Custom Mobile Headings for Sections */
+@media screen and (max-width: 749px) {
+  .cm-heading,
+  .custom-banner__heading,
+  .ffb-heading,
+  .fc-heading,
+  .fcs-banner__heading,
+  .gr-heading,
+  .hfb-heading,
+  .image-text-os__heading,
+  .image-text__heading,
+  .mo-compare-recommendations__title,
+  .page-banner__heading,
+  .page-banner-wide__heading,
+  .tcc-heading,
+  .process-section__heading,
+  .timeline-section__intro-heading {
+    font-size: 19px !important;
+  }
+}
