@@ -1,24 +1,23 @@
 {%- doc -%}
-  Static "accepted payment methods" badge row exported from the Figma design. Rendered directly
-  from the theme asset (rather than an image_picker) since this artwork is fixed brand content,
-  not a merchant-uploaded image.
-
-  @example
-  {% render '_payment-icons-image', block: block %}
+  Accepted payment methods rendered as Shopify's native inline SVG icons so the logos stay
+  sharp at every screen size.
 {%- enddoc -%}
+
+{% assign payment_types = 'ideal,american_express,apple_pay,google_pay,klarna,maestro,master,paypal,shopify_pay,unionpay,visa' | split: ',' %}
 
 <div
   class="payment-icons-image spacing-style"
   style="{% render 'spacing-style', settings: block.settings %}"
   {{ block.shopify_attributes }}
 >
-  <img
-    src="{{ 'payment-icons-row.png' | asset_url }}"
-    alt="{{ 'content.accepted_payment_methods' | t: default: 'Accepted payment methods' }}"
-    loading="lazy"
-    width="370"
-    height="21"
-  >
+  <span class="visually-hidden">{{ 'blocks.payment_methods' | t }}</span>
+  <ul class="payment-icons-image__list" role="list">
+    {%- for type in payment_types -%}
+      <li class="payment-icons-image__item">
+        {{ type | payment_type_svg_tag: class: 'payment-icons-image__icon' }}
+      </li>
+    {%- endfor -%}
+  </ul>
 </div>
 
 {% stylesheet %}
@@ -28,10 +27,29 @@
     width: 100%;
   }
 
-  .payment-icons-image img {
-    max-width: 370px;
-    width: 100%;
+  .payment-icons-image__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .payment-icons-image__item {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  .payment-icons-image__icon {
+    display: block;
+    width: 38px;
     height: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 8%);
   }
 {% endstylesheet %}
 
