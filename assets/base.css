@@ -1983,3 +1983,15 @@ div#shopify-section-template--30252635423047__page_banner_WGKNcm>.page-banner__c
     font-size: 19px !important;
   }
 }
+.collection-card__image,
+.collection-card__image img,
+.product-card__image,
+.product-card__image img,
+.collection-card_link img,
+.resource-list__slide img,
+.resource-list__item img {
+  aspect-ratio: 378 / 573 !important;
+  object-fit: cover !important;
+  height: auto !important;
+  width: 100% !important;
+}
