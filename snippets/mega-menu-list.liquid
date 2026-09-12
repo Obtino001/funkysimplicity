@@ -95,10 +95,6 @@
 
         if menu_content_type == 'collection_images'
           assign should_break_columns = false
-          # For collection image mode, we have an 8-column grid when 4 or fewer parent links are used. Set column span to 2 in that case, otherwise use 1 column
-          if parent_link.links.size <= 4
-            assign span_class = 'mega-menu__column--wide-collection-image'
-          endif
         else
           # For all other modes, column span is determined by the number of links in the parent link
           assign span_class = 'mega-menu__column--span-' | append: column_span
@@ -113,11 +109,7 @@
       >
         {% if menu_content_type == 'collection_images' %}
           {%- capture collection_image_sizes -%}
-            {%- if parent_link.links.size <= 4 -%}
-              {%- assign columns_per_item = 2 -%}
-            {%- else -%}
-              {%- assign columns_per_item = 1 -%}
-            {%- endif -%}
+            {%- assign columns_per_item = 1 -%}
             {%- render 'util-mega-menu-img-sizes-attr',
               menu_content_type: 'collection_images',
               settings: settings,
