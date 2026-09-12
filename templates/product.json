@@ -179,6 +179,7 @@
               "settings": {
                 "variant_style": "buttons",
                 "show_swatches": true,
+                "size_chart_page": "sizing",
                 "option_label_text_color": "",
                 "variant_style_class": "default",
                 "custom_variant_background": "{{ settings.color_palette.background }}",
