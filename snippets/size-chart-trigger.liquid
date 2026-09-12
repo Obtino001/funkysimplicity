@@ -1,0 +1,17 @@
+{%- doc -%}
+  Renders the product size chart trigger.
+
+  @param {string} dialog_component_id - ID of the dialog component opened by the trigger.
+  @param {string} dialog_id - ID of the dialog controlled by the trigger.
+{%- enddoc -%}
+
+<button
+  type="button"
+  class="button button-unstyled size-chart-trigger"
+  on:click="#{{ dialog_component_id }}/showDialog"
+  aria-haspopup="dialog"
+  aria-controls="{{ dialog_id }}"
+>
+  {{- 'icon-ruler.svg' | inline_asset_content -}}
+  <span>Size Chart</span>
+</button>

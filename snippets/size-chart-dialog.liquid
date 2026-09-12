@@ -1,0 +1,126 @@
+{%- doc -%}
+  Renders a Horizon dialog containing the merchant-selected size guide page.
+
+  @param {page} size_chart_page - Shopify page containing the size guide.
+  @param {string} dialog_component_id - Unique ID for the dialog component.
+  @param {string} dialog_id - Unique ID for the dialog element.
+  @param {string} heading_id - Unique ID for the dialog heading.
+{%- enddoc -%}
+
+{% render 'dialog-styles' %}
+
+<dialog-component
+  id="{{ dialog_component_id }}"
+  class="size-chart-dialog"
+>
+  <dialog
+    id="{{ dialog_id }}"
+    ref="dialog"
+    class="size-chart-dialog__content dialog-modal color-custom-popover"
+    scroll-lock
+    aria-labelledby="{{ heading_id }}"
+  >
+    <button
+      type="button"
+      ref="closeButton"
+      on:click="/closeDialog"
+      class="button button-unstyled close-button size-chart-dialog__close"
+      aria-label="{{ 'accessibility.close_dialog' | t }}"
+    >
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </button>
+
+    <div class="size-chart-dialog__inner">
+      <h2
+        id="{{ heading_id }}"
+        class="size-chart-dialog__heading h3"
+      >
+        {{ size_chart_page.title | escape }}
+      </h2>
+      <div class="size-chart-dialog__page rte">
+        {{ size_chart_page.content }}
+      </div>
+    </div>
+  </dialog>
+</dialog-component>
+
+{% stylesheet %}
+  .size-chart-dialog {
+    display: contents;
+  }
+
+  .size-chart-dialog__content {
+    width: min(44rem, calc(100vw - 2rem));
+    max-width: 44rem;
+    max-height: min(80dvh, 50rem);
+    margin: auto;
+    padding: 0;
+    border: var(--style-border-popover);
+    border-radius: var(--style-border-radius-popover);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    overflow: hidden;
+  }
+
+  .size-chart-dialog__content[open] {
+    animation: modalSlideInTop var(--animation-speed) var(--animation-easing) forwards;
+  }
+
+  .size-chart-dialog__content.dialog-closing {
+    animation: modalSlideOutTop var(--animation-speed) var(--animation-easing) forwards;
+  }
+
+  .size-chart-dialog__inner {
+    max-height: min(80dvh, 50rem);
+    padding: var(--padding-4xl) var(--padding-xl) var(--padding-xl);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .size-chart-dialog__heading {
+    margin: 0 0 var(--margin-xl);
+    padding-inline-end: var(--minimum-touch-target);
+  }
+
+  .size-chart-dialog__page {
+    overflow-x: auto;
+  }
+
+  .size-chart-dialog__page > :first-child {
+    margin-block-start: 0;
+  }
+
+  .size-chart-dialog__page > :last-child {
+    margin-block-end: 0;
+  }
+
+  .size-chart-dialog__page table {
+    width: 100%;
+  }
+
+  .size-chart-dialog__close {
+    position: absolute;
+  }
+
+  @media screen and (min-width: 750px) {
+    .size-chart-dialog__inner {
+      padding: var(--padding-5xl);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .size-chart-dialog__content {
+      width: 100dvw;
+      max-width: 100%;
+      height: 100dvh;
+      max-height: 100%;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .size-chart-dialog__inner {
+      max-height: 100dvh;
+      padding: var(--padding-4xl) var(--padding-lg) var(--padding-xl);
+    }
+  }
+{% endstylesheet %}

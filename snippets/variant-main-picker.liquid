@@ -22,6 +22,22 @@
     assign has_custom_variant_buttons = true
   endif
   assign fieldset_index = 0
+  assign size_chart_page = block_settings.size_chart_page
+  assign has_size_option = false
+
+  if size_chart_page != blank
+    for option in product_resource.options_with_values
+      assign normalized_option_name = option.name | downcase | strip
+      if normalized_option_name == 'size'
+        assign has_size_option = true
+        break
+      endif
+    endfor
+  endif
+
+  assign size_chart_dialog_component_id = 'SizeChartComponent-' | append: section.id | append: '-' | append: block.id | append: '-' | append: product_resource.id
+  assign size_chart_dialog_id = 'SizeChartDialog-' | append: section.id | append: '-' | append: block.id | append: '-' | append: product_resource.id
+  assign size_chart_heading_id = 'SizeChartHeading-' | append: section.id | append: '-' | append: block.id | append: '-' | append: product_resource.id
 %}
 
 {% unless product_resource.has_only_default_variant %}
@@ -71,6 +87,12 @@
             assign option_id_attribute = 'data-option-id="' | append: fieldset_id | append: '"'
             assign longest_value = 0
           endif
+
+          assign normalized_option_name = product_option.name | downcase | strip
+          assign show_size_chart = false
+          if size_chart_page != blank and normalized_option_name == 'size'
+            assign show_size_chart = true
+          endif
         -%}
 
         {%- if product_option.values.size == 1 and variant_style != 'swatch' -%}
@@ -78,12 +100,22 @@
             class="variant-option"
             data-testid="variant-option-single"
           >
-            {{- product_option.name | escape -}}
-            <span
-              class="variant-option__swatch-value"
-              data-testid="variant-option-single-value"
-            >
-              {{- product_option.selected_value -}}
+            <span class="variant-option__label-row">
+              <span>
+                {{- product_option.name | escape -}}
+                <span
+                  class="variant-option__swatch-value"
+                  data-testid="variant-option-single-value"
+                >
+                  {{- product_option.selected_value -}}
+                </span>
+              </span>
+              {%- if show_size_chart -%}
+                {% render 'size-chart-trigger',
+                  dialog_component_id: size_chart_dialog_component_id,
+                  dialog_id: size_chart_dialog_id
+                %}
+              {%- endif -%}
             </span>
           </div>
         {%- elsif variant_style == 'swatch' or block_settings.variant_style == 'buttons' -%}
@@ -94,12 +126,22 @@
             {{ option_id_attribute }}
           >
             <legend>
-              {{ product_option.name | escape -}} : 
-              <span
-                class="variant-option__selected-value"
-                data-selected-value
-              >
-                {{ product_option.selected_value | escape }}
+              <span class="variant-option__label-row">
+                <span>
+                  {{ product_option.name | escape -}}:
+                  <span
+                    class="variant-option__selected-value"
+                    data-selected-value
+                  >
+                    {{ product_option.selected_value | escape }}
+                  </span>
+                </span>
+                {%- if show_size_chart -%}
+                  {% render 'size-chart-trigger',
+                    dialog_component_id: size_chart_dialog_component_id,
+                    dialog_id: size_chart_dialog_id
+                  %}
+                {%- endif -%}
               </span>
             </legend>
 
@@ -194,7 +236,15 @@
           %}
 
           <div class="variant-option variant-option--dropdowns">
-            <label for="Option-{{ block.id }}-{{ forloop.index0 }}">{{ product_option.name | escape }}</label>
+            <div class="variant-option__label-row">
+              <label for="Option-{{ block.id }}-{{ forloop.index0 }}">{{ product_option.name | escape }}</label>
+              {%- if show_size_chart -%}
+                {% render 'size-chart-trigger',
+                  dialog_component_id: size_chart_dialog_component_id,
+                  dialog_id: size_chart_dialog_id
+                %}
+              {%- endif -%}
+            </div>
             <div
               class="variant-option__select-wrapper"
               style="
@@ -246,6 +296,15 @@
       </script>
     </form>
   </variant-picker>
+
+  {% if has_size_option %}
+    {% render 'size-chart-dialog',
+      size_chart_page: size_chart_page,
+      dialog_component_id: size_chart_dialog_component_id,
+      dialog_id: size_chart_dialog_id,
+      heading_id: size_chart_heading_id
+    %}
+  {% endif %}
 {% endunless %}
 
 {% render 'swatch-styles' %}
