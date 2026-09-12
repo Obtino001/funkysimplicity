@@ -1,5 +1,4 @@
 {% assign mo_gallery_id = 'mo-gallery-' | append: section.id %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 <style>
     #{{ mo_gallery_id }} {
       width: 100%;
@@ -14,6 +13,76 @@
       position: relative;
       overflow: hidden;
       background: #f4f4f4;
+    }
+
+    /* Keep first paint stable before Slick is available. Without this guard,
+       every product image is laid out vertically until DOMContentLoaded. */
+    #{{ mo_gallery_id }} .mo-product-main-slider:not(.slick-initialized) {
+      aspect-ratio: 4 / 5;
+    }
+
+    #{{ mo_gallery_id }} .mo-product-main-slider:not(.slick-initialized) > .mo-main-slide {
+      display: none;
+    }
+
+    #{{ mo_gallery_id }} .mo-product-main-slider:not(.slick-initialized) > .mo-main-slide:first-child {
+      display: block;
+    }
+
+    #{{ mo_gallery_id }} .mo-product-thumb-slider:not(.slick-initialized) {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      overflow: hidden;
+    }
+
+    #{{ mo_gallery_id }} .mo-product-thumb-slider:not(.slick-initialized) > .mo-thumb-slide:nth-child(n + 7) {
+      display: none;
+    }
+
+    /* Scoped Slick core styles are kept locally so a slow/blocked CDN
+       stylesheet cannot break the gallery layout. */
+    #{{ mo_gallery_id }} .slick-slider {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      user-select: none;
+      touch-action: pan-y;
+    }
+
+    #{{ mo_gallery_id }} .slick-list {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    #{{ mo_gallery_id }} .slick-track {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+      margin-inline: auto;
+    }
+
+    #{{ mo_gallery_id }} .slick-track::before,
+    #{{ mo_gallery_id }} .slick-track::after {
+      display: table;
+      content: '';
+    }
+
+    #{{ mo_gallery_id }} .slick-track::after {
+      clear: both;
+    }
+
+    #{{ mo_gallery_id }} .slick-slide {
+      display: none;
+      float: left;
+      min-height: 1px;
+    }
+
+    #{{ mo_gallery_id }} .slick-initialized .slick-slide {
+      display: block;
     }
 
     #{{ mo_gallery_id }} .mo-main-slide {
@@ -293,6 +362,10 @@
                   width="{{ media.preview_image.width }}"
                   height="{{ media.preview_image.height }}"
                   loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                  {% if forloop.first %}
+                    fetchpriority="high"
+                  {% endif %}
+                  decoding="async"
                 >
 
               {% when 'video' %}
@@ -341,13 +414,19 @@
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
 
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
 <script>
-  (function ($) {
-    $(document).ready(function () {
+  (function () {
+    var dependencyAttempts = 0;
+
+    function initProductGallery() {
+      var $ = window.jQuery;
+      if (!$ || !$.fn || typeof $.fn.slick !== 'function') return false;
+
       var gallery = $('#{{ mo_gallery_id }}');
+      if (!gallery.length) return true;
 
       var mainSlider = gallery.find('.mo-product-main-slider');
 
@@ -417,26 +496,59 @@
           ],
         });
       }
-      $(document).on('click', '.hammock-swatch', function () {
-        var mediaId = $(this).data('variant-media-id');
-        if (!mediaId) {
-          return;
-        }
-        var targetSlide = gallery.find('.mo-main-slide[data-media-id="' + mediaId + '"]');
-        if (targetSlide.length) {
-          var targetIndex = targetSlide.data('index');
-          mainSlider.slick('slickGoTo', targetIndex);
-        }
-      });
-      mainSlider.on('beforeChange', function () {
+
+      $(document)
+        .off('click.moProductGallery{{ section.id }}', '.hammock-swatch')
+        .on('click.moProductGallery{{ section.id }}', '.hammock-swatch', function () {
+          var mediaId = $(this).data('variant-media-id');
+          if (!mediaId) {
+            return;
+          }
+          var targetSlide = gallery.find('.mo-main-slide[data-media-id="' + mediaId + '"]');
+          if (targetSlide.length) {
+            var targetIndex = targetSlide.data('index');
+            mainSlider.slick('slickGoTo', targetIndex);
+          }
+        });
+
+      mainSlider.off('beforeChange.moProductGallery').on('beforeChange.moProductGallery', function () {
         $(this)
           .find('video')
           .each(function () {
             this.pause();
           });
       });
+
+      requestAnimationFrame(function () {
+        mainSlider.slick('setPosition');
+        thumbSlider.slick('setPosition');
+      });
+
+      return true;
+    }
+
+    function initWhenDependenciesAreReady() {
+      if (initProductGallery()) return;
+
+      dependencyAttempts += 1;
+      if (dependencyAttempts < 100) {
+        window.setTimeout(initWhenDependenciesAreReady, 50);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWhenDependenciesAreReady, { once: true });
+    } else {
+      initWhenDependenciesAreReady();
+    }
+
+    document.addEventListener('shopify:section:load', function (event) {
+      if (event.detail?.sectionId === '{{ section.id }}') {
+        dependencyAttempts = 0;
+        initWhenDependenciesAreReady();
+      }
     });
-  })(jQuery);
+  })();
 </script>
 {% schema %}
 {
