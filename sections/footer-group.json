@@ -98,7 +98,7 @@
                   "type": "image",
                   "name": "t:names.image",
                   "settings": {
-                    "image": "shopify:\/\/shop_images\/image_2.png",
+                    "image": "shopify://shop_images/funky_logo_1_1.png",
                     "link": "",
                     "image_ratio": "adapt",
                     "width": "custom",
@@ -122,7 +122,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p>We believe true freedom means living life on your own terms—a life without limitations. Our designs are made to inspire that freedom in you: to move without restrictions, shine without hesitation, and live boldly every day. While our pieces make you feel powerful and cherished, we also honor the artisans who bring them to life. <\/p>",
+                    "text": "<p>We believe true freedom means living life on your own terms—a life without limitations. Our designs are made to inspire that freedom in you: to move without restrictions, shine without hesitation, and live boldly every day. While our pieces make you feel powerful and cherished, we also honor the artisans who bring them to life. </p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -189,7 +189,7 @@
                       "name": "t:names.icon",
                       "settings": {
                         "icon": "map_pin",
-                        "image_upload": "shopify:\/\/shop_images\/location-01.png",
+                        "image_upload": "shopify://shop_images/location-01.png",
                         "width": 24,
                         "link": "",
                         "open_in_new_tab": false,
@@ -201,7 +201,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Nieuwezijds Armsteeg 17\u20281012 NB  Amsterdam, Netherland<\/p>",
+                        "text": "<p>Nieuwezijds Armsteeg 17 1012 NB  Amsterdam, Netherland</p>",
                         "width": "100%",
                         "max_width": "narrow",
                         "alignment": "left",
@@ -224,7 +224,10 @@
                       "blocks": {}
                     }
                   },
-                  "block_order": ["icon_bR73qa", "text_MkrCFm"]
+                  "block_order": [
+                    "icon_bR73qa",
+                    "text_MkrCFm"
+                  ]
                 },
                 "group_mfDhcz": {
                   "type": "group",
@@ -271,7 +274,7 @@
                       "name": "t:names.icon",
                       "settings": {
                         "icon": "silhouette",
-                        "image_upload": "shopify:\/\/shop_images\/mail-02.png",
+                        "image_upload": "shopify://shop_images/mail-02.png",
                         "width": 22,
                         "link": "",
                         "open_in_new_tab": false,
@@ -283,7 +286,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>info@funkysimplicity.com<\/p>",
+                        "text": "<p>info@funkysimplicity.com</p>",
                         "width": "100%",
                         "max_width": "narrow",
                         "alignment": "left",
@@ -306,7 +309,10 @@
                       "blocks": {}
                     }
                   },
-                  "block_order": ["icon_zddyhk", "text_8GD8AN"]
+                  "block_order": [
+                    "icon_zddyhk",
+                    "text_8GD8AN"
+                  ]
                 },
                 "group_e7pq4n": {
                   "type": "group",
@@ -353,7 +359,7 @@
                       "name": "t:names.icon",
                       "settings": {
                         "icon": "whatsapp",
-                        "image_upload": "shopify:\/\/shop_images\/whatsapp.png",
+                        "image_upload": "shopify://shop_images/whatsapp.png",
                         "width": 22,
                         "link": "",
                         "open_in_new_tab": false,
@@ -365,7 +371,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>+31 6 26258727 (Whatsapp only)<\/p>",
+                        "text": "<p>+31 6 26258727 (Whatsapp only)</p>",
                         "width": "100%",
                         "max_width": "narrow",
                         "alignment": "left",
@@ -388,7 +394,10 @@
                       "blocks": {}
                     }
                   },
-                  "block_order": ["icon_zejhh8", "text_D7qQ9P"]
+                  "block_order": [
+                    "icon_zejhh8",
+                    "text_D7qQ9P"
+                  ]
                 }
               },
               "block_order": [
@@ -461,7 +470,9 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["menu_N6Kjqk"]
+              "block_order": [
+                "menu_N6Kjqk"
+              ]
             },
             "group_VrMit8": {
               "type": "group",
@@ -525,7 +536,9 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["menu_w6nWee"]
+              "block_order": [
+                "menu_w6nWee"
+              ]
             },
             "group_6YMkgY": {
               "type": "group",
@@ -569,7 +582,7 @@
                 "text_QzLwPg": {
                   "type": "text",
                   "settings": {
-                    "text": "<h4>Newsletter Sign Up<br\/><\/h4>",
+                    "text": "<h4>Newsletter Sign Up<br/></h4>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -627,7 +640,7 @@
                 "text_LzFcxJ": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>For exclusive offers, fresh drops, and offers that’ll make you smile (don't worry, we don't send many news-letters!)<br\/><\/p>",
+                    "text": "<p>For exclusive offers, fresh drops, and offers that’ll make you smile (don't worry, we don't send many news-letters!)<br/></p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -741,7 +754,7 @@
               "type": "image",
               "name": "t:names.image",
               "settings": {
-                "image": "shopify:\/\/shop_images\/image_13.svg",
+                "image": "shopify://shop_images/image_13.svg",
                 "link": "",
                 "image_ratio": "adapt",
                 "width": "custom",
@@ -767,6 +780,8 @@
               "disabled": true,
               "settings": {
                 "horizontal_alignment": "flex-end",
+                "custom_payment_types": "ideal, american_express, apple_pay, google_pay, klarna, maestro, master, paypal, shopify_pay, unionpay, visa",
+                "icon_width": 38,
                 "gap": 10,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
@@ -783,7 +798,10 @@
           ]
         }
       },
-      "block_order": ["group_fCLyGw", "group_abR6E3"],
+      "block_order": [
+        "group_fCLyGw",
+        "group_abR6E3"
+      ],
       "custom_css": [
         ".email-signup__input-group--underline {box-shadow: none; border: 1px solid; border-radius: 100px; padding: 0 4px 0 20px;}",
         ".text-block h4,.menu__heading.h4 {font-size: 20px;}",
@@ -821,7 +839,10 @@
           "blocks": {}
         }
       },
-      "block_order": ["footer_copyright_jweRK8", "footer_policy_list_VCdnpa"],
+      "block_order": [
+        "footer_copyright_jweRK8",
+        "footer_policy_list_VCdnpa"
+      ],
       "disabled": true,
       "name": "t:names.utilities",
       "settings": {
@@ -835,5 +856,8 @@
       }
     }
   },
-  "order": ["footer_m9NzUG", "footer_utilities_jLGE8U"]
+  "order": [
+    "footer_m9NzUG",
+    "footer_utilities_jLGE8U"
+  ]
 }
