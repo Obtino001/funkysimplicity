@@ -180,9 +180,24 @@
     opacity: 0;
     transform: translateY(6px);
     transition: opacity var(--animation-speed, 0.2s) ease, transform var(--animation-speed, 0.2s) ease;
-        background: #f6f6f6db;
+        position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f6f6f6db;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 4;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity .22s cubic-bezier(.22,1,.36,1),transform .22s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 -4px 16px #0000000d;
+    will-change: opacity,transform;
   }
 
   .cart-complementary-card__media:hover .cart-complementary-card__quick-add,
