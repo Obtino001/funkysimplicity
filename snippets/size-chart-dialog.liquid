@@ -50,11 +50,14 @@
   }
 
   .size-chart-dialog__content {
+    position: fixed;
+    inset: 0;
     width: min(44rem, calc(100vw - 2rem));
     max-width: 44rem;
     max-height: min(80dvh, 50rem);
-    margin: auto;
+    margin: auto !important;
     padding: 0;
+    box-sizing: border-box;
     border: var(--style-border-popover);
     border-radius: var(--style-border-radius-popover);
     background-color: var(--color-background);

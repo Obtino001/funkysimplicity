@@ -76,11 +76,16 @@
     margin-bottom: 0 !important;
   }
 
-  .size-chart-trigger {
-    display: inline-flex;
-    align-items: center;
+  button.size-chart-trigger {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
     flex: 0 0 auto;
     gap: 8px;
+    width: auto;
+    white-space: nowrap;
+    vertical-align: middle;
     color: #000000;
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 14px;
@@ -91,10 +96,16 @@
     cursor: pointer;
   }
 
-  .size-chart-trigger svg {
+  button.size-chart-trigger svg {
+    display: block;
     width: 20px;
     height: 20px;
     flex: 0 0 20px;
+  }
+
+  button.size-chart-trigger span {
+    display: inline-block;
+    line-height: 20px;
   }
 
   .size-chart-trigger:focus-visible {
