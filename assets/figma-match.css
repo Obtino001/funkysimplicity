@@ -797,6 +797,7 @@ img.icon-block__media {
 
   .cart-drawer--custom .cart-drawer__inner {
     max-width: 100%;
+    border-left: 1px solid #0000001A;
   }
 
   .cart-drawer--custom .theme-drawer__title {
