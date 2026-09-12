@@ -149,7 +149,7 @@
               "name": "t:names.button",
               "settings": {
                 "label": "shop by prints",
-                "link": "shopify://collections/all",
+                "link": "shopify://collections/shop-by-print",
                 "open_in_new_tab": false,
                 "style_class": "button-custom",
                 "custom_button_background": "#ffffff21",
@@ -2375,7 +2375,7 @@
               "type": "button",
               "settings": {
                 "label": "meet the makers",
-                "link": "shopify://collections/all",
+                "link": "https://funkysimplicity.com/pages/about",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
                 "custom_button_background": "{{ settings.color_palette.foreground }}",
@@ -2544,7 +2544,7 @@
         "overlay_cta_label": "Lookbook →",
         "show_button": true,
         "button_label": "JOIN OUR COMMUNITY",
-        "button_link": "",
+        "button_link": "https://www.instagram.com/funkysimplicity/",
         "button_bg": "#ffffff",
         "button_color": "#000000"
       }
