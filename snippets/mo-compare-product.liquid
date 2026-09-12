@@ -61,6 +61,19 @@
         {{- 'icon-chevron-right.svg' | inline_asset_content -}}
       </button>
     {%- endif -%}
+
+    <button
+      type="button"
+      class="cart-recommendation__add"
+      data-recommendation-add
+      data-variant-id="{{ variant.id }}"
+      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
+    >
+      <span class="cart-recommendation__add-icon">
+        {{- 'icon-cart.svg' | inline_asset_content -}}
+      </span>
+      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
+    </button>
   </div>
 
   <div class="cart-recommendation__info">
@@ -132,17 +145,5 @@
       </div>
     {%- endunless -%}
 
-    <button
-      type="button"
-      class="cart-recommendation__add"
-      data-recommendation-add
-      data-variant-id="{{ variant.id }}"
-      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
-    >
-      <span class="cart-recommendation__add-icon">
-        {{- 'icon-cart.svg' | inline_asset_content -}}
-      </span>
-      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
-    </button>
   </div>
 </div>
