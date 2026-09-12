@@ -1185,75 +1185,99 @@
         "padding_bottom": 60
       }
     },
-    "community_mosaic_grid_MbXXbA": {
+    "community_mosaic_grid_DVKKwQ": {
       "type": "community-mosaic-grid",
       "blocks": {
-        "media_ijMxp4": {
+        "media_fTqWma": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_2.png",
+            "image": "shopify://shop_images/Rectangle_2_9.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
-        "media_efFm6X": {
+        "media_NGq4yp": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3.png",
+            "image": "shopify://shop_images/Rectangle_3_388bdfab-4302-4898-b5f1-6b94ad94eda6.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
-        "media_RpCmtd": {
+        "media_WNT3NB": {
           "type": "media",
           "settings": {
             "image": "shopify://shop_images/Rectangle_5.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
-        "media_Kt8eUk": {
+        "media_q9kyrU": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_4.png",
+            "image": "shopify://shop_images/Rectangle_4_2fd5a6c0-8322-46d7-9f8b-e7c09f08f32f.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
-        "media_WWteBU": {
+        "media_YEAb63": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_6.png",
+            "image": "shopify://shop_images/Rectangle_6_47badc9d-98b3-402c-86b2-284dc796b3e3.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
-        "media_cUDyw4": {
+        "media_PTyqMA": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_2_1.png",
+            "image": "shopify://shop_images/Rectangle_2_10.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
-        "media_CJWqy4": {
+        "media_EUyQ7R": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_3_1.png",
+            "image": "shopify://shop_images/Rectangle_3_1_7779fab5-962d-446a-ba42-5f15da46dad8.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         },
-        "media_CUBmLq": {
+        "media_CYd8yY": {
           "type": "media",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_5_1.png",
+            "image": "shopify://shop_images/Rectangle_5_1_36e2322a-a217-4f9d-b65a-17e7049fdba5.png",
+            "hover_title": "",
+            "hover_text": "",
+            "hover_cta": "Lookbook →",
             "link": ""
           }
         }
       },
       "block_order": [
-        "media_ijMxp4",
-        "media_efFm6X",
-        "media_RpCmtd",
-        "media_Kt8eUk",
-        "media_WWteBU",
-        "media_cUDyw4",
-        "media_CJWqy4",
-        "media_CUBmLq"
+        "media_fTqWma",
+        "media_NGq4yp",
+        "media_WNT3NB",
+        "media_q9kyrU",
+        "media_YEAb63",
+        "media_PTyqMA",
+        "media_EUyQ7R",
+        "media_CYd8yY"
       ],
       "name": "Community Mosaic Grid",
       "settings": {
@@ -1263,11 +1287,12 @@
         "section_width": "page-width",
         "gap": 10,
         "overlay_opacity": 40,
+        "overlay_cta_label": "Lookbook →",
         "show_button": true,
         "button_label": "JOIN OUR COMMUNITY",
         "button_link": "",
-        "button_bg": "{{ settings.color_palette.foreground }}",
-        "button_color": "{{ settings.color_palette.foreground }}"
+        "button_bg": "#ffffff",
+        "button_color": "#000000"
       }
     },
     "featured_blog_posts_UGbMPW": {
@@ -1979,7 +2004,7 @@
     "google_reviews_grid_LHeq7C",
     "collection_list_HzNdCd",
     "hero_feature_boxes_nACJ39",
-    "community_mosaic_grid_MbXXbA",
+    "community_mosaic_grid_DVKKwQ",
     "featured_blog_posts_UGbMPW",
     "section_n6QDL3"
   ]
