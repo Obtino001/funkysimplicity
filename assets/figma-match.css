@@ -1101,7 +1101,7 @@ img.icon-block__media {
     )
     .header-logo__image,
   #header-component[transparent][data-sticky-state='active'] .header-logo__image {
-    height: 35px !important;
+    height: 50px !important;
     width: auto !important;
     max-width: 132px;
   }
