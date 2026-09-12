@@ -1,7 +1,11 @@
-<div
+<mo-compare-product
   class="mo-compare-product"
   data-mo-compare-product
   data-product-id="{{ product.id }}"
+  data-url="{{ routes.product_recommendations_url }}"
+  data-section-id="mo-compare-recommendations"
+  data-limit="8"
+  {{ block.shopify_attributes }}
 >
   <div
     class="mo-compare-product__recommendations"
@@ -12,66 +16,18 @@
       <span></span>
     </div>
   </div>
-</div>
+</mo-compare-product>
 
-<script>
-  (() => {
-    const container = document.querySelector(
-      '[data-mo-compare-product][data-product-id="{{ product.id }}"]'
-    );
-
-    if (!container) return;
-
-    const recommendationsContainer = container.querySelector(
-      '[data-mo-compare-recommendations]'
-    );
-
-    if (!recommendationsContainer) return;
-
-    const productId = container.dataset.productId;
-
-    const url =
-      window.Shopify.routes.root +
-      'recommendations/products' +
-      '?product_id=' +
-      productId +
-      '&limit=8' +
-      '&section_id=mo-compare-recommendations' +
-      '&intent=related';
-
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to load recommendations');
-        }
-
-        return response.text();
-      })
-      .then((html) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-
-        const recommendations = doc.querySelector(
-          '[data-mo-compare-recommendations]'
-        );
-
-        if (!recommendations) {
-          recommendationsContainer.innerHTML = '';
-          return;
-        }
-
-        if (!recommendations.innerHTML.trim()) {
-          recommendationsContainer.innerHTML = '';
-          return;
-        }
-
-        recommendationsContainer.innerHTML = recommendations.innerHTML;
-      })
-      .catch((error) => {
-        console.error('Compare product recommendations:', error);
-        recommendationsContainer.innerHTML = '';
-      });
-  })();
+<script
+  type="module"
+  src="{{ 'mo-compare-product.js' | asset_url }}"
+  fetchpriority="low"
+></script>
+<script
+  type="module"
+  src="{{ 'cart-drawer-recommendations.js' | asset_url }}"
+  fetchpriority="low"
+></script>
 </script>
 <style>
   h2.mo-compare-recommendations__title {
