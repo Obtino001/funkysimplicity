@@ -356,7 +356,7 @@
   }
 
   .cart-drawer--custom cart-drawer-recommendations .cart-recommendation__add {
-    display: none;
+    display: flex;
   }
 
   .cart-drawer--custom .cart-totals__total-label {
@@ -1044,7 +1044,16 @@
     }
 
     .cart-drawer--custom .cart-recommendation__sizes {
-      display: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .cart-drawer--custom .cart-recommendation__size {
+      min-width: 28px;
+      padding: 3px 4px;
+      font-size: 8px;
+      line-height: 1.2;
     }
 
     .cart-drawer--custom .cart-recommendation__swatch {
