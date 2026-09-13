@@ -65,8 +65,12 @@
             assign option_key = option.name | downcase
             assign is_swatch = false
             assign is_size = false
+            assign is_color = false
             if option_key contains 'size'
               assign is_size = true
+            endif
+            if option_key contains 'color' or option_key contains 'colour'
+              assign is_color = true
             endif
             for value in option.values
               if value.swatch.color or value.swatch.image
@@ -74,12 +78,12 @@
                 break
               endif
             endfor
-            unless is_swatch or is_size
+            unless is_swatch or is_size or is_color
               continue
             endunless
           -%}
 
-          {%- if is_swatch -%}
+          {%- if is_swatch and is_color -%}
             <div
               class="cart-complementary-card__swatches"
               role="group"
@@ -106,7 +110,7 @@
             </div>
           {%- else -%}
             <div
-              class="cart-complementary-card__options"
+              class="cart-complementary-card__options{% if is_color %} cart-complementary-card__options--colors{% endif %}{% if is_size %} cart-complementary-card__options--sizes{% endif %}"
               role="group"
               aria-label="{{ option.name | escape }}"
               data-option-position="{{ option.position }}"
@@ -172,8 +176,12 @@
           assign option_key = option.name | downcase
           assign is_swatch = false
           assign is_size = false
+          assign is_color = false
           if option_key contains 'size'
             assign is_size = true
+          endif
+          if option_key contains 'color' or option_key contains 'colour'
+            assign is_color = true
           endif
           for value in option.values
             if value.swatch.color or value.swatch.image
@@ -181,12 +189,12 @@
               break
             endif
           endfor
-          unless is_swatch or is_size
+          unless is_swatch or is_size or is_color
             continue
           endunless
         -%}
 
-        {%- if is_swatch -%}
+        {%- if is_swatch and is_color -%}
           <div
             class="cart-complementary-card__mobile-swatches"
             role="group"
@@ -213,7 +221,7 @@
           </div>
         {%- else -%}
           <div
-            class="cart-complementary-card__mobile-sizes"
+            class="cart-complementary-card__mobile-sizes{% if is_color %} cart-complementary-card__mobile-sizes--colors{% endif %}{% if is_size %} cart-complementary-card__mobile-sizes--sizes{% endif %}"
             role="group"
             aria-label="{{ option.name | escape }}"
             data-option-position="{{ option.position }}"
