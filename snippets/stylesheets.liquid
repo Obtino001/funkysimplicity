@@ -1,5 +1,6 @@
 {{ 'overflow-list.css' | asset_url | preload_tag: as: 'style' }}
-{{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'product-card.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'product-gallery.css' | asset_url | stylesheet_tag: preload: true }}
-{{ 'figma-match.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'overflow-list.css' | asset_url | stylesheet_tag }}
+{{ 'base.css' | asset_url | stylesheet_tag }}
+{{ 'product-card.css' | asset_url | stylesheet_tag }}
+{{ 'product-gallery.css' | asset_url | stylesheet_tag }}
+{{ 'figma-match.css' | asset_url | stylesheet_tag }}

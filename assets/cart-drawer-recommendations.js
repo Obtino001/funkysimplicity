@@ -162,10 +162,16 @@ document.addEventListener('click', (event) => {
 
   event.preventDefault();
 
-  for (const sibling of group.querySelectorAll('[data-option-value]')) {
-    const isTarget = sibling === button;
-    sibling.classList.toggle(SELECTED, isTarget);
-    sibling.setAttribute('aria-pressed', isTarget ? 'true' : 'false');
+  const position = group.getAttribute('data-option-position');
+  const value = button.getAttribute('data-option-value');
+  const groups = position ? card.querySelectorAll(`[data-option-position="${position}"]`) : [group];
+
+  for (const relatedGroup of groups) {
+    for (const sibling of relatedGroup.querySelectorAll('[data-option-value]')) {
+      const isTarget = sibling.getAttribute('data-option-value') === value;
+      sibling.classList.toggle(SELECTED, isTarget);
+      sibling.setAttribute('aria-pressed', isTarget ? 'true' : 'false');
+    }
   }
 
   updateCard(card);

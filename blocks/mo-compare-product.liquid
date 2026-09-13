@@ -66,15 +66,11 @@
 
   .mo-compare-product .mo-compare-recommendations__products {
     display: flex;
-    flex-direction: row;
-    gap: 16px;
+    flex-direction: column;
+    gap: 14px;
     width: 100%;
-    padding-bottom: 12px;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    padding-bottom: 0;
+    overflow: visible;
   }
 
   .mo-compare-product .mo-compare-recommendations__products::-webkit-scrollbar {
@@ -82,16 +78,17 @@
   }
 
   .mo-compare-product .mo-compare-recommendations__item {
-    flex: 0 0 calc((100% - 32px) / 3);
+    flex: 0 0 auto;
+    width: 100%;
     min-width: 0;
-    scroll-snap-align: start;
   }
 
   .mo-compare-product .cart-recommendation {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    column-gap: 14px;
+    align-items: start;
     width: 100%;
     min-width: 0;
   }
@@ -99,7 +96,7 @@
   .mo-compare-product .cart-recommendation__media {
     position: relative;
     display: block;
-    width: 100%;
+    width: 130px;
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: 2px;
@@ -126,7 +123,7 @@
   .mo-compare-product .cart-recommendation__info {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 7px;
     width: 100%;
     min-width: 0;
   }
@@ -268,6 +265,11 @@
     height: 18px;
   }
 
+  .mo-compare-product .cart-recommendation__media .quick-add__button {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
   .mo-compare-product .cart-recommendation__add[aria-disabled='true'] {
     cursor: not-allowed;
     opacity: 0.45;
@@ -310,11 +312,30 @@
     }
 
     .mo-compare-product .mo-compare-recommendations__products {
+      flex-direction: row;
       gap: 10px;
+      padding-bottom: 12px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     .mo-compare-product .mo-compare-recommendations__item {
-      flex-basis: 45%;
+      flex: 0 0 45%;
+      width: auto;
+      scroll-snap-align: start;
+    }
+
+    .mo-compare-product .cart-recommendation {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mo-compare-product .cart-recommendation__media {
+      width: 100%;
     }
 
     .mo-compare-product .cart-recommendation__add {

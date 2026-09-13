@@ -164,4 +164,74 @@
       Save {{ savings | money }}
     </span>
   </div>
+
+  {%- unless product.has_only_default_variant -%}
+    <div class="cart-complementary-card__mobile-options" aria-label="Product options">
+      {%- for option in product.options_with_values -%}
+        {%- liquid
+          assign option_key = option.name | downcase
+          assign is_swatch = false
+          assign is_size = false
+          if option_key contains 'size'
+            assign is_size = true
+          endif
+          for value in option.values
+            if value.swatch.color or value.swatch.image
+              assign is_swatch = true
+              break
+            endif
+          endfor
+          unless is_swatch or is_size
+            continue
+          endunless
+        -%}
+
+        {%- if is_swatch -%}
+          <div
+            class="cart-complementary-card__mobile-swatches"
+            role="group"
+            aria-label="{{ option.name | escape }}"
+            data-option-position="{{ option.position }}"
+          >
+            {%- for value in option.values -%}
+              <button
+                type="button"
+                class="cart-recommendation__swatch{% if forloop.first %} is-selected{% endif %}"
+                data-option-value="{{ value | escape }}"
+                title="{{ value | escape }}"
+                aria-label="{{ option.name | escape }}: {{ value | escape }}"
+                aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                style="
+                  {%- if value.swatch.color -%}
+                    --swatch-background: {{ value.swatch.color }};
+                  {%- elsif value.swatch.image -%}
+                    --swatch-image: url({{ value.swatch.image | image_url: width: 60 }});
+                  {%- endif -%}
+                "
+              ></button>
+            {%- endfor -%}
+          </div>
+        {%- else -%}
+          <div
+            class="cart-complementary-card__mobile-sizes"
+            role="group"
+            aria-label="{{ option.name | escape }}"
+            data-option-position="{{ option.position }}"
+          >
+            {%- for value in option.values -%}
+              <button
+                type="button"
+                class="cart-complementary-card__option{% if forloop.first %} is-selected{% endif %}"
+                data-option-value="{{ value | escape }}"
+                aria-label="{{ option.name | escape }}: {{ value | escape }}"
+                aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+              >
+                {{- value -}}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endunless -%}
 </div>

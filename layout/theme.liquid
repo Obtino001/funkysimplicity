@@ -32,6 +32,13 @@
 
     {%- render 'meta-tags' -%}
 
+    {%- comment -%}
+      Shopify injects page-specific section and block assets here. Load them
+      before the theme's blocking CSS so the custom first-paint overrides below
+      win the cascade on collection pages, product cards, and mega menus.
+    {%- endcomment -%}
+    {{ content_for_header }}
+
     {%- render 'stylesheets' -%}
     {%- render 'card-hover-effect-styles' -%}
     {%- render 'product-card-styles' -%}
@@ -43,13 +50,6 @@
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
-
-    {%- comment -%}
-      Shopify injects page-specific section and block assets here. Keep this
-      after the theme foundations so component CSS wins the cascade without
-      waiting for JavaScript or requiring high-specificity overrides.
-    {%- endcomment -%}
-    {{ content_for_header }}
   </head>
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
