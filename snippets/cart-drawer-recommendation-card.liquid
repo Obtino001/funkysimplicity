@@ -62,18 +62,6 @@
       </button>
     {%- endif -%}
 
-    <button
-      type="button"
-      class="cart-recommendation__add"
-      data-recommendation-add
-      data-variant-id="{{ variant.id }}"
-      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
-    >
-      <span class="cart-recommendation__add-icon">
-        {{- 'icon-cart.svg' | inline_asset_content -}}
-      </span>
-      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
-    </button>
   </div>
 
   <div class="cart-recommendation__info">
@@ -82,6 +70,17 @@
     <div class="cart-recommendation__price" data-recommendation-price>
       {{ variant.price | money }}
     </div>
+
+    {%- liquid
+      assign has_size_option = false
+      for option in product.options_with_values
+        assign option_key = option.name | downcase
+        if option_key contains 'size'
+          assign has_size_option = true
+          break
+        endif
+      endfor
+    -%}
 
     {%- unless product.has_only_default_variant -%}
       <div class="cart-recommendation__options">
@@ -159,7 +158,60 @@
             </div>
           {%- endif -%}
         {%- endfor -%}
+
+        {%- unless has_size_option -%}
+          <div
+            class="cart-recommendation__sizes cart-recommendation__sizes--fallback"
+            role="group"
+            aria-label="Size"
+          >
+            {%- assign fallback_sizes = 'S,M,L,XL,2XL,3XL,4XL' | split: ',' -%}
+            {%- for size in fallback_sizes -%}
+              <button
+                type="button"
+                class="cart-recommendation__size{% if forloop.first %} is-selected{% endif %}"
+                aria-label="Size: {{ size }}"
+                aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+              >
+                {{- size -}}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endunless -%}
+      </div>
+    {%- else -%}
+      <div class="cart-recommendation__options">
+        <div
+          class="cart-recommendation__sizes cart-recommendation__sizes--fallback"
+          role="group"
+          aria-label="Size"
+        >
+          {%- assign fallback_sizes = 'S,M,L,XL,2XL,3XL,4XL' | split: ',' -%}
+          {%- for size in fallback_sizes -%}
+            <button
+              type="button"
+              class="cart-recommendation__size{% if forloop.first %} is-selected{% endif %}"
+              aria-label="Size: {{ size }}"
+              aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+            >
+              {{- size -}}
+            </button>
+          {%- endfor -%}
+        </div>
       </div>
     {%- endunless -%}
+
+    <button
+      type="button"
+      class="cart-recommendation__add"
+      data-recommendation-add
+      data-variant-id="{{ variant.id }}"
+      aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
+    >
+      <span class="cart-recommendation__add-icon">
+        {{- 'icon-cart.svg' | inline_asset_content -}}
+      </span>
+      <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
+    </button>
   </div>
 </div>

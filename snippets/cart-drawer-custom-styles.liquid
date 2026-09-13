@@ -359,6 +359,22 @@
     display: flex;
   }
 
+  .cart-drawer--custom cart-drawer-recommendations .cart-recommendation__add {
+    position: static;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    border-radius: 2px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .cart-drawer--custom cart-drawer-recommendations .cart-recommendation__add svg {
+    width: 18px;
+    height: 18px;
+  }
+
   .cart-drawer--custom .cart-totals__total-label {
     font-size: var(--font-size--xl);
     font-weight: 600;
@@ -1015,23 +1031,22 @@
     }
 
     .cart-drawer--custom .cart-recommendations__list {
-      flex-direction: row;
-      gap: 7px;
-      overflow-x: auto;
+      flex-direction: column;
+      gap: 14px;
+      overflow: visible;
       scrollbar-width: none;
     }
 
     .cart-drawer--custom .cart-recommendation {
-      display: flex;
-      flex: 0 0 var(--cart-mobile-carousel-card-width);
-      width: var(--cart-mobile-carousel-card-width);
-      flex-direction: column;
-      gap: 6px;
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      width: 100%;
+      gap: 12px;
     }
 
     .cart-drawer--custom .cart-recommendation__media {
-      width: var(--cart-mobile-carousel-card-width);
-      height: auto;
+      width: 92px;
+      height: 138px;
       aspect-ratio: 2 / 3;
     }
 
@@ -1063,15 +1078,16 @@
 
     .cart-drawer--custom cart-drawer-recommendations .cart-recommendation__add {
       display: flex;
-      width: 34px;
-      height: 34px;
-      inset-block-end: 8px;
-      inset-inline-end: 8px;
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      min-height: 22px;
+      box-shadow: none;
     }
 
     .cart-drawer--custom cart-drawer-recommendations .cart-recommendation__add svg {
-      width: 17px;
-      height: 17px;
+      width: 18px;
+      height: 18px;
     }
 
     .cart-drawer--custom .cart-media-nav {
