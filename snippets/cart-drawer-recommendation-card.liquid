@@ -89,7 +89,11 @@
           {%- liquid
             assign option_key = option.name | downcase
             assign is_swatch = false
+            assign is_color = false
             assign is_size = false
+            if option_key contains 'color' or option_key contains 'colour'
+              assign is_color = true
+            endif
             if option_key contains 'size'
               assign is_size = true
             endif
@@ -99,9 +103,14 @@
                 break
               endif
             endfor
-            unless is_swatch or is_size
-              continue
-            endunless
+
+            assign option_style = 'cart-recommendation__sizes'
+            if is_color
+              assign option_style = option_style | append: ' cart-recommendation__sizes--colors'
+            endif
+            if is_size
+              assign option_style = option_style | append: ' cart-recommendation__sizes--sizes'
+            endif
           -%}
 
           {%- if is_swatch -%}
@@ -131,7 +140,7 @@
             </div>
           {%- else -%}
             <div
-              class="cart-recommendation__sizes"
+              class="{{ option_style }}"
               role="group"
               aria-label="{{ option.name | escape }}"
               data-option-position="{{ option.position }}"
