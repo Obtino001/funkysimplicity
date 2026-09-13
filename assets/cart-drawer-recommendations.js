@@ -105,6 +105,12 @@ function updateCard(card) {
   const variants = readVariants(card);
   const selection = readSelection(card);
   const addButton = card.querySelector('[data-recommendation-add]');
+
+  // A malformed/empty payload is not proof that inventory is unavailable.
+  // Keep Liquid's initial available variant active instead of crossing out
+  // every option and disabling quick add.
+  if (!variants.length) return;
+
   const currentVariantId = addButton instanceof HTMLElement ? Number(addButton.dataset.variantId) : 0;
   const exactMatch = selection.length
     ? variants.find((variant) => selection.every((value, index) => variant.options[index] === value))

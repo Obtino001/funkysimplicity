@@ -20,8 +20,7 @@
           "id": {{ v.id }},
           "available": {{ v.available }},
           "options": {{ v.options | json }},
-          "price": {{ v.price | money | json }},
-          "featured_image": {{ v.featured_image.src | image_url: width: 400 | json }}
+          "price": {{ v.price | money | json }}
         }{%- unless forloop.last -%},{%- endunless -%}
       {%- endfor -%}
     ]
