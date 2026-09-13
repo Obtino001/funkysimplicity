@@ -104,7 +104,17 @@ function readSelection(card) {
 function updateCard(card) {
   const variants = readVariants(card);
   const selection = readSelection(card);
-  const match = variants.find((variant) => selection.every((value, index) => variant.options[index] === value));
+  const addButton = card.querySelector('[data-recommendation-add]');
+  const currentVariantId = addButton instanceof HTMLElement ? Number(addButton.dataset.variantId) : 0;
+  const exactMatch = selection.length
+    ? variants.find((variant) => selection.every((value, index) => variant.options[index] === value))
+    : null;
+  const match =
+    exactMatch ||
+    variants.find((variant) => variant.id === currentVariantId && variant.available) ||
+    variants.find((variant) => variant.available) ||
+    variants.find((variant) => variant.id === currentVariantId) ||
+    variants[0];
 
   const price = card.querySelector('[data-recommendation-price]');
   if (price && match) price.textContent = decodeMoney(match.price);
@@ -124,7 +134,6 @@ function updateCard(card) {
     if (discounted && match) savings.textContent = `Save ${decodeMoney(match.savings)}`;
   }
 
-  const addButton = card.querySelector('[data-recommendation-add]');
   if (addButton instanceof HTMLElement) {
     const available = Boolean(match?.available);
     addButton.dataset.variantId = match ? String(match.id) : '';

@@ -90,6 +90,12 @@
             assign is_swatch = false
             assign is_color = false
             assign is_size = false
+            assign selected_option_value = variant.option1
+            if option.position == 2
+              assign selected_option_value = variant.option2
+            elsif option.position == 3
+              assign selected_option_value = variant.option3
+            endif
             if option_key contains 'color' or option_key contains 'colour'
               assign is_color = true
             endif
@@ -122,11 +128,11 @@
               {%- for value in option.values -%}
                 <button
                   type="button"
-                  class="cart-recommendation__swatch{% if forloop.first %} is-selected{% endif %}"
+                  class="cart-recommendation__swatch{% if value == selected_option_value %} is-selected{% endif %}"
                   data-option-value="{{ value | escape }}"
                   title="{{ value | escape }}"
                   aria-label="{{ option.name | escape }}: {{ value | escape }}"
-                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  aria-pressed="{% if value == selected_option_value %}true{% else %}false{% endif %}"
                   style="
                     {%- if value.swatch.color -%}
                       --swatch-background: {{ value.swatch.color }};
@@ -147,10 +153,10 @@
               {%- for value in option.values -%}
                 <button
                   type="button"
-                  class="cart-recommendation__size{% if forloop.first %} is-selected{% endif %}"
+                  class="cart-recommendation__size{% if value == selected_option_value %} is-selected{% endif %}"
                   data-option-value="{{ value | escape }}"
                   aria-label="{{ option.name | escape }}: {{ value | escape }}"
-                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  aria-pressed="{% if value == selected_option_value %}true{% else %}false{% endif %}"
                 >
                   {{- value -}}
                 </button>
@@ -206,6 +212,7 @@
       class="cart-recommendation__add"
       data-recommendation-add
       data-variant-id="{{ variant.id }}"
+      aria-disabled="{% if variant.available %}false{% else %}true{% endif %}"
       aria-label="{{ 'actions.add_to_cart' | t }}: {{ product.title | escape }}"
     >
       <span class="cart-recommendation__add-icon">
