@@ -402,15 +402,7 @@
               id="FacetFiltersForm--{{ section.id }}-mobile-sorting-only"
               ref="facetsForm"
             >
-              {% render 'sorting',
-                results: results,
-                sort_by: sort_by,
-                filter_style: block_settings.filter_style,
-                suffix: 'mobile',
-                sort_position: 'mobile',
-                should_use_select_on_mobile: true,
-                section_id: section.id | append: '-mobile-bar'
-              %}
+              {% render 'sorting', results: results, sort_by: sort_by, filter_style: block_settings.filter_style, suffix: 'mobile', sort_position: 'mobile', should_use_select_on_mobile: true, section_id: section.id, append: '-mobile-bar' %}
             </form>
           </facets-form-component>
         {% endif %}
@@ -1523,3 +1515,24 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'sorting',
+                    results: results,
+                    sort_by: sort_by,
+                    filter_style: block_settings.filter_style,
+                    suffix: 'mobile',
+                    sort_position: 'mobile',
+                    should_use_select_on_mobile: true,
+                    section_id: section.id | append: '-mobile-bar'
+                  %}
+  to: "{% render 'sorting', results: results, sort_by: sort_by, filter_style: block_settings.filter_style,
+    suffix: 'mobile', sort_position: 'mobile', should_use_select_on_mobile: true,
+    section_id: section.id, append: '-mobile-bar' %}"
+  position: 15272..15498
+{% endcomment %}
