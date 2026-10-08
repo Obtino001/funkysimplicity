@@ -15,19 +15,53 @@
     --font-family: var(--font-body--family);
     --font-style: var(--font-body--style);
     --font-weight: 600;
+    --logo-height-desktop: {{ settings.logo_height }}px;
+    --logo-height-mobile: {{ settings.logo_height_mobile }}px;
   "
   {{ block.shopify_attributes }}
 >
   <span
-    class="header-logo__image-container header-logo__image-container--original"
+    class="header-logo__image-container header-logo__image-container--original{% if settings.logo != blank and settings.logo_inverse != blank %} header-logo__image-container--has-inverse{% endif %}"
     data-testid="header-logo"
   >
-    <span class="header-logo__wordmark">Funky Simplicity</span>
+    {% if settings.logo != blank %}
+      {{ settings.logo | image_url: width: 600 | image_tag: class: 'header-logo__image', alt: shop.name, loading: 'eager' }}
+    {% elsif settings.logo_inverse != blank %}
+      {{ settings.logo_inverse | image_url: width: 600 | image_tag: class: 'header-logo__image', alt: shop.name, loading: 'eager' }}
+    {% else %}
+      <span class="header-logo__wordmark">{{ shop.name }}</span>
+    {% endif %}
   </span>
+
+  {% if settings.logo != blank and settings.logo_inverse != blank %}
+    <span class="header-logo__image-container header-logo__image-container--inverse" aria-hidden="true">
+      {{ settings.logo_inverse | image_url: width: 600 | image_tag: class: 'header-logo__image', alt: '', loading: 'eager' }}
+    </span>
+  {% endif %}
 
 </a>
 
 {% stylesheet %}
+  .header-logo__image-container--inverse {
+    display: none;
+  }
+
+  #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image-container--has-inverse {
+    display: none;
+  }
+
+  #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image-container--inverse {
+    display: block;
+  }
+
+  .header-logo__image {
+    display: block;
+    width: auto;
+    height: var(--logo-height-desktop);
+    max-width: 100%;
+    object-fit: contain;
+  }
+
   .header-logo__wordmark {
     display: block;
     color: currentColor;
@@ -45,6 +79,10 @@
   }
 
   @media screen and (max-width: 749px) {
+    .header-logo__image {
+      height: var(--logo-height-mobile);
+    }
+
     .header-logo__wordmark {
       font-size: clamp(1.15rem, 5vw, 1.55rem);
     }
