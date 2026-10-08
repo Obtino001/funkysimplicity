@@ -668,32 +668,32 @@
         "collection_tab_QKqAka": {
           "type": "collection_tab",
           "settings": {
-            "collection": "shop-by-print",
-            "tab_title": "Tops",
+            "collection": "leggings",
+            "tab_title": "Leggings",
             "view_all_url": ""
           }
         },
         "collection_tab_EjeG9C": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cactus-print",
-            "tab_title": "Leggings",
+            "collection": "flare-pants",
+            "tab_title": "Flare Pants",
             "view_all_url": ""
           }
         },
         "collection_tab_g48xMb": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cow",
-            "tab_title": "Bras",
+            "collection": "sport-bras",
+            "tab_title": "Sport Bras",
             "view_all_url": ""
           }
         },
         "collection_tab_fcQmmb": {
           "type": "collection_tab",
           "settings": {
-            "collection": "flare-pants",
-            "tab_title": "Bodysuits",
+            "collection": "catsuits",
+            "tab_title": "Catsuits",
             "view_all_url": ""
           }
         }
@@ -706,7 +706,7 @@
       ],
       "name": "Tabbed Carousel",
       "settings": {
-        "heading": "Our Best Sellers",
+        "heading": "Explore Styles",
         "heading_size": "h2",
         "section_width": "page-width",
         "background_color": "",
@@ -745,8 +745,8 @@
             "icon": "flask",
             "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_1_7ef0587e-cd93-4dfa-9e1f-4c6800be59b0.png",
             "custom_svg": "",
-            "title": "No Microplastics",
-            "text": "Our natural cotton fabric contains no microplastics."
+            "title": "Cotton-Rich Comfort",
+            "text": "A soft, breathable cotton-rich blend."
           }
         },
         "feature_DEU4gH": {
@@ -755,8 +755,8 @@
             "icon": "clock_recycle",
             "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_2_46dda474-24fe-4607-860c-51687bc1ab6b.png",
             "custom_svg": "",
-            "title": "Lasts For Years",
-            "text": "Tested and made to last through years of wear."
+            "title": "Made for Everyday Wear",
+            "text": "Designed for comfort through regular wear."
           }
         }
       },
@@ -1086,11 +1086,11 @@
       "name": "t:names.collections_carousel",
       "settings": {
         "collection_list": [
-          "capri-leggings",
+          "bloom",
           "coral",
           "zebra-print",
-          "bloom",
-          "feather"
+          "feather",
+          "snake-print"
         ],
         "layout_type": "carousel",
         "carousel_on_mobile": false,
@@ -1150,7 +1150,7 @@
             "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_3_26b7be36-c0e5-4a21-b7e6-c7f14e15645e.png",
             "custom_svg": "",
             "title": "High Quality Fabrics",
-            "text": "90% cotton and 10% elastane, made to last through countless washes and wears without losing shape."
+            "text": "90% cotton and 10% elastane for a soft, flexible feel."
           }
         }
       },

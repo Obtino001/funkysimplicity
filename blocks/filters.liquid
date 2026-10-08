@@ -203,6 +203,9 @@
 
               {% capture rendered_filters %}
                 {%- for filter in filters -%}
+                  {% if collection.handle == 'funky-sale' and filter.param_name contains 'option.size' %}
+                    {% continue %}
+                  {% endif %}
                   {% case filter.type %}
                     {% when 'price_range' %}
                       {%- liquid
@@ -484,6 +487,9 @@
                 {% assign is_active = false %}
 
                 {%- for filter in filters -%}
+                  {% if collection.handle == 'funky-sale' and filter.param_name contains 'option.size' %}
+                    {% continue %}
+                  {% endif %}
                   {% case filter.type %}
                     {% when 'price_range' %}
                       {%- liquid

@@ -24,9 +24,9 @@
         "eyebrow": "HANDMADE IN BALI SINCE 1994",
         "heading": "Timeless Cotton Active Wear Made With Soul",
         "primary_label": "SHOP NOW",
-        "primary_link": "",
+        "primary_link": "shopify://collections/shop-by-style",
         "secondary_label": "SHOP BY PRINTS",
-        "secondary_link": ""
+        "secondary_link": "shopify://collections/shop-by-print"
       }
     },
     "hero_jVaWmY": {
@@ -1068,7 +1068,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<p>Shop by category</p>",
+                "text": "<p>Shop by Style</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1179,8 +1179,8 @@
           "flare-pants",
           "sport-bras",
           "shorts-hot-pants",
-          "bloom",
-          "argus"
+          "capri-leggings",
+          "sporty-tops"
         ],
         "layout_type": "carousel",
         "carousel_on_mobile": false,
@@ -1208,7 +1208,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "VIEW ALL",
-            "link": "shopify://collections/all",
+            "link": "shopify://collections/shop-by-style",
             "open_in_new_tab": false,
             "style_class": "button",
             "custom_button_background": "{{ settings.color_palette.foreground }}",
@@ -1415,11 +1415,11 @@
       "name": "t:names.collections_carousel",
       "settings": {
         "collection_list": [
-          "capri-leggings",
+          "bloom",
           "coral",
           "zebra-print",
-          "bloom",
-          "feather"
+          "feather",
+          "snake-print"
         ],
         "layout_type": "carousel",
         "carousel_on_mobile": false,
@@ -1447,7 +1447,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "VIEW ALL",
-            "link": "shopify://collections/all",
+            "link": "shopify://collections/shop-by-print",
             "open_in_new_tab": false,
             "style_class": "button",
             "custom_button_background": "{{ settings.color_palette.foreground }}",
@@ -1508,7 +1508,7 @@
           "name": "t:names.button",
           "settings": {
             "label": "VIEW ALL",
-            "link": "shopify://collections/all",
+            "link": "shopify://collections/leggings",
             "open_in_new_tab": false,
             "style_class": "button",
             "custom_button_background": "{{ settings.color_palette.foreground }}",
@@ -1561,7 +1561,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<p>Our Best Sellers</p>",
+                "text": "<p>Featured Leggings</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -1694,7 +1694,7 @@
       ],
       "name": "t:names.product_list",
       "settings": {
-        "collection": "shop-by-print",
+        "collection": "leggings",
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 8,
@@ -1719,32 +1719,32 @@
         "collection_tab_B99wxY": {
           "type": "collection_tab",
           "settings": {
-            "collection": "shop-by-print",
-            "tab_title": "Tops",
+            "collection": "leggings",
+            "tab_title": "Leggings",
             "view_all_url": ""
           }
         },
         "collection_tab_UdnUmB": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cactus-print",
-            "tab_title": "Leggings",
+            "collection": "flare-pants",
+            "tab_title": "Flare Pants",
             "view_all_url": ""
           }
         },
         "collection_tab_d8AmPe": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cow",
-            "tab_title": "Bras",
+            "collection": "sport-bras",
+            "tab_title": "Sport Bras",
             "view_all_url": ""
           }
         },
         "collection_tab_zqaNDy": {
           "type": "collection_tab",
           "settings": {
-            "collection": "flare-pants",
-            "tab_title": "Bodysuits",
+            "collection": "catsuits",
+            "tab_title": "Catsuits",
             "view_all_url": ""
           }
         }
@@ -1796,8 +1796,8 @@
             "icon": "flask",
             "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_1_7ef0587e-cd93-4dfa-9e1f-4c6800be59b0.png",
             "custom_svg": "",
-            "title": "No Microplastics",
-            "text": "Our natural cotton fabric contains no microplastics."
+            "title": "Cotton-Rich Comfort",
+            "text": "A soft, breathable cotton-rich blend."
           }
         },
         "feature_PXR4Kd": {
@@ -1806,8 +1806,8 @@
             "icon": "clock_recycle",
             "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_2_46dda474-24fe-4607-860c-51687bc1ab6b.png",
             "custom_svg": "",
-            "title": "Lasts For Years",
-            "text": "Tested and made to last through years of wear."
+            "title": "Made for Everyday Wear",
+            "text": "Designed for comfort through regular wear."
           }
         }
       },
@@ -1989,32 +1989,32 @@
         "collection_tab_kmz9AJ": {
           "type": "collection_tab",
           "settings": {
-            "collection": "shop-by-print",
-            "tab_title": "Tops",
+            "collection": "leggings",
+            "tab_title": "Leggings",
             "view_all_url": ""
           }
         },
         "collection_tab_jgQQKC": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cactus-print",
-            "tab_title": "Leggings",
+            "collection": "flare-pants",
+            "tab_title": "Flare Pants",
             "view_all_url": ""
           }
         },
         "collection_tab_gQgMg4": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cow",
-            "tab_title": "Bras",
+            "collection": "sport-bras",
+            "tab_title": "Sport Bras",
             "view_all_url": ""
           }
         },
         "collection_tab_TyJwc8": {
           "type": "collection_tab",
           "settings": {
-            "collection": "flare-pants",
-            "tab_title": "Bodysuits",
+            "collection": "catsuits",
+            "tab_title": "Catsuits",
             "view_all_url": ""
           }
         }
@@ -2027,7 +2027,7 @@
       ],
       "name": "Tabbed Carousel",
       "settings": {
-        "heading": "New arrivals",
+        "heading": "Explore Styles",
         "heading_size": "h2",
         "section_width": "page-width",
         "background_color": "",
@@ -2158,7 +2158,7 @@
         "banner_overlay_opacity": 0,
         "show_view_all": true,
         "view_all_text": "VIEW ALL",
-        "view_all_link": "shopify://collections/all",
+        "view_all_link": "shopify://collections/men-collection",
         "padding_top": 32,
         "padding_bottom": 64
       }
@@ -2203,7 +2203,7 @@
             "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_12_47_19_PM_1_3_26b7be36-c0e5-4a21-b7e6-c7f14e15645e.png",
             "custom_svg": "",
             "title": "High Quality Fabrics",
-            "text": "90% cotton and 10% elastane, made to last through countless washes and wears without losing shape."
+            "text": "90% cotton and 10% elastane for a soft, flexible feel."
           }
         }
       },
@@ -2824,10 +2824,8 @@
     "collection_list_ThLPEE",
     "section_yeaQgP",
     "product_list_JKdyaE",
-    "tabbed_collection_carousel_MFGEYK",
     "fabric_features_banner_Qikw9m",
     "google_reviews_grid_FMnrpF",
-    "tabbed_collection_carousel_AUhyJ9",
     "featured_collection_split_EcGpnQ",
     "hero_feature_boxes_KndTVh",
     "section_ctkgYh",

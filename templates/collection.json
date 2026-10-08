@@ -214,20 +214,7 @@
         }
       },
       "settings": {
-        "collection_tabs": [
-          "argus",
-          "bloom",
-          "cactus-print",
-          "capri-leggings",
-          "catsuits",
-          "coral",
-          "cow",
-          "crocodile-print",
-          "dragon-print",
-          "feather",
-          "flare-pants",
-          "funky-sale"
-        ],
+        "collection_tabs": [],
         "layout_type": "grid",
         "product_card_size": "large",
         "mobile_product_card_size": "small",
@@ -394,32 +381,32 @@
         "collection_tab_bcCEDU": {
           "type": "collection_tab",
           "settings": {
-            "collection": "shop-by-print",
-            "tab_title": "Tops",
+            "collection": "leggings",
+            "tab_title": "Leggings",
             "view_all_url": ""
           }
         },
         "collection_tab_NRiBeh": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cactus-print",
-            "tab_title": "Leggings",
+            "collection": "flare-pants",
+            "tab_title": "Flare Pants",
             "view_all_url": ""
           }
         },
         "collection_tab_Aww6eh": {
           "type": "collection_tab",
           "settings": {
-            "collection": "cow",
-            "tab_title": "Bras",
+            "collection": "sport-bras",
+            "tab_title": "Sport Bras",
             "view_all_url": ""
           }
         },
         "collection_tab_GFnQ9k": {
           "type": "collection_tab",
           "settings": {
-            "collection": "flare-pants",
-            "tab_title": "Bodysuits",
+            "collection": "catsuits",
+            "tab_title": "Catsuits",
             "view_all_url": ""
           }
         }
@@ -432,7 +419,7 @@
       ],
       "name": "Tabbed Carousel",
       "settings": {
-        "heading": "Our Best Sellers",
+        "heading": "Explore Styles",
         "heading_size": "h2",
         "section_width": "page-width",
         "background_color": "",

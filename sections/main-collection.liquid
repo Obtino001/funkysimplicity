@@ -65,6 +65,21 @@
         </div>
       </div>
     {% endif %}
+    {% if collection.handle == 'funky-sale' %}
+      <div class="sale-size-filter" data-sale-size-filter role="group" aria-label="Shop sale items by available size"></div>
+      <script src="{{ 'sale-size-filter.js' | asset_url }}" defer></script>
+      <style>
+        .sale-size-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; padding: 18px 0; }
+        .sale-size-filter__label { font-weight: 600; }
+        .sale-size-filter__choices { display: flex; flex-wrap: wrap; gap: 8px; }
+        .sale-size-filter__choices button { border: 1px solid currentColor; border-radius: 999px; background: transparent; color: inherit; padding: 7px 14px; cursor: pointer; }
+        .sale-size-filter__choices button[aria-pressed='true'] { background: #111; border-color: #111; color: #fff; }
+        .sale-size-filter__count { margin-inline-start: auto; }
+        .product-grid__item[data-sale-variants][hidden] { display: none !important; }
+        [data-sale-size-active] .product-grid__item[data-sale-variants] .tcc-quick-shop,
+        [data-sale-size-active] .product-grid__item[data-sale-variants] .tcc-add-btn.mobile { display: none !important; }
+      </style>
+    {% endif %}
     <div
       class="collection-wrapper grid gap-style{% if section.settings.product_grid_width == 'full-width' %} collection-wrapper--grid-full-width{% endif %}"
     >
@@ -77,18 +92,51 @@
 
       {% assign products_per_page = 24 %}
 
-      {% if section.settings.enable_infinite_scroll == false %}
+      {% if collection.handle == 'funky-sale' %}
+        {% assign products_per_page = 250 %}
+      {% elsif section.settings.enable_infinite_scroll == false %}
         {% assign products_per_page = section.settings.products_per_page %}
       {% endif %}
 
       {% paginate collection.products by products_per_page %}
         {% capture children %}
           {% for product in collection.products %}
+            {% if collection.handle == 'funky-sale' %}
+              {% liquid
+                assign size_position = 0
+                for option in product.options_with_values
+                  assign option_name = option.name | downcase
+                  if option_name contains 'size'
+                    assign size_position = option.position
+                    break
+                  endif
+                endfor
+              %}
+              {% capture available_size_variants %}
+                {% for variant in product.variants %}
+                  {% if variant.available and size_position > 0 %}
+                    {% liquid
+                      case size_position
+                        when 1
+                          assign size_value = variant.option1
+                        when 2
+                          assign size_value = variant.option2
+                        when 3
+                          assign size_value = variant.option3
+                      endcase
+                      assign size_value = size_value | downcase | strip
+                    %}
+                    |{{ size_value }}:{{ variant.id }}
+                  {% endif %}
+                {% endfor %}
+              {% endcapture %}
+            {% endif %}
             <li
               id="{{ section.id }}-{{ product.id }}"
               class="product-grid__item product-grid__item--{{ forloop.index0 }}"
               data-page="{{ paginate.current_page }}"
               data-product-id="{{ product.id }}"
+              {% if collection.handle == 'funky-sale' %}data-sale-variants="{{ available_size_variants | strip_newlines | escape }}"{% endif %}
               ref="cards[]"
             >
               {% content_for 'block',
