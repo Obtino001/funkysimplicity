@@ -24,13 +24,15 @@
     class="header-logo__image-container header-logo__image-container--original{% if settings.logo != blank and settings.logo_inverse != blank %} header-logo__image-container--has-inverse{% endif %}"
     data-testid="header-logo"
   >
-    {% if settings.logo != blank %}
-      {{ settings.logo | image_url: width: 600 | image_tag: class: 'header-logo__image', alt: shop.name, loading: 'eager' }}
-    {% elsif settings.logo_inverse != blank %}
-      {{ settings.logo_inverse | image_url: width: 600 | image_tag: class: 'header-logo__image', alt: shop.name, loading: 'eager' }}
-    {% else %}
-      <span class="header-logo__wordmark">{{ shop.name }}</span>
-    {% endif %}
+    {% comment %} Wordmark only ("Funky Simplicity", without "by Sanne") — brand request. {% endcomment %}
+    <img
+      src="{{ 'funky-simplicity-logo.png' | asset_url }}"
+      class="header-logo__image"
+      alt="{{ shop.name | escape }}"
+      width="726"
+      height="98"
+      loading="eager"
+    >
   </span>
 
   {% if settings.logo != blank and settings.logo_inverse != blank %}
@@ -62,11 +64,18 @@
     object-fit: contain;
   }
 
+  /* Logo should read big. These beat the pill/transparent height caps in
+     header.liquid and figma-match.css (higher specificity). */
+  #header-component .header__columns .header-logo .header-logo__image-container .header-logo__image {
+    width: min(220px, 52vw) !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+  }
+
   @media screen and (min-width: 990px) {
     #header-component .header__columns .header-logo .header-logo__image-container .header-logo__image {
-      width: 250px !important;
-      height: auto !important;
-      max-width: none !important;
+      width: clamp(280px, 26vw, 400px) !important;
     }
   }
 

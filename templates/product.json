@@ -411,7 +411,7 @@
                     "text_QgHLTg": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+                        "text": "<p>Our leggings have a generous USA-based fit. If you're between sizes, we recommend going one size down for a perfect fit.</p><p><strong>Normal leg:</strong> Perfect for customers up to 1.72 m, landing at the ankle.<br/><strong>Long leg:</strong> Ideal for those from 1.73 m to 1.82 m.</p><p><strong>In between 'Normal' and 'Long' leg?</strong> Choose based on whether you like your leggings to fall just above the ankle or extend over it.</p><p><strong>Custom made:</strong> If you're shorter than 1.60 m or taller than 1.80 m, we can create custom leggings just for you! <a href=\"/pages/contact\">Contact us</a> for details. Note: custom orders incur an additional fee of €10.</p><p><strong>Tip:</strong> share your height and weight in the comments of your cart or send us a <a href=\"/pages/contact\">message</a>, that way we can make sure you'll receive the perfect fit!</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -450,7 +450,7 @@
                     "text_BDnAeG": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Made from 90% soft cotton and 10% 4-way stretch elastane.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -489,7 +489,7 @@
                     "text_txDqKw": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Keep your Funky Leggings looking fresh and fabulous:</p><p><strong>Machine wash</strong> gently at 40°C (105°F). Wash inside out.<br/><strong>Air dry</strong> in shade — skip the tumble dryer unless you'd like to shrink them a bit!</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -528,7 +528,7 @@
                     "text_zfFG7U": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p>Made with love by Balinese artisans in the comfort of their own studio next to their home, which Funky Simplicity built for them in 2020.</p><p><a href=\"/pages/meet-the-makers\">Meet the people</a> behind your soon-to-be favorite leggings.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -567,7 +567,7 @@
                     "text_iMtbdi": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<p><strong>Shipping</strong><br/>Free shipping for orders above €150.</p><p><strong>Returns</strong><br/>We want you to love your purchase! If you're not completely satisfied, you can return your order within 14 days. Just make sure the items are unworn, undamaged, and in their original packaging with tags attached. Unfortunately, we cannot accept returns on underwear, sale or custom-made items.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -1086,11 +1086,13 @@
       "name": "t:names.collections_carousel",
       "settings": {
         "collection_list": [
+          "tribal-eagle",
           "bloom",
-          "coral",
+          "giraffe-print",
           "zebra-print",
-          "feather",
-          "snake-print"
+          "pufferfish",
+          "snake-print",
+          "feather"
         ],
         "layout_type": "carousel",
         "carousel_on_mobile": false,
