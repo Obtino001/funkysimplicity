@@ -407,7 +407,7 @@
     data-transparent-background="{{ background_transparent_color_value }}"
   {% endif %}
   style="
-    --header-pill-bg: {{ section.settings.pill_background_color | default: '#4A4A4A' }};
+    --header-pill-bg: {{ section.settings.pill_background_color | default: '#000000' }};
     --header-pill-text: {{ section.settings.pill_text_color | default: '#ffffff' }};
     --header-pill-dot: {{ section.settings.pill_currency_dot_color | default: '#3b82f6' }};
     --color-background-top-row: rgba({{ section.settings.background_color_top.rgba | default: settings.page_background_color.rgba }});
@@ -1293,7 +1293,7 @@
       --padding-block-start: 0px;
       --padding-block-end: 0px;
 
-      background-color: var(--header-pill-bg, #4A4A4A);
+      background-color: var(--header-pill-bg, #000000);
       border-radius: 9999px;
       padding: 4px 28px;
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
@@ -1909,7 +1909,7 @@
         min-height: 55px;
         height: 55px;
         border-radius: 999px;
-        background-color: var(--header-pill-bg, #4d4d4d) !important;
+        background-color: var(--header-pill-bg, #000000) !important;
         box-shadow: none;
       }
 
@@ -2472,7 +2472,7 @@
       "type": "color",
       "id": "pill_background_color",
       "label": "Pill Background Color",
-      "default": "#4A4A4A"
+      "default": "#000000"
     },
     {
       "type": "color",
