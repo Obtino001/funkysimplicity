@@ -1283,7 +1283,8 @@
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top {
       background: transparent !important;
       border-bottom: none !important;
-      max-width: var(--page-width, 1400px);
+      /* Keep logo, menu and actions close together on wide screens. */
+      max-width: min(var(--page-width, 1400px), 1440px);
       margin-inline: auto;
       box-sizing: border-box;
     }
@@ -1367,7 +1368,7 @@
     }
 
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image {
-      height: 50px;
+      height: 54px;
       width: auto;
     }
 
@@ -1526,7 +1527,7 @@
     #header-component[transparent]:not([data-sticky-state='active']) .header-menu summary {
       color: var(--color-transparent-text, #ffffff) !important;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 500;
     }
 

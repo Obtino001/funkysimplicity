@@ -1,0 +1,318 @@
+{%- comment -%}
+  Shop by Style row
+  - One card per block: collection + optional hand-picked image (like the live funkysimplicity.com style grid)
+  - Desktop: all styles in one row (columns setting); extra styles scroll sideways
+  - Mobile: swipeable row with scroll-snap; desktop supports mouse drag
+  - Images are never cropped top/bottom so the full style shows
+{%- endcomment -%}
+
+{%- liquid
+  assign section_id = section.id
+  assign columns_desktop = section.settings.columns_desktop
+  assign card_count = section.blocks.size
+  if card_count < columns_desktop and card_count > 0
+    assign columns_desktop = card_count
+  endif
+-%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section_id }}{% endif %}"
+></div>
+
+<section
+  id="StyleCollectionRow-{{ section_id }}"
+  class="section section--page-width style-collection-row"
+  style="
+    --scr-columns: {{ columns_desktop }};
+    --scr-gap: {{ section.settings.gap }}px;
+    padding-block-start: {{ section.settings.padding_top }}px;
+    padding-block-end: {{ section.settings.padding_bottom }}px;
+    {% if section.settings.background_color != blank %}background-color: {{ section.settings.background_color }};{% endif %}
+  "
+>
+  <div class="scr-container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="scr-heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="scr-track" data-scr-track>
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign collection = block.settings.collection
+          assign card_image = block.settings.image | default: collection.featured_image
+          assign card_title = block.settings.title | default: collection.title
+          assign card_url = collection.url | default: routes.all_products_collection_url
+        -%}
+        <a href="{{ card_url }}" class="scr-card" draggable="false" {{ block.shopify_attributes }}>
+          <div class="scr-card__media">
+            {%- if card_image != blank -%}
+              {{
+                card_image
+                | image_url: width: 900
+                | image_tag:
+                  loading: 'lazy',
+                  draggable: 'false',
+                  sizes: '(min-width: 990px) calc(100vw / 7), 45vw',
+                  widths: '300, 450, 600, 900',
+                  alt: card_title
+              }}
+            {%- else -%}
+              {{ 'collection-1' | placeholder_svg_tag: 'scr-card__placeholder' }}
+            {%- endif -%}
+          </div>
+          {%- if card_title != blank -%}
+            <span class="scr-card__title">{{ card_title | escape }}</span>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .style-collection-row {
+    position: relative;
+    overflow-x: clip;
+  }
+
+  /* Capped like the live site's .container (1760px). */
+  .scr-container {
+    width: 100%;
+    max-width: 1760px;
+    margin-inline: auto;
+  }
+
+  .scr-heading {
+    margin: 0 0 16px;
+    font-family: var(--font-heading--family);
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .scr-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - var(--scr-gap) * (var(--scr-columns) - 1)) / var(--scr-columns));
+    gap: var(--scr-gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+
+  .scr-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scr-track.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+  }
+
+  .scr-track.is-dragging .scr-card {
+    pointer-events: none;
+  }
+
+  .scr-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    color: inherit;
+    text-decoration: none;
+    scroll-snap-align: start;
+  }
+
+  /* 2:3 box fits full-body shots; wider photos only lose a little at the sides, never head or feet. */
+  .scr-card__media {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background: #f6f6f6;
+  }
+
+  .scr-card__media img,
+  .scr-card__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .scr-card:hover .scr-card__media img {
+    transform: scale(1.04);
+  }
+
+  .scr-card__title {
+    font-family: var(--font-body--family);
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  @media screen and (max-width: 989px) {
+    .scr-track {
+      grid-auto-columns: clamp(140px, 30vw, 240px);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .scr-heading {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .scr-track {
+      grid-auto-columns: 42vw;
+    }
+
+    .scr-card__title {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    // Mouse drag-to-scroll on desktop; touch devices swipe natively.
+    const track = document.querySelector('#StyleCollectionRow-{{ section_id }} [data-scr-track]');
+    if (!track || track.dataset.scrReady) return;
+    track.dataset.scrReady = 'true';
+
+    let startX = 0;
+    let startScroll = 0;
+    let moved = false;
+
+    track.addEventListener('mousedown', (event) => {
+      if (event.button !== 0 || track.scrollWidth <= track.clientWidth) return;
+      startX = event.pageX;
+      startScroll = track.scrollLeft;
+      moved = false;
+
+      const onMove = (moveEvent) => {
+        const delta = moveEvent.pageX - startX;
+        if (!moved && Math.abs(delta) > 5) {
+          moved = true;
+          track.classList.add('is-dragging');
+        }
+        if (moved) track.scrollLeft = startScroll - delta;
+      };
+
+      const onUp = () => {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+        track.classList.remove('is-dragging');
+      };
+
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+      event.preventDefault();
+    });
+
+    // Don't follow the link when the mouse was used to drag.
+    track.addEventListener('click', (event) => {
+      if (moved) {
+        event.preventDefault();
+        moved = false;
+      }
+    }, true);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Shop by Style Row",
+  "class": "section-style-collection-row",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by Style"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Styles visible on desktop",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "default": 7
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between cards",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "style",
+      "name": "Style",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card image",
+          "info": "Optional. Leave empty to use the collection image."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "info": "Optional. Leave empty to use the collection name."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Style Row"
+    }
+  ]
+}
+{% endschema %}

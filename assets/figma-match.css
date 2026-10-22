@@ -4,7 +4,7 @@
   --fs-black: #000;
   --fs-white: #fff;
   --fs-muted: #f6f6f6;
-  --fs-pill: #4d4d4d;
+  --fs-pill: #000;
   --fs-gold: #e0ad40;
 }
 
@@ -73,12 +73,16 @@
     .header__columns {
     padding-block: 0 !important;
     padding-inline: clamp(30px, 5.4vw, 70px) !important;
+    /* Keep logo, menu and language close together on wide screens. */
+    max-width: 1440px;
+    margin-inline: auto;
+    box-sizing: border-box;
   }
 
   #header-component[transparent]:not([data-sticky-state="active"])
     .header-logo__image {
     width: auto !important;
-    height: 50px !important;
+    height: 62px !important;
   }
 
   /* Localization buttons are text controls, not primary CTA pills. */

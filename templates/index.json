@@ -1021,184 +1021,83 @@
         "padding-block-end": 14
       }
     },
-    "collection_list_LDzpc3": {
-      "type": "collection-list",
+    "style_collection_row_shop": {
+      "type": "style-collection-row",
       "blocks": {
-        "group_xzM7aH": {
-          "type": "group",
-          "name": "t:names.header",
+        "style_1": {
+          "type": "style",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_38mDXg": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p>Shop by Style</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-heading--family)",
-                "font_size": "1.75rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 16,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_38mDXg"
-          ]
+            "collection": "leggings",
+            "image": "shopify://shop_images/Tribal_grey_black_grey_Leggings_front_atmosphere_web.jpg",
+            "title": "Leggings"
+          }
         },
-        "static-collection-card": {
-          "type": "_collection-card",
-          "name": "t:names.collection_card",
-          "static": true,
+        "style_2": {
+          "type": "style",
           "settings": {
-            "placement": "below_image",
-            "horizontal_alignment": "center",
-            "vertical_alignment": "center",
-            "collection_card_gap": 8,
-            "background_color": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0
-          },
-          "blocks": {
-            "collection_title_UMCHxi": {
-              "type": "collection-title",
-              "name": "t:names.collection_title",
-              "settings": {
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-heading--family)",
-                "font_size": "1.25rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "{{ settings.color_palette.background }}",
-                "text_color": "{{ settings.color_palette.foreground }}",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "collection-card-image": {
-              "type": "_collection-card-image",
-              "name": "t:names.collection_card_image",
-              "static": true,
-              "settings": {
-                "image_ratio": "portrait",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "collection_title_UMCHxi"
-          ]
+            "collection": "sport-bras",
+            "image": "",
+            "title": "Sport Bras"
+          }
+        },
+        "style_3": {
+          "type": "style",
+          "settings": {
+            "collection": "capri-leggings",
+            "image": "shopify://shop_images/Capri_green_bloom_front_web.jpg",
+            "title": "Capri"
+          }
+        },
+        "style_4": {
+          "type": "style",
+          "settings": {
+            "collection": "flare-pants",
+            "image": "shopify://shop_images/Flares_Olive_2025_back_4x5_9d93ea68-e0db-44fc-93f6-20a332857eaa.jpg",
+            "title": "Flares"
+          }
+        },
+        "style_5": {
+          "type": "style",
+          "settings": {
+            "collection": "sporty-tops",
+            "image": "shopify://shop_images/CrossbacktopNagomicreamblackfrontatmosphereGoaweb.jpg",
+            "title": "Sporty Tops"
+          }
+        },
+        "style_6": {
+          "type": "style",
+          "settings": {
+            "collection": "shorts-hot-pants",
+            "image": "shopify://shop_images/FeatherBikershortsBlackCreamFrontweb.jpg",
+            "title": "Shorts"
+          }
+        },
+        "style_7": {
+          "type": "style",
+          "settings": {
+            "collection": "catsuits",
+            "image": "shopify://shop_images/Feather_Catsuit_red_black_back_2025.jpg",
+            "title": "Catsuits"
+          }
         }
       },
       "block_order": [
-        "group_xzM7aH"
+        "style_1",
+        "style_2",
+        "style_3",
+        "style_4",
+        "style_5",
+        "style_6",
+        "style_7"
       ],
-      "custom_css": [
-        "slideshow-arrows[position=\"center\"] {justify-content: right; align-items: flex-start; top: -60px; gap: 20px;}",
-        ".slideshow-control--next {margin-inline-start: unset !important;}",
-        ".slideshow-control[disabled] {display: block;}",
-        ".slideshow-control[disabled] {position: relative;}",
-        "slideshow-arrows .slideshow-control {opacity: 1; border: 1px solid #ebebeb; padding: 0 !important; min-width: 38px !important; min-height: 38px !important; display: flex !important;}",
-        ".slideshow-control {animation: none;}"
-      ],
-      "name": "t:names.collections_carousel",
+      "name": "Shop by Style Row",
       "settings": {
-        "collection_list": [
-          "leggings",
-          "sport-bras",
-          "capri-leggings",
-          "flare-pants",
-          "sporty-tops",
-          "shorts-hot-pants",
-          "catsuits"
-        ],
-        "layout_type": "carousel",
-        "carousel_on_mobile": false,
-        "columns": 3,
-        "mobile_columns": "2",
-        "mobile_card_size": "44cqw",
-        "columns_gap": 10,
-        "bento_gap": 20,
-        "rows_gap": 20,
-        "max_collections": 4,
-        "icons_style": "chevron",
-        "icons_shape": "circle",
-        "section_width": "page-width",
-        "gap": 14,
+        "heading": "Shop by Style",
+        "columns_desktop": 7,
+        "gap": 10,
         "background_color": "",
-        "padding-block-start": 50,
-        "padding-block-end": 50
+        "padding_top": 50,
+        "padding_bottom": 24
       }
     },
     "section_Uk9bUB": {
@@ -2822,7 +2721,7 @@
     "custom_banner_M7gQKd",
     "hero_jVaWmY",
     "section_6zhiU4",
-    "collection_list_LDzpc3",
+    "style_collection_row_shop",
     "section_Uk9bUB",
     "collection_list_ThLPEE",
     "section_yeaQgP",
