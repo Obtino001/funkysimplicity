@@ -31,7 +31,7 @@
     --gr-card-bg: {{ card_bg }};
     --gr-text-color: {{ text_color }};
     --gr-star-color: {{ star_color }};
-    --gr-marquee-speed: {{ marquee_speed | times: 3 }}s;
+    --gr-marquee-speed: {{ marquee_speed | times: 2 }}s;
     --gr-padding-top: {{ padding_top }}px;
     --gr-padding-bottom: {{ padding_bottom }}px;
   "
@@ -65,13 +65,13 @@
 
     {%- comment -%}
       The marquee scrolls by -50%, so each half must be wider than the viewport.
-      Each half repeats the row's cards 3x to cover ultra-wide / zoomed-out screens
-      (the marquee duration is scaled by 3 to keep the same visual speed).
+      Each half repeats the row's cards twice so short rows still fill the 1760px track
+      (the marquee duration is scaled by 2 to keep the same visual speed).
     {%- endcomment -%}
     {%- liquid
       assign set_copies = 1
       if enable_marquee
-        assign set_copies = 6
+        assign set_copies = 4
       endif
     -%}
 
@@ -218,9 +218,12 @@
   }
 
   /* Tracks & Grid */
+  /* Capped like the live site's .container (1760px) so wide / zoomed-out screens stay centered. */
   .gr-tracks-wrapper {
     position: relative;
     width: 100%;
+    max-width: 1760px;
+    margin-inline: auto;
     overflow: hidden;
     display: flex;
     flex-direction: column;

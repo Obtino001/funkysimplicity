@@ -229,8 +229,10 @@
     box-sizing: border-box;
   }
 
+  /* Capped like the live site's .container (1760px) so wide / zoomed-out screens stay centered. */
   .tcc-container {
     width: 100%;
+    max-width: 1760px;
     margin-inline: auto;
     box-sizing: border-box;
   }
@@ -332,6 +334,14 @@
     position: relative;
     width: 100%;
     overflow: visible;
+    container-type: inline-size;
+  }
+
+  /* Desktop: keep slides inside the container (the slider JS measures .tcc-container as the visible area). */
+  @media screen and (min-width: 990px) {
+    .tcc-panels-container {
+      overflow-x: clip;
+    }
   }
 
   .tcc-tab-panel {
@@ -364,8 +374,8 @@
   }
 
   .tcc-slide-item {
-    flex: 0 0 clamp(240px, calc((100vw - 4rem - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 454px);
-    width: clamp(240px, calc((100vw - 4rem - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 320px);
+    flex: 0 0 clamp(240px, calc((100cqi - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 454px);
+    width: clamp(240px, calc((100cqi - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 454px);
     box-sizing: border-box;
   }
 
