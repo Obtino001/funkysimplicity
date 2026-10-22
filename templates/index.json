@@ -1695,11 +1695,11 @@
         "feature_hy6fBg": {
           "type": "feature",
           "settings": {
-            "icon": "flask",
-            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_1_7ef0587e-cd93-4dfa-9e1f-4c6800be59b0.png",
+            "icon": "feather",
+            "custom_image": "",
             "custom_svg": "",
-            "title": "Cotton-Rich Comfort",
-            "text": "A soft, breathable cotton-rich blend."
+            "title": "Comfortable Stretch",
+            "text": "10% elastane that moves with your body."
           }
         },
         "feature_PXR4Kd": {
@@ -2726,8 +2726,10 @@
     "collection_list_ThLPEE",
     "section_yeaQgP",
     "product_list_JKdyaE",
+    "tabbed_collection_carousel_MFGEYK",
     "fabric_features_banner_Qikw9m",
     "google_reviews_grid_FMnrpF",
+    "tabbed_collection_carousel_AUhyJ9",
     "featured_collection_split_EcGpnQ",
     "hero_feature_boxes_KndTVh",
     "section_ctkgYh",

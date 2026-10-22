@@ -1553,9 +1553,15 @@ a.skip-to-content-link:focus-visible {
     .mega-menu__column
     > div
     > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
-    max-height: 260px;
-    /* Show the full style (head to toe), never crop. */
-    object-fit: contain;
+    /* Same 2:3 portrait frame for every card (max 260px tall) so the grid looks even.
+       Full-body photos fit head to toe; only landscape photos lose a little at the sides. */
+    width: min(100%, 174px);
+    height: auto;
+    max-height: none;
+    aspect-ratio: 2 / 3;
+    margin-inline: auto;
+    object-fit: cover;
+    object-position: center top;
   }
 }
 

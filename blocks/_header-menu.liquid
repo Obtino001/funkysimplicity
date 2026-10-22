@@ -703,9 +703,9 @@
     position: relative;
     aspect-ratio: 2 / 3;
     margin-bottom: var(--padding-sm);
-    /* Show the full style (head to toe), never crop. */
-    object-fit: contain;
-    object-position: center;
+    /* Uniform 2:3 portrait frame; anchor to the top so heads are never cut. */
+    object-fit: cover;
+    object-position: center top;
     border: 0;
     outline: 0;
     box-shadow: none;
