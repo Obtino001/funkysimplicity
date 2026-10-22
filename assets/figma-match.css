@@ -1550,7 +1550,8 @@ a.skip-to-content-link:focus-visible {
     > div
     > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
     max-height: 260px;
-    object-fit: cover;
+    /* Show the full style (head to toe), never crop. */
+    object-fit: contain;
   }
 }
 

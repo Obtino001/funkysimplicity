@@ -667,8 +667,8 @@
                   "name": "t:names.social_media_links",
                   "settings": {
                     "icon_color": "{{ settings.color_palette.background }}",
-                    "facebook_url": "#",
-                    "instagram_url": "#",
+                    "facebook_url": "https://www.facebook.com/Funky.Simplicity/",
+                    "instagram_url": "https://www.instagram.com/funkysimplicity/",
                     "youtube_url": "",
                     "tiktok_url": "",
                     "twitter_url": "",
@@ -676,7 +676,7 @@
                     "linkedin_url": "",
                     "bluesky_url": "",
                     "snapchat_url": "",
-                    "pinterest_url": "#",
+                    "pinterest_url": "https://www.pinterest.com/funkysimplicity/",
                     "tumblr_url": "",
                     "vimeo_url": "",
                     "custom_url": ""

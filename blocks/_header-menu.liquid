@@ -703,7 +703,9 @@
     position: relative;
     aspect-ratio: 2 / 3;
     margin-bottom: var(--padding-sm);
-    object-fit: cover;
+    /* Show the full style (head to toe), never crop. */
+    object-fit: contain;
+    object-position: center;
     border: 0;
     outline: 0;
     box-shadow: none;

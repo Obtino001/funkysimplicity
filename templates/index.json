@@ -1833,7 +1833,7 @@
         "content_max_width": 720,
         "subtext": "Ready to experience something different",
         "button_label": "SHOP NOW",
-        "button_link": "",
+        "button_link": "shopify://collections/shop-by-style",
         "button_style": "solid",
         "section_width": "full",
         "columns_desktop": 3,
@@ -1981,7 +1981,7 @@
         "star_color": "#f59e0b",
         "show_view_all": true,
         "view_all_text": "VIEW ALL REVIEWS",
-        "view_all_link": "",
+        "view_all_link": "shopify://pages/reviews",
         "padding_top": 80,
         "padding_bottom": 32
       }
@@ -2378,7 +2378,7 @@
               "type": "button",
               "settings": {
                 "label": "meet the makers",
-                "link": "https://funkysimplicity.com/pages/about",
+                "link": "shopify://pages/meet-the-makers",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
                 "custom_button_background": "{{ settings.color_palette.foreground }}",
