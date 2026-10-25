@@ -155,8 +155,9 @@
                   ref="countryListItems[]"
                   on:click="/selectCountry/{{ country.iso_code }}"
                 >
+                  {%- comment -%} Checkmark only on the selected country (selecting reloads the page); saves ~200 KB of repeated SVG. {%- endcomment -%}
                   <span class="svg-wrapper icon-checkmark">
-                    {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                    {%- if country.iso_code == localization.country.iso_code -%}{{- 'icon-checkmark.svg' | inline_asset_content -}}{%- endif -%}
                   </span>
                   <span class="country">{{- country.name }}</span>
                   <span
@@ -210,8 +211,9 @@
                 ref="countryListItems[]"
                 on:click="/selectCountry/{{ country.iso_code }}"
               >
+                {%- comment -%} Checkmark only on the selected country (selecting reloads the page); saves ~200 KB of repeated SVG. {%- endcomment -%}
                 <span class="svg-wrapper icon-checkmark">
-                  {{- 'icon-checkmark.svg' | inline_asset_content -}}
+                  {%- if country.iso_code == localization.country.iso_code -%}{{- 'icon-checkmark.svg' | inline_asset_content -}}{%- endif -%}
                 </span>
                 <span class="country">{{- country.name }}</span>
                 <span

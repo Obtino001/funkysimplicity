@@ -66,6 +66,8 @@
       {%- if featured_image != blank -%}
         <img
           src="{{ featured_image | image_url: width: 800 }}"
+          srcset="{{ featured_image | image_url: width: 360 }} 360w, {{ featured_image | image_url: width: 540 }} 540w, {{ featured_image | image_url: width: 800 }} 800w"
+          sizes="(min-width: 990px) 454px, (min-width: 750px) 280px, 176px"
           alt="{{ product.title | escape }}"
           class="{{ primary_class }}"
           loading="lazy"
@@ -79,6 +81,8 @@
       {%- if show_secondary_image and secondary_image != blank -%}
         <img
           src="{{ secondary_image | image_url: width: 800 }}"
+          srcset="{{ secondary_image | image_url: width: 360 }} 360w, {{ secondary_image | image_url: width: 540 }} 540w, {{ secondary_image | image_url: width: 800 }} 800w"
+          sizes="(min-width: 990px) 454px, (min-width: 750px) 280px, 176px"
           alt="{{ product.title | escape }}"
           class="tcc-card__img tcc-card__img--secondary"
           loading="lazy"
