@@ -2656,7 +2656,7 @@
           "settings": {
             "icon": "feather_fabric",
             "custom_image": "shopify://shop_images/Frame_19_1.png",
-            "custom_svg": "",
+            "custom_svg": "<svg viewBox=\"0 0 40 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><ellipse cx=\"10\" cy=\"13\" rx=\"4\" ry=\"7\"/><ellipse cx=\"10\" cy=\"13\" rx=\"1.2\" ry=\"2.2\"/><path d=\"M10 6h16a4 7 0 0 1 0 14H10\"/><path d=\"M14 20v13l3-1.5 3 1.5 3-1.5 3 1.5V20\"/><path d=\"M33 4.5l1.2 2.5 2.7.4-2 1.9.5 2.7-2.4-1.3-2.4 1.3.5-2.7-2-1.9 2.7-.4z\"/></svg>",
             "title": "High Quality Fabrics",
             "link": ""
           }
