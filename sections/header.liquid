@@ -2036,7 +2036,7 @@
 
       #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
         --submenu-gap: 0px;
-        --mega-menu-surface: #000000e5;
+        --mega-menu-surface: #000000;
         --full-open-header-height: 0px;
         --submenu-padding-block-start: 0px;
         --submenu-padding-block-end: 0px;
@@ -2090,14 +2090,16 @@
         align-items: center;
         justify-content: center;
         flex-wrap: nowrap;
-        padding: 32px 40px 28px;
-        max-width: var(--page-width, 1280px);
+        padding: 28px 32px 24px;
+        /* Compact, centered card so image columns sit close together. */
+        max-width: 1100px;
         margin-inline: auto;
         width: 100%;
         box-sizing: border-box;
         overflow: visible;
-        background-color: #000000e5;
+        background-color: var(--mega-menu-surface, #000000);
         border-radius: 28px;
+        box-shadow: 0 24px 60px rgb(0 0 0 / 0.35);
         /* Fade/slide in; the hidden state below delays visibility so the old panel fades out. */
         opacity: 0;
         transform: translateY(6px);
@@ -2153,7 +2155,7 @@
       }
 
       #header-component .mega-menu__grid {
-        --menu-vertical-gap: 22px;
+        --menu-vertical-gap: 20px;
         --menu-horizontal-gap: 16px;
         --menu-columns-desktop: 6;
         height: auto;
@@ -2172,6 +2174,14 @@
         row-gap: 10px;
       }
 
+      #header-component .mega-menu__link .mega-menu__link-image {
+        transition: transform 0.35s ease, opacity 0.35s ease;
+      }
+
+      #header-component .mega-menu__link:hover .mega-menu__link-image {
+        transform: scale(1.03);
+      }
+
       #header-component .mega-menu__link-image,
       #header-component
         .mega-menu__grid:has(.mega-menu__link-image)
@@ -2180,12 +2190,13 @@
         > .mega-menu__link:not(:has(.mega-menu__link-image))::before {
         aspect-ratio: 2 / 3;
         height: auto;
-        max-height: 260px;
+        max-height: none;
         width: 100%;
         margin-bottom: 0;
         border: 0;
-        border-radius: 0;
+        border-radius: 8px;
         object-fit: cover;
+        object-position: center top;
       }
 
       #header-component .mega-menu__list {
@@ -2195,49 +2206,47 @@
 
       #header-component .mega-menu__link span {
         color: #ffffff;
-        font-family: var(--font-heading--family);
-        font-size: 15px;
-        font-weight: 400;
+        font-family: 'DM Sans', var(--font-body--family, sans-serif);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
         line-height: 1.3;
         text-align: center;
       }
 
+      /* Outlined pill centered under the grid. */
       .mega-menu__view-all {
-        align-self: flex-end;
+        align-self: center;
         margin-block-start: 24px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 148px;
-        height: 48px;
+        min-width: 160px;
+        height: 42px;
         padding: 0 28px;
         border-radius: 999px;
-        background: #ffffff;
-        color: #111111 !important;
-        font-family: var(--font-body--family);
-        font-size: 15px;
+        font-family: 'DM Sans', var(--font-body--family, sans-serif);
+        font-size: 13px;
         font-weight: 500;
-        letter-spacing: 0;
-        text-transform: none;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
         text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
       }
 
-      .mega-menu__view-all:hover {
-        opacity: 0.88;
-      }
-
-      /* Override the dark submenu's generic white-link rule for this white CTA. */
       #header-component .menu-list__submenu .mega-menu__view-all,
       #header-component .menu-list__submenu .mega-menu__view-all:visited {
-        background-color: #ffffff !important;
-        color: #111111 !important;
+        border: 1px solid rgb(255 255 255 / 0.7);
+        background-color: transparent !important;
+        color: #ffffff !important;
         opacity: 1;
       }
 
       #header-component .menu-list__submenu .mega-menu__view-all:hover {
+        border-color: #ffffff;
         background-color: #ffffff !important;
-        color: #111111 !important;
-        opacity: 0.88;
+        color: #000000 !important;
+        opacity: 1;
       }
     }
 
