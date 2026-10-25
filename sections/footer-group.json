@@ -772,17 +772,17 @@
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {}
+              "blocks": {},
+              "disabled": true
             },
             "payment_icons_V7Wxnt": {
               "type": "payment-icons",
               "name": "t:names.payment_icons",
-              "disabled": true,
               "settings": {
                 "horizontal_alignment": "flex-end",
                 "custom_payment_types": "ideal, american_express, apple_pay, google_pay, klarna, maestro, master, paypal, shopify_pay, unionpay, visa",
-                "icon_width": 38,
-                "gap": 10,
+                "icon_width": 36,
+                "gap": 8,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,

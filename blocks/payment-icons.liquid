@@ -69,6 +69,11 @@
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
     display: block;
   }
+
+  /* On the dark footer the logos stand on their own: no outline ring. */
+  .footer-content .payment-icons__item svg {
+    box-shadow: none;
+  }
 {% endstylesheet %}
 
 {% schema %}

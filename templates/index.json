@@ -1035,12 +1035,20 @@
         "style_2": {
           "type": "style",
           "settings": {
-            "collection": "sport-bras",
-            "image": "",
-            "title": "Sport Bras"
+            "collection": "flare-pants",
+            "image": "shopify://shop_images/Flares_Olive_2025_back_4x5_9d93ea68-e0db-44fc-93f6-20a332857eaa.jpg",
+            "title": "Flare Leggings"
           }
         },
         "style_3": {
+          "type": "style",
+          "settings": {
+            "collection": "catsuits",
+            "image": "shopify://shop_images/Feather_Catsuit_red_black_back_2025.jpg",
+            "title": "Catsuits"
+          }
+        },
+        "style_4": {
           "type": "style",
           "settings": {
             "collection": "capri-leggings",
@@ -1048,15 +1056,23 @@
             "title": "Capri"
           }
         },
-        "style_4": {
+        "style_5": {
           "type": "style",
           "settings": {
-            "collection": "flare-pants",
-            "image": "shopify://shop_images/Flares_Olive_2025_back_4x5_9d93ea68-e0db-44fc-93f6-20a332857eaa.jpg",
-            "title": "Flares"
+            "collection": "leggings-with-pockets",
+            "image": "",
+            "title": "Pocketed"
           }
         },
-        "style_5": {
+        "style_6": {
+          "type": "style",
+          "settings": {
+            "collection": "sport-bras",
+            "image": "",
+            "title": "Sport Bras"
+          }
+        },
+        "style_7": {
           "type": "style",
           "settings": {
             "collection": "sporty-tops",
@@ -1064,7 +1080,7 @@
             "title": "Sporty Tops"
           }
         },
-        "style_6": {
+        "style_8": {
           "type": "style",
           "settings": {
             "collection": "shorts-hot-pants",
@@ -1072,12 +1088,12 @@
             "title": "Shorts"
           }
         },
-        "style_7": {
+        "style_9": {
           "type": "style",
           "settings": {
-            "collection": "catsuits",
-            "image": "shopify://shop_images/Feather_Catsuit_red_black_back_2025.jpg",
-            "title": "Catsuits"
+            "collection": "jeans-jeggings",
+            "image": "",
+            "title": "Jeans-style Leggings"
           }
         }
       },
@@ -1088,12 +1104,14 @@
         "style_4",
         "style_5",
         "style_6",
-        "style_7"
+        "style_7",
+        "style_8",
+        "style_9"
       ],
       "name": "Shop by Style Row",
       "settings": {
         "heading": "Shop by Style",
-        "columns_desktop": 7,
+        "columns_desktop": 9,
         "gap": 10,
         "background_color": "",
         "padding_top": 48,
@@ -1161,184 +1179,83 @@
         "padding-block-end": 0
       }
     },
-    "collection_list_ThLPEE": {
-      "type": "collection-list",
+    "print_collection_row_shop": {
+      "type": "style-collection-row",
       "blocks": {
-        "group_6TqBc4": {
-          "type": "group",
-          "name": "t:names.header",
+        "style_1": {
+          "type": "style",
           "settings": {
-            "content_direction": "column",
-            "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "background_media": "none",
-            "background_color": "",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "toggle_overlay": false,
-            "overlay_color": "#00000026",
-            "overlay_style": "solid",
-            "gradient_direction": "to top",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0,
-            "link": "",
-            "open_in_new_tab": false,
-            "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "text_xd84b6": {
-              "type": "text",
-              "name": "t:names.text",
-              "settings": {
-                "text": "<p>Shop by Prints</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-heading--family)",
-                "font_size": "1.75rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 16,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_xd84b6"
-          ]
+            "collection": "tribal-eagle",
+            "image": "shopify://shop_images/Flares_cream_brown_tribal_front_2025_INSTA_small_7e51300a-9db6-4029-9a3e-20ba09881245.jpg",
+            "title": "Tribal"
+          }
         },
-        "static-collection-card": {
-          "type": "_collection-card",
-          "name": "t:names.collection_card",
-          "static": true,
+        "style_2": {
+          "type": "style",
           "settings": {
-            "placement": "below_image",
-            "horizontal_alignment": "center",
-            "vertical_alignment": "center",
-            "collection_card_gap": 14,
-            "background_color": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_color": "",
-            "border_radius": 0
-          },
-          "blocks": {
-            "collection_title_RrfQay": {
-              "type": "collection-title",
-              "name": "t:names.collection_title",
-              "settings": {
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "custom",
-                "font": "var(--font-heading--family)",
-                "font_size": "1.25rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "background": false,
-                "background_color": "{{ settings.color_palette.background }}",
-                "text_color": "{{ settings.color_palette.foreground }}",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "collection-card-image": {
-              "type": "_collection-card-image",
-              "name": "t:names.collection_card_image",
-              "static": true,
-              "settings": {
-                "image_ratio": "portrait",
-                "toggle_overlay": false,
-                "overlay_color": "#00000026",
-                "overlay_style": "solid",
-                "gradient_direction": "to top",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_color": "",
-                "border_radius": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "collection_title_RrfQay"
-          ]
+            "collection": "bloom",
+            "image": "shopify://shop_images/Bloom_blue_cross_back_top_front_web.jpg",
+            "title": "Bloom"
+          }
+        },
+        "style_3": {
+          "type": "style",
+          "settings": {
+            "collection": "giraffe-print",
+            "image": "shopify://shop_images/matchingset-legging-sportbra-giraffe-print.png",
+            "title": "Giraffe"
+          }
+        },
+        "style_4": {
+          "type": "style",
+          "settings": {
+            "collection": "zebra-print",
+            "image": "shopify://shop_images/Flares_Zebra_Cream_Black_back_Sanne_2025.jpg",
+            "title": "Zebra"
+          }
+        },
+        "style_5": {
+          "type": "style",
+          "settings": {
+            "collection": "pufferfish",
+            "image": "shopify://shop_images/LEGGINGS_GREY_PUFFERFISH_f597102a-60d3-4a6f-9dc4-206b6a0be987.jpg",
+            "title": "Pufferfish"
+          }
+        },
+        "style_6": {
+          "type": "style",
+          "settings": {
+            "collection": "snake-print",
+            "image": "shopify://shop_images/nrown-snake-print-catsuit-in-amsterdam_e4679286-c6a8-429f-b586-48d8c9f5446c.png",
+            "title": "Snake"
+          }
+        },
+        "style_7": {
+          "type": "style",
+          "settings": {
+            "collection": "feather",
+            "image": "shopify://shop_images/Flares_Cream_Olive_Feather_2025_front_web.jpg",
+            "title": "Feather"
+          }
         }
       },
       "block_order": [
-        "group_6TqBc4"
+        "style_1",
+        "style_2",
+        "style_3",
+        "style_4",
+        "style_5",
+        "style_6",
+        "style_7"
       ],
-      "custom_css": [
-        "slideshow-arrows[position=\"center\"] {justify-content: right; align-items: flex-start; top: -60px; gap: 20px;}",
-        ".slideshow-control--next {margin-inline-start: unset !important;}",
-        ".slideshow-control[disabled] {display: block;}",
-        ".slideshow-control[disabled] {position: relative;}",
-        "slideshow-arrows .slideshow-control {opacity: 1; border: 1px solid #ebebeb; padding: 0 !important; min-width: 38px !important; min-height: 38px !important; display: flex !important;}",
-        ".slideshow-control {animation: none;}"
-      ],
-      "name": "t:names.collections_carousel",
+      "name": "Shop by Prints Row",
       "settings": {
-        "collection_list": [
-          "tribal-eagle",
-          "bloom",
-          "giraffe-print",
-          "zebra-print",
-          "pufferfish",
-          "snake-print",
-          "feather"
-        ],
-        "layout_type": "carousel",
-        "carousel_on_mobile": false,
-        "columns": 3,
-        "mobile_columns": "2",
-        "mobile_card_size": "44cqw",
-        "columns_gap": 10,
-        "bento_gap": 20,
-        "rows_gap": 20,
-        "max_collections": 4,
-        "icons_style": "chevron",
-        "icons_shape": "circle",
-        "section_width": "page-width",
-        "gap": 14,
+        "heading": "Shop by Prints",
+        "columns_desktop": 7,
+        "gap": 10,
         "background_color": "",
-        "padding-block-start": 50,
-        "padding-block-end": 50
+        "padding_top": 48,
+        "padding_bottom": 24
       }
     },
     "section_yeaQgP": {
@@ -1947,7 +1864,8 @@
         "view_all_text": "VIEW ALL",
         "padding_top": 32,
         "padding_bottom": 32
-      }
+      },
+      "disabled": true
     },
     "featured_collection_split_EcGpnQ": {
       "type": "featured-collection-split",
@@ -2655,8 +2573,8 @@
           "type": "feature",
           "settings": {
             "icon": "feather_fabric",
-            "custom_image": "shopify://shop_images/Frame_19_1.png",
-            "custom_svg": "<svg viewBox=\"0 0 40 40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><ellipse cx=\"10\" cy=\"13\" rx=\"4\" ry=\"7\"/><ellipse cx=\"10\" cy=\"13\" rx=\"1.2\" ry=\"2.2\"/><path d=\"M10 6h16a4 7 0 0 1 0 14H10\"/><path d=\"M14 20v13l3-1.5 3 1.5 3-1.5 3 1.5V20\"/><path d=\"M33 4.5l1.2 2.5 2.7.4-2 1.9.5 2.7-2.4-1.3-2.4 1.3.5-2.7-2-1.9 2.7-.4z\"/></svg>",
+            "custom_image": "",
+            "custom_svg": "",
             "title": "High Quality Fabrics",
             "link": ""
           }
@@ -2665,7 +2583,7 @@
           "type": "feature",
           "settings": {
             "icon": "badge_star",
-            "custom_image": "shopify://shop_images/Frame_20_2.png",
+            "custom_image": "",
             "custom_svg": "",
             "title": "Handmade Fairly In Bali",
             "link": ""
@@ -2675,7 +2593,7 @@
           "type": "feature",
           "settings": {
             "icon": "stretch",
-            "custom_image": "shopify://shop_images/Frame_21_1.png",
+            "custom_image": "",
             "custom_svg": "",
             "title": "4 Way Stretch Cotton",
             "link": ""
@@ -2685,7 +2603,7 @@
           "type": "feature",
           "settings": {
             "icon": "hand_diamond",
-            "custom_image": "shopify://shop_images/Frame_22_2.png",
+            "custom_image": "",
             "custom_svg": "",
             "title": "Original Swiss Artwork",
             "link": ""
@@ -2723,7 +2641,7 @@
     "section_6zhiU4",
     "style_collection_row_shop",
     "section_Uk9bUB",
-    "collection_list_ThLPEE",
+    "print_collection_row_shop",
     "section_yeaQgP",
     "product_list_JKdyaE",
     "tabbed_collection_carousel_MFGEYK",

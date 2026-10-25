@@ -48,6 +48,20 @@
               class="ifb-item__inner"
             >
               <div class="ifb-item__icon-wrap">
+                {%- liquid
+                  # Brand trust icons share the crisp line set used on the product page.
+                  assign brand_icon = ''
+                  case block.settings.icon
+                    when 'feather_fabric'
+                      assign brand_icon = 'quality'
+                    when 'badge_star'
+                      assign brand_icon = 'handmade'
+                    when 'stretch'
+                      assign brand_icon = 'stretch'
+                    when 'hand_diamond'
+                      assign brand_icon = 'artwork'
+                  endcase
+                -%}
                 {%- if block.settings.custom_svg != blank -%}
                   <div class="ifb-item__svg">
                     {{ block.settings.custom_svg }}
@@ -61,6 +75,8 @@
                     height="{{ icon_size }}"
                     loading="lazy"
                   >
+                {%- elsif brand_icon != blank -%}
+                  {% render 'feature-icon', icon: brand_icon, class: 'ifb-svg' %}
                 {%- else -%}
                   {%- case block.settings.icon -%}
                     {%- when 'feather_fabric' -%}

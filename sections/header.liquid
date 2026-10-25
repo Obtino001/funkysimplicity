@@ -1284,7 +1284,7 @@
       background: transparent !important;
       border-bottom: none !important;
       /* Keep logo, menu and actions close together on wide screens. */
-      max-width: min(var(--page-width, 1400px), 1440px);
+      max-width: min(var(--page-width, 1400px), 1600px);
       margin-inline: auto;
       box-sizing: border-box;
     }
@@ -1527,7 +1527,7 @@
     #header-component[transparent]:not([data-sticky-state='active']) .header-menu summary {
       color: var(--color-transparent-text, #ffffff) !important;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 500;
     }
 
@@ -2098,8 +2098,44 @@
         overflow: visible;
         background-color: #000000e5;
         border-radius: 28px;
+        /* Fade/slide in; the hidden state below delays visibility so the old panel fades out. */
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
+        transition: visibility 0s linear 0.22s;
+      }
+
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])):has([aria-expanded='true']) > .menu-list__submenu,
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu:hover {
+        transition-delay: 0s;
+      }
+
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])):has([aria-expanded='true']) > .menu-list__submenu .menu-list__submenu-inner,
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu:hover .menu-list__submenu-inner {
         opacity: 1;
-        transition: none;
+        transform: none;
+      }
+
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before {
+        opacity: 0;
+        transition: opacity 0.22s ease;
+      }
+
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])):has([aria-expanded='true']) > .menu-list__submenu::before,
+      #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu:hover::before {
+        opacity: 1;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #header-component .menu-list__submenu-inner,
+        #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu,
+        #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu::before {
+          transition: none;
+          transform: none;
+        }
       }
 
       #header-component .menu-list__submenu .mega-menu,

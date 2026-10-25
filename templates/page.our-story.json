@@ -237,7 +237,7 @@
           "type": "feature",
           "settings": {
             "icon": "feather_fabric",
-            "custom_image": "shopify://shop_images/Frame_19_1.png",
+            "custom_image": "",
             "custom_svg": "",
             "title": "High Quality Fabrics",
             "link": ""
@@ -247,7 +247,7 @@
           "type": "feature",
           "settings": {
             "icon": "badge_star",
-            "custom_image": "shopify://shop_images/Frame_20_2.png",
+            "custom_image": "",
             "custom_svg": "",
             "title": "Handmade Fairly In Bali",
             "link": ""
@@ -257,7 +257,7 @@
           "type": "feature",
           "settings": {
             "icon": "stretch",
-            "custom_image": "shopify://shop_images/Frame_21_1.png",
+            "custom_image": "",
             "custom_svg": "",
             "title": "4 Way Stretch Cotton",
             "link": ""
@@ -267,7 +267,7 @@
           "type": "feature",
           "settings": {
             "icon": "hand_diamond",
-            "custom_image": "shopify://shop_images/Frame_22_2.png",
+            "custom_image": "",
             "custom_svg": "",
             "title": "Original Swiss Artwork",
             "link": ""

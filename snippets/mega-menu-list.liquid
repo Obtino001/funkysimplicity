@@ -71,12 +71,19 @@
     endif
   endif
 %}
+{% liquid
+  # Image dropdowns show at most 2 rows of 6; the "View all" button links to the full collection.
+  assign max_links = parent_link.links.size
+  if menu_content_type == 'collection_images'
+    assign max_links = 12
+  endif
+%}
 <ul
   data-menu-list-id="{{ id }}"
   class="mega-menu__list list-unstyled"
   style="--menu-image-border-radius: {{ image_border_radius }}px;"
 >
-  {% for link in parent_link.links %}
+  {% for link in parent_link.links limit: max_links %}
     {% liquid
       # Decide whether to open a column span, and how many columns of the grid to span
       if forloop.first or open_column_span == false

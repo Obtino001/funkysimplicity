@@ -74,7 +74,7 @@
     padding-block: 0 !important;
     padding-inline: clamp(30px, 5.4vw, 70px) !important;
     /* Keep logo, menu and language close together on wide screens. */
-    max-width: 1440px;
+    max-width: 1600px;
     margin-inline: auto;
     box-sizing: border-box;
   }
@@ -1272,7 +1272,9 @@ img.icon-block__media {
   .disclosures summary {
     text-decoration: underline;
     text-decoration-color: transparent;
-    text-underline-offset: 0.22em;
+    /* Sit below descenders (g, y) instead of cutting through them. */
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: auto;
     text-decoration-thickness: 1px;
     transition:
       color 0.2s ease,
@@ -1293,7 +1295,9 @@ img.icon-block__media {
   .footer a:not(.button, .button-secondary, .button-custom) {
     text-decoration: underline;
     text-decoration-color: transparent;
-    text-underline-offset: 0.22em;
+    /* Sit below descenders (g, y) instead of cutting through them. */
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: auto;
     text-decoration-thickness: 1px;
     transition: text-decoration-color 0.2s ease;
   }
@@ -1692,4 +1696,18 @@ a.skip-to-content-link:focus-visible {
 .size-chart-dialog__heading.h3 {
   text-align: center;
   padding: 0;
+}
+
+/* Header: breathing room between the logo and the navigation (desktop). */
+@media screen and (min-width: 990px) {
+  #header-component .header__columns .header-logo {
+    margin-inline-end: 40px;
+  }
+
+  /* Mega menu labels: room for the underline below descenders. */
+  #header-component .mega-menu__link .wrap-text {
+    line-height: 1.4;
+    padding-bottom: 2px;
+    overflow: visible;
+  }
 }

@@ -12,7 +12,7 @@
 
       {% for recommended_product in recommendations.products limit: 8 %}
 
-        <div class="mo-compare-recommendations__item">
+        <div class="mo-compare-recommendations__item{% if forloop.index > 3 %} is-extra{% endif %}">
           {% render 'mo-compare-product',
             product: recommended_product
           %}
@@ -21,6 +21,13 @@
       {% endfor %}
 
     </div>
+
+    {% if recommendations.products_count > 3 %}
+      <button type="button" class="mo-compare-recommendations__more" data-mo-compare-more aria-expanded="false">
+        <span data-label-more>Show more</span>
+        <span data-label-less hidden>Show less</span>
+      </button>
+    {% endif %}
 
   {% endif %}
 </div>

@@ -144,7 +144,7 @@
                 </div>
 
                 {%- if custom_drawer -%}
-                  {% render 'cart-drawer-recommendations' %}
+                  {%- comment -%} "Compare Your Style" stays on the product page only, so cart items and checkout stay visible. {%- endcomment -%}
                   {% render 'cart-complementary', placement: 'inline' %}
                 {%- endif -%}
               </div>

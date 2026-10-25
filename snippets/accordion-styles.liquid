@@ -54,10 +54,20 @@
     min-height: var(--minimum-touch-target);
   }
 
+  /* PDP hierarchy: title 20px > section headings 16px > accordion labels 13px > body 14px. */
   product-component .accordion .details__header {
-    font-family: 'DM Sans' !important; 
-    font-size: 20px !important; 
-}
+    font-family: 'DM Sans', var(--font-body--family) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  product-component .accordion .details-content {
+    font-size: 14px;
+    line-height: 1.6;
+  }
   .details__icon {
     height: auto;
     margin-inline-end: var(--margin-xs);

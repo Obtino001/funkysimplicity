@@ -42,6 +42,7 @@ class MoCompareProduct extends HTMLElement {
       }
 
       target.replaceChildren(...source.childNodes);
+      this.bindShowMore(target);
       this.dispatchEvent(new CustomEvent('cart:recommendations:rendered', { bubbles: true }));
     } catch (error) {
       if (error instanceof Error && error.name === 'AbortError') return;
@@ -50,6 +51,19 @@ class MoCompareProduct extends HTMLElement {
     }
   }
 }
+
+MoCompareProduct.prototype.bindShowMore = function (target) {
+  const button = target.querySelector('[data-mo-compare-more]');
+  if (!(button instanceof HTMLButtonElement)) return;
+
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!expanded));
+    this.classList.toggle('is-expanded', !expanded);
+    button.querySelector('[data-label-more]')?.toggleAttribute('hidden', !expanded);
+    button.querySelector('[data-label-less]')?.toggleAttribute('hidden', expanded);
+  });
+};
 
 if (!customElements.get('mo-compare-product')) {
   customElements.define('mo-compare-product', MoCompareProduct);
