@@ -17,8 +17,17 @@
   assign section_id = section.id
   assign heading = section.settings.heading
   assign heading_size = section.settings.heading_size | default: 'h2'
-  assign section_width = section.settings.section_width | default: 'page-width'
-  assign columns_desktop = section.settings.columns_desktop | default: 4
+  assign columns_desktop_setting = section.settings.columns_desktop | default: '4.5'
+  assign col_num = columns_desktop_setting | plus: 0.0
+  if col_num <= 0
+    assign col_num = 4.5
+  endif
+  assign full_cards = col_num | floor
+  if col_num == full_cards
+    assign num_gaps = full_cards | minus: 1
+  else
+    assign num_gaps = full_cards
+  endif
   assign columns_mobile = section.settings.columns_mobile | default: '2'
   assign card_aspect_ratio = section.settings.card_aspect_ratio | default: 'portrait'
   assign show_secondary_image = section.settings.show_secondary_image
@@ -46,7 +55,8 @@
   "
   data-section-id="{{ section_id }}"
   style="
-    --tcc-columns-desktop: {{ columns_desktop }};
+    --tcc-columns-desktop: {{ col_num }};
+    --tcc-gaps-desktop: {{ num_gaps }};
     --tcc-columns-mobile: {{ columns_mobile }};
     --tcc-gap: {{ section.settings.gap | default: 16 }}px;
     --tcc-padding-top: {{ section.settings.padding_top | default: 48 }}px;
@@ -337,10 +347,12 @@
     container-type: inline-size;
   }
 
-  /* Desktop: keep slides inside the container (the slider JS measures .tcc-container as the visible area). */
+  /* Desktop: allow slides to bleed to right viewport edge just like Shop by Prints */
   @media screen and (min-width: 990px) {
     .tcc-panels-container {
       overflow-x: clip;
+      margin-right: calc(-1 * max(0px, (100vw - var(--fs-site-width, 1600px)) / 2));
+      padding-right: max(0px, (100vw - var(--fs-site-width, 1600px)) / 2);
     }
   }
 
@@ -374,8 +386,8 @@
   }
 
   .tcc-slide-item {
-    flex: 0 0 clamp(240px, calc((100cqi - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 454px);
-    width: clamp(240px, calc((100cqi - (var(--tcc-gap) * (var(--tcc-columns-desktop) - 1))) / var(--tcc-columns-desktop)), 454px);
+    flex: 0 0 calc((100cqi - (var(--tcc-gap) * var(--tcc-gaps-desktop, 4))) / var(--tcc-columns-desktop, 4.5));
+    width: calc((100cqi - (var(--tcc-gap) * var(--tcc-gaps-desktop, 4))) / var(--tcc-columns-desktop, 4.5));
     box-sizing: border-box;
   }
 
@@ -567,8 +579,8 @@
         const slideWidth = slide.getBoundingClientRect().width;
         const step = slideWidth + gap;
 
-        const container = track.closest('.tcc-container') || sectionEl;
-        const containerWidth = container.getBoundingClientRect().width;
+        const panelsContainer = track.closest('.tcc-panels-container') || track.closest('.tcc-container') || sectionEl;
+        const containerWidth = panelsContainer.getBoundingClientRect().width;
         const totalWidth = (slides.length * slideWidth) + ((slides.length - 1) * gap);
         const maxOffset = Math.max(0, totalWidth - containerWidth);
         const maxIndex = Math.ceil(maxOffset / step);
@@ -1095,13 +1107,19 @@
       "content": "Layout Settings"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "columns_desktop",
       "label": "Desktop Columns",
-      "min": 2,
-      "max": 6,
-      "step": 1,
-      "default": 4
+      "options": [
+        { "value": "3", "label": "3 columns" },
+        { "value": "3.5", "label": "3.5 columns" },
+        { "value": "4", "label": "4 columns" },
+        { "value": "4.5", "label": "4.5 columns" },
+        { "value": "5", "label": "5 columns" },
+        { "value": "5.5", "label": "5.5 columns" },
+        { "value": "6", "label": "6 columns" }
+      ],
+      "default": "4.5"
     },
     {
       "type": "select",
@@ -1252,7 +1270,7 @@
       "settings": {
         "heading": "New Arrivals",
         "heading_size": "h2",
-        "columns_desktop": 4,
+        "columns_desktop": "4.5",
         "columns_mobile": "2",
         "show_secondary_image": true,
         "show_badges": true,
