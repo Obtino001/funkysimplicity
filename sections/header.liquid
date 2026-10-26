@@ -1284,7 +1284,7 @@
       background: transparent !important;
       border-bottom: none !important;
       /* Keep logo, menu and actions close together on wide screens. */
-      max-width: min(var(--page-width, 1400px), 1600px);
+      max-width: var(--fs-site-width, 1600px);
       margin-inline: auto;
       box-sizing: border-box;
     }
@@ -2091,10 +2091,10 @@
         justify-content: center;
         flex-wrap: nowrap;
         padding: 28px 32px 24px;
-        /* Compact, centered card so image columns sit close together. */
-        max-width: 1100px;
+        /* Same width as the header; image columns stay compact and centered inside. */
+        max-width: var(--fs-site-width, 1600px);
         margin-inline: auto;
-        width: 100%;
+        width: calc(100% - (var(--page-margin, 30px) * 2));
         box-sizing: border-box;
         overflow: visible;
         background-color: var(--mega-menu-surface, #000000);
@@ -2167,6 +2167,18 @@
 
       #header-component .mega-menu__grid:has(.mega-menu__link-image) {
         --menu-columns-desktop: 6;
+        /* Fixed-size image columns centered in the wide card, so photos don't blow up. */
+        grid-template-columns: repeat(6, minmax(0, 170px));
+        justify-content: center;
+        column-gap: 28px;
+      }
+
+      /* Switching between open dropdowns: swap instantly so the card stays put
+         (fade/slide only when opening from closed). Set by header-menu.js. */
+      #header-component header-menu[data-switching] .menu-list__submenu,
+      #header-component header-menu[data-switching] .menu-list__submenu-inner,
+      #header-component header-menu[data-switching] .menu-list__submenu::before {
+        transition: none !important;
       }
 
       #header-component .mega-menu__link:has(.mega-menu__link-image) {
@@ -2174,12 +2186,17 @@
         row-gap: 10px;
       }
 
-      #header-component .mega-menu__link .mega-menu__link-image {
-        transition: transform 0.35s ease, opacity 0.35s ease;
+      /* Image cards: no hover effects (no zoom, background box, fade or underline). */
+      #header-component .menu-list__submenu a.mega-menu__link:has(.mega-menu__link-image),
+      #header-component .menu-list__submenu a.mega-menu__link:has(.mega-menu__link-image):hover {
+        background-color: transparent !important;
+        opacity: 1 !important;
+        text-decoration: none !important;
       }
 
-      #header-component .mega-menu__link:hover .mega-menu__link-image {
-        transform: scale(1.03);
+      #header-component .mega-menu__link:has(.mega-menu__link-image) .mega-menu__link-image {
+        transform: none;
+        transition: none;
       }
 
       #header-component .mega-menu__link-image,

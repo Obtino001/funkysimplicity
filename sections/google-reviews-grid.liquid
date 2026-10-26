@@ -65,7 +65,7 @@
 
     {%- comment -%}
       The marquee scrolls by -50%, so each half must be wider than the viewport.
-      Each half repeats the row's cards twice so short rows still fill the 1760px track
+      Each half repeats the row's cards twice so short rows still fill the site-width track
       (the marquee duration is scaled by 2 to keep the same visual speed).
     {%- endcomment -%}
     {%- liquid
@@ -223,11 +223,11 @@
   }
 
   /* Tracks & Grid */
-  /* Capped like the live site's .container (1760px) so wide / zoomed-out screens stay centered. */
+  /* Capped to the site width (--fs-site-width) so every section lines up with the header. */
   .gr-tracks-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1760px;
+    max-width: var(--fs-site-width, 1600px);
     margin-inline: auto;
     overflow: hidden;
     display: flex;

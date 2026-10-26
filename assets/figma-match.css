@@ -6,6 +6,14 @@
   --fs-muted: #f6f6f6;
   --fs-pill: #000;
   --fs-gold: #e0ad40;
+
+  /* One content width for the whole site: header, mega menu and every section align to it. */
+  --fs-site-width: 1600px;
+}
+
+body.page-width-normal {
+  --page-content-width: var(--fs-site-width);
+  --page-width: calc(var(--fs-site-width) + (var(--page-margin) * 2));
 }
 
 /* -------------------------------------------------------------------------- */
@@ -72,9 +80,9 @@
     .header__row--top
     .header__columns {
     padding-block: 0 !important;
-    padding-inline: clamp(30px, 5.4vw, 70px) !important;
-    /* Keep logo, menu and language close together on wide screens. */
-    max-width: 1600px;
+    /* Logo and icons line up with the section content edges below. */
+    padding-inline: var(--page-margin) !important;
+    max-width: calc(var(--fs-site-width) + (var(--page-margin) * 2));
     margin-inline: auto;
     box-sizing: border-box;
   }
@@ -1532,7 +1540,7 @@ a.skip-to-content-link:focus-visible {
 
 @media screen and (min-width: 750px) {
   #header-component .menu-list__submenu-inner {
-    max-width: var(--page-width, 1280px);
+    max-width: var(--fs-site-width, 1600px);
     margin-inline: auto;
     width: 100%;
     box-sizing: border-box;

@@ -34,6 +34,9 @@ class HeaderMenu extends Component {
   /** @type {ReturnType<typeof setTimeout> | undefined} */
   #closeTimer;
 
+  /** @type {ReturnType<typeof setTimeout> | undefined} */
+  #switchingTimer;
+
   connectedCallback() {
     super.connectedCallback();
 
@@ -308,6 +311,16 @@ class HeaderMenu extends Component {
 
     const previouslyActiveItem = this.#state.activeItem;
     const previouslyActiveOverflowItem = this.#state.activeOverflowItem;
+
+    // Moving between open dropdowns swaps panels instantly (CSS reads data-switching);
+    // the fade only plays when opening from closed.
+    if (previouslyActiveItem && previouslyActiveItem !== item) {
+      this.dataset.switching = '';
+      clearTimeout(this.#switchingTimer);
+      this.#switchingTimer = setTimeout(() => {
+        delete this.dataset.switching;
+      }, 300);
+    }
 
     this.#state.activeItem = item;
     this.#state.activeOverflowItem = overflowItem;

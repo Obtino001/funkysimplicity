@@ -75,10 +75,10 @@
     overflow-x: clip;
   }
 
-  /* Capped like the live site's .container (1760px). */
+  /* Capped to the site width (--fs-site-width) so every section lines up with the header. */
   .scr-container {
     width: 100%;
-    max-width: 1760px;
+    max-width: var(--fs-site-width, 1600px);
     margin-inline: auto;
   }
 
