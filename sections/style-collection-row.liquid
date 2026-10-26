@@ -8,10 +8,16 @@
 
 {%- liquid
   assign section_id = section.id
-  assign columns_desktop = section.settings.columns_desktop
-  assign card_count = section.blocks.size
-  if card_count < columns_desktop and card_count > 0
-    assign columns_desktop = card_count
+  assign columns_desktop_setting = section.settings.columns_desktop | default: '4.5'
+  assign col_num = columns_desktop_setting | plus: 0.0
+  if col_num <= 0
+    assign col_num = 4.5
+  endif
+  assign full_cards = col_num | floor
+  if col_num == full_cards
+    assign num_gaps = full_cards | minus: 1
+  else
+    assign num_gaps = full_cards
   endif
 -%}
 
@@ -23,7 +29,8 @@
   id="StyleCollectionRow-{{ section_id }}"
   class="section section--page-width style-collection-row"
   style="
-    --scr-columns: {{ columns_desktop }};
+    --scr-columns: {{ col_num }};
+    --scr-gaps-count: {{ num_gaps }};
     --scr-gap: {{ section.settings.gap }}px;
     padding-block-start: {{ section.settings.padding_top }}px;
     padding-block-end: {{ section.settings.padding_bottom }}px;
@@ -31,40 +38,67 @@
   "
 >
   <div class="scr-container">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="scr-heading">{{ section.settings.heading | escape }}</h2>
-    {%- endif -%}
+    <div class="scr-header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="scr-heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
 
-    <div class="scr-track" data-scr-track>
-      {%- for block in section.blocks -%}
-        {%- liquid
-          assign collection = block.settings.collection
-          assign card_image = block.settings.image | default: collection.featured_image
-          assign card_title = block.settings.title | default: collection.title
-          assign card_url = collection.url | default: routes.all_products_collection_url
-        -%}
-        <a href="{{ card_url }}" class="scr-card" draggable="false" {{ block.shopify_attributes }}>
-          <div class="scr-card__media">
-            {%- if card_image != blank -%}
-              {{
-                card_image
-                | image_url: width: 900
-                | image_tag:
-                  loading: 'lazy',
-                  draggable: 'false',
-                  sizes: '(min-width: 990px) calc(100vw / 7), 45vw',
-                  widths: '300, 450, 600, 900',
-                  alt: card_title
-              }}
-            {%- else -%}
-              {{ 'collection-1' | placeholder_svg_tag: 'scr-card__placeholder' }}
+      <div class="scr-header__arrows">
+        <button
+          type="button"
+          class="scr-arrow-btn scr-arrow-prev"
+          aria-label="Previous Slide"
+          data-direction="prev"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="scr-arrow-btn scr-arrow-next"
+          aria-label="Next Slide"
+          data-direction="next"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="scr-track-wrapper">
+      <div class="scr-track" data-scr-track>
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign collection = block.settings.collection
+            assign card_image = block.settings.image | default: collection.featured_image
+            assign card_title = block.settings.title | default: collection.title
+            assign card_url = collection.url | default: routes.all_products_collection_url
+          -%}
+          <a href="{{ card_url }}" class="scr-card" draggable="false" {{ block.shopify_attributes }}>
+            <div class="scr-card__media">
+              {%- if card_image != blank -%}
+                {{
+                  card_image
+                  | image_url: width: 900
+                  | image_tag:
+                    loading: 'lazy',
+                    draggable: 'false',
+                    sizes: '(min-width: 990px) calc(100vw / 4.5), 45vw',
+                    widths: '300, 450, 600, 900',
+                    alt: card_title
+                }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag: 'scr-card__placeholder' }}
+              {%- endif -%}
+            </div>
+            {%- if card_title != blank -%}
+              <span class="scr-card__title">{{ card_title | escape }}</span>
             {%- endif -%}
-          </div>
-          {%- if card_title != blank -%}
-            <span class="scr-card__title">{{ card_title | escape }}</span>
-          {%- endif -%}
-        </a>
-      {%- endfor -%}
+          </a>
+        {%- endfor -%}
+      </div>
     </div>
   </div>
 </section>
@@ -80,20 +114,73 @@
     width: 100%;
     max-width: var(--fs-site-width, 1600px);
     margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  .scr-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 20px;
   }
 
   .scr-heading {
-    margin: 0 0 16px;
+    margin: 0;
     font-family: var(--font-heading--family);
     font-size: 1.75rem;
     font-weight: 400;
     line-height: normal;
   }
 
+  .scr-header__arrows {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: auto;
+  }
+
+  .scr-arrow-btn {
+    appearance: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #ebebeb;
+    background: transparent;
+    color: var(--color-foreground, #121212);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .scr-arrow-btn:hover:not(:disabled) {
+    border-color: #121212;
+  }
+
+  .scr-arrow-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  /* Track overflow wrapper: allows slides to bleed to right viewport edge on desktop */
+  .scr-track-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+  }
+
+  @media screen and (min-width: 990px) {
+    .scr-track-wrapper {
+      margin-right: calc(-1 * max(0px, (100vw - var(--fs-site-width, 1600px)) / 2));
+      padding-right: max(0px, (100vw - var(--fs-site-width, 1600px)) / 2);
+    }
+  }
+
   .scr-track {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: calc((100% - var(--scr-gap) * (var(--scr-columns) - 1)) / var(--scr-columns));
+    display: flex;
     gap: var(--scr-gap);
     overflow-x: auto;
     overscroll-behavior-x: contain;
@@ -101,6 +188,9 @@
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     cursor: grab;
+    width: 100%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
   }
 
   .scr-track::-webkit-scrollbar {
@@ -110,6 +200,7 @@
   .scr-track.is-dragging {
     cursor: grabbing;
     scroll-snap-type: none;
+    scroll-behavior: auto;
   }
 
   .scr-track.is-dragging .scr-card {
@@ -117,13 +208,16 @@
   }
 
   .scr-card {
+    flex: 0 0 calc((100% - (var(--scr-gap) * var(--scr-gaps-count, 4))) / var(--scr-columns, 4.5));
+    width: calc((100% - (var(--scr-gap) * var(--scr-gaps-count, 4))) / var(--scr-columns, 4.5));
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    min-width: 0;
     color: inherit;
     text-decoration: none;
     scroll-snap-align: start;
+    box-sizing: border-box;
   }
 
   /* 2:3 box fits full-body shots; wider photos only lose a little at the sides, never head or feet. */
@@ -157,19 +251,25 @@
   }
 
   @media screen and (max-width: 989px) {
-    .scr-track {
-      grid-auto-columns: clamp(140px, 30vw, 240px);
+    .scr-card {
+      flex: 0 0 clamp(180px, 32vw, 260px);
+      width: clamp(180px, 32vw, 260px);
     }
   }
 
   @media screen and (max-width: 749px) {
+    .scr-header__arrows {
+      display: none;
+    }
+
     .scr-heading {
       font-size: 1.5rem;
       margin-bottom: 12px;
     }
 
-    .scr-track {
-      grid-auto-columns: 42vw;
+    .scr-card {
+      flex: 0 0 clamp(150px, 42vw, 200px);
+      width: clamp(150px, 42vw, 200px);
     }
 
     .scr-card__title {
@@ -180,10 +280,46 @@
 
 <script>
   (function () {
-    // Mouse drag-to-scroll on desktop; touch devices swipe natively.
-    const track = document.querySelector('#StyleCollectionRow-{{ section_id }} [data-scr-track]');
+    const sectionEl = document.querySelector('#StyleCollectionRow-{{ section_id }}');
+    if (!sectionEl) return;
+    const track = sectionEl.querySelector('[data-scr-track]');
     if (!track || track.dataset.scrReady) return;
     track.dataset.scrReady = 'true';
+
+    const prevBtn = sectionEl.querySelector('.scr-arrow-prev');
+    const nextBtn = sectionEl.querySelector('.scr-arrow-next');
+
+    function updateArrowStates() {
+      if (!prevBtn || !nextBtn) return;
+      const scrollLeft = track.scrollLeft;
+      const maxScroll = track.scrollWidth - track.clientWidth - 2;
+      prevBtn.disabled = scrollLeft <= 2;
+      nextBtn.disabled = scrollLeft >= maxScroll;
+    }
+
+    function getStep() {
+      const firstCard = track.querySelector('.scr-card');
+      const gap = parseFloat(getComputedStyle(track).gap) || 10;
+      return (firstCard ? firstCard.getBoundingClientRect().width : 300) + gap;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        track.scrollBy({ left: getStep(), behavior: 'smooth' });
+      });
+    }
+
+    track.addEventListener('scroll', () => {
+      updateArrowStates();
+    }, { passive: true });
 
     let startX = 0;
     let startScroll = 0;
@@ -208,20 +344,22 @@
         document.removeEventListener('mousemove', onMove);
         document.removeEventListener('mouseup', onUp);
         track.classList.remove('is-dragging');
+        updateArrowStates();
       };
 
       document.addEventListener('mousemove', onMove);
       document.addEventListener('mouseup', onUp);
-      event.preventDefault();
     });
 
-    // Don't follow the link when the mouse was used to drag.
     track.addEventListener('click', (event) => {
       if (moved) {
         event.preventDefault();
         moved = false;
       }
     }, true);
+
+    updateArrowStates();
+    window.addEventListener('resize', updateArrowStates);
   })();
 </script>
 
@@ -240,13 +378,22 @@
       "default": "Shop by Style"
     },
     {
-      "type": "range",
+      "type": "select",
       "id": "columns_desktop",
       "label": "Cards visible on desktop",
-      "min": 3,
-      "max": 10,
-      "step": 1,
-      "default": 7
+      "options": [
+        { "value": "3", "label": "3 cards" },
+        { "value": "3.5", "label": "3.5 cards" },
+        { "value": "4", "label": "4 cards" },
+        { "value": "4.5", "label": "4.5 cards" },
+        { "value": "5", "label": "5 cards" },
+        { "value": "5.5", "label": "5.5 cards" },
+        { "value": "6", "label": "6 cards" },
+        { "value": "7", "label": "7 cards" },
+        { "value": "8", "label": "8 cards" },
+        { "value": "9", "label": "9 cards" }
+      ],
+      "default": "4.5"
     },
     {
       "type": "range",
