@@ -128,7 +128,10 @@
             -%}
           {%- endcapture -%}
 
-          {% render 'link-featured-image', link: link, class: 'mega-menu__link-image', sizes: collection_image_sizes %}
+          {%- comment -%} Frame clips the hover zoom so the photo never grows over its neighbours. {%- endcomment -%}
+          <span class="mega-menu__image-frame">
+            {%- render 'link-featured-image', link: link, class: 'mega-menu__link-image', sizes: collection_image_sizes -%}
+          </span>
         {% endif %}
         <span class="wrap-text">
           {{- link.title -}}

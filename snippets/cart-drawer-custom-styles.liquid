@@ -857,6 +857,16 @@
     font-size: var(--font-size--sm);
   }
 
+  /* Single-line pill field: hide the scrollbar arrows and resize handle (long notes still scroll). */
+  .cart-drawer--custom .cart-note__instructions--plain {
+    resize: none;
+    scrollbar-width: none;
+  }
+
+  .cart-drawer--custom .cart-note__instructions--plain::-webkit-scrollbar {
+    display: none;
+  }
+
   .cart-drawer--custom .cart__ctas .cart__checkout-button {
     height: 38px;
     min-height: 38px;

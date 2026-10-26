@@ -2186,7 +2186,7 @@
         row-gap: 10px;
       }
 
-      /* Image cards: no hover effects (no zoom, background box, fade or underline). */
+      /* Image cards: only a gentle zoom inside the frame (no background box, fade or underline). */
       #header-component .menu-list__submenu a.mega-menu__link:has(.mega-menu__link-image),
       #header-component .menu-list__submenu a.mega-menu__link:has(.mega-menu__link-image):hover {
         background-color: transparent !important;
@@ -2194,9 +2194,26 @@
         text-decoration: none !important;
       }
 
-      #header-component .mega-menu__link:has(.mega-menu__link-image) .mega-menu__link-image {
-        transform: none;
-        transition: none;
+      #header-component .mega-menu__image-frame {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        line-height: 0;
+      }
+
+      #header-component .mega-menu__image-frame .mega-menu__link-image {
+        transition: transform 0.5s ease;
+      }
+
+      #header-component .mega-menu__link:hover .mega-menu__image-frame .mega-menu__link-image {
+        transform: scale(1.06);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #header-component .mega-menu__link:hover .mega-menu__image-frame .mega-menu__link-image {
+          transform: none;
+        }
       }
 
       #header-component .mega-menu__link-image,
