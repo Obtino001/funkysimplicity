@@ -1108,7 +1108,7 @@
       "name": "Shop by Style Row",
       "settings": {
         "heading": "Shop by Style",
-        "columns_desktop": "9",
+        "columns_desktop": "7",
         "gap": 10,
         "background_color": "",
         "padding_top": 48,
