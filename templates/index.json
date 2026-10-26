@@ -1060,7 +1060,6 @@
           "type": "style",
           "settings": {
             "collection": "leggings-with-pockets",
-            "image": "",
             "title": "Pocketed"
           }
         },
@@ -1068,7 +1067,6 @@
           "type": "style",
           "settings": {
             "collection": "sport-bras",
-            "image": "",
             "title": "Sport Bras"
           }
         },
@@ -1092,7 +1090,6 @@
           "type": "style",
           "settings": {
             "collection": "jeans-jeggings",
-            "image": "",
             "title": "Jeans-style Leggings"
           }
         }
@@ -1111,7 +1108,7 @@
       "name": "Shop by Style Row",
       "settings": {
         "heading": "Shop by Style",
-        "columns_desktop": 9,
+        "columns_desktop": "9",
         "gap": 10,
         "background_color": "",
         "padding_top": 48,
@@ -1251,7 +1248,7 @@
       "name": "Shop by Prints Row",
       "settings": {
         "heading": "Shop by Prints",
-        "columns_desktop": "4.5",
+        "columns_desktop": "7",
         "gap": 10,
         "background_color": "",
         "padding_top": 48,
@@ -1613,7 +1610,6 @@
           "type": "feature",
           "settings": {
             "icon": "feather",
-            "custom_image": "",
             "custom_svg": "",
             "title": "Comfortable Stretch",
             "text": "10% elastane that moves with your body."
@@ -1844,13 +1840,14 @@
         "collection_tab_gQgMg4",
         "collection_tab_TyJwc8"
       ],
+      "disabled": true,
       "name": "Tabbed Carousel",
       "settings": {
         "heading": "Explore Styles",
         "heading_size": "h2",
         "section_width": "page-width",
         "background_color": "",
-        "columns_desktop": 3,
+        "columns_desktop": "3",
         "columns_mobile": "2",
         "products_to_show": 8,
         "gap": 8,
@@ -1864,8 +1861,7 @@
         "view_all_text": "VIEW ALL",
         "padding_top": 32,
         "padding_bottom": 32
-      },
-      "disabled": true
+      }
     },
     "featured_collection_split_EcGpnQ": {
       "type": "featured-collection-split",
@@ -2573,7 +2569,6 @@
           "type": "feature",
           "settings": {
             "icon": "feather_fabric",
-            "custom_image": "",
             "custom_svg": "",
             "title": "High Quality Fabrics",
             "link": ""
@@ -2583,7 +2578,6 @@
           "type": "feature",
           "settings": {
             "icon": "badge_star",
-            "custom_image": "",
             "custom_svg": "",
             "title": "Handmade Fairly In Bali",
             "link": ""
@@ -2593,7 +2587,6 @@
           "type": "feature",
           "settings": {
             "icon": "stretch",
-            "custom_image": "",
             "custom_svg": "",
             "title": "4 Way Stretch Cotton",
             "link": ""
@@ -2603,7 +2596,6 @@
           "type": "feature",
           "settings": {
             "icon": "hand_diamond",
-            "custom_image": "",
             "custom_svg": "",
             "title": "Original Swiss Artwork",
             "link": ""
