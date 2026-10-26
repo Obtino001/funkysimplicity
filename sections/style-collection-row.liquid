@@ -106,7 +106,7 @@
 <style>
   .style-collection-row {
     position: relative;
-    overflow-x: clip;
+    overflow: visible;
   }
 
   /* Capped to the site width (--fs-site-width) so every section lines up with the header. */
@@ -182,15 +182,13 @@
   .scr-track {
     display: flex;
     gap: var(--scr-gap);
-    overflow-x: auto;
+    overflow: visible;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
     cursor: grab;
     width: 100%;
     box-sizing: border-box;
-    scroll-behavior: smooth;
+    transition: transform 0.4s ease;
   }
 
   .scr-track::-webkit-scrollbar {
@@ -199,8 +197,7 @@
 
   .scr-track.is-dragging {
     cursor: grabbing;
-    scroll-snap-type: none;
-    scroll-behavior: auto;
+    transition: none;
   }
 
   .scr-track.is-dragging .scr-card {
@@ -272,6 +269,15 @@
       width: clamp(150px, 42vw, 200px);
     }
 
+    .scr-track {
+      overflow-x: auto;
+      overflow-y: hidden;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
     .scr-card__title {
       font-size: 14px;
     }
@@ -288,13 +294,22 @@
 
     const prevBtn = sectionEl.querySelector('.scr-arrow-prev');
     const nextBtn = sectionEl.querySelector('.scr-arrow-next');
+    let currentOffset = 0;
 
     function updateArrowStates() {
       if (!prevBtn || !nextBtn) return;
-      const scrollLeft = track.scrollLeft;
-      const maxScroll = track.scrollWidth - track.clientWidth - 2;
-      prevBtn.disabled = scrollLeft <= 2;
-      nextBtn.disabled = scrollLeft >= maxScroll;
+      const maxOffset = Math.max(0, track.scrollWidth - track.clientWidth);
+      currentOffset = Math.max(0, Math.min(currentOffset, maxOffset));
+      track.style.transform = `translateX(-${currentOffset}px)`;
+      prevBtn.disabled = currentOffset <= 2;
+      nextBtn.disabled = currentOffset >= maxOffset - 2;
+    }
+
+    function moveTrack(direction) {
+      const maxOffset = Math.max(0, track.scrollWidth - track.clientWidth);
+      currentOffset = Math.max(0, Math.min(currentOffset + direction * getStep(), maxOffset));
+      track.style.transform = `translateX(-${currentOffset}px)`;
+      updateArrowStates();
     }
 
     function getStep() {
@@ -306,20 +321,16 @@
     if (prevBtn) {
       prevBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+        moveTrack(-1);
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        track.scrollBy({ left: getStep(), behavior: 'smooth' });
+        moveTrack(1);
       });
     }
-
-    track.addEventListener('scroll', () => {
-      updateArrowStates();
-    }, { passive: true });
 
     let startX = 0;
     let startScroll = 0;
@@ -328,7 +339,7 @@
     track.addEventListener('mousedown', (event) => {
       if (event.button !== 0 || track.scrollWidth <= track.clientWidth) return;
       startX = event.pageX;
-      startScroll = track.scrollLeft;
+      startScroll = currentOffset;
       moved = false;
 
       const onMove = (moveEvent) => {
@@ -337,7 +348,11 @@
           moved = true;
           track.classList.add('is-dragging');
         }
-        if (moved) track.scrollLeft = startScroll - delta;
+        if (moved) {
+          const maxOffset = Math.max(0, track.scrollWidth - track.clientWidth);
+          currentOffset = Math.max(0, Math.min(startScroll - delta, maxOffset));
+          track.style.transform = `translateX(-${currentOffset}px)`;
+        }
       };
 
       const onUp = () => {

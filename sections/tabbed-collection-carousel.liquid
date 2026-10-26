@@ -234,7 +234,7 @@
   .tabbed-collection-carousel {
     position: relative;
     width: 100%;
-    overflow-x: clip;
+    overflow: visible;
     color: var(--color-foreground, #121212);
     box-sizing: border-box;
   }
@@ -350,7 +350,7 @@
   /* Desktop: allow slides to bleed to right viewport edge just like Shop by Prints */
   @media screen and (min-width: 990px) {
     .tcc-panels-container {
-      overflow-x: clip;
+      overflow: visible;
       margin-right: calc(-1 * max(0px, (100vw - var(--fs-site-width, 1600px)) / 2));
       padding-right: max(0px, (100vw - var(--fs-site-width, 1600px)) / 2);
     }
