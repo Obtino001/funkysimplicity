@@ -339,6 +339,11 @@
     cursor: not-allowed;
   }
 
+  .tcc-header__arrows[hidden],
+  .tcc-arrow-btn[hidden] {
+    display: none !important;
+  }
+
   /* Panels & Slider */
   .tcc-panels-container {
     position: relative;
@@ -594,8 +599,18 @@
         track.style.transition = animate ? 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)' : 'none';
         track.style.transform = `translateX(-${targetOffset}px)`;
 
-        if (arrowPrev) arrowPrev.disabled = targetOffset <= 2;
-        if (arrowNext) arrowNext.disabled = targetOffset >= maxOffset - 2;
+        const canMovePrev = targetOffset > 2;
+        const canMoveNext = targetOffset < maxOffset - 2;
+        if (arrowPrev) {
+          arrowPrev.disabled = !canMovePrev;
+          arrowPrev.hidden = !canMovePrev;
+        }
+        if (arrowNext) {
+          arrowNext.disabled = !canMoveNext;
+          arrowNext.hidden = !canMoveNext;
+        }
+        const arrows = sectionEl.querySelector('.tcc-header__arrows');
+        if (arrows) arrows.hidden = !canMovePrev && !canMoveNext;
       }
 
       function updateArrowStates() {

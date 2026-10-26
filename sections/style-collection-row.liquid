@@ -140,6 +140,11 @@
     margin-left: auto;
   }
 
+  .scr-header__arrows[hidden],
+  .scr-arrow-btn[hidden] {
+    display: none !important;
+  }
+
   .scr-arrow-btn {
     appearance: none;
     width: 38px;
@@ -301,6 +306,12 @@
       const maxOffset = Math.max(0, track.scrollWidth - track.clientWidth);
       currentOffset = Math.max(0, Math.min(currentOffset, maxOffset));
       track.style.transform = `translateX(-${currentOffset}px)`;
+      const canMovePrev = currentOffset > 2;
+      const canMoveNext = currentOffset < maxOffset - 2;
+      prevBtn.hidden = !canMovePrev;
+      nextBtn.hidden = !canMoveNext;
+      const arrows = sectionEl.querySelector('.scr-header__arrows');
+      if (arrows) arrows.hidden = !canMovePrev && !canMoveNext;
       prevBtn.disabled = currentOffset <= 2;
       nextBtn.disabled = currentOffset >= maxOffset - 2;
     }
