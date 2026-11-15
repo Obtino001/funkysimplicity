@@ -606,21 +606,27 @@ img.icon-block__media {
 
   .tabbed-collection-carousel .tcc-heading,
   .tabbed-collection-carousel .tcc-heading.h2 {
-    font-size: 18px !important;
+    font-size: 28px !important;
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   .tabbed-collection-carousel .tcc-tabs-nav {
     width: 100%;
-    gap: 4px;
+    gap: 6px;
     flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabbed-collection-carousel .tcc-tabs-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .tabbed-collection-carousel .tcc-tab-btn {
     flex: 0 0 auto;
-    padding: 7px 12px;
-    font-size: 12px;
+    padding: 8px 14px;
+    font-size: 13px;
     line-height: 1;
   }
 
@@ -674,20 +680,15 @@ img.icon-block__media {
     height: 12px;
   }
 
-  .tabbed-collection-carousel .tcc-add-btn.mobile,
-  .tabbed-collection-carousel .tcc-card__media-wrapper .tcc-add-btn.mobile {
-    display: none !important;
-  }
-
   .tabbed-collection-carousel .tcc-footer {
-    margin-top: 20px;
+    margin-top: 24px;
   }
 
   .tabbed-collection-carousel .tcc-view-all-btn {
-    min-width: 87px;
-    min-height: 34px;
-    padding: 9px 15px;
-    font-size: 10px;
+    min-width: 120px;
+    min-height: 44px;
+    padding: 12px 24px;
+    font-size: 13px;
     line-height: 1;
   }
 }
@@ -1720,3 +1721,49 @@ a.skip-to-content-link:focus-visible {
     overflow: visible;
   }
 }
+
+/* Global editorial consistency & overflow protection */
+html,
+body {
+  overflow-x: clip;
+}
+
+.mega-menu__link-image {
+  border-radius: 0 !important;
+}
+
+.collection-section_view_all_button,
+.tcc-view-all-btn,
+.gr-btn,
+.fcs-view-all-btn,
+.cm-btn,
+.fc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 14px 28px;
+  border-radius: 9999px !important;
+  border: 1px solid #000000 !important;
+  background-color: transparent !important;
+  color: #000000 !important;
+  font-family: var(--font-body--family, "DM Sans", sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.collection-section_view_all_button:hover,
+.tcc-view-all-btn:hover,
+.gr-btn:hover,
+.fcs-view-all-btn:hover,
+.cm-btn:hover,
+.fc-btn:hover {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+

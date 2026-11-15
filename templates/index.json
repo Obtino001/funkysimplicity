@@ -15,11 +15,11 @@
       "settings": {
         "image": "shopify://shop_images/Funkyweb5_997bca77-dda2-43f5-bb7a-cea477c59943.jpg",
         "mobile_image": "shopify://shop_images/fc0be5b040ce74ff20d6fc5bb77a4014a7fdd592.png",
-        "desktop_height": 900,
+        "desktop_height": 760,
         "mobile_height": 735,
         "content_x": 50,
         "content_y": 52,
-        "overlay_opacity": 0,
+        "overlay_opacity": 22,
         "text_color": "#ffffff",
         "eyebrow": "HANDMADE IN BALI SINCE 1994",
         "heading": "Timeless Cotton Active Wear Made With Soul",
@@ -566,7 +566,7 @@
                 "text_8qJJe6": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>4 way stretch cotton</p>",
+                    "text": "<p>4 Way Stretch Cotton</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -692,7 +692,7 @@
                 "text_w6m4AE": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Original swiss artwork</p>",
+                    "text": "<p>Original Swiss Artwork</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -1108,7 +1108,7 @@
       "name": "Shop by Style Row",
       "settings": {
         "heading": "Shop by Style",
-        "columns_desktop": "7",
+        "columns_desktop": "4.5",
         "gap": 10,
         "background_color": "",
         "padding_top": 48,
@@ -1126,9 +1126,9 @@
             "link": "shopify://collections/shop-by-style",
             "open_in_new_tab": false,
             "style_class": "button",
-            "custom_button_background": "{{ settings.color_palette.foreground }}",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
+            "custom_button_background": "rgba(0,0,0,0)",
+            "custom_button_text": "{{ settings.color_palette.foreground }}",
+            "custom_button_border": "{{ settings.color_palette.foreground }}",
             "link_text_color": "",
             "width": "fit-content",
             "custom_width": 100,
@@ -1248,7 +1248,7 @@
       "name": "Shop by Prints Row",
       "settings": {
         "heading": "Shop by Prints",
-        "columns_desktop": "7",
+        "columns_desktop": "4.5",
         "gap": 10,
         "background_color": "",
         "padding_top": 48,
@@ -1266,9 +1266,9 @@
             "link": "shopify://collections/shop-by-print",
             "open_in_new_tab": false,
             "style_class": "button",
-            "custom_button_background": "{{ settings.color_palette.foreground }}",
-            "custom_button_text": "{{ settings.color_palette.background }}",
-            "custom_button_border": "{{ settings.color_palette.background }}",
+            "custom_button_background": "rgba(0,0,0,0)",
+            "custom_button_text": "{{ settings.color_palette.foreground }}",
+            "custom_button_border": "{{ settings.color_palette.foreground }}",
             "link_text_color": "",
             "width": "fit-content",
             "custom_width": 100,
@@ -1600,7 +1600,6 @@
           "type": "feature",
           "settings": {
             "icon": "flask",
-            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_9318d2d1-3b10-44cc-a9b1-7d94659585ff.png",
             "custom_svg": "",
             "title": "Cotton-Rich Fabric",
             "text": "Made with 90% cotton for a soft, breathable feel."
@@ -1619,7 +1618,6 @@
           "type": "feature",
           "settings": {
             "icon": "clock_recycle",
-            "custom_image": "shopify://shop_images/ChatGPT_Image_Aug_20_2026_01_34_13_PM_1_2_46dda474-24fe-4607-860c-51687bc1ab6b.png",
             "custom_svg": "",
             "title": "Made for Everyday Wear",
             "text": "Designed for comfort through regular wear."
@@ -1641,7 +1639,7 @@
         "text_color": "#ffffff",
         "heading": "<p>90% Cotton.<br/>10% Stretch.</p>",
         "heading_size": "small",
-        "description": "<p>All shirts and blouses are made from a 90% cotton, 10% elastane blend, combining the softness and breathability of cotton with comfortable stretch. The material feels soft on the skin and drapes beautifully along the body, creating a comfortable and elegant look that can be worn all day.</p>",
+        "description": "<p>Every piece is crafted from our signature 90% breathable cotton and 10% elastane blend, combining the natural softness of cotton with supportive 4-way stretch. The material feels like a second skin and drapes beautifully along the body for all-day movement and comfort.</p>",
         "content_max_width": 720,
         "subtext": "Ready to experience something different",
         "button_label": "SHOP NOW",
@@ -1663,7 +1661,7 @@
             "author": "Susann Schramm",
             "avatar_color": "#e06d53",
             "rating": 5,
-            "text": "I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.",
+            "text": "I'm a big fan of Funky Simplicity. The leggings are part of my everyday outfits. Great style and quality for yoga and beyond. Thank you for creating such cozy fashion.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1674,7 +1672,7 @@
             "author": "Monali Reddy",
             "avatar_color": "#b93815",
             "rating": 5,
-            "text": "The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.",
+            "text": "The consistency in the quality of Funky Simplicity's clothing is why I had to come back and purchase myself another pair of high-waist flared leggings. They're of excellent quality and breathable material.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1685,7 +1683,7 @@
             "author": "Nicoletta Lenchi",
             "avatar_color": "#4d7c0f",
             "rating": 5,
-            "text": "This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.",
+            "text": "This is a wonderful shop with excellent items. I bought amazing pants years ago, I wear them so much and they still look beautiful. Very friendly and super professional.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1696,7 +1694,7 @@
             "author": "Brenda Sanchez",
             "avatar_color": "#c2410c",
             "rating": 5,
-            "text": "I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.",
+            "text": "I'm a big fan of flare pants, but since I'm quite tall, most of the ones I've found are too short. Then I discovered these, and I absolutely love them! I already have five pairs.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1707,7 +1705,7 @@
             "author": "Liila Fontana",
             "avatar_color": "#558b2f",
             "rating": 5,
-            "text": "Looooove All The Amazing Beautiful And So Comfy Funky Wearings Some I Have For Years Now Still Like New. Sooo Good Quality. Big Thank Youuu Funky Simplicity!",
+            "text": "Love all the amazing, beautiful and so comfy Funky pieces — some I've had for years now and they still look like new. Such good quality. Big thank you, Funky Simplicity!",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1718,7 +1716,7 @@
             "author": "Marc Margherita",
             "avatar_color": "#2e7d32",
             "rating": 5,
-            "text": "I Love My Yoga Pants. I Have Two Pairs And After Wearing Them For Several Years They Look And Feel Like New. They Are My Go-To Comfy House Pants As Well As Stylish Leisure-Wear In The City.",
+            "text": "I love my yoga pants. I have two pairs and after wearing them for several years they look and feel like new. They are my go-to comfy house pants as well as stylish leisure-wear in the city.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1729,7 +1727,7 @@
             "author": "Susann Schramm",
             "avatar_color": "#e06d53",
             "rating": 5,
-            "text": "I'm A Big Fan Of Funky Simplicity. The Leggings, Are Part Of My Everyday Outfits. Great Style And Quality For Yoga And Beyond. Thank You For Creating Such Cozy Fashion.",
+            "text": "I'm a big fan of Funky Simplicity. The leggings are part of my everyday outfits. Great style and quality for yoga and beyond. Thank you for creating such cozy fashion.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1740,7 +1738,7 @@
             "author": "Monali Reddy",
             "avatar_color": "#b93815",
             "rating": 5,
-            "text": "The Consistency In The Quality Of FunkySimplicity's Clothing Is Why I Had To Come Back And Purchase Myself Another Pair Of High Waist Flared Leggings. They're Of Excellent Quality And Breathable Material.",
+            "text": "The consistency in the quality of Funky Simplicity's clothing is why I had to come back and purchase myself another pair of high-waist flared leggings. They're of excellent quality and breathable material.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1751,7 +1749,7 @@
             "author": "Nicoletta Lenchi",
             "avatar_color": "#4d7c0f",
             "rating": 5,
-            "text": "This Is A Wonderful Shop With Eccellent Items. I Bought Amazing Pants Years Ago, I Wear Them So Much And They Still Look Beautiful. Very Friendly And Super Professional.",
+            "text": "This is a wonderful shop with excellent items. I bought amazing pants years ago, I wear them so much and they still look beautiful. Very friendly and super professional.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1762,7 +1760,7 @@
             "author": "Brenda Sanchez",
             "avatar_color": "#c2410c",
             "rating": 5,
-            "text": "I'm A Big Fan Of Flare Pants, But Since I'm Quite Tall, Most Of The Ones I've Found Are Too Short. Then I Discovered These, And I Absolutely Love Them! I Already Have Five Pairs.",
+            "text": "I'm a big fan of flare pants, but since I'm quite tall, most of the ones I've found are too short. Then I discovered these, and I absolutely love them! I already have five pairs.",
             "date": "4 months ago",
             "show_google_badge": true
           }
@@ -1782,7 +1780,7 @@
       ],
       "name": "Customer Reviews Grid",
       "settings": {
-        "heading": "Exceptional Cloths. Exceptional Ratings.",
+        "heading": "Exceptional Clothes. Exceptional Ratings.",
         "heading_size": "h2",
         "rating_prefix": "Rated 5/5 On",
         "google_logo": "shopify://shop_images/image_10_cd412fdf-7e3d-48bd-b377-ea396ed6ee83.png",
@@ -1888,7 +1886,7 @@
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
-                "image_ratio": "adapt",
+                "image_ratio": "portrait",
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
@@ -2056,7 +2054,7 @@
             "link": "",
             "image_ratio": "adapt",
             "width": "custom",
-            "custom_width": 60,
+            "custom_width": 52,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
@@ -2084,7 +2082,7 @@
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "custom",
-            "custom_width": 50,
+            "custom_width": 48,
             "width_mobile": "fill",
             "custom_width_mobile": 100,
             "height": "fit",
@@ -2190,7 +2188,7 @@
             "button_fQCbRa": {
               "type": "button",
               "settings": {
-                "label": "meet the makers",
+                "label": "MEET THE MAKERS",
                 "link": "shopify://pages/meet-the-makers",
                 "open_in_new_tab": false,
                 "style_class": "button-secondary",
@@ -2610,7 +2608,7 @@
       ],
       "custom_css": [
         ".ifb-grid {background: #f6f6f6; padding: 30px 0;}",
-        ".ifb-container {max-width: 1440px;}"
+        ".ifb-container {max-width: var(--fs-site-width, 1600px);}"
       ],
       "name": "Icon Features Bar",
       "settings": {

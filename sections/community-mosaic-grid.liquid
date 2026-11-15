@@ -235,11 +235,10 @@
       margin: 0;
       color: #000000;
       font-family: 'Fraunces', var(--font-heading--family, serif);
-      font-weight: 300;
-      font-size: var(--cm-heading-size, 28px);
-      line-height: 1;
-      letter-spacing: 0;
-      text-transform: capitalize;
+      font-weight: 400;
+      font-size: clamp(1.75rem, 2.5vw, var(--cm-heading-size, 36px));
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
     /* 5-Column Mosaic Grid */
@@ -477,10 +476,10 @@
 
     .cm-lightbox__img {
       max-width: 100%;
-      max-height: 450px;
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
+      max-height: 82vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
       display: block;
       transform: scale(0.96);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
@@ -563,35 +562,69 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Responsive tablet/mobile: equal 2-col squares so image 2 matches image 1 */
-    @media screen and (max-width: 1024px) {
+    /* Responsive Tablet (750px - 1024px) */
+    @media screen and (max-width: 1024px) and (min-width: 750px) {
       .cm-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(2, 220px);
+        gap: 10px;
+      }
+
+      .cm-item--1 { grid-column: 1; grid-row: 1 / span 2; }
+      .cm-item--2 { grid-column: 2; grid-row: 1; }
+      .cm-item--3 { grid-column: 2; grid-row: 2; }
+      .cm-item--4 { grid-column: 3; grid-row: 1; }
+      .cm-item--5 { grid-column: 3; grid-row: 2; }
+      .cm-item--6 { grid-column: 4; grid-row: 1 / span 2; }
+      .cm-item--7,
+      .cm-item--8 { display: none; }
+
+      .cm-lightbox__nav--prev { left: 12px; }
+      .cm-lightbox__nav--next { right: 12px; }
+    }
+
+    /* Responsive Mobile (max-width: 749px) — Figma asymmetric editorial collage */
+    @media screen and (max-width: 749px) {
+      .community-mosaic-section {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .cm-container {
+        width: 100%;
+        padding: 36px 0;
+        gap: 24px;
+      }
+
+      .cm-heading {
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .cm-grid {
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-rows: none;
-        grid-auto-rows: auto;
-        gap: 8px;
+        grid-template-rows: repeat(4, clamp(132px, 37vw, 178px));
+        gap: 10px;
         align-items: stretch;
       }
 
-      .cm-item--1,
-      .cm-item--2,
-      .cm-item--3,
-      .cm-item--4,
-      .cm-item--5,
-      .cm-item--6,
-      .cm-item--7,
-      .cm-item--8 {
-        grid-column: auto !important;
-        grid-row: auto !important;
-        width: 100%;
+      .cm-item {
         min-width: 0;
         min-height: 0;
-        height: auto;
-        aspect-ratio: 1 / 1 !important;
         overflow: hidden;
         position: relative;
       }
+
+      .cm-item--1 { grid-column: 1; grid-row: 1 / span 2; }
+      .cm-item--2 { grid-column: 2; grid-row: 1; }
+      .cm-item--3 { grid-column: 2; grid-row: 2; }
+      .cm-item--4 { grid-column: 1; grid-row: 3 / span 2; }
+      .cm-item--5 { grid-column: 2; grid-row: 3; }
+      .cm-item--8 { grid-column: 2; grid-row: 4; }
+      .cm-item--6,
+      .cm-item--7 { display: none; }
 
       .cm-card {
         position: absolute;
@@ -610,487 +643,78 @@
         object-position: center;
       }
 
-      .cm-lightbox__nav--prev {
-        left: 12px;
+      .cm-card:hover .cm-card__img {
+        transform: none;
       }
 
-      .cm-lightbox__nav--next {
-        right: 12px;
-      }
-    }
-
-    @media screen and (max-width: 749px) {
-       
-      .cm-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-      }
-
-      .cm-heading {
-        font-size: 24px;
+      .cm-footer {
+        width: 100%;
+        margin-top: 4px;
       }
 
       .cm-btn {
+        width: auto;
+        max-width: 100%;
+        min-height: 46px;
+        padding: 13px 26px;
+        font-size: 13px;
+      }
+
+      .cm-lightbox__container {
         width: 100%;
         max-width: 100%;
+        max-height: 100vh;
+        padding: 60px 16px 110px;
+        box-sizing: border-box;
+      }
+
+      .cm-lightbox__media {
+        width: 100%;
+        max-width: 100%;
+        max-height: calc(100vh - 180px);
+      }
+
+      .cm-lightbox__img {
+        max-height: calc(100vh - 180px);
       }
 
       .cm-lightbox__close {
-        top: 16px;
-        right: 16px;
-        width: 38px;
-        height: 38px;
+        top: 14px;
+        right: 14px;
+        width: 40px;
+        height: 40px;
+        z-index: 20;
       }
 
       .cm-lightbox__nav {
-        width: 40px;
-        height: 40px;
+        position: fixed;
+        top: auto;
+        bottom: 58px;
+        transform: none;
+        width: 42px;
+        height: 42px;
+        z-index: 20;
+      }
+
+      .cm-lightbox__nav:hover {
+        transform: none;
+      }
+
+      .cm-lightbox__nav--prev {
+        left: calc(50% - 52px);
+      }
+
+      .cm-lightbox__nav--next {
+        right: calc(50% - 52px);
+      }
+
+      .cm-lightbox__counter {
+        bottom: 14px;
+        font-size: 13px;
+        padding: 6px 14px;
+        z-index: 20;
       }
     }
-
-    /* =========================================
-     RESPONSIVE / TABLET
-  ========================================= */
-
-  @media screen and (max-width: 1024px) {
-
-    .community-mosaic-section,
-    .community-mosaic-section *,
-    .cm-container,
-    .cm-grid,
-    .cm-item {
-      box-sizing: border-box;
-    }
-
-    .cm-container {
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .cm-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: none;
-      grid-auto-rows: auto;
-      gap: 8px;
-      width: 100%;
-      align-items: stretch;
-    }
-
-    .cm-item--1,
-    .cm-item--2,
-    .cm-item--3,
-    .cm-item--4,
-    .cm-item--5,
-    .cm-item--6,
-    .cm-item--7,
-    .cm-item--8 {
-      grid-column: auto !important;
-      grid-row: auto !important;
-      width: 100%;
-      min-width: 0;
-      min-height: 0;
-      height: auto;
-      aspect-ratio: 1 / 1 !important;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .cm-card {
-      position: absolute;
-      inset: 0;
-      min-width: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .cm-card__img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    /* Lightbox */
-
-    .cm-lightbox__container {
-      width: calc(100vw - 40px);
-      max-width: 90vw;
-      max-height: 88vh;
-    }
-
-    .cm-lightbox__media {
-      max-width: calc(100vw - 100px);
-      max-height: 80vh;
-    }
-
-    .cm-lightbox__img {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 75vh;
-      object-fit: contain;
-    }
-
-    .cm-lightbox__nav--prev {
-      left: -55px;
-    }
-
-    .cm-lightbox__nav--next {
-      right: -55px;
-    }
-  }
-
-
-  /* =========================================
-     MOBILE
-  ========================================= */
-
-  @media screen and (max-width: 749px) {
-
-    .community-mosaic-section {
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .cm-container {
-      width: 100%;
-      min-width: 0;
-      padding:30px 0;
-      gap: 20px;
-
-      overflow: hidden;
-    }
-
-
-    /* Heading */
-
-    .cm-heading {
-      font-size: clamp(22px, 6vw, 28px);
-      line-height: 1.2;
-      word-break: break-word;
-    }
-
-
-    /* Grid */
-
-    .cm-grid {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: none;
-      grid-auto-rows: auto;
-      gap: 8px;
-      align-items: stretch;
-    }
-
-    .cm-item--1,
-    .cm-item--2,
-    .cm-item--3,
-    .cm-item--4,
-    .cm-item--5,
-    .cm-item--6,
-    .cm-item--7,
-    .cm-item--8 {
-      grid-column: auto !important;
-      grid-row: auto !important;
-      width: 100%;
-      min-width: 0;
-      min-height: 0;
-      height: auto;
-      aspect-ratio: 1 / 1 !important;
-      overflow: hidden;
-      position: relative;
-    }
-
-
-    /* Card */
-
-    .cm-card {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .cm-card__img,
-    .cm-card__placeholder {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-
-    /* Disable Hover Scale Problems on Mobile */
-
-    .cm-card:hover .cm-card__img {
-      transform: none;
-    }
-
-
-    /* Mobile Overlay */
-
-    .cm-card__overlay {
-      opacity: 0;
-      padding: 12px;
-    }
-
-    .cm-card:active .cm-card__overlay {
-      opacity: 1;
-    }
-
-    .cm-card__title {
-      font-size: 13px;
-    }
-
-    .cm-card__cta {
-      font-size: 12px;
-    }
-
-
-    /* Footer */
-
-    .cm-footer {
-      width: 100%;
-
-      margin-top: 4px;
-    }
-
-
-    /* CTA Button */
-
-    .cm-btn {
-      width: 100%;
-
-      max-width: 100%;
-
-      min-height: 48px;
-
-      padding: 14px 20px;
-
-      text-align: center;
-
-      font-size: 13px;
-
-      white-space: normal;
-    }
-
-
-    /* =========================================
-       MOBILE LIGHTBOX
-    ========================================= */
-
-    .cm-lightbox {
-      padding: 0;
-
-      align-items: center;
-      justify-content: center;
-    }
-
-
-    .cm-lightbox__container {
-      width: 100%;
-      max-width: 100%;
-      max-height: 100vh;
-
-      padding: 60px 16px 110px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      box-sizing: border-box;
-    }
-
-
-    /* Image Container */
-
-    .cm-lightbox__media {
-      width: 100%;
-
-      max-width: 100%;
-
-      max-height: calc(100vh - 180px);
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-    }
-
-
-    /* Image */
-
-    .cm-lightbox__img {
-      width: auto;
-
-      height: auto;
-
-      max-width: 100%;
-
-      max-height: calc(100vh - 180px);
-
-      object-fit: contain;
-
-      display: block;
-    }
-
-
-    /* Close Button */
-
-    .cm-lightbox__close {
-      position: fixed;
-
-      top: 14px;
-      right: 14px;
-
-      width: 40px;
-      height: 40px;
-
-      z-index: 20;
-    }
-
-
-    /* =========================================
-       NAVIGATION BUTTONS
-       IMAGE KE UPAR OVERLAP NAHI HONGI
-    ========================================= */
-
-    .cm-lightbox__nav {
-      position: fixed;
-
-      top: auto;
-
-      bottom: 58px;
-
-      transform: none;
-
-      width: 42px;
-      height: 42px;
-
-      z-index: 20;
-    }
-
-
-    .cm-lightbox__nav:hover {
-      transform: none;
-    }
-
-
-    .cm-lightbox__nav--prev {
-      left: calc(50% - 52px);
-    }
-
-
-    .cm-lightbox__nav--next {
-      right: calc(50% - 52px);
-    }
-
-
-    /* Counter */
-
-    .cm-lightbox__counter {
-      position: fixed;
-
-      bottom: 14px;
-
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      font-size: 13px;
-
-      padding: 6px 14px;
-
-      z-index: 20;
-
-      white-space: nowrap;
-    }
-  }
-
-
-  /* =========================================
-     SMALL MOBILE DEVICES
-  ========================================= */
-
-  @media screen and (max-width: 480px) {
-
-    .cm-container {
-      gap: 18px;
-    }
-
-    .cm-grid {
-      gap: 6px;
-    }
-
-
-    .cm-heading {
-      font-size: 22px;
-    }
-
-
-    .cm-btn {
-      min-height: 46px;
-
-      padding: 13px 16px;
-
-      font-size: 12px;
-    }
-
-
-    /* Extra Small Mobile Lightbox */
-
-    .cm-lightbox__container {
-      padding-left: 10px;
-      padding-right: 10px;
-
-      padding-top: 55px;
-      padding-bottom: 105px;
-    }
-
-
-    .cm-lightbox__media {
-      max-height: calc(100vh - 165px);
-    }
-
-
-    .cm-lightbox__img {
-      max-height: calc(100vh - 165px);
-    }
-
-
-    .cm-lightbox__nav {
-      bottom: 52px;
-
-      width: 38px;
-      height: 38px;
-    }
-
-
-    .cm-lightbox__nav--prev {
-      left: calc(50% - 48px);
-    }
-
-
-    .cm-lightbox__nav--next {
-      right: calc(50% - 48px);
-    }
-
-
-    .cm-lightbox__counter {
-      bottom: 10px;
-    }
-  }
 </style>
 
 <script>

@@ -106,7 +106,7 @@
 <style>
   .style-collection-row {
     position: relative;
-    overflow: visible;
+    overflow-x: clip;
   }
 
   /* Capped to the site width (--fs-site-width) so every section lines up with the header. */
@@ -122,15 +122,17 @@
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   .scr-heading {
     margin: 0;
     font-family: var(--font-heading--family);
-    font-size: 1.75rem;
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
     font-weight: 400;
-    line-height: normal;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-foreground, #000000);
   }
 
   .scr-header__arrows {
@@ -163,6 +165,8 @@
 
   .scr-arrow-btn:hover:not(:disabled) {
     border-color: #121212;
+    background: #121212;
+    color: #ffffff;
   }
 
   .scr-arrow-btn:disabled {
@@ -170,17 +174,17 @@
     cursor: not-allowed;
   }
 
-  /* Track overflow wrapper: allows slides to bleed to right viewport edge on desktop */
+  /* Track overflow wrapper: clips scrolled cards cleanly on the left while allowing right-edge bleed on desktop */
   .scr-track-wrapper {
     position: relative;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
   }
 
   @media screen and (min-width: 990px) {
     .scr-track-wrapper {
-      margin-right: calc(-1 * max(0px, (100vw - var(--fs-site-width, 1600px)) / 2));
-      padding-right: max(0px, (100vw - var(--fs-site-width, 1600px)) / 2);
+      overflow: visible;
+      clip-path: inset(-12px -100vw -12px 0);
     }
   }
 
@@ -303,17 +307,19 @@
 
     function updateArrowStates() {
       if (!prevBtn || !nextBtn) return;
+      if (window.innerWidth <= 749) {
+        track.style.transform = '';
+        return;
+      }
       const maxOffset = Math.max(0, track.scrollWidth - track.clientWidth);
       currentOffset = Math.max(0, Math.min(currentOffset, maxOffset));
       track.style.transform = `translateX(-${currentOffset}px)`;
       const canMovePrev = currentOffset > 2;
       const canMoveNext = currentOffset < maxOffset - 2;
-      prevBtn.hidden = !canMovePrev;
-      nextBtn.hidden = !canMoveNext;
       const arrows = sectionEl.querySelector('.scr-header__arrows');
       if (arrows) arrows.hidden = !canMovePrev && !canMoveNext;
-      prevBtn.disabled = currentOffset <= 2;
-      nextBtn.disabled = currentOffset >= maxOffset - 2;
+      prevBtn.disabled = !canMovePrev;
+      nextBtn.disabled = !canMoveNext;
     }
 
     function moveTrack(direction) {

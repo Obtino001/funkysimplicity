@@ -87,16 +87,16 @@
   }
 
   .image-text-os__heading {
+    font-family: var(--font-heading--family, 'Fraunces', serif);
     font-size: var(--heading-size, 26px);
-    font-weight: var(--heading-weight, 600);
+    font-weight: var(--heading-weight, 400);
     margin: 0 0 16px;
   }
 
   .image-text-os__body {
     font-size: var(--body-size, 14px);
     font-weight: var(--body-weight, 400);
-    line-height: 22px;
-    text-transform: capitalize;
+    line-height: 1.6;
   }
 
   .image-text-os__body p + p {
@@ -114,11 +114,13 @@
     display: inline-block;
     margin-top: 24px;
   }
+
   .image-text-os__grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px !important;
-      width: 1248px;
-    }
+    grid-template-columns: 1fr 1fr;
+    gap: 40px !important;
+    width: 100%;
+    max-width: 1248px;
+  }
 
   @media screen and (min-width: 990px) {
     .image-text-os__grid {
@@ -182,7 +184,8 @@ h2.image-text-os__heading {
     line-height: 22px;
 }
 .image-text-os__media {
-    width: 335px;
+    width: 100%;
+    max-width: 100%;
     margin: auto;
 }
 div#shopify-section-template--30252635423047__image_with_text_os_DJjkmb {

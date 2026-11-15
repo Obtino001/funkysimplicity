@@ -254,7 +254,7 @@
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 1200px;
+    max-width: var(--fs-site-width, 1600px);
     margin-inline: auto;
     display: flex;
     flex-direction: column;
@@ -329,22 +329,23 @@
 
   .ffb-card__icon-wrapper {
     width: 64px;
-    height: 60px;
+    height: 64px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0.5rem;
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(6px);
     transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
   }
 
-  {% comment %} .ffb-card:hover .ffb-card__icon-wrapper {
-    transform: scale(1.08);
-    border-color: #ffffff;
-    background: rgba(255, 255, 255, 0.12);
-  } {% endcomment %}
+  .ffb-card:hover .ffb-card__icon-wrapper {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.16);
+  }
 
   .ffb-icon {
     width: 28px;
@@ -405,33 +406,33 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 25px;
+    padding: 15px 28px;
     border-radius: 9999px;
     font-family: var(--font-body--family, inherit);
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
     transition: all 0.25s ease;
     cursor: pointer;
     outline: 0;
-    border: 0;
     box-shadow: none;
   }
 
-.ffb-btn--outline, .ffb-btn--solid {
-    /* background: #111111; */
+  .ffb-btn--outline,
+  .ffb-btn--solid {
+    background: transparent;
     color: #ffffff;
-    border: 0;
+    border: 1px solid #ffffff;
     box-shadow: none;
-    border: 1px solid white;
-}
+  }
 
   .ffb-btn--outline:hover,
   .ffb-btn--solid:hover {
-    background: #2a2a2a;
-    color: #ffffff;
+    background: #ffffff;
+    color: #111111;
+    border-color: #ffffff;
     transform: translateY(-1px);
   }
 

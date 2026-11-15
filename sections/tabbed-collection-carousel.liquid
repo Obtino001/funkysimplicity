@@ -234,7 +234,7 @@
   .tabbed-collection-carousel {
     position: relative;
     width: 100%;
-    overflow: visible;
+    overflow-x: clip;
     color: var(--color-foreground, #121212);
     box-sizing: border-box;
   }
@@ -268,12 +268,13 @@
     margin: 0;
     font-family: var(--font-heading--family, inherit);
     font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--color-foreground, #000000);
   }
 
   .tcc-heading.h1 { font-size: clamp(2rem, 4vw, 3rem); }
-  .tcc-heading.h2 { font-size: clamp(1.75rem, 3.5vw, 28px); }
+  .tcc-heading.h2 { font-size: clamp(1.75rem, 2.5vw, 2.25rem); }
   .tcc-heading.h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
   .tcc-heading.h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
@@ -281,18 +282,18 @@
   .tcc-tabs-nav {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.625rem;
     flex-wrap: wrap;
   }
 
   .tcc-tab-btn {
     appearance: none;
-    border: none;
-    background: transparent;
-    padding: 0.55rem 1.25rem;
+    border: 1px solid transparent;
+    background: #f6f6f6;
+    padding: 0.6rem 1.35rem;
     border-radius: 9999px;
     font-family: var(--font-body--family, inherit);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--color-foreground, #121212);
     cursor: pointer;
@@ -300,13 +301,13 @@
     white-space: nowrap;
   }
 
-  .tcc-tab-btn:hover {
-    background-color: rgb(var(--color-foreground-rgb, 18 18 18) / 0.05);
+  .tcc-tab-btn:hover:not(.is-active) {
+    background-color: #ebebeb;
   }
 
   .tcc-tab-btn.is-active {
-    background-color: rgb(var(--color-foreground-rgb, 18 18 18) / 0.08);
-    color: var(--color-foreground, #121212);
+    background-color: #000000;
+    color: #ffffff;
     font-weight: 500;
   }
 
@@ -334,6 +335,12 @@
     padding: 0;
   }
 
+  .tcc-arrow-btn:hover:not(:disabled) {
+    border-color: #121212;
+    background: #121212;
+    color: #ffffff;
+  }
+
   .tcc-arrow-btn:disabled {
     opacity: 0.35;
     cursor: not-allowed;
@@ -348,16 +355,15 @@
   .tcc-panels-container {
     position: relative;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
     container-type: inline-size;
   }
 
-  /* Desktop: allow slides to bleed to right viewport edge just like Shop by Prints */
+  /* Desktop: allow slides to bleed to right viewport edge while clipping left edge cleanly */
   @media screen and (min-width: 990px) {
     .tcc-panels-container {
       overflow: visible;
-      margin-right: calc(-1 * max(0px, (100vw - var(--fs-site-width, 1600px)) / 2));
-      padding-right: max(0px, (100vw - var(--fs-site-width, 1600px)) / 2);
+      clip-path: inset(-12px -100vw -20px 0);
     }
   }
 
@@ -603,11 +609,9 @@
         const canMoveNext = targetOffset < maxOffset - 2;
         if (arrowPrev) {
           arrowPrev.disabled = !canMovePrev;
-          arrowPrev.hidden = !canMovePrev;
         }
         if (arrowNext) {
           arrowNext.disabled = !canMoveNext;
-          arrowNext.hidden = !canMoveNext;
         }
         const arrows = sectionEl.querySelector('.tcc-header__arrows');
         if (arrows) arrows.hidden = !canMovePrev && !canMoveNext;

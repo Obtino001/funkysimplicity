@@ -81,14 +81,16 @@
   }
 
   .timeline-section__intro-heading {
+    font-family: var(--font-heading--family, 'Fraunces', serif);
     font-size: var(--intro-heading-size, 26px);
-    font-weight: var(--intro-heading-weight, 600);
+    font-weight: var(--intro-heading-weight, 400);
     margin: 0 0 16px;
   }
 
   .timeline-section__intro-text {
     font-size: var(--intro-text-size, 14px);
     font-weight: var(--intro-text-weight, 400);
+    line-height: 1.65;
     opacity: 0.85;
     margin-bottom: 24px;
   }
@@ -113,9 +115,9 @@
 
   .timeline-milestone {
     position: relative;
-    border: 1px solid rgb(0 0 0 / 0.05);
+    border: 1px solid rgb(0 0 0 / 0.08);
     border-radius: 12px;
-    padding: 20px 24px;
+    padding: 24px;
     margin-block-start: 24px;
   }
 
@@ -124,25 +126,25 @@
     top: -20px;
     left: 24px;
     margin: 0;
-    padding-inline: 6px;
+    padding-inline: 8px;
     background: #fff;
+    font-family: var(--font-heading--family, 'Fraunces', serif);
     font-size: var(--milestone-year-size, 24px);
-    font-weight: var(--milestone-year-weight, 600);
+    font-weight: var(--milestone-year-weight, 400);
   }
 
   .timeline-milestone__title {
     font-size: var(--milestone-title-size, 16px);
     font-weight: var(--milestone-title-weight, 600);
-    margin: 0 0 15px;
-    font-family: 'DM Sans';
-     text-transform: capitalize;
-
+    margin: 0 0 12px;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .timeline-milestone__description {
-    font-size: var(--milestone-description-size, 13px);
+    font-size: var(--milestone-description-size, 14px);
     font-weight: var(--milestone-description-weight, 400);
-    opacity: 0.8;
+    line-height: 1.6;
+    opacity: 0.85;
   }
 
   @media screen and (min-width: 990px) {

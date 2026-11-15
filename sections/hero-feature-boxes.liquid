@@ -195,7 +195,7 @@
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 1440px;
+    max-width: var(--fs-site-width, 1600px);
     margin: 0 auto;
     flex: 1; 
     display: flex;
@@ -203,7 +203,8 @@
     justify-content: flex-end; 
     padding-top: var(--hfb-padding-top, 60px);
     padding-bottom: var(--hfb-padding-bottom, 60px);
-    padding-inline: 2rem;
+    padding-inline: var(--page-margin, 50px);
+    box-sizing: border-box;
   }
 
   /* 4. HEADER */
