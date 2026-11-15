@@ -1,0 +1,729 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R] /Count 5 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 6838 >>
+stream
+q
+0.070 0.070 0.080 rg
+38.00 691.89 519.28 112.00 re f
+Q
+BT /F2 8.50 Tf 0.820 0.820 0.850 rg 1 0 0 1 56.00 779.89 Tm (FUNKY SIMPLICITY  |  SHOPIFY HORIZON THEME AUDIT & FIGMA ALIGNMENT REPORT) Tj ET
+BT /F2 17.50 Tf 1.000 1.000 1.000 rg 1 0 0 1 56.00 757.89 Tm (Why the Store Looked Unfinished \227 And What We Fixed) Tj ET
+BT /F1 9.50 Tf 0.880 0.880 0.900 rg 1 0 0 1 56.00 735.89 Tm (Comprehensive section-by-section comparison against the approved Figma design system, root-cause analysis) Tj ET
+BT /F1 9.50 Tf 0.880 0.880 0.900 rg 1 0 0 1 56.00 722.39 Tm (of why previous piecemeal edits fell short, and full documentation of code fixes applied.) Tj ET
+q
+0.970 0.970 0.980 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 641.89 123.82 36.00 re B
+Q
+BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 46.00 663.89 Tm (STORE / THEME) Tj ET
+BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 46.00 650.89 Tm (Funky Simplicity \(Horizon\)) Tj ET
+q
+0.970 0.970 0.980 rg
+0.880 0.880 0.900 RG
+0.60 w
+169.82 641.89 123.82 36.00 re B
+Q
+BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 177.82 663.89 Tm (FIGMA REFERENCE) Tj ET
+BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 177.82 650.89 Tm (Master Design Frame \(0-1\)) Tj ET
+q
+0.970 0.970 0.980 rg
+0.880 0.880 0.900 RG
+0.60 w
+301.64 641.89 123.82 36.00 re B
+Q
+BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 309.64 663.89 Tm (SCOPE AUDITED) Tj ET
+BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 309.64 650.89 Tm (19 Sections + 7 Templates) Tj ET
+q
+0.970 0.970 0.980 rg
+0.880 0.880 0.900 RG
+0.60 w
+433.46 641.89 123.82 36.00 re B
+Q
+BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 441.46 663.89 Tm (REMEDIATION STATUS) Tj ET
+BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 441.46 650.89 Tm (All Code Issues Fixed) Tj ET
+BT /F2 12.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 38.00 611.89 Tm (1. Executive Summary: Why Previous Changes Did Not Satisfy the Client) Tj ET
+q
+0.070 0.070 0.090 rg
+38.00 605.89 519.28 1.20 re f
+Q
+BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 586.69 Tm (Although individual sections were built using the Figma design as a reference, viewing the live store as a complete) Tj ET
+BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 573.99 Tm (experience revealed why the client felt the store still looked unpolished and unprofessional. Our comprehensive audit) Tj ET
+BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 561.29 Tm (identified five systemic issues where previous quick fixes conflicted with one another or broke the visual harmony of the) Tj ET
+BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 548.59 Tm (Figma design:) Tj ET
+q
+0.980 0.980 0.985 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 468.49 519.28 68.60 re B
+Q
+q
+0.070 0.070 0.090 rg
+38.00 468.49 3.50 68.60 re f
+Q
+BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 522.09 Tm (1. Carousel Left-Margin Overflow & Horizontal Window Scrollbar Bug) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 508.09 Tm (Recent commits set overflow: visible on every wrapper inside Shop by Style, Shop by Prints, and Our Best Sellers to) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 495.89 Tm (create a right-edge bleed. However, when clicking Next or dragging the carousel, cards slid left across the left page) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 483.69 Tm (margin and created a horizontal scrollbar on the entire browser window.) Tj ET
+q
+0.980 0.980 0.985 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 392.89 519.28 68.60 re B
+Q
+q
+0.070 0.070 0.090 rg
+38.00 392.89 3.50 68.60 re f
+Q
+BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 446.49 Tm (2. CSS Cascade & Specificity Conflicts \(Global CSS vs. Inline Section Styles\)) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 432.49 Tm (Fixes placed in assets/figma-match.css \(loaded in <head>\) were repeatedly overridden by inline <style> blocks inside) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 420.29 Tm (section Liquid files in <body>. For example, 3 duplicate @media blocks in community-mosaic-grid.liquid used !important to) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 408.09 Tm (force 1:1 squares and a full-width button on mobile, erasing the Figma asymmetric editorial collage.) Tj ET
+q
+0.980 0.980 0.985 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 317.29 519.28 68.60 re B
+Q
+q
+0.070 0.070 0.090 rg
+38.00 317.29 3.50 68.60 re f
+Q
+BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 370.89 Tm (3. Inconsistent Container Max-Widths \(Jumping Vertical Alignment\)) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 356.89 Tm (Instead of aligning to a single vertical site grid \(--fs-site-width: 1600px\), sections used mismatched widths: 1200px) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 344.69 Tm (\(Fabric Banner\), 1440px \(Bali Family Feature Boxes & Pre-Footer Icon Bar\), 1019px \(About Us Image-with-Text\), and) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 332.49 Tm (1248px \(Our Story\). Left and right margins visibly jumped in and out while scrolling down the page.) Tj ET
+q
+0.980 0.980 0.985 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 241.69 519.28 68.60 re B
+Q
+q
+0.070 0.070 0.090 rg
+38.00 241.69 3.50 68.60 re f
+Q
+BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 295.29 Tm (4. Inconsistent Typography Scales, Button Systems & Broken Hover States) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 281.29 Tm (Section headings varied randomly between 18px, 28px, 36px, and 40px; "VIEW ALL" buttons alternated between solid black) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 269.09 Tm (blocks and transparent outline pills; and the "SHOP NOW" button on the 90% Cotton banner had its background CSS) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 256.89 Tm (commented out.) Tj ET
+q
+0.980 0.980 0.985 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 153.89 519.28 80.80 re B
+Q
+q
+0.070 0.070 0.090 rg
+38.00 153.89 3.50 80.80 re f
+Q
+BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 219.69 Tm (5. Severe Copy, OCR & Content Errors Live on the Store) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 205.69 Tm (The Customer Reviews heading on both the Homepage and Collection pages had a live spelling typo \("Exceptional Cloths") Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 193.49 Tm (instead of "Clothes"\) with every word in every review forced into Title Case; and on the About Us page, all 4 timeline) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 181.29 Tm (milestones \(1992, 2006, 2020, Today\) displayed the exact same garbled OCR paragraph \("in Ball... standee createher...) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 169.09 Tm (condon Sennetegan"\).) Tj ET
+BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
+BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 1 of 5) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 9156 >>
+stream
+BT /F2 12.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 38.00 791.89 Tm (2. Section-by-Section Audit: What Was Wrong & What We Fixed) Tj ET
+q
+0.070 0.070 0.090 rg
+38.00 785.89 519.28 1.20 re f
+Q
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 656.89 519.28 119.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 753.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 760.89 Tm (01. Header, Announcement Bar & Mega Menu) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 757.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 761.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 662.89 0.50 85.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 739.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 726.89 Tm (\225 Mega Menu collection images \(.mega-menu__link-image\) had) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 715.69 Tm (   border-radius: 8px in figma-match.css, clashing with the) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 704.49 Tm (   sharp 0px editorial corners across all Figma cards.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 689.79 Tm (\225 Horizontal overflow from carousel sections caused the) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 678.59 Tm (   sticky header and page viewport to shift sideways.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 739.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 726.89 Tm (\225 Enforced sharp 0px corners \(.mega-menu__link-image {) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 715.69 Tm (   border-radius: 0 !important; }\) in assets/figma-match.css.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 700.99 Tm (\225 Added global html, body { overflow-x: clip; } protection and) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 689.79 Tm (   preserved clean spacing between the header logo and) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 678.59 Tm (   navigation.) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 516.89 519.28 131.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 625.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 632.89 Tm (02. Hero Banner \("Timeless Cotton Active Wear Made With Soul"\)) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 629.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 633.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 522.89 0.50 97.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 611.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 598.89 Tm (\225 desktop_height in templates/index.json was set to 900px) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 587.69 Tm (   \(vs. ~740-760px in Figma\), making the hero overly tall on) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 576.49 Tm (   standard laptops and pushing the trust bar below the fold.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 561.79 Tm (\225 overlay_opacity was set to 0%, reducing contrast for the) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 550.59 Tm (   white headline and eyebrow over bright areas of the) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 539.39 Tm (   background image.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 611.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 598.89 Tm (\225 Adjusted desktop_height to 760px in templates/index.json) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 587.69 Tm (   so the hero and the trust strip below it frame cleanly on) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 576.49 Tm (   desktop viewports.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 561.79 Tm (\225 Set overlay_opacity to 22% so the white Fraunces heading) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 550.59 Tm (   and dual pill CTA buttons have crisp, luxury-grade legibility.) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 403.89 519.28 104.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 485.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 492.89 Tm (03. Top Trust Strip Under Hero \(4 Value Propositions\)) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 489.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 493.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 409.89 0.50 70.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 471.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 458.89 Tm (\225 Inconsistent capitalization across the 4 items: items 1 & 2) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 447.69 Tm (   used Title Case \("High Quality Fabrics", "Handmade Fairly) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 436.49 Tm (   In Bali"\), while items 3 & 4 were lowercase \("4 way stretch) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 425.29 Tm (   cotton", "Original swiss artwork"\).) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 471.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 458.89 Tm (\225 Standardized all 4 titles in templates/index.json) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 447.69 Tm (   \(section_6zhiU4\) to proper Title Case: "High Quality) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 436.49 Tm (   Fabrics", "Handmade Fairly In Bali", "4 Way Stretch) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 425.29 Tm (   Cotton", and "Original Swiss Artwork".) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 213.89 519.28 181.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 372.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 379.89 Tm (04. Shop by Style & Shop by Prints Carousels + "VIEW ALL" Buttons) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 376.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 380.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 219.89 0.50 147.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 358.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 345.89 Tm (\225 Both carousels had columns_desktop set to "7" in) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 334.69 Tm (   index.json. Since Shop by Prints only has 7 items total, all 7) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 323.49 Tm (   squeezed into tiny ~215px tiles and the slider arrows) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 312.29 Tm (   disappeared.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 297.59 Tm (\225 Setting overflow: visible on .scr-track-wrapper caused) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 286.39 Tm (   scrolled cards to bleed into the left page margin and) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 275.19 Tm (   created a horizontal window scrollbar.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 260.49 Tm (\225 The standalone "VIEW ALL" buttons under Shop by Style) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 249.29 Tm (   and Shop by Prints were solid black instead of Figma outline) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 238.09 Tm (   pills.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 358.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 345.89 Tm (\225 Set columns_desktop to "4.5" for both Shop by Style and) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 334.69 Tm (   Shop by Prints in templates/index.json so cards display at) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 323.49 Tm (   generous editorial proportions and scroll smoothly.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 308.79 Tm (\225 Used overflow-x: clip on .style-collection-row and) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 297.59 Tm (   clip-path: inset\(-12px -100vw -12px 0\) on) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 286.39 Tm (   .scr-track-wrapper on desktop so cards bleed right while) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 275.19 Tm (   clipping cleanly on the left.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 260.49 Tm (\225 Kept both Prev/Next circular arrows visible side-by-side) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 249.29 Tm (   and unified "VIEW ALL" buttons into transparent outline) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 238.09 Tm (   pills.) Tj ET
+BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
+BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 2 of 5) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 10227 >>
+stream
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 645.89 519.28 158.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 781.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 788.89 Tm (05. Our Best Sellers \227 Tabbed Collection Carousel) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 785.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 789.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 651.89 0.50 124.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 767.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 754.89 Tm (\225 Category tabs \(Leggings, Flare Pants, Sport Bras,) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 743.69 Tm (   Catsuits\) had transparent backgrounds and a faint 8% grey) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 732.49 Tm (   active state instead of Figma #F6F6F6 pills with a solid) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 721.29 Tm (   #000000 active pill.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 706.59 Tm (\225 In figma-match.css, line 609 forced .tcc-heading.h2 to 18px) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 695.39 Tm (   !important on mobile, overriding line 1484 \(28px !important\).) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 680.69 Tm (\225 Mobile quick-add bag icon \(.tcc-add-btn.mobile\) was hidden) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 669.49 Tm (   via display: none !important.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 767.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 754.89 Tm (\225 Styled .tcc-tab-btn with #f6f6f6 pill backgrounds and) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 743.69 Tm (   .tcc-tab-btn.is-active with #000000 background and #ffffff) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 732.49 Tm (   text.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 717.79 Tm (\225 Applied clip-path: inset\(-12px -100vw -20px 0\) on desktop) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 706.59 Tm (   .tcc-panels-container to fix left-margin bleed and page) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 695.39 Tm (   overflow.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 680.69 Tm (\225 Fixed mobile heading size to 28px \(36px desktop\) and) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 669.49 Tm (   restored the mobile quick-shop button.) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 467.89 519.28 169.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 614.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 621.89 Tm (06. "90% Cotton. 10% Stretch." Fabric Features Banner) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 618.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 622.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 473.89 0.50 135.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 600.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 587.89 Tm (\225 Blocks 1 & 3 used uploaded raster PNGs) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 576.69 Tm (   \(ChatGPT_Image...png\) while Block 2 had no custom_image) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 565.49 Tm (   and fell back to a thin stroke SVG feather \227 mixing 2 raster) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 554.29 Tm (   images with 1 mismatched vector icon.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 539.59 Tm (\225 In fabric-features-banner.liquid, .ffb-btn had /*) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 528.39 Tm (   background: #111111; */ commented out and turned dark grey) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 517.19 Tm (   \(#2a2a2a\) on hover.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 502.49 Tm (\225 Description copy referred to "All shirts and blouses") Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 491.29 Tm (   instead of Funky Simplicity activewear and leggings.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 600.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 587.89 Tm (\225 Removed the mismatched raster PNG overrides in) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 576.69 Tm (   templates/index.json so all 3 feature blocks render crisp) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 565.49 Tm (   white vector icons inside uniform 64x64px frosted-glass) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 554.29 Tm (   circles.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 539.59 Tm (\225 Fixed .ffb-btn CSS so "SHOP NOW" is a crisp white outline) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 528.39 Tm (   pill that inverts to solid white with black text on hover.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 513.69 Tm (\225 Updated the description copy to match Funky Simplicity) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 502.49 Tm (   activewear and aligned .ffb-container to --fs-site-width) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 491.29 Tm (   \(1600px\).) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 312.89 519.28 146.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 436.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 443.89 Tm (07. Customer Reviews Marquee \("Exceptional Clothes. Exceptional Ratings."\)) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 440.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 444.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 318.89 0.50 112.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 422.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 409.89 Tm (\225 Live spelling typo in heading on both Homepage and) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 398.69 Tm (   Collection page: "Exceptional Cloths. Exceptional Ratings.") Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 387.49 Tm (   \("Cloths" instead of "Clothes"\).) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 372.79 Tm (\225 Every word in every review was capitalized \("I'm A Big Fan) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 361.59 Tm (   Of Funky Simplicity..."\) with typos like "Eccellent Items".) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 346.89 Tm (\225 Heading used font-weight: 500 and 40px size instead of 400) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 335.69 Tm (   weight and 36px scale.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 422.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 409.89 Tm (\225 Fixed the heading typo to "Exceptional Clothes. Exceptional) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 398.69 Tm (   Ratings." across sections/google-reviews-grid.liquid,) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 387.49 Tm (   templates/index.json, and templates/collection.json.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 372.79 Tm (\225 Converted all customer review paragraphs into natural,) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 361.59 Tm (   readable sentence case and corrected spelling errors.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 346.89 Tm (\225 Standardized .gr-heading to font-weight: 400 and 36px) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 335.69 Tm (   desktop / 28px mobile.) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 172.89 519.28 131.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 281.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 288.89 Tm (08. Featured Split Showcase \("For Him"\)) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 285.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 289.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 178.89 0.50 97.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 267.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 254.89 Tm (\225 The 2x2 product grid on the left used image_ratio: "adapt",) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 243.69 Tm (   causing men's product photos with varying dimensions to) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 232.49 Tm (   render at uneven card heights.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 217.79 Tm (\225 .fcs-banner-wrapper had height: 96%; min-height: 96%;) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 206.59 Tm (   hardcoded in CSS, leaving the right-hand "For Him" banner) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 195.39 Tm (   misaligned at the bottom.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 267.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 254.89 Tm (\225 Changed image_ratio to "portrait" in templates/index.json) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 243.69 Tm (   and enforced a uniform 3:4 aspect ratio on product card) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 232.49 Tm (   galleries inside .fcs-products-grid.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 217.79 Tm (\225 Set .fcs-banner-wrapper to height: 100%; min-height: 100%;) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 206.59 Tm (   so the "For Him" hero banner aligns flush with the 2x2) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 195.39 Tm (   product grid.) Tj ET
+BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
+BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 3 of 5) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Length 10750 >>
+stream
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 672.89 519.28 131.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 781.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 788.89 Tm (09. Bali Family Feature Boxes & "Meet Our Funky Simplicity Team") Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 785.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 789.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 678.89 0.50 97.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 767.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 754.89 Tm (\225 .hfb-container in hero-feature-boxes.liquid used) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 743.69 Tm (   max-width: 1440px; padding-inline: 2rem; instead of aligning) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 732.49 Tm (   with --fs-site-width \(1600px\) and --page-margin \(50px\).) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 717.79 Tm (\225 In section_ctkgYh \("Meet Our Funky Simplicity Team"\), the) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 706.59 Tm (   image column had custom_width: 60 \(60%\) and the text) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 695.39 Tm (   column had custom_width: 50 \(50%\) = 110% total width!) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 767.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 754.89 Tm (\225 Updated .hfb-container to max-width: var\(--fs-site-width,) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 743.69 Tm (   1600px\) and padding-inline: var\(--page-margin, 50px\).) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 728.99 Tm (\225 Balanced "Meet Our Funky Simplicity Team" columns to 52%) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 717.79 Tm (   image + 48% text \(100% total\) and capitalized the "MEET) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 706.59 Tm (   THE MAKERS" button label.) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 521.89 519.28 142.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 641.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 648.89 Tm (10. "Our Funky Community" Mosaic Collage & Lightbox) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 645.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 649.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 527.89 0.50 108.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 627.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 614.89 Tm (\225 sections/community-mosaic-grid.liquid contained 3) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 603.69 Tm (   duplicate @media blocks \(lines 567-1093\) with !important) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 592.49 Tm (   rules forcing 1:1 squares and .cm-btn { width: 100%; },) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 581.29 Tm (   overriding the Figma asymmetric mobile collage.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 566.59 Tm (\225 On desktop, .cm-lightbox__img had height: 450px;) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 555.39 Tm (   max-height: 450px; object-fit: cover;, cropping full-screen) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 544.19 Tm (   lightbox photos into a small 450px box.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 627.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 614.89 Tm (\225 Removed the conflicting duplicate @media blocks in) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 603.69 Tm (   community-mosaic-grid.liquid and unified mobile to the) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 592.49 Tm (   Figma asymmetric collage \(tall left, two stacked right;) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 581.29 Tm (   repeat once\) with a centered pill button.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 566.59 Tm (\225 Updated .cm-lightbox__img on desktop to max-height: 82vh;) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 555.39 Tm (   width: auto; height: auto; object-fit: contain; so photos) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 544.19 Tm (   display uncropped.) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 297.89 519.28 215.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 490.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 497.89 Tm (11. Inner Pages \(About Us, Our Story, Collections & Contact\)) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 494.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 498.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 303.89 0.50 181.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 476.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 463.89 Tm (\225 Critical OCR Copy Bug on About Us: All 4 timeline milestones) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 452.69 Tm (   \(1992, 2006, 2020, Today\) in page.about-us.json had the) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 441.49 Tm (   exact same garbled text \("in Ball... standee createher...) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 430.29 Tm (   uniqueprints and condon Sennetegan"\).) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 415.59 Tm (\225 Hardcoded pixel widths in image-with-text.liquid \(width:) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 404.39 Tm (   1019px\), image-with-text-os.liquid \(width: 1248px\),) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 393.19 Tm (   the-process.liquid \(width: 1380px\), and) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 381.99 Tm (   collection.new-collection-figma.json \(width: 650px\)) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 370.79 Tm (   overflowed smaller screens.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 356.09 Tm (\225 image-with-text-os.liquid forced text-transform:) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 344.89 Tm (   capitalize on .image-text-os__body, capitalizing every word) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 333.69 Tm (   of body copy on Our Story! Step 1 of "The Process" also had) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 322.49 Tm (   duplicate text.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 476.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 463.89 Tm (\225 Replaced all 4 garbled timeline milestone descriptions in) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 452.69 Tm (   templates/page.about-us.json with clean, distinct) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 441.49 Tm (   milestone copy for 1992, 2006, 2020, and Today.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 426.79 Tm (\225 Replaced hardcoded pixel widths with responsive width:) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 415.59 Tm (   100%; max-width: ... across all inner page sections and un-hid) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 404.39 Tm (   "Meet the Founder" on mobile.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 389.69 Tm (\225 Removed text-transform: capitalize from body paragraphs) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 378.49 Tm (   in image-with-text-os.liquid, wrote dedicated copy for Step) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 367.29 Tm (   1 \("Unique hand-print designs"\) in page.our-story.json, and) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 356.09 Tm (   set page titles to Fraunces.) Tj ET
+q
+1.000 1.000 1.000 rg
+0.860 0.860 0.890 RG
+0.70 w
+38.00 119.89 519.28 169.00 re B
+Q
+q
+0.950 0.950 0.960 rg
+0.860 0.860 0.890 RG
+0.60 w
+38.00 266.89 519.28 22.00 re B
+Q
+BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 273.89 Tm (12. Pre-Footer Icon Bar & Footer) Tj ET
+q
+0.860 0.980 0.900 rg
+0.520 0.900 0.650 RG
+0.50 w
+467.28 270.89 82.00 13.00 re B
+Q
+BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 274.89 Tm (FIXED IN CODE) Tj ET
+q
+0.900 0.900 0.920 rg
+297.64 125.89 0.50 135.00 re f
+Q
+BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 252.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 239.89 Tm (\225 Pre-footer icon bar \(icon_features_bar_pfzAtC\) had) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 228.69 Tm (   .ifb-container { max-width: 1440px; }, stopping short of the) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 217.49 Tm (   1600px site grid.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 202.79 Tm (\225 In sections/footer-group.json, the first menu column) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 191.59 Tm (   \(menu_N6Kjqk\) had an empty heading \(""\) while the second) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 180.39 Tm (   had "Quick links", leaving the first column headerless on) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 169.19 Tm (   desktop and with an empty accordion toggle on mobile.) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 154.49 Tm (\225 Footer address had a typo \("Amsterdam, Netherland"\) and) Tj ET
+BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 143.29 Tm (   a raw U+2028 line separator.) Tj ET
+BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 252.89 Tm (WHAT WE FIXED IN CODE) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 239.89 Tm (\225 Aligned .ifb-container to var\(--fs-site-width, 1600px\) in) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 228.69 Tm (   both icon-features-bar.liquid and templates/index.json.) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 213.99 Tm (\225 Added the "Shop" heading to the first footer menu column) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 202.79 Tm (   in sections/footer-group.json and corrected the address to) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 191.59 Tm (   "Nieuwezijds Armsteeg 17, 1012 NB Amsterdam,) Tj ET
+BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 180.39 Tm (   Netherlands".) Tj ET
+BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
+BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 4 of 5) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 2118 >>
+stream
+BT /F2 12.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 38.00 791.89 Tm (3. Remaining Shopify Admin Content Checks \(Non-Code\)) Tj ET
+q
+0.070 0.070 0.090 rg
+38.00 785.89 519.28 1.20 re f
+Q
+q
+0.980 0.980 0.985 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 695.09 519.28 80.80 re B
+Q
+q
+0.070 0.070 0.090 rg
+38.00 695.09 3.50 80.80 re f
+Q
+BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 760.89 Tm (1. Upload Custom Editorial Photos for 3 Remaining "Shop by Style" Cards in Theme Editor) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 746.89 Tm (In templates/index.json \(style_collection_row_shop\), 6 of the 9 style cards have hand-picked editorial photos assigned,) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 734.69 Tm (while "Pocketed", "Sport Bras", and "Jeans-style Leggings" currently fall back to their default collection featured) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 722.49 Tm (images. Uploading matching full-body editorial photos for those 3 blocks in the Shopify Theme Editor will make all 9 cards) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 710.29 Tm (100% visually uniform.) Tj ET
+q
+0.980 0.980 0.985 rg
+0.880 0.880 0.900 RG
+0.60 w
+38.00 619.49 519.28 68.60 re B
+Q
+q
+0.070 0.070 0.090 rg
+38.00 619.49 3.50 68.60 re f
+Q
+BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 673.09 Tm (2. Confirm Free Shipping Threshold \(\200100 vs. \200150\) in Shopify Admin) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 659.09 Tm (The Announcement Bar currently states "Free shipping for orders over \200150", whereas config/settings_data.json has) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 646.89 Tm (cart_free_shipping_threshold set to "100". Confirm with the client which threshold is active so the Announcement Bar and) Tj ET
+BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 634.69 Tm (Cart Drawer progress bar show the exact same number.) Tj ET
+BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
+BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 5 of 5) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000148 00000 n 
+0000000245 00000 n 
+0000000347 00000 n 
+0000007237 00000 n 
+0000007379 00000 n 
+0000016587 00000 n 
+0000016729 00000 n 
+0000027009 00000 n 
+0000027152 00000 n 
+0000037956 00000 n 
+0000038100 00000 n 
+0000040271 00000 n 
+trailer
+<< /Size 15 /Root 1 0 R >>
+startxref
+40415
+%%EOF
