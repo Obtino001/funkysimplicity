@@ -54,7 +54,11 @@
     {%- endif -%}
 
     {%- if section.settings.heading != blank -%}
-      <h2 class="custom-banner__heading">{{ section.settings.heading | escape }}</h2>
+      {%- if section.index == 1 or request.page_type == 'index' -%}
+        <h1 class="custom-banner__heading">{{ section.settings.heading | escape }}</h1>
+      {%- else -%}
+        <h2 class="custom-banner__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
     {%- endif -%}
 
     {%- if section.settings.primary_label != blank or section.settings.secondary_label != blank -%}

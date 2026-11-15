@@ -1,729 +1,225 @@
 %PDF-1.4
-%âãÏÓ
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R /F5 8 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R] /Count 5 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+<<
+/BaseFont /Symbol /Name /F3 /Subtype /Type1 /Type /Font
+>>
 endobj
 5 0 obj
-<< /Length 6838 >>
-stream
-q
-0.070 0.070 0.080 rg
-38.00 691.89 519.28 112.00 re f
-Q
-BT /F2 8.50 Tf 0.820 0.820 0.850 rg 1 0 0 1 56.00 779.89 Tm (FUNKY SIMPLICITY  |  SHOPIFY HORIZON THEME AUDIT & FIGMA ALIGNMENT REPORT) Tj ET
-BT /F2 17.50 Tf 1.000 1.000 1.000 rg 1 0 0 1 56.00 757.89 Tm (Why the Store Looked Unfinished \227 And What We Fixed) Tj ET
-BT /F1 9.50 Tf 0.880 0.880 0.900 rg 1 0 0 1 56.00 735.89 Tm (Comprehensive section-by-section comparison against the approved Figma design system, root-cause analysis) Tj ET
-BT /F1 9.50 Tf 0.880 0.880 0.900 rg 1 0 0 1 56.00 722.39 Tm (of why previous piecemeal edits fell short, and full documentation of code fixes applied.) Tj ET
-q
-0.970 0.970 0.980 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 641.89 123.82 36.00 re B
-Q
-BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 46.00 663.89 Tm (STORE / THEME) Tj ET
-BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 46.00 650.89 Tm (Funky Simplicity \(Horizon\)) Tj ET
-q
-0.970 0.970 0.980 rg
-0.880 0.880 0.900 RG
-0.60 w
-169.82 641.89 123.82 36.00 re B
-Q
-BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 177.82 663.89 Tm (FIGMA REFERENCE) Tj ET
-BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 177.82 650.89 Tm (Master Design Frame \(0-1\)) Tj ET
-q
-0.970 0.970 0.980 rg
-0.880 0.880 0.900 RG
-0.60 w
-301.64 641.89 123.82 36.00 re B
-Q
-BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 309.64 663.89 Tm (SCOPE AUDITED) Tj ET
-BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 309.64 650.89 Tm (19 Sections + 7 Templates) Tj ET
-q
-0.970 0.970 0.980 rg
-0.880 0.880 0.900 RG
-0.60 w
-433.46 641.89 123.82 36.00 re B
-Q
-BT /F2 6.80 Tf 0.450 0.450 0.500 rg 1 0 0 1 441.46 663.89 Tm (REMEDIATION STATUS) Tj ET
-BT /F2 8.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 441.46 650.89 Tm (All Code Issues Fixed) Tj ET
-BT /F2 12.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 38.00 611.89 Tm (1. Executive Summary: Why Previous Changes Did Not Satisfy the Client) Tj ET
-q
-0.070 0.070 0.090 rg
-38.00 605.89 519.28 1.20 re f
-Q
-BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 586.69 Tm (Although individual sections were built using the Figma design as a reference, viewing the live store as a complete) Tj ET
-BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 573.99 Tm (experience revealed why the client felt the store still looked unpolished and unprofessional. Our comprehensive audit) Tj ET
-BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 561.29 Tm (identified five systemic issues where previous quick fixes conflicted with one another or broke the visual harmony of the) Tj ET
-BT /F1 9.20 Tf 0.180 0.180 0.200 rg 1 0 0 1 38.00 548.59 Tm (Figma design:) Tj ET
-q
-0.980 0.980 0.985 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 468.49 519.28 68.60 re B
-Q
-q
-0.070 0.070 0.090 rg
-38.00 468.49 3.50 68.60 re f
-Q
-BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 522.09 Tm (1. Carousel Left-Margin Overflow & Horizontal Window Scrollbar Bug) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 508.09 Tm (Recent commits set overflow: visible on every wrapper inside Shop by Style, Shop by Prints, and Our Best Sellers to) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 495.89 Tm (create a right-edge bleed. However, when clicking Next or dragging the carousel, cards slid left across the left page) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 483.69 Tm (margin and created a horizontal scrollbar on the entire browser window.) Tj ET
-q
-0.980 0.980 0.985 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 392.89 519.28 68.60 re B
-Q
-q
-0.070 0.070 0.090 rg
-38.00 392.89 3.50 68.60 re f
-Q
-BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 446.49 Tm (2. CSS Cascade & Specificity Conflicts \(Global CSS vs. Inline Section Styles\)) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 432.49 Tm (Fixes placed in assets/figma-match.css \(loaded in <head>\) were repeatedly overridden by inline <style> blocks inside) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 420.29 Tm (section Liquid files in <body>. For example, 3 duplicate @media blocks in community-mosaic-grid.liquid used !important to) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 408.09 Tm (force 1:1 squares and a full-width button on mobile, erasing the Figma asymmetric editorial collage.) Tj ET
-q
-0.980 0.980 0.985 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 317.29 519.28 68.60 re B
-Q
-q
-0.070 0.070 0.090 rg
-38.00 317.29 3.50 68.60 re f
-Q
-BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 370.89 Tm (3. Inconsistent Container Max-Widths \(Jumping Vertical Alignment\)) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 356.89 Tm (Instead of aligning to a single vertical site grid \(--fs-site-width: 1600px\), sections used mismatched widths: 1200px) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 344.69 Tm (\(Fabric Banner\), 1440px \(Bali Family Feature Boxes & Pre-Footer Icon Bar\), 1019px \(About Us Image-with-Text\), and) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 332.49 Tm (1248px \(Our Story\). Left and right margins visibly jumped in and out while scrolling down the page.) Tj ET
-q
-0.980 0.980 0.985 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 241.69 519.28 68.60 re B
-Q
-q
-0.070 0.070 0.090 rg
-38.00 241.69 3.50 68.60 re f
-Q
-BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 295.29 Tm (4. Inconsistent Typography Scales, Button Systems & Broken Hover States) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 281.29 Tm (Section headings varied randomly between 18px, 28px, 36px, and 40px; "VIEW ALL" buttons alternated between solid black) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 269.09 Tm (blocks and transparent outline pills; and the "SHOP NOW" button on the 90% Cotton banner had its background CSS) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 256.89 Tm (commented out.) Tj ET
-q
-0.980 0.980 0.985 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 153.89 519.28 80.80 re B
-Q
-q
-0.070 0.070 0.090 rg
-38.00 153.89 3.50 80.80 re f
-Q
-BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 219.69 Tm (5. Severe Copy, OCR & Content Errors Live on the Store) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 205.69 Tm (The Customer Reviews heading on both the Homepage and Collection pages had a live spelling typo \("Exceptional Cloths") Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 193.49 Tm (instead of "Clothes"\) with every word in every review forced into Title Case; and on the About Us page, all 4 timeline) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 181.29 Tm (milestones \(1992, 2006, 2020, Today\) displayed the exact same garbled OCR paragraph \("in Ball... standee createher...) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 169.09 Tm (condon Sennetegan"\).) Tj ET
-BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
-BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 1 of 5) Tj ET
-endstream
+<<
+/BaseFont /ZapfDingbats /Name /F4 /Subtype /Type1 /Type /Font
+>>
 endobj
 6 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+<<
+/Contents 18 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 7 0 obj
-<< /Length 9156 >>
-stream
-BT /F2 12.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 38.00 791.89 Tm (2. Section-by-Section Audit: What Was Wrong & What We Fixed) Tj ET
-q
-0.070 0.070 0.090 rg
-38.00 785.89 519.28 1.20 re f
-Q
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 656.89 519.28 119.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 753.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 760.89 Tm (01. Header, Announcement Bar & Mega Menu) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 757.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 761.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 662.89 0.50 85.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 739.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 726.89 Tm (\225 Mega Menu collection images \(.mega-menu__link-image\) had) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 715.69 Tm (   border-radius: 8px in figma-match.css, clashing with the) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 704.49 Tm (   sharp 0px editorial corners across all Figma cards.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 689.79 Tm (\225 Horizontal overflow from carousel sections caused the) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 678.59 Tm (   sticky header and page viewport to shift sideways.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 739.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 726.89 Tm (\225 Enforced sharp 0px corners \(.mega-menu__link-image {) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 715.69 Tm (   border-radius: 0 !important; }\) in assets/figma-match.css.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 700.99 Tm (\225 Added global html, body { overflow-x: clip; } protection and) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 689.79 Tm (   preserved clean spacing between the header logo and) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 678.59 Tm (   navigation.) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 516.89 519.28 131.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 625.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 632.89 Tm (02. Hero Banner \("Timeless Cotton Active Wear Made With Soul"\)) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 629.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 633.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 522.89 0.50 97.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 611.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 598.89 Tm (\225 desktop_height in templates/index.json was set to 900px) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 587.69 Tm (   \(vs. ~740-760px in Figma\), making the hero overly tall on) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 576.49 Tm (   standard laptops and pushing the trust bar below the fold.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 561.79 Tm (\225 overlay_opacity was set to 0%, reducing contrast for the) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 550.59 Tm (   white headline and eyebrow over bright areas of the) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 539.39 Tm (   background image.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 611.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 598.89 Tm (\225 Adjusted desktop_height to 760px in templates/index.json) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 587.69 Tm (   so the hero and the trust strip below it frame cleanly on) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 576.49 Tm (   desktop viewports.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 561.79 Tm (\225 Set overlay_opacity to 22% so the white Fraunces heading) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 550.59 Tm (   and dual pill CTA buttons have crisp, luxury-grade legibility.) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 403.89 519.28 104.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 485.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 492.89 Tm (03. Top Trust Strip Under Hero \(4 Value Propositions\)) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 489.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 493.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 409.89 0.50 70.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 471.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 458.89 Tm (\225 Inconsistent capitalization across the 4 items: items 1 & 2) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 447.69 Tm (   used Title Case \("High Quality Fabrics", "Handmade Fairly) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 436.49 Tm (   In Bali"\), while items 3 & 4 were lowercase \("4 way stretch) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 425.29 Tm (   cotton", "Original swiss artwork"\).) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 471.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 458.89 Tm (\225 Standardized all 4 titles in templates/index.json) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 447.69 Tm (   \(section_6zhiU4\) to proper Title Case: "High Quality) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 436.49 Tm (   Fabrics", "Handmade Fairly In Bali", "4 Way Stretch) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 425.29 Tm (   Cotton", and "Original Swiss Artwork".) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 213.89 519.28 181.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 372.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 379.89 Tm (04. Shop by Style & Shop by Prints Carousels + "VIEW ALL" Buttons) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 376.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 380.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 219.89 0.50 147.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 358.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 345.89 Tm (\225 Both carousels had columns_desktop set to "7" in) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 334.69 Tm (   index.json. Since Shop by Prints only has 7 items total, all 7) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 323.49 Tm (   squeezed into tiny ~215px tiles and the slider arrows) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 312.29 Tm (   disappeared.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 297.59 Tm (\225 Setting overflow: visible on .scr-track-wrapper caused) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 286.39 Tm (   scrolled cards to bleed into the left page margin and) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 275.19 Tm (   created a horizontal window scrollbar.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 260.49 Tm (\225 The standalone "VIEW ALL" buttons under Shop by Style) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 249.29 Tm (   and Shop by Prints were solid black instead of Figma outline) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 238.09 Tm (   pills.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 358.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 345.89 Tm (\225 Set columns_desktop to "4.5" for both Shop by Style and) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 334.69 Tm (   Shop by Prints in templates/index.json so cards display at) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 323.49 Tm (   generous editorial proportions and scroll smoothly.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 308.79 Tm (\225 Used overflow-x: clip on .style-collection-row and) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 297.59 Tm (   clip-path: inset\(-12px -100vw -12px 0\) on) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 286.39 Tm (   .scr-track-wrapper on desktop so cards bleed right while) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 275.19 Tm (   clipping cleanly on the left.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 260.49 Tm (\225 Kept both Prev/Next circular arrows visible side-by-side) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 249.29 Tm (   and unified "VIEW ALL" buttons into transparent outline) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 238.09 Tm (   pills.) Tj ET
-BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
-BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 2 of 5) Tj ET
-endstream
+<<
+/Contents 19 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 8 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+<<
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F5 /Subtype /Type1 /Type /Font
+>>
 endobj
 9 0 obj
-<< /Length 10227 >>
-stream
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 645.89 519.28 158.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 781.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 788.89 Tm (05. Our Best Sellers \227 Tabbed Collection Carousel) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 785.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 789.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 651.89 0.50 124.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 767.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 754.89 Tm (\225 Category tabs \(Leggings, Flare Pants, Sport Bras,) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 743.69 Tm (   Catsuits\) had transparent backgrounds and a faint 8% grey) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 732.49 Tm (   active state instead of Figma #F6F6F6 pills with a solid) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 721.29 Tm (   #000000 active pill.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 706.59 Tm (\225 In figma-match.css, line 609 forced .tcc-heading.h2 to 18px) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 695.39 Tm (   !important on mobile, overriding line 1484 \(28px !important\).) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 680.69 Tm (\225 Mobile quick-add bag icon \(.tcc-add-btn.mobile\) was hidden) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 669.49 Tm (   via display: none !important.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 767.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 754.89 Tm (\225 Styled .tcc-tab-btn with #f6f6f6 pill backgrounds and) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 743.69 Tm (   .tcc-tab-btn.is-active with #000000 background and #ffffff) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 732.49 Tm (   text.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 717.79 Tm (\225 Applied clip-path: inset\(-12px -100vw -20px 0\) on desktop) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 706.59 Tm (   .tcc-panels-container to fix left-margin bleed and page) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 695.39 Tm (   overflow.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 680.69 Tm (\225 Fixed mobile heading size to 28px \(36px desktop\) and) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 669.49 Tm (   restored the mobile quick-shop button.) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 467.89 519.28 169.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 614.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 621.89 Tm (06. "90% Cotton. 10% Stretch." Fabric Features Banner) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 618.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 622.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 473.89 0.50 135.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 600.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 587.89 Tm (\225 Blocks 1 & 3 used uploaded raster PNGs) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 576.69 Tm (   \(ChatGPT_Image...png\) while Block 2 had no custom_image) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 565.49 Tm (   and fell back to a thin stroke SVG feather \227 mixing 2 raster) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 554.29 Tm (   images with 1 mismatched vector icon.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 539.59 Tm (\225 In fabric-features-banner.liquid, .ffb-btn had /*) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 528.39 Tm (   background: #111111; */ commented out and turned dark grey) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 517.19 Tm (   \(#2a2a2a\) on hover.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 502.49 Tm (\225 Description copy referred to "All shirts and blouses") Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 491.29 Tm (   instead of Funky Simplicity activewear and leggings.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 600.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 587.89 Tm (\225 Removed the mismatched raster PNG overrides in) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 576.69 Tm (   templates/index.json so all 3 feature blocks render crisp) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 565.49 Tm (   white vector icons inside uniform 64x64px frosted-glass) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 554.29 Tm (   circles.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 539.59 Tm (\225 Fixed .ffb-btn CSS so "SHOP NOW" is a crisp white outline) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 528.39 Tm (   pill that inverts to solid white with black text on hover.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 513.69 Tm (\225 Updated the description copy to match Funky Simplicity) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 502.49 Tm (   activewear and aligned .ffb-container to --fs-site-width) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 491.29 Tm (   \(1600px\).) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 312.89 519.28 146.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 436.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 443.89 Tm (07. Customer Reviews Marquee \("Exceptional Clothes. Exceptional Ratings."\)) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 440.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 444.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 318.89 0.50 112.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 422.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 409.89 Tm (\225 Live spelling typo in heading on both Homepage and) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 398.69 Tm (   Collection page: "Exceptional Cloths. Exceptional Ratings.") Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 387.49 Tm (   \("Cloths" instead of "Clothes"\).) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 372.79 Tm (\225 Every word in every review was capitalized \("I'm A Big Fan) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 361.59 Tm (   Of Funky Simplicity..."\) with typos like "Eccellent Items".) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 346.89 Tm (\225 Heading used font-weight: 500 and 40px size instead of 400) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 335.69 Tm (   weight and 36px scale.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 422.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 409.89 Tm (\225 Fixed the heading typo to "Exceptional Clothes. Exceptional) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 398.69 Tm (   Ratings." across sections/google-reviews-grid.liquid,) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 387.49 Tm (   templates/index.json, and templates/collection.json.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 372.79 Tm (\225 Converted all customer review paragraphs into natural,) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 361.59 Tm (   readable sentence case and corrected spelling errors.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 346.89 Tm (\225 Standardized .gr-heading to font-weight: 400 and 36px) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 335.69 Tm (   desktop / 28px mobile.) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 172.89 519.28 131.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 281.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 288.89 Tm (08. Featured Split Showcase \("For Him"\)) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 285.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 289.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 178.89 0.50 97.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 267.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 254.89 Tm (\225 The 2x2 product grid on the left used image_ratio: "adapt",) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 243.69 Tm (   causing men's product photos with varying dimensions to) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 232.49 Tm (   render at uneven card heights.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 217.79 Tm (\225 .fcs-banner-wrapper had height: 96%; min-height: 96%;) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 206.59 Tm (   hardcoded in CSS, leaving the right-hand "For Him" banner) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 195.39 Tm (   misaligned at the bottom.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 267.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 254.89 Tm (\225 Changed image_ratio to "portrait" in templates/index.json) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 243.69 Tm (   and enforced a uniform 3:4 aspect ratio on product card) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 232.49 Tm (   galleries inside .fcs-products-grid.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 217.79 Tm (\225 Set .fcs-banner-wrapper to height: 100%; min-height: 100%;) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 206.59 Tm (   so the "For Him" hero banner aligns flush with the 2x2) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 195.39 Tm (   product grid.) Tj ET
-BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
-BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 3 of 5) Tj ET
-endstream
+<<
+/Contents 20 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 10 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+<<
+/Contents 21 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 11 0 obj
-<< /Length 10750 >>
-stream
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 672.89 519.28 131.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 781.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 788.89 Tm (09. Bali Family Feature Boxes & "Meet Our Funky Simplicity Team") Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 785.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 789.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 678.89 0.50 97.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 767.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 754.89 Tm (\225 .hfb-container in hero-feature-boxes.liquid used) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 743.69 Tm (   max-width: 1440px; padding-inline: 2rem; instead of aligning) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 732.49 Tm (   with --fs-site-width \(1600px\) and --page-margin \(50px\).) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 717.79 Tm (\225 In section_ctkgYh \("Meet Our Funky Simplicity Team"\), the) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 706.59 Tm (   image column had custom_width: 60 \(60%\) and the text) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 695.39 Tm (   column had custom_width: 50 \(50%\) = 110% total width!) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 767.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 754.89 Tm (\225 Updated .hfb-container to max-width: var\(--fs-site-width,) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 743.69 Tm (   1600px\) and padding-inline: var\(--page-margin, 50px\).) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 728.99 Tm (\225 Balanced "Meet Our Funky Simplicity Team" columns to 52%) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 717.79 Tm (   image + 48% text \(100% total\) and capitalized the "MEET) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 706.59 Tm (   THE MAKERS" button label.) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 521.89 519.28 142.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 641.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 648.89 Tm (10. "Our Funky Community" Mosaic Collage & Lightbox) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 645.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 649.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 527.89 0.50 108.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 627.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 614.89 Tm (\225 sections/community-mosaic-grid.liquid contained 3) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 603.69 Tm (   duplicate @media blocks \(lines 567-1093\) with !important) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 592.49 Tm (   rules forcing 1:1 squares and .cm-btn { width: 100%; },) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 581.29 Tm (   overriding the Figma asymmetric mobile collage.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 566.59 Tm (\225 On desktop, .cm-lightbox__img had height: 450px;) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 555.39 Tm (   max-height: 450px; object-fit: cover;, cropping full-screen) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 544.19 Tm (   lightbox photos into a small 450px box.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 627.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 614.89 Tm (\225 Removed the conflicting duplicate @media blocks in) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 603.69 Tm (   community-mosaic-grid.liquid and unified mobile to the) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 592.49 Tm (   Figma asymmetric collage \(tall left, two stacked right;) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 581.29 Tm (   repeat once\) with a centered pill button.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 566.59 Tm (\225 Updated .cm-lightbox__img on desktop to max-height: 82vh;) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 555.39 Tm (   width: auto; height: auto; object-fit: contain; so photos) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 544.19 Tm (   display uncropped.) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 297.89 519.28 215.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 490.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 497.89 Tm (11. Inner Pages \(About Us, Our Story, Collections & Contact\)) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 494.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 498.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 303.89 0.50 181.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 476.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 463.89 Tm (\225 Critical OCR Copy Bug on About Us: All 4 timeline milestones) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 452.69 Tm (   \(1992, 2006, 2020, Today\) in page.about-us.json had the) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 441.49 Tm (   exact same garbled text \("in Ball... standee createher...) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 430.29 Tm (   uniqueprints and condon Sennetegan"\).) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 415.59 Tm (\225 Hardcoded pixel widths in image-with-text.liquid \(width:) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 404.39 Tm (   1019px\), image-with-text-os.liquid \(width: 1248px\),) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 393.19 Tm (   the-process.liquid \(width: 1380px\), and) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 381.99 Tm (   collection.new-collection-figma.json \(width: 650px\)) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 370.79 Tm (   overflowed smaller screens.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 356.09 Tm (\225 image-with-text-os.liquid forced text-transform:) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 344.89 Tm (   capitalize on .image-text-os__body, capitalizing every word) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 333.69 Tm (   of body copy on Our Story! Step 1 of "The Process" also had) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 322.49 Tm (   duplicate text.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 476.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 463.89 Tm (\225 Replaced all 4 garbled timeline milestone descriptions in) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 452.69 Tm (   templates/page.about-us.json with clean, distinct) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 441.49 Tm (   milestone copy for 1992, 2006, 2020, and Today.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 426.79 Tm (\225 Replaced hardcoded pixel widths with responsive width:) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 415.59 Tm (   100%; max-width: ... across all inner page sections and un-hid) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 404.39 Tm (   "Meet the Founder" on mobile.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 389.69 Tm (\225 Removed text-transform: capitalize from body paragraphs) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 378.49 Tm (   in image-with-text-os.liquid, wrote dedicated copy for Step) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 367.29 Tm (   1 \("Unique hand-print designs"\) in page.our-story.json, and) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 356.09 Tm (   set page titles to Fraunces.) Tj ET
-q
-1.000 1.000 1.000 rg
-0.860 0.860 0.890 RG
-0.70 w
-38.00 119.89 519.28 169.00 re B
-Q
-q
-0.950 0.950 0.960 rg
-0.860 0.860 0.890 RG
-0.60 w
-38.00 266.89 519.28 22.00 re B
-Q
-BT /F2 9.80 Tf 0.070 0.070 0.090 rg 1 0 0 1 48.00 273.89 Tm (12. Pre-Footer Icon Bar & Footer) Tj ET
-q
-0.860 0.980 0.900 rg
-0.520 0.900 0.650 RG
-0.50 w
-467.28 270.89 82.00 13.00 re B
-Q
-BT /F2 6.80 Tf 0.080 0.400 0.200 rg 1 0 0 1 475.28 274.89 Tm (FIXED IN CODE) Tj ET
-q
-0.900 0.900 0.920 rg
-297.64 125.89 0.50 135.00 re f
-Q
-BT /F2 7.50 Tf 0.720 0.110 0.110 rg 1 0 0 1 48.00 252.89 Tm (WHAT WAS WRONG / WHY IT FAILED) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 239.89 Tm (\225 Pre-footer icon bar \(icon_features_bar_pfzAtC\) had) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 228.69 Tm (   .ifb-container { max-width: 1440px; }, stopping short of the) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 217.49 Tm (   1600px site grid.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 202.79 Tm (\225 In sections/footer-group.json, the first menu column) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 191.59 Tm (   \(menu_N6Kjqk\) had an empty heading \(""\) while the second) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 180.39 Tm (   had "Quick links", leaving the first column headerless on) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 169.19 Tm (   desktop and with an empty accordion toggle on mobile.) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 154.49 Tm (\225 Footer address had a typo \("Amsterdam, Netherland"\) and) Tj ET
-BT /F1 8.50 Tf 0.180 0.180 0.200 rg 1 0 0 1 48.00 143.29 Tm (   a raw U+2028 line separator.) Tj ET
-BT /F2 7.50 Tf 0.080 0.480 0.220 rg 1 0 0 1 307.64 252.89 Tm (WHAT WE FIXED IN CODE) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 239.89 Tm (\225 Aligned .ifb-container to var\(--fs-site-width, 1600px\) in) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 228.69 Tm (   both icon-features-bar.liquid and templates/index.json.) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 213.99 Tm (\225 Added the "Shop" heading to the first footer menu column) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 202.79 Tm (   in sections/footer-group.json and corrected the address to) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 191.59 Tm (   "Nieuwezijds Armsteeg 17, 1012 NB Amsterdam,) Tj ET
-BT /F1 8.50 Tf 0.150 0.180 0.160 rg 1 0 0 1 307.64 180.39 Tm (   Netherlands".) Tj ET
-BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
-BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 4 of 5) Tj ET
-endstream
+<<
+/Contents 22 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 12 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+<<
+/Contents 23 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 13 0 obj
-<< /Length 2118 >>
-stream
-BT /F2 12.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 38.00 791.89 Tm (3. Remaining Shopify Admin Content Checks \(Non-Code\)) Tj ET
-q
-0.070 0.070 0.090 rg
-38.00 785.89 519.28 1.20 re f
-Q
-q
-0.980 0.980 0.985 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 695.09 519.28 80.80 re B
-Q
-q
-0.070 0.070 0.090 rg
-38.00 695.09 3.50 80.80 re f
-Q
-BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 760.89 Tm (1. Upload Custom Editorial Photos for 3 Remaining "Shop by Style" Cards in Theme Editor) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 746.89 Tm (In templates/index.json \(style_collection_row_shop\), 6 of the 9 style cards have hand-picked editorial photos assigned,) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 734.69 Tm (while "Pocketed", "Sport Bras", and "Jeans-style Leggings" currently fall back to their default collection featured) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 722.49 Tm (images. Uploading matching full-body editorial photos for those 3 blocks in the Shopify Theme Editor will make all 9 cards) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 710.29 Tm (100% visually uniform.) Tj ET
-q
-0.980 0.980 0.985 rg
-0.880 0.880 0.900 RG
-0.60 w
-38.00 619.49 519.28 68.60 re B
-Q
-q
-0.070 0.070 0.090 rg
-38.00 619.49 3.50 68.60 re f
-Q
-BT /F2 9.50 Tf 0.070 0.070 0.090 rg 1 0 0 1 50.00 673.09 Tm (2. Confirm Free Shipping Threshold \(\200100 vs. \200150\) in Shopify Admin) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 659.09 Tm (The Announcement Bar currently states "Free shipping for orders over \200150", whereas config/settings_data.json has) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 646.89 Tm (cart_free_shipping_threshold set to "100". Confirm with the client which threshold is active so the Announcement Bar and) Tj ET
-BT /F1 8.80 Tf 0.220 0.220 0.250 rg 1 0 0 1 50.00 634.69 Tm (Cart Drawer progress bar show the exact same number.) Tj ET
-BT /F1 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 38.00 22.00 Tm (Funky Simplicity  |  Store Audit, Figma Comparison & Remediation Report) Tj ET
-BT /F2 8.00 Tf 0.45 0.45 0.50 rg 1 0 0 1 505.28 22.00 Tm (Page 5 of 5) Tj ET
-endstream
+<<
+/Contents 24 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 14 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+<<
+/Contents 25 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 17 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+15 0 obj
+<<
+/PageMode /UseNone /Pages 17 0 R /Type /Catalog
+>>
+endobj
+16 0 obj
+<<
+/Author (Antigravity Store Engineering & Design Audit) /CreationDate (D:20261115112209+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261115112209+05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (\(unspecified\)) /Title (Funky Simplicity - Live Store vs. New Figma Store: Color, UX, SEO & Section Audit Report) /Trapped /False
+>>
+endobj
+17 0 obj
+<<
+/Count 8 /Kids [ 6 0 R 7 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R ] /Type /Pages
+>>
+endobj
+18 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 4601
+>>
+stream
+Gb"/+BlE#k')h6*;8?QYSlo:FI5D]I30&((k3CTehHAnI,La(^ZK0OJ[g2fj[n')T/1F?BBFfCh-^[q&e&>e$lLFDC;*`-.L&^Hk!KJOHFK0kc_INk.0'P(#K[HUehi8tOpgZVg)9k5DIb@aYaj;mS%*+H/b:l5i,u$=@'-[di?TKSLJ$CnM63U";=;t#l!1#+F/t+#Q[NXsEX.$sQ9U=$g]taQumkDJc]"P`n?;,eQp`I<5`GZt<:N#Sin/P)?4o,Sb(M?g%XR%/?D_>trH>roQ*fNTJn,Xl2iVE/cE,Z,9qicr[cS5.rP@&>6=O22iAN5ihCJ%;QDn[JN?;VO<%[Z$.KlI`7Nuts>1jI`mhK%_)Y*WrM2dAQE%)[%p,*<[s6)AG?G'$0X5s-1@Y\b-Cc8qoL)@\66U+)77.gdiD0FZ'BA5a3<0^_KCXsk9LNd+_cr[$pFZ\([cMCn(mU%83=7MPNl;j`7N%"40@$/Ep@O0/L)'[$P;Ac7:ekU;B+iQ@X,i+<Ct,fBRq*g%nXaE\VJItRh2,'Vule4nAI55`&V#)+f:p'M82Cb%m8'U6`V5+uIEe2MMEdO\NeLOS&t'gi0m0poohkd.bB?"GXr1n,]\LepN&'[8*GQ9&/Q(&__1]>9`OJ\eNDO1-pg9-tSqXn""WK'r-jlLo+;5.Vdka$(B#0@$_I9eRRES;]3.L:bk#c.upR,bMNQ_^;m6eGq/.e7>F%;buL<<"5^B[m$`4iU[+@1l^E38"MejJ)G\FJ52$2]:%^:UreK`kUjspOp.u+`%E>NV8\%tR@@%!9W3K*S+),V@3usZlqM3oERSPrE(.E*39(AA9VGH#:/a+AYW0qgQ)hq6OZ1]o,fqP8G]_FJa@CMeThuV&P#(8Z7B:9k9:A6fGd\o$P"Q>S51:oT@gLJ@!F>RATY]Ck-tVr!BYFbI,&6[fROmZc2Oc)I?pG@q:6H@cn@;80,@(%P(+T#T@9o-MFP8To:M>\bRuKS0WeHbXmWcPf+jEMn\;`H8!rn^-cp>]fP.1l<pL(:0Kc'ij`J-DBd4bur&X_CpPhVh\U$a,o>iIR6mK!WkfGu'OWmFB#g>lU+Ktl&<C3\4*RTJ`CJHm+Q[;OaC_cd)YY\_G*.j/4Z[]DJ=3gHN[\q<dW7M%-O_pB^AJf+FYSWI93dGjP^.6/8R888/C(+V_$=*-r5CCfRoQ2,?=5.VYhTut-k%)h4;W^sRt>.W**Vrk:-0e]r,M8sAd/\ZU).>lIt$`CirHIif=8JJ$Vos$d49;$5KDjA7&n3BM(S,.=be'7h3k6>k0Oc6W,JZ*D+MIS+YWTX_Iai/'dijTfi5;W]j[hPH!Y=ZSCdZ$TNmuIRVioS$ZV^,#D[$5<?P%1FK.PI3,F-(s*nLZqIIWIBX*Lr,aKQDNj2Z?b')D,$H1&p0=mk1oV]DGCr#L3*'"($aKh^<ni^g#)oKGqg]V&./\LkqZg6KTp_((R2%W/gH)*/cgW(4OqQ4Ius.pTN7bLPI=ar&9XSdr.%fQnCslG](FWfqSeeNc2)tQRBHR\/)U.B!u(:^Fq\5WKm#&*#Fqf1@fWY8HWkhasZa\Z!=D6WRE1D-c69D/N>qu>2lA&7Q%7u/6E)G;Q6>BB''B#Jp7kB?CXUr91ICr:44T@/*K#h-+`[tpY7)V"UAOq-pD?aQB"($Oc&CgpbYQUAc;,']%g\oT2p./$M>$hl]t[NHqQPR0*@W=&S#i*B!X^G"NCG-j9qt.;8T8ui*?etPm_>2/Vt#elJV5I7]@KIPU+m;`Y4rW3(:!SJRpm5H<BCMi$C+@P@0-.&dA^r2rH/Ai(*\^!<X2BX@]c56*R&s+0N;%!A<ZMCfBl%e)BQL<,5@3#7F.q2\<8Y*lVr\163gmi6`(kVmo`oiL$N4]<F/L(Ne@A;l8fdO.nQ%(f!$BPLZO9fT?'?$KGq0^6".j2::5k)CHf!p(N$MVFcALZs\862ca-%a-LT."#tn)L;sDLFP;Hs=c`bkTBVF1oo]J#q.K.N6<NMa_Ik<P(g8s)&gcitH9sCT"ZU*S5Bm&[=eMo1*,gME31`]p1LZ?.kD"#hgqKd4+;r"=Rf^mKq4^*t)hBee.5jJQVB1WbOI51hf+](^b28[Cnqp1%ja7qMO$h;rd08O8M1//*qVi\mE`NULE5fD[pRMH5UkRQ(_H#X./;fEXTpduQI5CI_7UT@3@X,.;IUV)N?--,jD--n,>P.N1E&j@\7d^'ofn,n?R9N>`)P8``8[UFNY3(X@jr5$e#[k)$<9dX@3j)gMg6_'UFJk__P_p1%d>cl6HIl,1ZH9/bB<@2ogK@$d1@1ro/Er14EPe"\5`mbUm.+Ee[o:"CP,rDqb.h/F3G9-JRhF-X-*JU5'.#92+^Y(AhO#^R95/G"R+l%*Q&kt-p%&D=Q1<<lkP,k%H=C@fjXSDLd1i!cndQ-"e1K?mb$D.[Z<5d<9h'I(;b'KK-==EbAXVF1D+TjA[8LTtGqHI/A?45n+k5n810p1c^.%*ab0YJT"'$)aFY0dCF:]a9WN.H=4/-^l-570Bb7[t!&nOD.?^;"lif@\o;,W@i:?&O*qc-WA>IGO[<)&O$%'m"ElK":M>/&^F?,WD32Ogs2/$hprQt:)>j3;tk3>mR!#!OC%di=^83.F)5qgFL&rRb]9++7]N2C2't$kl_-ib=dgWGQKuC.o:FZHO>X-k>"B2Y\bpq`?/.I:NnJCHRp*/BJRN+o)=?qrX`:L_dcSd.eN\]4RP(1&,2P"B1iK2K+,^"3S!F9Z7VL9_g2HMCRkZJ_dM<$NJd<VVJ&Yj<uG4B,6.Sj?*fi-!+OTE&,?hgBs93l-p)$RS9Jq`HYieNcPj2*]uaNQuhUBV&A1G6!+g7#Lnp-"-h:@Mj@4Ik+@[Z#+]W-*h_W@KU0*>%J->r;m2CKb$o[X5]W,F.PPJXq_Pt!+/dMF\?s@ReGTKl3T"i/g1F`*>nk\GK0k"bq%cAt/lCqRoE%B?^rf=9+S8RbK_k9?/:SP_Jd>k"c#o,iIeO:/j)C="2,09jSVh$\TgYATM>`(NI@T3mn:D&f@-77k7<n<L5OLh%h$!QC*ftA51lWYR*tt9OQ>F`](NE;k%A[4n!Fb93,s.Hr57\%kK2NMoYL6YX<OV>iLaSPJ]!B#o%MXrVJ\j*&:rnpS5G!7?3S?sef*$Y8R^t>1X_Vp[6:jSePWX7U]>h^KD2pRtH37qC?qNMX+I0hc6iD;GPTLT<1s*+(X,\Wdb's)E.4:@_.Yf>e_%VHaXDN,S..a)0K?=r)l7LI2Hl`dC?n`E_'c&u`cOY*R""Q/q.<a*tUr`]8QFsk-.t]#)l[U6b87F"`>Gk,K`dU0N*HlUM5a!3(8Q:ph239(Fo\]\g8p2.^639-lDBk\CgB\>7CBsaWP@L5p:\h,K(m6]_i%YSj_,5Yq!fG/6n%f]e_HaXbniB9$+A4f%Ls$85*;L1dUn*WY>[["[&dG&ALr(Hl>L-rHUpt7?:oI2qrR'p$0g`j%X@D5Uplc5GPgri[j>b)$=o]@4^)'W8=GN',h=?'Q8gt6uDjj>#@oq]*b5lVJ>_]-VJAa*6.3P<%/CQRdcsLE=[sd_AEfk@6Hb%W8K.2X8_"c0iF]f416haC:1D^)#++&"Eg5UeA,ZBB+;&I(6gc8/O>'n^YIEN5M!Di!*@V89#N,`o$3Li,0d$."b9W`RO1m6+IrLZ+A$ZQgu7DoY!KWs5m>_Bgpkd,&E\Ir_$FD<c[q0;pQ1*I6a4hH0hnKWcJM**`e2uK0o-9d,RK#mF68GN7?8>su&>'8.AaY;JA'F.HN?.ME<H5];A+cLG@e$@hr+flf4<&4GPVk2;]oA?sX9"H2]M=5!s@<!MM]-3YnOk4FJi]H];D+dc21,fp86g/EBa?er4ElE#P7<U"=eo*[;6JPX,pLlr=(I'tNQ8Du+qW3Z!eWFYO!R%_nCKJ)ejbC47LI.<jnp9U!b?8+a4FSaYRiC7I3J6&HREmTm`,Nr+!2:LVQr%&1Ir"V9->DS<Fe7o!A>"(gc.+P.]G[5<_Cgl:aIFg$J`ZR;.3J'0"LIN17+/m4(K\_CZBQ;[n.X)%cqd"=!.hU_dA4gk9ZdJOQGf*F7.I;T6Y)W\l&;E%&eaYo&hCOU>9t]h1NMTgZo*iISg;@_YZW$d!geEf18cd<;@'1GZ__!S"r*@iT:t+hOl-?hpNTH@8sbV^L-OYdjk`p/&F:Tq0k*%0HVAK]`m^U@4?`.Cdjg*_qV&<m3D2(i=*i-f>"a;#p6<Qm8[uW_V"#JUDJN`"5'lDm\ScAhmRUM95t,h@Q>r=<I[c1$N#h-=?hE9F4F;.dS,SM?A27566We`6QoMX.0a[CbVhW=Ykuae4p][rYT8O_<DRoaIW2(81O\9/0jG3'fYC'DLHmab!8X=02IZ(+R-T<\>?[-k?h#,7/s%IFfZdinG!13.h1bD^t(5X+2`/b;52Bbl0bhd'lZ2_L*;jsG_^@m'h5)_CkY8-`j'lf_r[(Ihrhe\?b3#T),nJsWo)-*VGY%@jll)rRBp3bJtL/^]m+b>rcNliaI^%d[fM9:VO4o8&A.a%o<bFm*eWg[Y-PBdV`O=ae])B$#9cMmqDN*Fg~>endstream
+endobj
+19 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1015
+>>
+stream
+Gas1]>F4&%(jtLJbYo%A`i<TS^@Z88fn>YB$217@3P9Tr^^@eE2@t32j!2b*KjD"Z?s32IR2LuP@B,7NH]eJ\7/6/0Jm*t2TFPrQ9ehY4hZh#@e^)/);6C.X9(o5YQt+lY!@*oN>Za1p*S59S3EC&&Wi3L.Zu0<g,HU8E*#kicoSCHrM!HkGJT'40=,:l*miLosrdo+[iT##8RRCM5s+0Fqo,(mmRuahT$1>k6i,8,R_eo/9GDp._g&*ECrdB]D4Mrh.`hW;&PL8b3[h!s`U)QL-&\U1+BUQU:MZq&kD>F[,=Q_EUMC806;mG?gRo1tI$s21mF/VN6AKh`2JL"g@\A>,fX&t7j/C&PT5B&%Dd>rk#I,Dg=h*Ag0.tN%ACeCX%.<7,^#Ra>8J!D/s&BD&TX]D>A4^UAF]"^l,e:[V9Z'_B`I?\!qj\)[IM,>UEd9t7DK("6oofV08jb^2hMD-V4YrZ8._BL<JWjRePXWm4,.K1h*gr^lW%8WFpjGTMN2)p.qMNngC?@n$c*7e90-Y:L<n3'6tkF#9e>(8a4Y'$^2M$ldU.klULVk#tF?0+X)C?cgIp&71`;9!e0[a;G.n=$S<h1DGekbQMa6!NI6>6i&[HmlI`Z:30ZU>SppFIjPB1r!FDcBDE4nYp0]#_Gl#0J-N>*K_^g(*d.DY&f+_FTOV"Q>'CW(RF/\VgUlUj1J8_T(J]LU.LL<G]u-`)V/XTN4%`Z^ggClRi6:?>dDU0j"]S2FtCgRc*J<_)E3(N(+1%lYtc6j0@b)DS8ZJEakCL3oW`F2nIqm;P$]"oO``P#`R$;>[8AFn)LJ`*d\@?!oGK.0b-p!sqc4cBQ=AOhE/a*e%@J^@4BYTgnp8cL(%PJ07F;G6,249b:f8m+RV;(p6KuJUF_jL#.!CIKdV`PPEJ?tdmV>\$Y=\SWqL<qdYjo<RVA2'TD3sru.@rFlqk]pT"dkW`bjIGOe^K*$'<+#f[@c4OIW?33RmH4g2P?]7!MB"<_%67]WZ2~>endstream
+endobj
+20 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 4941
+>>
+stream
+Gau0GD0+E%')nJ0d</G.P?T9tQ'^:n<FLi'EnCpjP1qKg>n(6OZPF0(NU2b<++N+A=,arInKjHNU_um&pX@H1pC%8ipt&@B]1[\'$(RM)@$iXY"2i]+QjfWHH2$J`9lJs^-9V58kO3fbgbLG*Yq6?R[\K6bVZCC&Zg<G&J<7\)?f0g8nLq=O6^Z6M*#bTC%Y/b_<#2O:2-Q#X6d)hnonLR$C?Js,s7na8qcBOY^Y>CY%e*hU62t^2`fo@U%iuo(Y']'a]ROqO8a_"[mVjkm3JK3e3ehWm#k)3MlX!ol]:AtE^7=jD+(4XE9`CIf5Vq:BQIFFWQ=W/j9?`_2`[gJoY:pLu*6'bL);j$5@fLltM<2knY)mGD%@4IFTGoF`//1t>Qc@T[D;-aJOFO]]Vq!Q]k2ID=o8!b!F^c5Wd4u,4K&\hZe(,K6/J#ki1u#GI$a#VB2I#r.fDFD2An)Z0br-S@c#4;:PaB_S/dS0:$1:Hri=CN)!o+^=-GVXd'?9i9@CukHibf4C0pnC>?WQc[bt'(G5q%0b5'0,8+XD8C*:hhpRl8?@EH"sWBOasX2WnJ53daD)Aj'rX'u/FDZrU*a&CC3^oM-ECHB"Ut0Mj/Ce<2k9UDmsF"r$DWI,Qh6L!b^3W/i7r>n3EM-KN4Qm0SZf3.u'HdT7JZ@`-ijG=YHcWhhTlRKAsedcWl`Ysi"sDSpAXk*$;gqAY2i+sbm&JOe/1HkpV@*^*p1$n`o/K9NY#'aR#j&5/6&Jicg"P(M,%C'uIldDqH7$<3XnNH:e.BPX[%37])XVJF9uH6WlPpr>*F?.<-@$Rd*Hi8L,(H]7rT$N.oAn5W$A7E8$A8;=B9b7%uV15Nm(a'#W,6`D@7W,!JtSH1C]=UIDQR.2V`\@0il3V%%#Tino<StS9iE\ui=_]a5HTT2QcSs#XZL\>MKg,UKd-LJ0`draq73daT0g*V4lkaefQfs%OSD7na_%*a1Mq[Ee$l[TQU*O5F?&QHrrNk3Ye_+TNcQ5h\fE&-Gr_3m?-;^Nrs,)(Z:jM]4EYNd]cio)cceru9kShh0GF=.P,UTN3dSAjeaI!uCS3P*nNETP^)5;@K(3m"DoC[ML$T\USuiP<%0U$/NHZ=/W1;sBB]K^\LDRB_f*mE1te@9Cn-&T\[4B;^@nR+"?i>5L=#*ee(FO?ENFL9)tcjRXI4ak9A_F-s1W:,o2/b@$/7g3g@bEX\=p.TKR[P,VX/<Wc([<02+oVE[pDa6AqKO#^EVh0)XT>d=XUgmXXAF243b76ZR^,+Y!.9-HSh"bW_j.(8fYjPCgME[B=_kM'22k,/;ugc]q'42l2R*]4DHSDhm+gn+rr=[1mcIdf&47p;b/]'&D"+IqDBoNglsjkLqaD@)jna9'W6NHW2>bsZ;5I$7TdUIkKcs6ngt$Oh$mr>Dcu3$DPtV/Wo/S*LPhO%&>#brGReaGhD^/F-5(*qGs'/.u2/D.mu7QJCLtP\[9<84epV0$"R1*jQ?[.#@^Hj<AM!%Us@KOik[8&H`nKG,mc=K==iB1/g1K3^E.KNb9QSW!"`)@."bS&".oCc92U<>lX7"8k5*jo;;;?G#&``B/O['HSZ`.0?O.sm)Q\$#SQ9FT*mO?NW=nCagc<%4iDurV>40A1E$aA?@_ZV/2tG\$pM,-NMr@h"O.rS[B3b91KOUsH#Pp:J4COK:d]W=ou:LIUe@^l##eASpG<:",B?$e^asa&WBYk-_0lYBMe:`P*p\XQqH`%(;R,]n6X[`dp^Z8O="+*.g#`nr'B4gLE4D6"laJ+!;[\ZWRGW#K/ljF<IQL_hq;Q)B@$JOa0m"8Nj55B4hCd'`/.>>T0>[m@*f=)gioH)IVFYF1E+J!diIB\O&qt5Ajn;;e!'.`tSR+rb+^:[%0Xeo2Q#t1W.S;s"b!n7_IS5`@0pk+]R9])g.&1?T7Un[%:`W>@4T%@'ctXTQ`J$gTW0Fp/V_%1[MD?)^AJ"ScMDCXI],FCmLX'9/PKq/B"hoS:OfiLNFnTjO8#r1QHZPc^0YC;gcScE(-\)$:?_.at:m[E?R)Y:;D@qYe#V&u<+OOm9p>f_uLWBobpG('('K-rH3j6ro*]+hIrX4[>UG%8Fj@.SI;i/$4-&%c_P_ALOnI-:l`>Hc0i">=I2eDD?,'trtVnlnH[H_lQ.N&-m1OdAR:O[ss(sF\3f;+M,a-.^19u<YW9"=h=!%GRc)IH,EkHX3d[r1A<UXJ*-<A&Ut1m[C(b7o\uhf7e*)8W>I]N=[?-hb?qDCANu7Vo2me08@i/GPAq:Bg:od"1&VN2?6rJYT\YT\5`@BEb`E"<6tc3o/]PF>3&T?@^l%)Ad^Vn9nta\u+XhTp\n3V13lQ$1!o.e;T8UA?5YGF81+GVCQ0UG!g$cet;d%#Em[@^Q.ptGb4V!<7-a>\?3KBSWAQUbsNt07ET`,Y;h2P?=C!"DK7TslePg`F_B/&g3\Ce:1JjF5h1^eDO1Z9T(utID`ah@`-c6&?^,Y!@c6W+V$c9aT>\gC`nS1E9s^5jASLqg*KQ+H9Gt3$p=TfOS#VfSjpuk-b<>3!d+6t*j0c8Eo>FPblq5H7W"S"ae-fNHDg`Oj3'o0Y`#hf#rThkQjE.\g\XMn:>2)tTX^nifUbb0`5)k?Lot_N)Mn8BqPH;+sNEme`V?Pq+:VeXGY<og5M"Q$mpTp-*b+bn&_(_B('Du7D_E'c`M23&Xag^#;ME!T+cT/dT<5t6YOF+g.6fD'*j8KqRes$P4JLd*hbhX^G"LdB^D48AhcG,E>?p,$<5?&3^%]+#3.E+8<&D(nP`N1';Pi=b`N0i"ELpiM7j'C4U-)&ZYPTg:b6Q"iklht/sis+nq_^lQEpMNI2#=cF0Xgj<^F>;%j[D+?CGg#[I'pf=U'Or3%),JgWg>XU#)QpT"&[KsHH($-LgS'p=$ta<1(mT7hM#^s`##4/_P,tuVaQ"IlA:BVV@!oL&,V_V<2T=p9U_kbI4Mt$]j=7[9/SrY*:m&;%a+['<i"L3MN)qED_AMXk;Yi'VBbmOUZhAM;7>;BXi!5@.RYnM02@Ui'<SYf2#<9sIAd2=1,4s%ZF3e2iGe[8.g?V$(VO/SBd6/e\;igbK41.q"i_T@<O1hFrR`Y)NCpS.bm):80kfeR\Zr).FDqro&R[+jl^.c]T<4ea`2X3d*B%kri4f$:!OYTE%Tt6@L:,X[sO-:OYA$oB@I]REtO4=_Nl)D6h*ZBcupc2&#^F2n7CpXgfU)*Pn\V4n/'!P5kr1[lpH.Vc)eOFSa>Dgt3)`2]>SMk_N;[o#s?iGcFB/f<%'(.ED:&,(P(2J&I+kb"3)BkZDEokU\"M6_bYg_oq6Tbg[@1sUkfhsa`&j'Vsh/)9oqoZ@@2%JD>2qf4?je\Q<>MdWe`g6AX,8f!lXn%JG\#`kE4S*mLZEiKuG1=pq?Fuu8n1[U5MO_IBB,#mb?9HK@ehW]F:CR%4>O!"#^.G5X?9e;+Q?p7)M7J\cT8BnBTC.gEF\])E[0.Z4?QRi:)I0TR0kX';"'9lqn39-$^_2t3<cLf=fCZL;Vu7s'KT.OUiSPs*_I,g%2::;h.DB;<E#.K.H.)<ISqurN9348dR?X=,2Pj[a$4T+&q'1+q;2eooT*\K,TT`#bn%N+:E7:i2ktFT_mS`e^"QsPE6n]?c;q]n/M.j`B($M^eooREd>f81o+I"#_&lsoU#'1-;f#a.1r/3]el>GP!90^O92DU)Wn0Q*r'%,;?@UFlUPAV@LL@22fiZ>"]/UND2D)66a\&cB[/_R'`<VtLsR0IcMXE5fJ4Rct/K<Z]P:ZpSE:LM,J#Thq:27l2SPVnV]s4/o^Z>T81HlB&6pIMI#]sZK4B1C(Co]k&dXP#k[P[J[&SXnD&QtcO$..BC0!@!*goI*UB(6Nfi<2'.f8!69a#hE4*m<KO:LpHl2a!(lE`rYH?"+i(lVUpk3Ac^^Z7:NtIJrXhYU#dC,`"7YqLG3!Y+0Ri-Xf'd)S0>I<F8u_dr<8.I)7M([)YtNO,D$J@$mGfdb&rr*WPgfK&0\XF":pW+7,<C1ru#ELjR>Z8kG@<fP],%m!n;%@57Q't64I,":0AUmM"sBg:H_IcPjKDkmlaI!Wa]i,e>`jEP@0*/38jBgWX$;0HRtsU\Ls(C/0o[38rddR5j/!FHC1EBOd`"2d"K2s8F"ZHSNak)Tc<#oi3NYr+e;'S$hC$\q\D;0CD_/gIuh/'d1M1TodDgC'=kqH<pAHKnoj=fli')4j&/\6Jub0'L4Y*CgY*6n9363`B7N=n?mN8*USB"e;WYV8Q?:t#8QProHldrVODGg9U."cI]c9c9K9t4A*Td?p\!es6(pLWXM9-6#c<sB!FBX9@'gTl9;/2sA'f:*N:ctD['`4@KI-FT[_AU0n]n:=EUO.iHECm$]c`qHXlcN)EA[RKdG'^1HRGFdAj=J.s*@k@RRlHb2\*hn(6L0q4<^i(Lkcks$7:#I9T^QR@epi8C/DLPXeh:"nVmA"d<(ZlT4SDF2rG:k=j>#Tq)9-/#H6r@4E':+!EuBY3Knu$`nE-`SfjV/ON^Vh`>YWb[PamZAU85,4lEd&i#l8H/F,$,5lrEjJ_uAMs!CIMbnm[r72*s.b&RRc$:_cMId?@o?#ZYJ%@2B:FX#.uO+&fi6c;I#^Xu`bCUF/9IM(noXmnHXS^,U2B0Ah0ifqqn[-.f.>U.th1-+"U<5JW+(hVAk:(P$hLQ+qd#Ecbb.e<=1adV5(B@95#X1Zm4L0+)3&>B)%;bYpEhF(Jt%Kp-HEg=u;kV_?5c!2`.06PM3<D"2,_Zsq,,[,nI[oTLTNUc;AW9<&r#[F4WZl<7oL,-R:"W4jTYY)Op1?7qqO;V"=.ZsBhuWX;e;&?9X/O0-Z^<q/`2VFo1aFnSWHS4X=BF]q&LS6KE/'i;5pZ:<&]4$fYlTOo!/MkiHBn,<Q[g]iB~>endstream
+endobj
+21 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1254
+>>
+stream
+Gatm9?$G!^&:N_Cgo#mKK50'T[eiNBC"\3%`m4#7S@ggNJ/[0_AJ<4XrUDD+fR\FX%uUr(=dka?GOA!9Q@<NGRq0<KKF_]0e4-eFFbu#iJl1%nhB>p,Iloh6eZtBSA"Pf8\W-b-0OfC1&)/IlgNWNk*/jP3m8Q;rG9+PT8!o,F49X#LklV\K+FTkb/puCs[>-.tp[%2CO)'F/l,@0q*(SVr^VFCXk6PKQ],]eD,WHnEKsU=4l!X8R,DNPHm.(9\J"Ii'c0u4jB_^\:4<.$K\GA%BNY-\,o_nlAanuTM/0L8IcmQ'915c_[4Mbs'LjP/dOuhWmmUDaED+g!+WCTFb-&Ki`N\Qc$&M$`$HnRDJ".)n-m2/sLpMF/amV"R!9lS:46OEE770^aK@=csI?_n#i`-!*ckj#OMkNdULmr'Q*`1T;6D._Dq>pulGni7I`@@.Cn=1I>cJo?/Yl?U15aV/*P.)M6#`+"X-#b+r+.[DQU)b.P4-2s#e"tEc4MC6qXnXJRV)Dkihc:SaE&&H1W%X67WWtshRp`?gKodm*H>q\G+Y#_MhCbX!?_$iJnP")#gn8.4kRX3k3!o&Yp4DPAkSM(mbFneIUWE$Efh)8#\:YYW#^B=-u1[T0iR1<aSo3K6:[:`*Hhd)<$kY)fSMo^o4ja"DqZ"gf5l6:&-\E!m*mF+MkJG@W8cu1U82m@D`#K'J*%WQZ:kVG?aZGM46VPnS".T\-\e25*9Am.Pp:0tp!=Sg5q7<Y*][753KeRl`U@@LAGFM*2D?"SLmQ>XoG<#El6DFtM=31sh9Mf.@TC"cd2Z!:9WUoIBFWg:t1/9k<7;i]TlcabeKVL28*Y.&o5=Q`"08-\7PMaGP]3iT>__@Y,+:r`+On`r%(T`o&COFJL-Qh#W+8a-#h*&j;*VRpjmjk['<i`uq*(on"9<4q2Tk;)jEB_84!3K6[o?l>jk='L)$QW9R%@l6bc!6o:EfSF8gf8g);(F;l+nlJ6O5:O\B?*%Q_0dsM6`[dl?:LtCOF4+FWM3:<$Ps-p&]p1fcTMmk3dqAM<6'8<C`->Bu_fs!tb^"-8Y4/e>#Pp9)@(snG9I*?6Sjb3NleAuu2u5"%SG0mc-jl(iEM;GknZp)IX>Isff5cjb]Yu!FV$;@gO78B3bIH6colpB5p?(Jtm;=;hEn256jr2AacUtOl:A-SJLF^sDqJ,rY)dbD&:Z&k)HG3UZqJNItC7Mbs4_m+bFt,3cg.Ap8C]0pt+!`$h"9~>endstream
+endobj
+22 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 4285
+>>
+stream
+Gb"/iBli#u&r+0u=7k(06TPffS0Y'3,g0)e?.j6l3_HDOjT5IES-T6/!7[.erU9XW$r2YD.E/83>Hu?u!RB*Vl/S2O(o62q+oh:<7'EK[o%5)&V!4BX>I/$i8k7?C5<mWh+o[GamUrtQ(8J3O=IN`((-,kp1Io`P9NSReTfo2&V"rWg0IZpp[@G+0Oll-Qj)P4V2+h#QYr6\Eh'Ua\1c`Ep7K)8-n,Du)9hsQZ5<V"hRJobL+/75JmuM-;4o91d=1LfhNm?najP.-KlJ=]FSt2I$fV=Klm*XnXN4u%NdG^R=-\hr)FR\hnan,a2J"l2ZV#^GS%uB>+2;P[!4(=&cb+hNHqXb5fMQ;gc7=lo$kg.lNj_ZVNBdA('ghM;D\p-MraXZs=OXG-aDTs3VL>c&/3S#5&2<i#fcQLLj'O9tB1,Qm+$sJeR31;YSL\7d*-I4O'[L<PE;h'g4I&lr>hud#$(p7J?N[^UhI250+0VE]Sd:"<;\=aAkPmFRM/r\26ka8!+-M<#>A=96&IS4;e1,YUdVMiY+=<haI9`1'lFHH;k;1sD'cGGJUh)2-aEUZq([*]W.>D2(E3d_1MXErMo.K4#AB^SDM@*n\Z25X,,%qA-FS4Y;BX(?Ei[r1Kc)GM?U8E.JPG#3XaK68;oI6(_]"eC!#SS(O,J;'sA+WZI[BMHEe[a&Qt$s-k-m`gpd[p!gsYfF=Hh%-oTbnCs^9c>3/Xik)1[O-Kq;Lb-3)!=^N-'0:iP#X#/YWT;`$@`rUHpqA1B#tc5<X,,4TZ(12Sp]+);(Ti9p#hQO\=_g<*aPNSlMu@MX"_/^,(p8I"`D@HorS*Cb`dk'oqI8[b*C'"?F5K\OJb[?_dW8[:X\"`9GA[Wlu?Z!S4mZ(fV1d*YGIac/L7h=aZ>K#anO@H7V;1=BplZ)!jm[.q:q1WV!XgsCS]X&+BEg#61#0"Z!B<(Wf3LB41(s^*:!$u.Lt0gJ;1rOm*G_K.er7Kbf0qu>qK"r?)pP&%_BpibE[5XgU1h?eN[u_\tRN@&C-X0d6Sa"le'7h_h2<A),0^M\JFfq>^6#s?>nAZAQbI>l4.ZobXB+1U)B50,L'5O_1<V?aO-";clgT?`hkJTP"heYduT]@7-bqT?F)%M+&7hlNa>?j<1$Qn=Jk$ca/r.6Fc=/"Em%nEEbja2^6e"kOh[EmBb.#iCOVlD;6G:,J%:e9)D&1)SSCA43:GB%I&Dr>M4`BDfV#6oinmNBL@UIajjH\#NLA^^6[((=g:FJ3DX1$/<f?jmI!9f%.Pl7fA'JhXZ*[`VVkVAEMCq"5Vf2cF=P+0G+3;VTMecg'X,To_,-jkt<qWiY0TP7:H>9OBd1H8dj/DYng#%An8HVoia1CEEh<m@Ocj2%O?5r7<oH:h%;rp:4cpZg*(MB^s-amCS98<O;K`3_rFH#G6HBEDl=BGBS4&UrMK[R(C@jp3:r"Vt9Npd/F;V[S28odIF9CL%H8;Bhk?6D'GLBt(S]NOcT':VV7O4DPYDVRs0?dZtfAWa)]N&HD%OHlY/Lh<[?3<5$"m$j1]od,",d"R:a7Tr>`#s0Wf7'&N%ajLP&%NPe64FKH9i\8Q\Q<.C9d2refi\h,KZQs&\#H*B#5.JFd!nB]/(\%73D_e5<l")=.km`?fHq:-%XVqhO?KP"JEb#\0,=BWs6Ag_8WR>^9?I2S.O-4:I6Z?Qk#b$NGh?_ir[_*/8#YW,Y.M>8qk!a&>Ur!<`qa$TV(.l)#o@5b`4G#Ah-#,#+[9DiMO1Yl]30UnB+"e3-Vee"jKLKYW+Bb\&fXmkK`0\+RL(0E^IS1>-DL#0Q=[6SCXC;4IJ;+Vp'4eH&\tBd9I;<A1"_/CR0mri9isqk&e3A/C=Am-_8nP2j(u-sjO$oFg7^hWeFs[mlYUNig=\"OYka0?`4j@04I+\CONa`R1%hn1ifKSHs)c.N*^dF]3RDie28?DQj+%]ZP*<pJT`f(ugfKfLmULg\3jirtHQN#]<nNN.?q@EF@WI:.OSi!uY=ZS*$//3BLN0_WEo8^e.>+.rl@$t/$a\uO7P_E<n2s9/2JQ>K')KmKlf4p+&EUj[s/?0W<R?8G1e)[BB?W4)e,28/5ei'ON*2@E@=fSmb(=hF(d8X>(RdEOsm]L0OAA8In(&IWHPF4=%^p#QQ/qQT3.TQf`3O3'k'YH:*Z!el+*eJFio%*CPqj6$X-HS=64clsbfQB.J2<at!%_L7L/:T+1qJI"m2Q5rFo-.<HAl<t_KP"X'/`Xk$:4?0Og[%AjcWb,7#%P4ro6l.$%=P2./Y#hm]CB^j[g(Q0hqa*s*2,^Qp&L.]g9J1Cc2>:LgBdJa1[S]Fo@l(g82'.T/CV=6r!)"FOB[HKYq5)W$T?SPSU6U(OU\R9i1^FU1,q/9&FL0M&NH&L8]7@]CsKFLjoN6t)mXpFJa/hhQX[,q0!h,mlUDr"1A,/YL?D?A,\obscF'-LmB[5Q>fNhb@R(*"KG9+J0bY.CjNLE+9KpBGo_^$+J$KRP:&%1@CcR#6?SAPfS=dki"Btn@K\u:/XCHeg<ac?"f`??,^maY*`fl^g2HaXiSE+!#kc>3V*fgj@(6OCMP\,FuE%L4<o2N=sQ7%e#PX7B2-ZRKi<4Em$oAVC`Ik'gf(0d4t;QcPA[$>FH^ruS>VW066$b?GrINcUX,XHleqgp$\4=#)6UET*>njG)mgIu7\?k</\>-DD(8q5bCf3CR$1FP]cQmYc#A?J(Pr@ITn1.rX;Wk:]:iLjbJcnqB(M=rq#\EJ[,cu#4&1+u(h9AsiI\LWVeJi%%=4m9Dk*B,Gd3O1@$bp-9&E?o6'(]CnS.H:`C@op>!9X:nSlpQC<"^C!Gil/*SDO(*&8RC6*#oD;i2\SR-U'>O[e=BBA56Tj1=Z2IfdpahRgQnt$q$kt7oX;T?<J/Vm\(O7>8!h+u)Lo#,ZDGq_M<QO:`LOVn^E'c]m5Xb5N=Phkrcu*3'O(M6F=e'7#BQ_t*0C,Q#eREk[!(6(=qC(#Xj&rKg.JV1e=;hir^GIh&bc50@8E5[)cOjH1DS&IK$GZif#^_+5/3os_o2fT?7H:8'#1C!e4%,bK8a`20se+RRgOd$b7Hg^,b\i]cI$0sRZnPE?Bn,%!']JTQJdA7b.ANrMkF/RIiCDV`"bl+9.p\N7)D3QnJV#98g)7^3IRI?8iS3p.TU[6e/0r*m_I3C=E>Q]2hmNV*ip=(`OJ[3'p-r68SG[FZ`p:VGV0bI5)TF4$,h4O?a2)7=E.8:/@#"bGYluVd8m6P81qfI\CR(D\)]20s75Enh'_P**a;!k`$0s*R[DD$[?YHV0?_r_o6cX0X.Tl4n'3Ch]MNP5*B&G@g.jQp*`=WslK\'VfQ2Z+_=f,c^Tbh:,(feW+$6$`h.`kD89tM7^T"hf?!r_>B@n"-IUP%C(?g+,_%*co?Lp.i2je9t'g*'1.jDgC%O1ZffD8P>gYQ:2\f6j%mSFi`[^DAl:"uZer5fF/fSHh\k(mUhB<_X/+fEh6hIe#bnfAh.IDto0GKQV6;"[QsHf:nc[Zi)iA\QflN<%^dc&F(sre.0i(g#dD`#\',hh8B$<F5,bYGuM.YH>N#d]4:[VUsB!O.]S,_B89o6VFH:SR3J@U#-o!%2e]cc98fJq>KMW8?/u,nhMIgXHiW;OE^G'B*fb(d,=+hfCTNNi41u,:nZ>_PW2)f7#3tL(aiM[gkHYdAG7K]m(@tQ'DVaMnA,2ts,fG8=Ju9A="HqoV3G4:Wik[!eZ3k@#sGFF6aLpmRXCQ5<)=<U)];W&0E5"6%O3^&(t4Z(/g2J&1kBNnJu\+DoV2/3jejpD0<$KQ/'Vt#YENbE=uE;Um4@i+9BpqTEcb%]Vl.5joRX%;.N7cQVJ:c.oAZ:dg;XT@JnS^A:NbQGc<[L-0^_9jeM2c[FT+"-/K$U=%akCH8TNGh`+=a@m2m)]DakFohg=6fT%'h\2m4L,;_YL>/\8?2TV6[olXcU%SrDu+"i'S1N.WsH6s1Ap4EkL4AS1?Er;$(Q$C1%c:;[,CC7*rPJPrqfd,Cnd='Be5AO5?pR'qCU!lZ[$Q_%/OcCXZMe.7Iarl'>?(l@2tmGC.?`/AmYVM4l;U\;lTi=,u(RD4cd_ikIso3#IP-YOP/QGl@qq=Ej)nQ="h4;NR[)c&"j.&SgYaeN%A(ML5F;(@Z,.`[`$`<VXgCBo%Q^[&JFf<S7)3?ML<FY%h:J,PBq&jUdW+`H_U,AB$kZ6Q>Qe2n9FrmRE7hKX!8d[FglStp8/F\h!@oidYF;L9%&p-6D-b2r~>endstream
+endobj
+23 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2790
+>>
+stream
+Gb!SlCK'99&cL"Ykg\1sYT#^gD/&SJ]U8#<"W!T`H`O);NMWmCM_'-"fg%#O52A#@RR_n@@g[mcl'\-lVgD1^"9X-Iof$+W*)5@!BS's7A-SpK*1385nRUh'%Pp6FoO7Wcc$'dWp._$eNbsCf\BO6M*`tV4*RF6u'/9<fK9P:*N`JeTct=u5&X3[]?*j1B%[cFkL',/$1H!'\$%'RjZTnBmj3d%Je'VP[q$l8c!2lTqa"X*T?QR*3B5i%l%>LXAc\MAR7i7bgSmUp'eZ\j(5!Fao@<+L*j_Qb54GC\R:SZ$YR!a\2LXH4Wq(lp!!Af,Xgi?'5QQ4!q&]4"q<,MhtM\LA_]f0.C2tsjfY$r9kigtkgo(kKXdcH@!1/F+bg<:'Ie+B?J#);I@(0mHtTKBUgE/f]k1=J0V=G#kMbRFua^(nP1LH1B3g)-CWg@t-P)Y[l'=KQ$.bctDGmI)54kc]eMQ=_h,V+:s''H8K=!Ns[r+(.Y:KQ4\&(ba=&SDD*Y(bB:7eS:]GL_0A.c/`6[":hbW+U\ktlV(Qun&D#@`l24,ct:lI4r<.b%)*i=+1U3P%;,>D'+%CG%:%6RChTuCJXBELFc`l*97XY$__7I[L75FLbqrB`=EQN$Mu&Y`Y$S*h]`C%-]Yp^Y6@:^$%K+\#"FGmH@/#&>_3)eH(lL?h=hY7W5+Q-c0![<;LBS*2QEG9@,FuTNAU)ZK^cS32@'OQ\=G@3EH"g]i.Q>Vpbs(a,QO(<`BXrj8GU>,f%P6(-?B-CgPH44Dbd:`<5G8`tO"X#@dIAUGJu4p,_mW7j$X-UP!M"d)V3,(Enk%EL?B..1Bp'PP$ADfR+tDkY0._Z^Z2Ckmd=-ec*m\n)j9IK`c/+U"iIZc/rWkoA`8C%0VI*]nT-DF`TaH7DFA!=2XntTN[aC%LNHdG-QgL/?<;%l,\Lf9]m\52+?s(sU,dN:"(>7mrbrc-@VnZ<@QN[MjK3''$AQ00mD&o_PY3gCL).Ctfd#q*"FWRM"Ca>)d=#iWU0]1cVi5N7V7iFF%p'=C9A25'hl<NmCX7*R69FZe\!Wm`+(;,094GRiXR`r&1I$OMr;p%d%\4C.dru\B+H)LR^K4+QS&tR#mL/A72!)AfkQm>^/DXN(j/Pie?kghno0pYVr/IWCWR>W&>R-.F*Zf7Au[S!&sMpO8*X>(>AP]p58IYQ6jQ),E34m>E8d2EX"/C68-=aG4j!.e=e':2aEeB'H'Kp\dk4^_mb8<tM6FO4FB<\]pIXQ`2*PK'B26JN<+[r-5J8R;ZD5ro*j#4LOc.@ET.OpEI1>2*?O]c2:iK4Z*]a%#F54%"E]J%pHYe7_"8h#!U:ALsLU5HqrB,Z<kBrQ>up*dUYY8<VM/]uog5%)aQ74<gQ.TZ8#Vj"Z3A(*oQi-$,O?<YgVIBN8)U/7oJ.ZA:sKKI8u`Z-T]-_fT/uNInt5Yp'U'4GnI6,%4,%*lS?Z\r]c7'%f_bOj"EjqiA-jOsU5KYM%gZ"g9CEO%4BZ%.lA4>)]CNU,R6Eei@0=]WV=TaE,^4W#\<1Asl%!_8?g;8\sH^T#/8l$k!)/,YUA4*AWaW@03#g"9G.7/Oh>HfHPiAA'j;0LO495#JS=VYKVWOU%87$]60'UT:iL&8(TV%88jACAP7gPRMd..cTM&T.1^@ZC@!kQ@7HR$8pE9nT2*82;ra,a?_WQP.B,t-4+YD]=;7*1`n*d1)P8HTRHTJqKhB=.(8nef,MTi:4Z(k:80`d["Q&M9i<j]YXr><3-P22=JI3Tj,:gZ6Y#aTcq0+&a"\dBG,#_c3326Niat-f<4G/<*WdnIYjq>/p(r'CN6M/+J;@r]EMmQ$%ki6]Z)8YSANF6NfF[OJQ$OE24924U^[6UAs>AE+Ojl<k9o"g-,Nj$a>8#6ftOF"^W;rp6m#=$c>[&(NT#5/H9<IS?RKY=$f.R*k=F#t&2;g5L=MW<Pj/<GKO50[UD7m'@2pA_>cB55&lRGcR4k.RbJpB,PF#])@q46-VZleWZZhJK.i=1#YNFU@u9[Wd\=ZH$l:eFdA(W;>69KpnU7CIMSL^IHORhLD/dYC-2mC\cSUo<26dVVs6#9iCs=:.*OlVE,VI=Kh5(-:nj?lio5*8j.fbZ]hgK6,\YEMohS]90O/NYuNP,`O[1[TV_f1Ydqf'TJk4gnh%O:K(7G+aGVU_&Ko!bEF1bk7e`jk=7caJ+uKt^<J4hD`hWncX=lSKC"WV]2]((m]8%4iod!VnRE"l^!WP[do*q$@W=imfc1McN4)B-g\LM."S)&ku`$g3"$QL.6W98!8g.-C#Wm;dF_gt_X@Cf^<"NDIYlc+;$]50B(U9N7me!MIM]J`ArTn41V%_(0sR?XH,?qN[20@9`IX4"`^S.8qWd@jX!pkt-i;XsL#e=-ia"\X6<dn:<NXE,sn2gB/7)%e%LVa.ZN,IWUgRE0c,ZV^fO,$?<C=!>uLX:T)[j"@o]mfqXq'u*pV0.Fqaq]g1TRL?kgf`kI.e>-B1/Le![<o%B<F$l='A%3%a#1__5%+Fu0A5UEXf1g+LkM1=mWpj/WibD>/Xufn<]q+lieN:@e;I#W5KLo2:#qCq6R9np+Ul]$Pdt:`J:@FM+;dCLtKn_(e]#hJt]\1LAZ_+"iT>0&\?##jf6aG(>$96\`6A/%G#Z)Yq%Od-[dkoPB4S0R#WoBD0Jgq;bBQH&:e'=p'eOmu9.2FdWJZ3`ga%ITU7p?D"gClQd$epSci"O@(q7LDn/@4)YR*W5Vp&%TB($5$7>7/FC=l8Lk\tsqJ^B$W`gR8~>endstream
+endobj
+24 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3920
+>>
+stream
+Gb"/jD0+Gi'$&o,;sYH)8o)h%(?NidSE%\MYBH+5Emr<YV?<$DKU=#%K!amiIJ@"HI$-%]G*6/Q-HRMg'nBC;rep_p_,t+)DbL$L-32AiY^^J?A]&ToQ><ua4b`EJkM;/,qY4h3l_"!#-cOA^jVXTT38fcY_]F+ffR`"k^?\-]@J9X0h@tHLCGgbS6c5*tN2cpJ>H>'K)&[n]R4\WNA#MI_'BgNFr:9G$0KD.?I<opU1Aq=5^At/Z^PuYWI<@`.)e$N8j#:q)o$c9crpBcH?Ceekhh-jEpL#b*"lI.<I.ZurPG?#o34sKU149AU[kRcp1-j-4McnoX0E]@!1Q0Kk!gARtn,o2d)[_d\j,>YgZSK5.'.h77(:)rF#^LId%$#RqOdl`LG/cFlO_\)#1nQ#A$N_9mJ(d20QK[8H-]Vb?JRq+KT'%!JaRkt*@[QL!Y3T1"Y"nRK%.L17moq/AO'r3HCO<LYhs6f,]ek<Ycf$9a1bIXUhCuMD\?puXJ7CT8Qo#J1ab"/AFpG2t?lLFtAFl<ZdN^DjcMlfP*9Q43'f7JaS6eB`?%^iJ%qgTV[T8A2Esff[LL3oGpWO_*VVqqX$O&,)47`<bGG+p,:%V#Z>8J#iH.(Xm%.HTAePu9ZSS"9>*pb3ll9PO6:Hd(B!RdAPr_Y2-W$&<<]c*2oZbAFVTJsRoBiZpZOr,4bMZlO\GJ?6f"\\$qkeU&bcXU/UUT`9<XS?GI6]PZD[cp(hnVUI-L939?KnQ>e#S!SH.!jY<cuGXkNI2*BgDSZ[L@lP_PNh&u@WHubp\X^hL=^A(o983unI&o[<h$gY@p>Nhl?qm9^jAUFAP9dQq4N8302OFf!jOsko,ct=^4U^V+sU^g8f$e[5uEH6TOOOi&\U'Y@]8ZO/o(DDjDh9iVj_F@g4/V<gT@_@eA8+`PdEKg.iF8EnnmQ:F6.2DD:`KAs#.WpY@=VThmNrsUN7_t[*Kb\G5Y:;gqq;q^edA.q<7g/^90D,@jG@Hihp*'eZ!7folVu,G`K8ef8r06qUe_i*B$3\mbjb6Ph`9#N(bH%eo(!@5T?FO?0o!c\2p-jcdQcD0`p5R\fM]SG)0-Y"T!$PUjtBl^mgjlF53.3A"poW_Xp+27ERspq0=t:.sob1,$;[cnkNtcJZCQC"`Wf&a0;g=pYt(J_nWKVRuV+:_/$#a?4&YqOE=5$*7Hm54)/)<$#@0Do2@fZ-*jq>-lfQth#+p>P9e?I%?2F9@^pDZ);3##mja'o8!eS>8<(?h/tM*$C#pWe&aj\D+;#.r)7i+?dQGQ4`)=+^N=g,JCa*):$]:?3U,,]e"ctQm=Jk+*iX](ueu#(n@RUgr.1.%.ph\t+gbVn?eO:?8^7k?C/9r:.F0Gt(V'pRTF3sds]IPuPgC1GW_1a.E"c:o>kgR_(Do,r"B*B9LYm:Q$@LI2k;o:;8Qd=A[/*?b5:-Ri#CDO'W@a+G[U2j<a<2r]O_32,"U,W/11mKj:41f@tfU8fBR%=;ucYc$m)S"G_3%&8UG3lDe0`F6_L,LZm%Z/GGHnY("F[S(?W9'a$pnCHF]@s:h]e,HuXse.1m=%ND64kadWaa,.R)0FI<'j5E$CNNC&";&PMS"hjFmH.^n(.!6LPWkB,sF/dn9VacpQ+-W1Nb`=F7im:)L7@B$KlV?RAenmDc-5Gn3Fj\$NUX"Ckc3Fb,rpIHV-:ug'&L*XnnVOM\JNJc@Xu?k!'D0\0qN!9M#OG,)O^-&uUnepsGP;TI<Km,sgGCR)><9;`(<i46X_MaDl@`1rcI"M5[p:GR"'?I"Ral^LAqR,b?C1K2.5nbced+'LQu3DT7L@L!^<BNn+D6?g,*YM-o+NN<43[-F(`0CKZ*"Z+++7/@Y\o)lOaa&S[=JRKidS\mr=!,.foIUO.OTIZ1i%,tiRBRJWS4:PCMR?lUnK,%O*<nYK4Pf+7($.Kc#,K6Amc#jI<edl.8PMsF^mMn;=]*RY:=$]E4)8-d,ajl8m:pM<+-e+7Q!Y5?ffhWb"B$4j4![spjYhAZ(/)>pK5q<&@F)]?qJ+nub>f"SNm7ubZq!;W"a!L"f8%"IDq')\DZj;s.K<qQ)>0pb53BM*2VMO0.?$^FWo//K=?'>2ODO_5&.E1rXO@^?rsAW8-J#u--/9\+4XPThhhOYfLK=QUmPn5EJtW:KZ'hlUV,)2cTP2L"m<VW:5*+Lo%FPPH1[c:J6(lL*+(Ji:IPjRS=l+C5<%f#K&m$g#1HUHn>=#Q:k(/Y>#*BkLmhI&FW7?n;Yu1>8'G;S^c__KDJg(%OkXdM'0-6Ar"X'\d4:GWB3\&P/ZR7Ap_Y*mia]BJkBoAEEsAW\Fn#TTZH1&SWO<1h*8/.+851mgYH.?o=0LjIfPL(8J6Dl4*r(O]O(k*4$M8fc<8W<,*`m8d3Gu;CqI8N-q_.Ur[1ccE%(Ge\+-t=fNaoa`HbD;$jSXEc]B>)Dp),oN)8rf@ut)1WF%hC`5ElS?@psAe4hFOV@>'e)5/,e$2!Ukr^tS"u,me]K&=84Hjo1,npEE6p=WlPD%nLn6GCs<61sdG`K)p@1H4(#1*)sIEr6TipmlfTF74[5t.K".lldM4?kB%S/(u`Nslb9H_<?f-/9R;p`nk9<hWaMd`:OO%U5sVa0DK/fs#%ckMt2mpTN8Ue,9Shkmm#1qAHPLCXa_EbGY4"+(<?R"$";0G(gH^BgGj)o34P!#>5gIMZXZfBkFh)eJD;9Oc`2#CA&cY6=iei\&!/gf5MuY\4rT@9Q1MAi=E77PGi;4q=<D;I#dq7XIp*$d5<(peG2n?R[Pc7?^3/poJS</S,eCkg7gq"UqDXdIB4mRZ4sc.-L5qOlPl!op'65<(s&[jG@!I[4RRX]m%-aD(Kj.:7;ts28563'[a&`n>0b<(C?[6s$s4G.NUCqSFj<9>ni9A;^f0&QOIt#lf@e?toqR[:Vrd'JcnoG2agG1T;qKe!WADP+IVKc`aA7h7)Q&AGrBpMDfKn!E$fWPH7"1k$n#sn3r]:Ne8s3MiF=2uJ?S+0Q4>Y$u:-f8m5Ec=?(c=al0LE%$*C"auZ>l'93YMBlSGQ?WqpLCDWX>UQ--.aPbWr!l`=j)r15#GcmKu5@\f`/W:N[1aj'eG#^23UtqY=K3Lq28'HOb+[A2Rqtc687l,[IUr*DI%VA;UGV-72eNQH.`pH^4QTa>M42&!Jj(QhH=1m[`rgQ1T'[;*@NS7$2+.OKge5_U+:DC@Up0']mV2.Ut^^L,MTKMjQpmZ0DLCek1(jfpnO<`B:fQALWg29s\O]IJjF.qfq^W,+Y:R.h\%&7'$!TCQSq"*.,/Xh`eQdmL$,>qX%j$e\)<Mb?MfNL>+i=X,W%m3ua6M="sO#QX`!:r-<ZRklEFF$#jYLV6ms:\[GG*D;-OY49TA@?MT(+g*RB[nC>L_LIk7\#;TJ@B1G'UaqX*A#Jo?+4>_RE/dMi)q`U46)a<J6[><C5[_g`+K1&GJqtB%daC_2N_Va#4)k27-CaNrdi;(8`g\*4?KF],(Bd3]Po*h6H=3<H$<i8hQ.2:3Z1cSk)]V$`SlM$5uB3ocf'1Iq.T7"OCVI<Ih_MpjqncmZr"l`fZEdI3LoL8ES;dA^WTT@R;#a7RQh4K2&ADSVtqInEE7?\gE?bM^pDDR#SL!n=2#]lSKh'pUk3$-!pS]fIgSF$bk;Nb+:]q9i3-=n#l+lk/Ig6n$og;J\Kd_+UC"AaCL<]I[2qR67+WB@U&$d#lKH5s)hi/!&lV"NE4Yb'<3`e'Xa<6BLlRL:YB>BstV6N2HMh-U+oQ]Chj:Y$Gslm(o*ZsFj0JirJVK4;qK",>EP[n<1eJA&,&]uTYY;aB-2?<'@oPhXh)fJe^1Tdhj^ZJb%`<e2aHCR'E=R'4/7WaAbf0/hl`o&%6)4.$3hQG,/VhY;_orrMqt<Gh~>endstream
+endobj
+25 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1971
+>>
+stream
+GatU3fll+.&:N/3bY'H4O^J7GoB%H!UXl\[99,3Wr'HU/KS3R>Gff3jG6!_hBIduK>">HHp!1OiK/!N35?.Rk'7`"l31<d=$s%/:(9q7i!jgG8gOL+Nrj_Im=_n9k:A1VXCs+ZOp2.ZOgB$FKdrHuE$4cBg"'cO)3*L18^a6GE_f%HK<n^q9IH#L[@=cHmU/kAB0Uc@?rq..pMt\;g(=U7f1VhlJ-]=$A=K]q%AoLre31X?kI.>8SA)6hsVIq8h(LsuQ1kt,Y%"<u^D#3RA0g.^Oj3+oieI,K-J^qpJJ;jCD=LM!6c_QV0M+nVu1?TgnJeN.I@9I.Ynb$R$VdCN<OlWbQ7J/p_/@g31dk&Un6BkWa[l<i)Mc((sVf14Za5Gs<!Q)B7Jic_$8uP6/,[f@bZ$jOSRUTA/Lh3"(`7*tBY(qLL]K[?C]*J"b`GDF2qbV7Mb9L,%"\`FBdg@`&Xl+C'f@4pDjt]\6G(IMNS)n,X!,"r4`.6$Y;Zr4njBYfBmo^"<7CX'I&$*;"f.Zu5d"8MW.O:JV_#t\ehVNp,']p)(Y#M!.:_^:dX`$:mA&@Zu(s#:L>K6r;g6-Co-MX=SC8a"6UesMTJTYjD2t\F[>OSqS*l!Tq"?e$n8AS4l1]Lr0_2'iJo.6qeJQc?T.6_=e-'EJ"PLUCQQ=DnT$RN*60rc[_O[kP1j-GtX1eXklXEqgVpR*d2@P@m/560JZM'<lBeGsfMVfCaBfLVZP:u@s3R-?El.,<"rn`k/j)U8"jp(j?OS6[].MqM;<6*!ba@5;RZrn^Qq$EbP7b)oFTnqTPd;5lo8O4K2gaem/ES:!UuNM5@1_k?#N;3&SW5dE;I9AS?BoOq3)(R%`PqIj!?O[sHDjA&\/8]C/!QR!@(C(VI'=`*s[0=$\+ANL0@SKd$t89r[*i.1gFn!@\YJZBH9;Jreh0"spWVs58rg5TFFYoC/2ior5]Ntp,i$Xr\?V9FVf/Djk&UN%'WnEZe3*B`PBHttA:ile+(n>TE\-?MW*4:A>6gU-_<&]oami%-n5m0p+/S'9HH<jR4,G[>=Z:E/$,7d#:R=CYuRk6gTgcXEtf"/2.bg/%dEX)1\L<D^P4Oej"=n4-@,5qFZ4*c=mginn\>:&0`FWTQ10[$V,jJrbRhD=0Y^1;=.^$/.P4)E<=p!)2Xd,-+A(DM(n8QT:+:RC.t<R?YN+IXd?JB6&ahLVmBPj7S#g/j\CMnjBQnO60iE2(V(:_BMZl0@Poa[dP6ZhV"isX%B[,(=rlX&)n`0MF^-8_GK)t6eLrP''X"@o,s"m*=b@L($KTN<tN4;3%8j@-qN9\@rDt>Y]AAjP%d;GmJs^gP(9J@eY?NZM&k=:!*`]M',3A[U,e]LJ4qu%T:tI`L=)J5NX6k*<k&t/&0d9pj5.'rbgL0+?]:9j09V32JolePL^[]B&G:Cq.i$8jX)X,.#^^WUlpeqk1">XR_8(-&@>(gH8++5FJ&(mVQ0ehbK3VAA/AC/kfe(74=':(oVf7hg%tLKFJCQs"/c-O>V5uY@0ISCu^H\I:o&R^\N;Oab6r\"ro'aS<)2^aBkHG`u@PSrQS7GtoXfO>]qG,>dSUAI4\(oIWY$bOG8JaX_U6)_Sro(td<&i^,LmMJL/;G3Lj!GhT%&f&h)n.GOKKg.7cBq?GBeL[&l%jf)*Ck2:8atm!:#>>ij!`p@'n+]T6^FkNP!2.Ic8XdTEH\AZ73i]IY/%^N]`H[b?R7+7]]N.!Fr7APbb3fM@h(;^h:P)Q(pZ"-<uA^XI@Um[5[hlh]`J3FHAu3T\RRCeV41SOg]%9rCQ]7>Pk_^R&VZW`[\o5QOnQ[&Ji:UcZnjB;R;UBDAW@L\r-osumO)a-]\6(8N8O8j.c<@Yr)u_fcUEc)On[!-q>+$$bAQ7s\u"dAh+!@sqAF/4GBJY1h^^a0Iof4_ra&`IW%bOD[P2alrtNZJU]o'L0_bltrT:B~>endstream
 endobj
 xref
-0 15
+0 26
 0000000000 65535 f 
-0000000015 00000 n 
-0000000064 00000 n 
-0000000148 00000 n 
-0000000245 00000 n 
-0000000347 00000 n 
-0000007237 00000 n 
-0000007379 00000 n 
-0000016587 00000 n 
-0000016729 00000 n 
-0000027009 00000 n 
-0000027152 00000 n 
-0000037956 00000 n 
-0000038100 00000 n 
-0000040271 00000 n 
+0000000061 00000 n 
+0000000132 00000 n 
+0000000239 00000 n 
+0000000351 00000 n 
+0000000428 00000 n 
+0000000511 00000 n 
+0000000716 00000 n 
+0000000921 00000 n 
+0000001036 00000 n 
+0000001241 00000 n 
+0000001447 00000 n 
+0000001653 00000 n 
+0000001859 00000 n 
+0000002065 00000 n 
+0000002271 00000 n 
+0000002341 00000 n 
+0000002728 00000 n 
+0000002835 00000 n 
+0000007528 00000 n 
+0000008635 00000 n 
+0000013668 00000 n 
+0000015014 00000 n 
+0000019391 00000 n 
+0000022273 00000 n 
+0000026285 00000 n 
 trailer
-<< /Size 15 /Root 1 0 R >>
+<<
+/ID 
+[<19c81eee38676e5a36bc354ea9e29661><19c81eee38676e5a36bc354ea9e29661>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 16 0 R
+/Root 15 0 R
+/Size 26
+>>
 startxref
-40415
+28348
 %%EOF
