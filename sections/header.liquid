@@ -1030,8 +1030,15 @@
       height: var(--icon-size-md);
     }
 
-    .header:has(#Details-menu-drawer-container[open]) {
-      contain: style;
+    .header:has(#Details-menu-drawer-container[open]),
+    #header-component:has(#Details-menu-drawer-container[open]),
+    #header-group:has(#Details-menu-drawer-container[open]) > .header-section,
+    .header-section:has(#Details-menu-drawer-container[open]) {
+      contain: none !important;
+      transform: none !important;
+      view-transition-name: none !important;
+      z-index: 10000 !important;
+      overflow: visible !important;
     }
 
     .header.header--compact {

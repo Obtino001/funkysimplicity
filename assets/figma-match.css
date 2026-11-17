@@ -1085,9 +1085,43 @@ img.icon-block__media {
   }
 
   /* ── Black Header-Matched surface for mobile menu drawer ── */
+  #header-group:has(#Details-menu-drawer-container[open]) > .header-section,
+  .header-section:has(#Details-menu-drawer-container[open]),
+  #header-component:has(#Details-menu-drawer-container[open]) {
+    contain: none !important;
+    transform: none !important;
+    view-transition-name: none !important;
+    z-index: 10000 !important;
+    overflow: visible !important;
+  }
+
   .menu-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    height: auto !important;
+    min-height: 100dvh;
+    box-sizing: border-box !important;
+    padding: calc(16px + env(safe-area-inset-top, 0px)) 20px calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     background-color: #000000 !important;
     color: #ffffff !important;
+    z-index: 9999 !important;
+  }
+
+  .menu-drawer.menu-drawer--has-submenu-opened {
+    overflow: hidden !important;
+    transform: none !important;
+  }
+
+  .menu-drawer__backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9998 !important;
   }
 
   /* Keep drawer close button inline in flex flow so it never overlaps the search bar */
@@ -1095,6 +1129,7 @@ img.icon-block__media {
     position: relative !important;
     top: auto !important;
     right: auto !important;
+    flex-shrink: 0 !important;
     background: rgba(255, 255, 255, 0.1) !important;
     border: 1px solid rgba(255, 255, 255, 0.24) !important;
     color: #ffffff !important;
@@ -1106,12 +1141,20 @@ img.icon-block__media {
     color: #ffffff !important;
   }
 
-  /* ── Divider lines between every top-level menu item (no double border below search) ── */
-  .menu-drawer .menu-drawer__list-item {
+  /* ── Divider lines between top-level menu items only (never inside grid submenus) ── */
+  .menu-drawer .menu-drawer__navigation .menu-drawer__menu {
+    padding-inline: 0 !important;
+  }
+  .menu-drawer .menu-drawer__menu.has-submenu > .menu-drawer__list-item {
     border-block-end: 1px solid rgba(255, 255, 255, 0.14);
   }
-  .menu-drawer .menu-drawer__list-item:first-child {
+  .menu-drawer .menu-drawer__menu.has-submenu > .menu-drawer__list-item:first-child {
     border-block-start: none !important;
+  }
+  .menu-drawer .menu-drawer__submenu .menu-drawer__list-item,
+  .menu-drawer .menu-drawer__menu--grid > .menu-drawer__list-item {
+    border-block-end: 0 !important;
+    border-bottom: 0 !important;
   }
 
   /* ── Show the forward caret (>) arrow on items with submenus / mega menus ── */
@@ -1160,6 +1203,10 @@ img.icon-block__media {
 
   /* ── Search row: dark pill container in header-drawer, crisp light input text ── */
   .menu-drawer .menu-drawer__search {
+    flex-shrink: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px 0 16px;
     background: rgba(255, 255, 255, 0.1) !important;
     border-color: rgba(255, 255, 255, 0.22) !important;
   }
@@ -1180,15 +1227,110 @@ img.icon-block__media {
   .menu-drawer .menu-drawer__search-input::placeholder {
     color: rgb(255 255 255 / 0.62) !important;
   }
-  .menu-drawer .menu-drawer__search-submit {
+  .menu-drawer .menu-drawer__search-submit,
+  .menu-drawer .menu-drawer__search-submit:hover,
+  .menu-drawer .menu-drawer__search-submit:focus-visible {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    padding: 0 !important;
+    margin: 0;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
     color: #ffffff !important;
   }
+  .menu-drawer .menu-drawer__search-submit svg,
+  .menu-drawer .menu-drawer__search-submit svg path {
+    fill: currentColor !important;
+    stroke: none !important;
+  }
   .menu-drawer__submenu {
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    height: auto !important;
+    min-height: 100%;
+    box-sizing: border-box !important;
+    z-index: 10001 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     background-color: #000000 !important;
     color: #ffffff !important;
   }
+  .menu-drawer__inner-submenu {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: calc(16px + env(safe-area-inset-top, 0px)) 20px calc(24px + env(safe-area-inset-bottom, 0px)) !important;
+  }
   .menu-drawer__nav-buttons--with-title {
+    display: grid !important;
+    grid-template-columns: 36px minmax(0, 1fr) 36px !important;
+    align-items: center;
+    gap: 10px;
+    padding: 0 0 14px !important;
+    margin: 0 0 16px !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  }
+  .menu-drawer__nav-buttons--with-title .menu-drawer__close-button {
+    display: inline-flex !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    border-radius: 9999px !important;
+    color: #ffffff !important;
+  }
+  .menu-drawer__nav-buttons--with-title .menu-drawer__close-button:hover {
+    background: #596f53 !important;
+    border-color: #596f53 !important;
+  }
+  .menu-drawer__nav-buttons--with-title .menu-drawer__close-button svg,
+  .menu-drawer__nav-buttons--with-title .menu-drawer__close-button svg path {
+    width: 14px !important;
+    height: 14px !important;
+    stroke: currentColor !important;
+    color: currentColor !important;
+    fill: none !important;
+  }
+  .menu-drawer__back-button {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-drawer__title,
+  .menu-drawer__title .menu-drawer__menu-item-text {
+    justify-self: center !important;
+    text-align: center !important;
+  }
+  .menu-drawer__menu--grid {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 12px 10px;
   }
   .menu-drawer__title,
   .menu-drawer__title .menu-drawer__menu-item-text,
