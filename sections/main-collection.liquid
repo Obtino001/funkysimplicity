@@ -77,8 +77,9 @@
         .sale-size-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; padding: 18px 0; }
         .sale-size-filter__label { font-weight: 600; }
         .sale-size-filter__choices { display: flex; flex-wrap: wrap; gap: 8px; }
-        .sale-size-filter__choices button { border: 1px solid currentColor; border-radius: 999px; background: transparent; color: inherit; padding: 7px 14px; cursor: pointer; }
-        .sale-size-filter__choices button[aria-pressed='true'] { background: #111; border-color: #111; color: #fff; }
+        .sale-size-filter__choices button { border: 1px solid #dfdfdf; border-radius: 9999px; background: #ffffff; color: #171717; padding: 7px 14px; font-weight: 500; cursor: pointer; transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease; }
+        .sale-size-filter__choices button:hover { border-color: #596f53; color: #596f53; }
+        .sale-size-filter__choices button[aria-pressed='true'] { background: #596f53; border-color: #596f53; color: #ffffff; }
         .sale-size-filter__count { margin-inline-start: auto; }
       </style>
     {% endif %}

@@ -373,13 +373,13 @@
     margin-block-end: var(--margin-3xs);
     display: flex;
     gap: var(--margin-sm);
-    padding: 8px;
-    border-radius: 8px;
+    padding: 8px 12px;
+    border-radius: 9999px;
     line-height: var(--font-line-height-md);
     align-items: center;
     text-align: start;
     cursor: pointer;
-    transition: background-color var(--animation-speed) var(--animation-easing);
+    transition: background-color var(--animation-speed) var(--animation-easing), color var(--animation-speed) var(--animation-easing);
 
     .country {
       flex: 1;
@@ -387,7 +387,11 @@
     }
 
     &:hover {
-      background-color: rgb(var(--color-foreground-rgb) / var(--opacity-8));
+      background-color: var(--color-brand-green-tint, #eef1ea);
+    }
+
+    &:hover .country {
+      color: var(--color-brand-green, #596f53);
     }
 
     &[aria-current='true'] {

@@ -345,7 +345,7 @@
               "settings": {
                 "icon": "caret",
                 "dividers": true,
-                "divider_color": "#000000",
+                "divider_color": "#dfdfdf",
                 "type_preset": "h4",
                 "background_color": "",
                 "text_color": "",
@@ -1020,7 +1020,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_color": "",
-            "border_radius": 0
+            "border_radius": 10
           },
           "blocks": {
             "collection_title_z8Qepm": {
@@ -1062,7 +1062,7 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_color": "",
-                "border_radius": 0
+                "border_radius": 10
               },
               "blocks": {}
             }
@@ -1285,8 +1285,8 @@
         "show_button": true,
         "button_label": "JOIN OUR COMMUNITY",
         "button_link": "",
-        "button_bg": "#ffffff",
-        "button_color": "#000000"
+        "button_bg": "#596f53",
+        "button_color": "#596f53"
       }
     },
     "featured_blog_posts_UGbMPW": {
@@ -1333,7 +1333,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_color": "",
-            "border_radius": 0,
+            "border_radius": 10,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -1349,7 +1349,7 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_color": "",
-                "border_radius": 0
+                "border_radius": 10
               },
               "blocks": {}
             },

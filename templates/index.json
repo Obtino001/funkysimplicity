@@ -181,8 +181,8 @@
         ".h1 {max-width: 623px; font-size: 46px; line-height: normal;}",
         ".button-custom {font-size: 14px; font-weight: 600;}",
         ".button-custom--AQW1neXVVZ2gzTTdEd__button_6B7rxm {border: 1px solid #fff;}",
-        ".button-custom--AcnVXVVpsSS8wdW5kd__button_iVzj3T:hover {background: #000; color: #fff;}",
-        ".button-custom--AQW1neXVVZ2gzTTdEd__button_6B7rxm:hover {background: #fff; color: #000;}"
+        ".button-custom--AcnVXVVpsSS8wdW5kd__button_iVzj3T:hover {background: #596f53; color: #fff;}",
+        ".button-custom--AQW1neXVVZ2gzTTdEd__button_6B7rxm:hover {background: #fff; color: #596f53;}"
       ],
       "name": "t:names.hero",
       "settings": {
@@ -1143,7 +1143,7 @@
         "button_QVwkNk"
       ],
       "custom_css": [
-        ".button:hover {background: #000; color: #fff;}",
+        ".button:hover {background: #596f53; color: #fff;}",
         ".button {font-size: 14px;}"
       ],
       "name": "t:names.rich_text_section",
@@ -1283,7 +1283,7 @@
         "button_XVBiJK"
       ],
       "custom_css": [
-        ".button:hover {background: #000; color: #fff;}",
+        ".button:hover {background: #596f53; color: #fff;}",
         ".button {font-size: 14px;}"
       ],
       "name": "t:names.rich_text_section",
@@ -1415,7 +1415,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_color": "",
-            "border_radius": 0,
+            "border_radius": 10,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -1431,7 +1431,7 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_color": "",
-                "border_radius": 0,
+                "border_radius": 10,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -1875,7 +1875,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_color": "",
-            "border_radius": 0,
+            "border_radius": 10,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -1891,7 +1891,7 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_color": "",
-                "border_radius": 0,
+                "border_radius": 10,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -2062,7 +2062,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_color": "",
-            "border_radius": 0,
+            "border_radius": 10,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -2218,9 +2218,9 @@
         "group_4E9YAz"
       ],
       "custom_css": [
-        ".custom-section-content {background: #f6f6f6; padding: 30px; margin: 60px 0;}",
+        ".custom-section-content {background: #f6f6f6; padding: 30px; margin: 60px 0; border-radius: 12px;}",
         ".text-block--AY1NWV1VjRUZuYTZJd__text_CrQ7PA p {font-size: 36px; font-weight: 300 !important;}",
-        ".button-secondary:hover {background: none; border: 1px solid #000; color: #000;}",
+        ".button-secondary:hover {background: #596f53; border: 1px solid #596f53; color: #fff;}",
         "@media (max-width: 767px) {.custom-section-content {margin: 30px 0; }}"
       ],
       "name": "t:names.image_with_text",
@@ -2359,8 +2359,8 @@
         "show_button": true,
         "button_label": "JOIN OUR COMMUNITY",
         "button_link": "https://www.instagram.com/funkysimplicity/",
-        "button_bg": "#ffffff",
-        "button_color": "#000000"
+        "button_bg": "#596f53",
+        "button_color": "#596f53"
       }
     },
     "featured_blog_posts_NaHffm": {
@@ -2407,7 +2407,7 @@
             "border_width": 1,
             "border_opacity": 100,
             "border_color": "",
-            "border_radius": 0,
+            "border_radius": 10,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -2423,7 +2423,7 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_color": "",
-                "border_radius": 0
+                "border_radius": 10
               },
               "blocks": {}
             },
