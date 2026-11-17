@@ -216,6 +216,16 @@
     width: 100%;
     text-align: right;
     padding-left: calc(2.5 * var(--input-padding-x));
+    border-radius: var(--style-border-radius-inputs, 6px);
+    background-color: #ffffff;
+    color: #171717;
+    font-family: var(--font-body--family);
+    font-size: 14px;
+  }
+
+  .price-facet__input:focus {
+    outline: none;
+    box-shadow: 0 0 0 1.5px var(--color-brand-green, #596f53);
   }
 
   .price-facet__input::placeholder {

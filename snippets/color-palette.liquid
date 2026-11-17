@@ -24,7 +24,7 @@
   endfor
 %}
 
-{% comment %} Primary button effective values — invert on hover (outline ↔ filled) {% endcomment %}
+{% comment %} Primary button effective values — brand green hover harmony {% endcomment %}
 {% liquid
   if settings.palette_primary_button_background.alpha == 0
     assign effective_primary_button_focus_outline = settings.palette_primary_button_text
@@ -34,27 +34,27 @@
 
   assign primary_bg_brightness = settings.palette_primary_button_background | color_brightness
   if settings.palette_primary_button_background.alpha < 0.4 or primary_bg_brightness > 128
-    assign effective_primary_button_hover_background = palette_darkest
+    assign effective_primary_button_hover_background = settings.palette_primary_button_text
     assign effective_primary_button_hover_text = palette_lightest
-    assign effective_primary_button_hover_border = palette_darkest
+    assign effective_primary_button_hover_border = settings.palette_primary_button_border
   else
-    assign effective_primary_button_hover_background = palette_lightest
-    assign effective_primary_button_hover_text = palette_darkest
-    assign effective_primary_button_hover_border = palette_darkest
+    assign effective_primary_button_hover_background = settings.palette_primary_button_background | color_darken: 8
+    assign effective_primary_button_hover_text = palette_lightest
+    assign effective_primary_button_hover_border = settings.palette_primary_button_background | color_darken: 8
   endif
 %}
 
-{% comment %} Secondary button hover — invert on hover (filled ↔ outline) {% endcomment %}
+{% comment %} Secondary button hover — brand green outline ↔ filled harmony {% endcomment %}
 {% liquid
   assign secondary_bg_brightness = settings.palette_secondary_button_background | color_brightness
   if settings.palette_secondary_button_background.alpha < 0.4 or secondary_bg_brightness > 128
-    assign effective_secondary_button_hover_background = palette_darkest
+    assign effective_secondary_button_hover_background = settings.palette_secondary_button_text
     assign effective_secondary_button_hover_text = palette_lightest
-    assign effective_secondary_button_hover_border = palette_darkest
+    assign effective_secondary_button_hover_border = settings.palette_secondary_button_border
   else
-    assign effective_secondary_button_hover_background = palette_lightest
-    assign effective_secondary_button_hover_text = palette_darkest
-    assign effective_secondary_button_hover_border = palette_darkest
+    assign effective_secondary_button_hover_background = settings.palette_secondary_button_background | color_darken: 8
+    assign effective_secondary_button_hover_text = palette_lightest
+    assign effective_secondary_button_hover_border = settings.palette_secondary_button_background | color_darken: 8
   endif
 %}
 

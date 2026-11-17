@@ -616,14 +616,14 @@
                     "border_style": "underline",
                     "input_style": "custom",
                     "border_width": 1,
-                    "border_radius": 100,
+                    "border_radius": 6,
                     "input_background_color": "",
                     "input_text_color": "{{ settings.color_palette.background }}",
                     "input_border_color": "{{ settings.color_palette.background }}",
                     "input_type_preset": "paragraph",
                     "style_class": "button-custom",
                     "custom_button_background": "{{ settings.color_palette.background }}",
-                    "custom_button_text": "{{ settings.color_palette.foreground }}",
+                    "custom_button_text": "#596f53",
                     "custom_button_border": "{{ settings.color_palette.background }}",
                     "link_text_color": "",
                     "display_type": "text",
@@ -803,7 +803,7 @@
         "group_abR6E3"
       ],
       "custom_css": [
-        ".email-signup__input-group--underline {box-shadow: none; border: 1px solid; border-radius: 100px; padding: 0 4px 0 20px;}",
+        ".email-signup__input-group--underline {box-shadow: none; border: 1px solid rgba(255,255,255,0.45); border-radius: 6px; padding: 4px 4px 4px 16px;}",
         ".text-block h4,.menu__heading.h4 {font-size: 20px;}",
         "@media screen and (min-width: 990px) {.footer-content {grid-template-columns: 1fr; }}"
       ],
@@ -811,7 +811,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 60,
-        "background_color": "{{ settings.color_palette.foreground }}",
+        "background_color": "#596f53",
         "padding-block-start": 50,
         "padding-block-end": 50
       }

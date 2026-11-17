@@ -113,13 +113,13 @@
     min-width: 22px;
     height: 22px;
     flex-shrink: 0;
-    border-radius: var(--style-border-radius-lg);
-    background-color: rgb(var(--color-foreground-rgb) / 0.1);
-    font-family: var(--font-paragraph--family);
-    font-weight: var(--font-paragraph--weight);
-    color: var(--color-foreground);
-    font-size: clamp(var(--font-size--3xs), 0.75em, var(--font-size--xs));
-    padding-inline: 0.5em;
+    border-radius: var(--radius-xs, 4px);
+    background-color: var(--color-brand-green-tint, #eef1ea);
+    font-family: var(--font-body--family);
+    font-weight: 600;
+    color: var(--color-brand-green, #596f53);
+    font-size: 12px;
+    padding-inline: 6px;
     line-height: 1;
   }
 
@@ -129,61 +129,40 @@
   }
 
   .theme-drawer__close-button {
-    --private-button-size: 34px;
+    --private-button-size: 36px;
     --private-focus-ring-size: 2px;
-    --private-motion-speed: 150ms;
+    --private-motion-speed: 180ms;
     --private-motion-ease: cubic-bezier(0.25, 0, 0.1, 1);
-    --private-border-width: 1px;
-    --private-button-border-color: rgb(0, 0, 0, 0.06);
-    --private-button-shadow: 0 2px 6px 0 var(--private-button-border-color);
 
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-inline-start: auto;
     width: var(--private-button-size);
     height: var(--private-button-size);
-    border-radius: var(--private-button-size);
-    background-color: var(--color-background);
+    min-width: var(--private-button-size);
+    min-height: var(--private-button-size);
+    padding: 0;
+    border-radius: var(--radius-sm, 6px);
+    background-color: #ffffff;
+    color: #171717;
+    border: 1px solid #dfdfdf;
+    box-shadow: none;
     outline: var(--private-focus-ring-size) solid transparent;
     outline-offset: var(--private-focus-ring-size);
-    transition-property: color, outline-color, background-color;
-    transition-duration: var(--private-motion-speed);
-    transition-timing-function: var(--private-motion-ease);
-
-    /* Legacy non-contrast-aware color scheme */
-    --button-icon-opacity: 0.8;
-    color: var(--color-foreground);
-    border: var(--private-border-width) solid var(--private-button-border-color);
-    box-shadow: var(--private-button-shadow);
+    transition: color var(--private-motion-speed) var(--private-motion-ease),
+      background-color var(--private-motion-speed) var(--private-motion-ease),
+      border-color var(--private-motion-speed) var(--private-motion-ease);
 
     &:hover:not(:active) {
-      /* Legacy non-contrast-aware color scheme */
-      --button-icon-opacity: 1;
+      background-color: var(--color-brand-green-tint, #eef1ea);
+      border-color: var(--color-brand-green, #596f53);
+      color: var(--color-brand-green, #596f53);
     }
 
     &:focus-visible {
-      outline-color: var(--color-foreground);
-    }
-  }
-
-  @supports (color: oklch(from red l c h)) {
-    .theme-drawer__close-button {
-      --contrast-color: oklch(from var(--color-background) clamp(0, (0.6 / l - 1) * infinity, 1) 0 0);
-      --button-icon-opacity: 1;
-      --private-button-border-color: color-mix(in srgb, var(--contrast-color) 6%, transparent);
-      --private-button-shadow: 0 2px 6px 0 var(--private-button-border-color);
-
-      color: color-mix(in srgb, var(--contrast-color) 50%, transparent);
-
-      &:hover:not(:active) {
-        color: color-mix(in srgb, var(--contrast-color) 70%, transparent);
-      }
-    }
-
-    .theme-drawer__close-button:hover:not(:active) {
-      background-color: color-mix(in srgb, var(--contrast-color) 6%, var(--color-background));
+      outline-color: var(--color-brand-green, #596f53);
     }
   }
 {% endstylesheet %}

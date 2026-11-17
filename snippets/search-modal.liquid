@@ -102,7 +102,7 @@
           </div>
           <button
             type="button"
-            class="button predictive-search__close-modal-button"
+            class="button-unstyled predictive-search__close-modal-button"
             aria-label="{{ 'accessibility.close_dialog' | t }}"
             on:click="dialog-component/closeDialog"
             ref="closeModalButton"
@@ -489,32 +489,39 @@
   }
 
   .predictive-search__close-modal-button {
-    --button-color: var(--color-foreground);
-    --button-background-color: transparent;
-
-    display: flex;
+    cursor: pointer;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: var(--minimum-touch-target);
-    height: var(--minimum-touch-target);
-    margin-inline-start: var(--margin-sm);
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    margin-inline-start: 10px;
+    margin-inline-end: 6px;
     padding: 0;
+    border-radius: 6px;
+    border: 1px solid #dfdfdf;
+    background-color: #ffffff;
+    color: #171717;
     box-shadow: none;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+
+    &:hover {
+      background-color: var(--color-brand-green-tint, #eef1ea);
+      border-color: var(--color-brand-green, #596f53);
+      color: var(--color-brand-green, #596f53);
+    }
 
     &:active {
-      transform: scale(0.8);
+      transform: scale(0.95);
       transition: transform 100ms var(--animation-timing-active);
     }
 
     .svg-wrapper,
     svg {
-      width: var(--icon-size-xs);
-      height: var(--icon-size-xs);
+      width: 16px;
+      height: 16px;
     }
-  }
-
-  .predictive-search__close-modal-button:hover {
-    --button-color: var(--color-foreground);
-    --button-background-color: transparent;
   }
 {% endstylesheet %}

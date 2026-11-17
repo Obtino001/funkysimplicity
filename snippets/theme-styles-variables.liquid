@@ -437,26 +437,43 @@
     /* Checkout buttons gap */
     --checkout-button-gap: 10px;
 
-    /* Borders */
+    /* Borders & Light Theme Unified Radius System */
     --style-border-width: 1px;
-    --style-border-radius-xs: 0.2rem;
-    --style-border-radius-sm: 0.6rem;
-    --style-border-radius-md: 0.8rem;
+    --style-border-radius-xs: 0.25rem;
+    --style-border-radius-sm: 0.375rem;
+    --style-border-radius-md: 0.5rem;
     --style-border-radius-50: 50%;
-    --style-border-radius-lg: 1rem;
-    --style-border-radius-pills: {{ settings.pills_border_radius }}px;
-    --style-border-radius-inputs: {{ settings.inputs_border_radius }}px;
-    --style-border-radius-buttons-primary: {{ settings.button_border_radius_primary }}px;
-    --style-border-radius-buttons-secondary: {{ settings.button_border_radius_secondary }}px;
+    --style-border-radius-lg: 0.75rem;
+    --style-border-radius-pills: {{ settings.pills_border_radius | default: 4 }}px;
+    --style-border-radius-inputs: {{ settings.inputs_border_radius | default: 6 }}px;
+    --style-border-radius-buttons-primary: {{ settings.button_border_radius_primary | default: 6 }}px;
+    --style-border-radius-buttons-secondary: {{ settings.button_border_radius_secondary | default: 6 }}px;
     --style-border-width-primary: {{ settings.primary_button_border_width }}px;
     --style-border-width-secondary: {{ settings.secondary_button_border_width }}px;
     --style-border-width-inputs: {{ settings.input_border_width }}px;
-    --style-border-radius-popover: {{ settings.popover_border_radius }}px;
+    --style-border-radius-popover: {{ settings.popover_border_radius | default: 8 }}px;
     --style-border-popover: {{ settings.popover_border_width }}px solid {{ settings.popover_border_color }};
     --style-border-drawer: 1px solid {{ settings.drawer_border_color }};
     --style-border-swatch-opacity: {{ settings.variant_swatch_border_opacity }}%;
     --style-border-swatch-width: {{ settings.variant_swatch_border_width }}px;
     --style-border-swatch-style: {{ settings.variant_swatch_border_style }};
+
+    /* Brand Green Light Theme Design Tokens */
+    --color-brand-green: #596f53;
+    --color-brand-green-rgb: 89 111 83;
+    --color-brand-green-hover: #475942;
+    --color-brand-green-hover-rgb: 71 89 66;
+    --color-brand-green-tint: #eef1ea;
+    --color-brand-green-tint-rgb: 238 241 234;
+    --color-surface-light: #f6f6f6;
+    --color-surface-white: #ffffff;
+    --color-text-primary: #171717;
+    --color-text-secondary: #555555;
+    --color-border-subtle: #dfdfdf;
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
 
     /* Animation */
     --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
@@ -542,15 +559,15 @@
     --input-textarea-min-height: 55px;
 
     /* Checkbox */
-    --checkbox-size: 22px;
-    --checkbox-border-radius: 7px;
+    --checkbox-size: 20px;
+    --checkbox-border-radius: 4px;
     --checkbox-border: 1px solid rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
     --checkbox-label-padding: 8px;
 
     @media screen and (min-width: 750px) {
-      --checkbox-size: 16px;
-      --checkbox-border-radius: 5px;
-      --checkbox-label-padding: 6px;
+      --checkbox-size: 18px;
+      --checkbox-border-radius: 4px;
+      --checkbox-label-padding: 8px;
     }
 
     /* Button size */

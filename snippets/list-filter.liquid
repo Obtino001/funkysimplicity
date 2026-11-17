@@ -415,7 +415,7 @@
                 type="button"
                 on:click="/clearFilter"
                 on:keydown="/clearFilter"
-                class="clear-filter button button-unstyled"
+                class="clear-filter button-unstyled"
               >
                 {{- 'actions.clear' | t -}}
               </button>
@@ -442,15 +442,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--variant-picker-swatch-height) / 1.5);
-    min-width: 20px;
+    height: 22px;
+    min-width: 22px;
     padding: 0 6px;
-    border-radius: 20px;
-    font-family: var(--font-paragraph--family);
-    font-size: var(--font-size--xs);
-    font-weight: var(--font-paragraph--weight);
-    color: var(--color-foreground);
-    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-10-25));
+    border-radius: 4px;
+    font-family: var(--font-body--family);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-brand-green, #596f53);
+    background-color: var(--color-brand-green-tint, #eef1ea);
   }
 
   .facets__bubble svg {
@@ -510,20 +510,28 @@
   }
 
   .facets .checkbox:not(.checkbox--disabled):hover .icon-checkmark {
-    border-color: rgb(var(--color-foreground-rgb) / var(--opacity-40-60));
-    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+    border-color: var(--color-brand-green, #596f53);
+    background-color: var(--color-brand-green-tint, #eef1ea);
   }
 
   /* Hover state for checked checkboxes - targeting via adjacent sibling */
   .facets .checkbox:not(.checkbox--disabled):hover .checkbox__input:checked + .checkbox__label .icon-checkmark {
-    background-color: var(--color-foreground-subdued);
+    background-color: var(--color-brand-green-hover, #475942);
+    border-color: var(--color-brand-green-hover, #475942);
   }
 
   .facets .checkbox:not(.checkbox--disabled) .checkbox__label-text {
-    color: var(--color-foreground-subdued);
+    color: #171717;
+    font-size: 14px;
+    line-height: 1.4;
   }
   .facets .checkbox:not(.checkbox--disabled):hover .checkbox__label-text {
-    color: var(--color-foreground-rgb);
+    color: var(--color-brand-green, #596f53);
+  }
+
+  .facets .checkbox__input:checked + .checkbox__label .checkbox__label-text {
+    color: var(--color-brand-green, #596f53);
+    font-weight: 600;
   }
 
   .facets .checkbox .checkbox__label-text {
@@ -532,59 +540,53 @@
 
   /* Pill style */
   .facets__pill-label {
-    --pill-label-padding-inline: var(--padding-xs);
-    --pill-label-border-radius: var(--style-border-radius-md);
-    --pill-label-border-width: var(--variant-picker-button-border-width);
-    --pill-label-height: var(--button-size-md);
-    --pill-label-focus-outline-color: var(--color-foreground);
-    --pill-label-color: var(--color-foreground);
-    --pill-label-color-rgb: var(--color-foreground-rgb);
-    --pill-label-background-color: var(--color-background);
-    --pill-label-background-color-rgb: var(--color-background-rgb);
-    --pill-label-border-opacity: var(--facets-low-opacity);
+    --pill-label-padding-inline: 12px;
+    --pill-label-border-radius: 4px;
+    --pill-label-border-width: 1px;
+    --pill-label-height: 38px;
+    --pill-label-focus-outline-color: var(--color-brand-green, #596f53);
+    --pill-label-color: #171717;
+    --pill-label-color-rgb: 23 23 23;
+    --pill-label-background-color: #ffffff;
+    --pill-label-background-color-rgb: 255 255 255;
 
     display: inline-flex;
     position: relative;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 0 0 var(--pill-label-border-width) rgb(var(--pill-label-color-rgb) / var(--opacity-10-25));
+    border: 1px solid #dfdfdf;
+    box-shadow: none;
     border-radius: var(--pill-label-border-radius);
     height: var(--pill-label-height);
     width: 100%;
     padding-inline: var(--pill-label-padding-inline);
-    color: rgb(var(--pill-label-color-rgb));
-    background-color: rgb(var(--pill-label-background-color-rgb));
+    font-family: var(--font-body--family);
+    font-size: 13px;
+    font-weight: 500;
+    color: #171717;
+    background-color: #ffffff;
     cursor: pointer;
-    transition: color var(--animation-speed) var(--animation-easing),
-      background-color var(--animation-speed) var(--animation-easing);
+    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
     outline-color: var(--pill-label-focus-outline-color);
-
-    &:hover {
-      --pill-label-border-opacity: 100%;
-    }
   }
 
   .facets__pill-input:not(:checked) + .facets__pill-label:hover {
-    --pill-label-color-rgb: var(--color-foreground-rgb);
-    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+    color: var(--color-brand-green, #596f53);
+    border-color: var(--color-brand-green, #596f53);
+    background-color: var(--color-brand-green-tint, #eef1ea);
   }
 
   .facets__pill-input {
     &:checked + .facets__pill-label {
-      --pill-label-color-rgb: var(--color-background-rgb);
-      --pill-label-background-color-rgb: var(--color-foreground-rgb);
-      --pill-label-border-opacity: 0;
-
-      font-weight: 500;
+      color: #ffffff;
+      background-color: var(--color-brand-green, #596f53);
+      border-color: var(--color-brand-green, #596f53);
+      font-weight: 600;
     }
 
     &:disabled + .facets__pill-label {
       opacity: var(--disabled-opacity);
       cursor: not-allowed;
-
-      &:hover {
-        --pill-label-border-opacity: var(--facets-low-opacity);
-      }
     }
   }
 
