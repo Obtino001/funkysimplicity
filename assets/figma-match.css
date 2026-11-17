@@ -1084,14 +1084,31 @@ img.icon-block__media {
     display: flex !important;
   }
 
-  /* ── Light Theme surface for mobile menu drawer ── */
+  /* ── Black Header-Matched surface for mobile menu drawer ── */
   .menu-drawer {
-    background-color: #ffffff !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  /* Keep drawer close button inline in flex flow so it never overlaps the search bar */
+  .menu-drawer > .menu-drawer__close-button.button {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    color: #ffffff !important;
+  }
+
+  .menu-drawer > .menu-drawer__close-button.button:hover {
+    background: #596f53 !important;
+    border-color: #596f53 !important;
+    color: #ffffff !important;
   }
 
   /* ── Divider lines between every top-level menu item (no double border below search) ── */
   .menu-drawer .menu-drawer__list-item {
-    border-block-end: 1px solid #ececec;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.14);
   }
   .menu-drawer .menu-drawer__list-item:first-child {
     border-block-start: none !important;
@@ -1106,6 +1123,7 @@ img.icon-block__media {
     width: 100% !important;
     box-sizing: border-box !important;
     list-style: none !important;
+    color: #ffffff !important;
     cursor: pointer;
   }
   .menu-drawer
@@ -1128,31 +1146,84 @@ img.icon-block__media {
     display: block !important;
     width: 12px !important;
     height: 12px !important;
-    stroke: #171717 !important;
+    stroke: #ffffff !important;
     stroke-width: 1.75px !important;
     fill: none !important;
     transform: rotate(-90deg) !important;
     opacity: 0.85 !important;
   }
   .menu-drawer .menu-drawer__menu-item--mainlist .icon-caret--forward svg path {
-    stroke: #171717 !important;
+    stroke: #ffffff !important;
     stroke-width: 1.75px !important;
     fill: none !important;
   }
 
-  /* ── Search row: pill container in header-drawer, crisp dark input text ── */
+  /* ── Search row: dark pill container in header-drawer, crisp light input text ── */
+  .menu-drawer .menu-drawer__search {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+  }
+  .menu-drawer .menu-drawer__search:focus-within {
+    background: rgba(255, 255, 255, 0.14) !important;
+    border-color: #596f53 !important;
+  }
   .menu-drawer .menu-drawer__search-input {
     background: transparent !important;
     border: 0 !important;
     border-radius: 9999px !important;
     box-shadow: none !important;
     padding: 0 !important;
-    color: #171717 !important;
+    color: #ffffff !important;
     font-size: 16px !important;
     font-weight: 400 !important;
   }
   .menu-drawer .menu-drawer__search-input::placeholder {
-    color: rgb(23 23 23 / 0.55) !important;
+    color: rgb(255 255 255 / 0.62) !important;
+  }
+  .menu-drawer .menu-drawer__search-submit {
+    color: #ffffff !important;
+  }
+  .menu-drawer__submenu {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+  .menu-drawer__nav-buttons--with-title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+  }
+  .menu-drawer__title,
+  .menu-drawer__title .menu-drawer__menu-item-text,
+  .menu-drawer__menu--grid .menu-drawer__menu-item-text,
+  .menu-drawer__menu-item--parent,
+  .menu-drawer__menu-item--child,
+  .menu-drawer__back-button {
+    color: #ffffff !important;
+  }
+  .menu-drawer .menu-drawer__back-button .icon-caret--backward svg,
+  .menu-drawer .menu-drawer__back-button .icon-caret--backward svg path {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+  }
+  .menu-drawer__utility-links {
+    border-block-start: 1px solid rgba(255, 255, 255, 0.16) !important;
+  }
+  .menu-drawer__locale-button.button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.24) !important;
+    color: #ffffff !important;
+  }
+  .menu-drawer .localization-wrapper {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  }
+  .menu-drawer .localization-wrapper .localization-form__list-item {
+    color: #ffffff !important;
+  }
+  .menu-drawer .localization-wrapper .localization-form__list-item:hover,
+  .menu-drawer .localization-wrapper .localization-form__list-item[aria-current="true"],
+  .menu-drawer .localization-wrapper .localization-form__list-item.is-selected {
+    background-color: rgba(89, 111, 83, 0.35) !important;
+    color: #ffffff !important;
   }
 
   #header-component[transparent]:not([data-sticky-state="active"])
