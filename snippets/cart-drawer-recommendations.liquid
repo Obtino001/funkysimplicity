@@ -135,6 +135,8 @@
 
   .cart-recommendation__price {
     font-size: var(--font-size--sm);
+    font-weight: 600;
+    color: var(--color-foreground, #171717);
   }
 
   .cart-recommendation__options {
@@ -171,17 +173,22 @@
   .cart-recommendation__sizes {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 6px;
   }
 
   .cart-recommendation__size {
-    min-width: 31px;
-    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 28px;
+    padding: 5px 11px;
     border: 1px solid #dfdfdf;
     border-radius: 9999px;
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: 500;
     line-height: 1.2;
     text-align: center;
     cursor: pointer;
@@ -339,13 +346,14 @@
 
     .cart-recommendation__sizes {
       display: flex;
-      gap: 4px;
+      gap: 6px;
     }
 
     .cart-recommendation__size {
-      min-width: 30px;
-      padding: 4px 10px;
-      font-size: 11px;
+      min-width: 36px;
+      min-height: 28px;
+      padding: 5px 11px;
+      font-size: 12px;
     }
 
     .cart-recommendation__swatch {

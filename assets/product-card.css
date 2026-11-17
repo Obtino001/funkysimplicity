@@ -382,16 +382,16 @@
 
 .tcc-price--regular {
   font-weight: 500;
-  color: var(--color-foreground, #121212);
+  color: var(--color-foreground, #171717);
 }
 
 .tcc-price--sale {
   font-weight: 600;
-  color: var(--color-foreground, #121212);
+  color: var(--color-foreground, #171717);
 }
 
 .tcc-price--compare {
-  color: #777;
+  color: #777777;
   text-decoration: line-through;
   font-size: 0.85rem;
 }
