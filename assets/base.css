@@ -1425,7 +1425,7 @@ input[type='radio'] {
 }
 
 :where(input[type='radio']):checked {
-  border-color: var(--color-foreground);
+  border-color: var(--color-brand-green, #596f53);
   background: var(--color-background);
 }
 
@@ -1437,7 +1437,7 @@ input[type='radio'] {
   transform: translate(-50%, -50%);
   width: calc(var(--checkbox-size) / 2);
   height: calc(var(--checkbox-size) / 2);
-  background: var(--color-foreground);
+  background: var(--color-brand-green, #596f53);
   border-radius: var(--style-border-radius-50);
   transition: background 0.2s ease;
 }
@@ -1453,17 +1453,17 @@ input[type='radio'] {
 }
 
 :where(input[type='radio']):not(:disabled):hover {
-  border-color: rgb(var(--color-foreground-rgb) / var(--opacity-40-60));
-  background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+  border-color: var(--color-brand-green, #596f53);
+  background-color: var(--color-brand-green-tint, #eef1ea);
 }
 
 :where(input[type='radio']):not(:disabled):hover:checked {
-  border-color: var(--color-foreground);
+  border-color: var(--color-brand-green-hover, #475942);
   background-color: var(--color-background);
 }
 
 :where(input[type='radio']):not(:disabled):hover:checked::after {
-  background: rgb(var(--color-foreground-rgb) / var(--opacity-85));
+  background: var(--color-brand-green-hover, #475942);
 }
 
 /* Checkboxes */
@@ -1474,8 +1474,8 @@ input[type='radio'] {
 }
 
 :where(input[type='checkbox']):checked {
-  background-color: var(--color-foreground);
-  border-color: var(--color-foreground);
+  background-color: var(--color-brand-green, #596f53);
+  border-color: var(--color-brand-green, #596f53);
 }
 
 :where(input[type='checkbox']):checked::after {
@@ -1494,13 +1494,13 @@ input[type='radio'] {
 }
 
 :where(input[type='checkbox']):not(:disabled):hover {
-  border-color: rgb(var(--color-foreground-rgb) / var(--opacity-40-60));
-  background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+  border-color: var(--color-brand-green, #596f53);
+  background-color: var(--color-brand-green-tint, #eef1ea);
 }
 
 :where(input[type='checkbox']):not(:disabled):hover:checked {
-  border-color: var(--color-foreground);
-  background-color: rgb(var(--color-foreground-rgb) / var(--opacity-85));
+  border-color: var(--color-brand-green-hover, #475942);
+  background-color: var(--color-brand-green-hover, #475942);
 }
 
 :where(input[type='checkbox']):disabled {

@@ -43,7 +43,7 @@
       assign hover_bg_has_alpha = true
     endif
   elsif invert_to_dark
-    assign effective_hover_bg = '#000000'
+    assign effective_hover_bg = '#596f53'
     assign hover_bg_has_alpha = false
   else
     assign effective_hover_bg = '#ffffff'
@@ -55,13 +55,13 @@
   elsif invert_to_dark
     assign effective_hover_text = '#ffffff'
   else
-    assign effective_hover_text = '#000000'
+    assign effective_hover_text = '#596f53'
   endif
 
   if hover_border != blank
     assign effective_hover_border = hover_border
   else
-    assign effective_hover_border = '#000000'
+    assign effective_hover_border = '#596f53'
   endif
 -%}
 {%- comment -%} Output: bg||text||border, parsed by the caller via split: '||'. {%- endcomment -%}

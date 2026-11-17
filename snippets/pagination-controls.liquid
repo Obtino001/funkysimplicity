@@ -255,7 +255,7 @@
       position: absolute;
       inset: var(--pagination-inset);
       border-radius: calc(var(--pagination-radius) * 1px);
-      background: rgb(var(--color-foreground-rgb) / var(--opacity-10));
+      background: var(--color-brand-green-tint, #eef1ea);
       z-index: -1;
       opacity: 0;
       transition: background var(--hover-transition-duration) var(--hover-transition-timing),
@@ -263,7 +263,7 @@
     }
 
     .pagination__link[aria-current='page']::before {
-      background: var(--color-foreground);
+      background: var(--color-brand-green, #596f53);
       opacity: 1;
     }
 
