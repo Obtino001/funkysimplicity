@@ -104,9 +104,9 @@
   .mo-compare-product .cart-recommendation {
     position: relative;
     display: grid;
-    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-columns: 136px minmax(0, 1fr);
     column-gap: 16px;
-    align-items: start;
+    align-items: stretch;
     width: 100%;
     min-width: 0;
   }
@@ -114,14 +114,19 @@
   .mo-compare-product .cart-recommendation__media {
     position: relative;
     display: block;
-    width: 96px;
-    aspect-ratio: 3 / 4;
+    width: 100%;
+    height: 100%;
+    min-height: 170px;
+    aspect-ratio: auto;
+    align-self: stretch;
     overflow: hidden;
     border-radius: 10px;
     background-color: #f6f6f6;
   }
 
   .mo-compare-product .cart-recommendation__media-track {
+    position: absolute;
+    inset: 0;
     display: flex;
     width: 100%;
     height: 100%;
@@ -136,6 +141,7 @@
     min-width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 15%;
   }
 
   .mo-compare-product .cart-recommendation__info {
@@ -382,6 +388,10 @@
 
     .mo-compare-product .cart-recommendation__media {
       width: 100%;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: 378 / 573;
+      align-self: auto;
     }
 
     .mo-compare-product .cart-recommendation__size {
