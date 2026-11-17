@@ -94,15 +94,16 @@
 
   .image-text__heading {
     font-family: var(--font-heading--family, 'Fraunces', serif);
-    font-size: var(--heading-size, 26px);
+    font-size: var(--heading-size, 36px);
     font-weight: var(--heading-weight, 400);
+    line-height: 1.2;
     margin: 0 0 16px;
   }
 
   .image-text__body {
-    font-size: var(--body-size, 14px);
+    font-size: var(--body-size, 16px);
     font-weight: var(--body-weight, 400);
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   .image-text__body p + p {
@@ -188,7 +189,7 @@
       "max": 60,
       "step": 2,
       "unit": "px",
-      "default": 26
+      "default": 36
     },
     {
       "type": "select",
@@ -200,7 +201,7 @@
         { "value": "600", "label": "Semibold (600)" },
         { "value": "700", "label": "Bold (700)" }
       ],
-      "default": "600"
+      "default": "400"
     },
     {
       "type": "richtext",
@@ -219,7 +220,7 @@
       "max": 30,
       "step": 1,
       "unit": "px",
-      "default": 14
+      "default": 16
     },
     {
       "type": "select",

@@ -114,7 +114,8 @@
   .page-banner__breadcrumb {
     display: flex;
     gap: 6px;
-    font-size: 1.2rem;
+    font-size: 13px;
+    line-height: 1.4;
     opacity: 0.7;
   }
 
@@ -138,12 +139,18 @@
   }
 
   @media screen and (max-width: 749px) {
+    .page-banner__breadcrumb {
+      font-size: 12px;
+    }
+
     .page-banner__heading {
-      font-size: var(--heading-size-mobile, 36px);
+      font-size: var(--heading-size-mobile, 30px);
+      line-height: 1.15;
     }
 
     .page-banner__subtext {
-      font-size: var(--subtext-size-mobile, 14px);
+      font-size: var(--subtext-size-mobile, 15px);
+      line-height: 1.5;
     }
 
     .page-banner__content {
@@ -189,7 +196,7 @@
       "max": 60,
       "step": 2,
       "unit": "px",
-      "default": 36
+      "default": 30
     },
     {
       "type": "select",

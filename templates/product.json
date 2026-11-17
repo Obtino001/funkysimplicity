@@ -1168,7 +1168,7 @@
         "overlay_color": "#000000",
         "overlay_opacity": 40,
         "heading": "The Perfect Leggings\nFrom Our Bali Family",
-        "heading_size": 56,
+        "heading_size": 36,
         "heading_max_width": 560,
         "text_color": "#ffffff",
         "box_border_color": "#ffffff",
@@ -1276,7 +1276,7 @@
       "name": "Community Mosaic Grid",
       "settings": {
         "heading": "Our Funky Community",
-        "heading_size": 28,
+        "heading_size": 36,
         "heading_alignment": "left",
         "section_width": "page-width",
         "gap": 10,
@@ -1421,7 +1421,7 @@
         }
       },
       "custom_css": [
-        ".text-block--AcjJGOExJN0JYbVQ3V__static-blog-title p {font-size: 28px;}"
+        ".text-block--AcjJGOExJN0JYbVQ3V__static-blog-title p {font-size: 36px;}"
       ],
       "name": "t:names.blog_posts_grid",
       "settings": {

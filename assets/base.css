@@ -1938,52 +1938,10 @@ main>.shopify-section:first-child .section:not(.disable-section-top-offset) {
 }
 
 /* Page banner Our story Css */
-div#shopify-section-template--30252635423047__page_banner_WGKNcm h1 {
-  font-size: 36px;
-}
-
-div#shopify-section-template--30252635423047__page_banner_WGKNcm>.page-banner__subtext {
-  font-size: 18px;
-
-}
-
 div#shopify-section-template--30252635423047__page_banner_WGKNcm>.page-banner__content {
   max-width: 720px !important;
 }
 
-@media (max-width:768px) {
-  div#shopify-section-template--30252635423047__page_banner_WGKNcm h1 {
-    font-size: 22px;
-    line-height: 30px;
-  }
-
-  div#shopify-section-template--30252635423047__page_banner_WGKNcm .section.page-banner {
-    padding: 50px 0px;
-  }
-
-  div#shopify-section-template--30252635423047__page_banner_WGKNcm .page-banner__subtext {
-    font-size: 15px;
-  }
-}
-/* Custom Mobile Headings for Sections */
-@media screen and (max-width: 749px) {
-  .cm-heading,
-  .custom-banner__heading,
-  .ffb-heading,
-  .fc-heading,
-  .fcs-banner__heading,
-  .gr-heading,
-  .image-text-os__heading,
-  .image-text__heading,
-  .mo-compare-recommendations__title,
-  .page-banner__heading,
-  .page-banner-wide__heading,
-  .tcc-heading,
-  .process-section__heading,
-  .timeline-section__intro-heading {
-    font-size: 19px !important;
-  }
-}
 .collection-card__image,
 .collection-card__image img,
 .product-card__image,

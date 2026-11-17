@@ -9,7 +9,7 @@
   assign overlay_color = section.settings.overlay_color | default: '#000000'
   assign overlay_opacity = section.settings.overlay_opacity | default: 20
   assign heading = section.settings.heading
-  assign heading_size = section.settings.heading_size | default: 56
+  assign heading_size = section.settings.heading_size | default: 36
   assign heading_max_width = section.settings.heading_max_width | default: 560
   assign text_color = section.settings.text_color | default: '#ffffff'
   assign box_border_color = section.settings.box_border_color | default: '#ffffff'
@@ -217,7 +217,7 @@
     color: inherit;
     font-family: 'Fraunces', var(--font-heading--family, serif);
     font-weight: 400;
-    font-size: clamp(2.25rem, 4.5vw, var(--hfb-heading-size, 56px));
+    font-size: clamp(1.625rem, 2.5vw, var(--hfb-heading-size, 36px));
     line-height: 1.1;
     letter-spacing: 0;
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
@@ -294,8 +294,8 @@
     }
 
     .hfb-heading {
-      font-size: 28px;
-      line-height: 1.15;
+      font-size: 26px;
+      line-height: 1.18;
     }
 
     .hfb-slider-wrapper {
@@ -508,11 +508,11 @@
       "type": "range",
       "id": "heading_size",
       "label": "Heading Font Size (px)",
-      "min": 32,
+      "min": 24,
       "max": 72,
       "step": 2,
       "unit": "px",
-      "default": 56
+      "default": 36
     },
     {
       "type": "range",

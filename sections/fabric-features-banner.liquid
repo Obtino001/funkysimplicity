@@ -289,10 +289,10 @@
     line-height: inherit;
   }
 
-  .ffb-heading--small { font-size: clamp(2.25rem, 3.5vw, 2.9rem); }
-  .ffb-heading--medium { font-size: clamp(2.25rem, 4.5vw, 3.25rem); }
-  .ffb-heading--large { font-size: clamp(2.5rem, 5.5vw, 4rem); }
-  .ffb-heading--xlarge { font-size: clamp(3rem, 7vw, 5rem); }
+  .ffb-heading--small { font-size: clamp(1.625rem, 2.5vw, 2.25rem); }
+  .ffb-heading--medium { font-size: clamp(1.625rem, 2.8vw, 2.5rem); }
+  .ffb-heading--large { font-size: clamp(1.75rem, 3.2vw, 2.75rem); }
+  .ffb-heading--xlarge { font-size: clamp(1.875rem, 3.5vw, 3rem); }
 
   .ffb-description {
     margin: 0;
@@ -454,13 +454,23 @@
       gap: 2.25rem;
     }
 
+    .ffb-heading {
+      font-size: 26px;
+      line-height: 1.18;
+    }
+
     .ffb-grid {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
+    .ffb-card__title {
+      font-size: 16px;
+    }
+
     .ffb-card__text {
       max-width: 320px;
+      font-size: 14px;
     }
   }
 </style>

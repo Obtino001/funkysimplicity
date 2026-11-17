@@ -527,7 +527,7 @@ img.icon-block__media {
   .product-grid .product-card .text-block,
   .product-grid .tcc-card__title,
   .tcc-card__title {
-    font-size: 13px !important;
+    font-size: 14px !important;
     font-weight: 500;
     line-height: 1.35;
     text-align: left;
@@ -540,11 +540,22 @@ img.icon-block__media {
 
   .product-grid-container .price,
   .product-grid .tcc-card__price,
+  .product-grid .tcc-card__price-row,
+  .product-grid .tcc-price--regular,
+  .product-grid .tcc-price--sale,
   .tcc-card__price {
     font-size: 13px !important;
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.35;
     margin-top: 4px;
     text-align: left;
+    color: var(--color-foreground, #171717);
+  }
+
+  .product-grid .tcc-price--compare {
+    font-size: 12px !important;
+    line-height: 1.35;
+    color: #777777;
   }
 
   .product-grid-container .product-card__image,
@@ -657,17 +668,23 @@ img.icon-block__media {
 
   .tabbed-collection-carousel .tcc-card__title {
     margin-top: 0;
-    font-size: 12px !important;
-    line-height: 1.5;
+    font-size: 14px !important;
+    font-weight: 500;
+    line-height: 1.35;
   }
 
   .tabbed-collection-carousel .tcc-card__price-row,
   .tabbed-collection-carousel .tcc-price--regular,
-  .tabbed-collection-carousel .tcc-price--sale,
+  .tabbed-collection-carousel .tcc-price--sale {
+    gap: 6px;
+    font-size: 13px !important;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
   .tabbed-collection-carousel .tcc-price--compare {
-    gap: 4px;
-    font-size: 11px !important;
-    line-height: 1.2;
+    font-size: 12px !important;
+    line-height: 1.35;
   }
 
   .tabbed-collection-carousel .tcc-save-badge {
@@ -1535,14 +1552,15 @@ img.icon-block__media {
   .gr-heading,
   .tcc-heading,
   .tcc-header h2 {
-    font-size: 28px !important;
-    line-height: 1.15;
+    font-size: 26px !important;
+    line-height: 1.18;
   }
 
   .main-page h1,
   .page-title,
   .shopify-section .text-block--h2 h1 {
-    font-size: 36px;
+    font-size: 30px;
+    line-height: 1.15;
   }
 }
 
@@ -1644,8 +1662,8 @@ a.skip-to-content-link:focus-visible {
   }
 
   .community-mosaic-section .cm-heading {
-    font-size: 18px !important;
-    line-height: 1.1 !important;
+    font-size: 26px !important;
+    line-height: 1.18 !important;
   }
 
   .community-mosaic-section .cm-grid {
@@ -1750,11 +1768,157 @@ a.skip-to-content-link:focus-visible {
   display: flex !important;
 }
 
+/* ==========================================================================
+   Unified Responsive Typography & Size-Pill Hierarchy
+   Desktop: H1 46px | PDP H1 32px | H2 36px | H3 24px | Body 16px | Card 15px/14px
+   Mobile:  H1 30px | PDP H1 26px | H2 26px | H3 20px | Body 14px | Card 14px/13px
+   ========================================================================== */
+.fcs-banner__heading.h1,
+.fcs-banner__heading.h2 {
+  font-size: clamp(1.625rem, 2.5vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.tcc-card__title,
+.product-grid .tcc-card__title {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.tcc-card__price-row,
+.tcc-price--regular,
+.tcc-price--sale {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.tcc-price--compare {
+  font-size: 13px;
+  line-height: 1.35;
+}
+
 @media screen and (max-width: 749px) {
-  .custom-font-size,
-  .custom-font-size > * {
-    font-size: 19px !important;
+  .custom-banner__heading,
+  .hero__content-wrapper h1,
+  .hero__content-wrapper .h1,
+  .page-banner__heading,
+  .page-banner-wide__heading,
+  .main-page h1,
+  .page-title,
+  .shopify-section .text-block--h2 h1,
+  .shopify-section .text-block--custom h1 {
+    font-size: 30px !important;
+    line-height: 1.15;
   }
+
+  .product-information .text-block h1,
+  .product-information .text-block.custom-font-size h1 {
+    font-size: 26px !important;
+    line-height: 1.2;
+  }
+
+  .cm-heading,
+  .fc-heading,
+  .ffb-heading,
+  .fcs-banner__heading,
+  .gr-heading,
+  .grg-heading,
+  .google-reviews-grid h2,
+  .hfb-heading,
+  .image-text__heading,
+  .image-text-os__heading,
+  .process-section__heading,
+  .scr-heading,
+  .tcc-heading,
+  .tcc-header h2,
+  .timeline-section__intro-heading,
+  .text-block--AY1NWV1VjRUZuYTZJd__text_CrQ7PA p,
+  [class*="static-blog-title"] p {
+    font-size: 26px !important;
+    line-height: 1.18 !important;
+  }
+
+  .mo-compare-recommendations__title,
+  .process-step__title {
+    font-size: 20px !important;
+    line-height: 1.25;
+  }
+
+  .page-banner__subtext,
+  .page-banner__subtext p,
+  .page-banner-wide__subtext,
+  .page-banner-wide__subtext p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .page-banner__breadcrumb,
+  .page-banner-wide__breadcrumb {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .image-text__body,
+  .image-text-os__body,
+  .process-step__description,
+  .timeline-section__intro-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .scr-card__title,
+  .tcc-card__title,
+  .product-card__title {
+    font-size: 14px !important;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+}
+
+/* Tier A Interactive Selector Pills (PDP + Compare Your Style) */
+.mo-compare-product .cart-recommendation__size {
+  min-width: 44px;
+  min-height: 34px;
+  padding: 6px 14px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 749px) {
+  .mo-compare-product .cart-recommendation__size {
+    min-width: 40px;
+    min-height: 32px;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Tier B Compact Drawer Card Pills & Card Typography */
+.cart-drawer--custom .cart-recommendation__title,
+.cart-drawer--custom .cart-complementary-card__title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.cart-drawer--custom .cart-recommendation__price,
+.cart-drawer--custom .cart-complementary-card__prices,
+.cart-drawer--custom .cart-complementary-card__price {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.cart-drawer--custom .cart-recommendation__size,
+.cart-drawer--custom .cart-complementary-card__option {
+  min-width: 36px;
+  min-height: 30px;
+  padding: 5px 12px;
+  font-size: 12px;
+  line-height: 1.2;
+  border-radius: 9999px;
 }
 
 .size-chart-dialog__heading.h3 {

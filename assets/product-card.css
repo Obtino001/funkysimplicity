@@ -254,11 +254,16 @@
 }
 
 .tcc-opt-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   appearance: none;
   background: #ffffff;
   border: 1px solid #dfdfdf;
   color: #171717;
-  padding: 6px 12px;
+  min-width: 36px;
+  min-height: 30px;
+  padding: 5px 12px;
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -700,8 +705,14 @@
 }
 
 .tcc-quick-shop-sheet .tcc-opt-pill {
-  min-height: 36px;
-  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  min-width: 44px;
+  padding: 6px 14px;
+  font-size: 13px;
+  line-height: 1.2;
   background: #ffffff;
   border: 1px solid #dfdfdf;
   border-radius: 9999px;
