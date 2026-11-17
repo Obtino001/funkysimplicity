@@ -616,7 +616,7 @@
                     "border_style": "underline",
                     "input_style": "custom",
                     "border_width": 1,
-                    "border_radius": 6,
+                    "border_radius": 100,
                     "input_background_color": "",
                     "input_text_color": "{{ settings.color_palette.background }}",
                     "input_border_color": "{{ settings.color_palette.background }}",
@@ -803,7 +803,7 @@
         "group_abR6E3"
       ],
       "custom_css": [
-        ".email-signup__input-group--underline {box-shadow: none; border: 1px solid rgba(255,255,255,0.45); border-radius: 6px; padding: 4px 4px 4px 16px;}",
+        ".email-signup__input-group--underline {box-shadow: none; border: 1px solid rgba(255,255,255,0.45); border-radius: 9999px; padding: 4px 4px 4px 20px;}",
         ".text-block h4,.menu__heading.h4 {font-size: 20px;}",
         "@media screen and (min-width: 990px) {.footer-content {grid-template-columns: 1fr; }}"
       ],

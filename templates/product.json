@@ -158,13 +158,13 @@
                   "settings": {
                     "savings_label": "Save",
                     "desktop_width_percent": 100,
-                    "sale_color": "#e0ad40",
+                    "sale_color": "#171717",
                     "sale_size": 22,
-                    "compare_color": "#a8a8a8",
-                    "compare_size": 22,
-                    "badge_background": "#000000",
+                    "compare_color": "#777777",
+                    "compare_size": 18,
+                    "badge_background": "#596f53",
                     "badge_text_color": "#ffffff",
-                    "badge_size": 14
+                    "badge_size": 13
                   },
                   "blocks": {}
                 }
@@ -242,10 +242,10 @@
                   "type": "add-to-cart",
                   "static": true,
                   "settings": {
-                    "style_class": "button-secondary",
-                    "custom_button_background": "{{ settings.color_palette.foreground }}",
-                    "custom_button_text": "{{ settings.color_palette.background }}",
-                    "custom_button_border": "{{ settings.color_palette.background }}",
+                    "style_class": "button",
+                    "custom_button_background": "#596f53",
+                    "custom_button_text": "#ffffff",
+                    "custom_button_border": "#596f53",
                     "button-class": "add_to_cart_button_class"
                   },
                   "blocks": {}

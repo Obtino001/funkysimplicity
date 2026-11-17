@@ -117,8 +117,8 @@
     width: 84px;
     aspect-ratio: 3 / 4;
     overflow: hidden;
-    border-radius: 2px;
-    background-color: rgb(var(--color-foreground-rgb) / 0.04);
+    border-radius: 8px;
+    background-color: #f6f6f6;
   }
 
   .mo-compare-product .cart-recommendation__media-track {
@@ -178,12 +178,12 @@
   }
 
   .mo-compare-product .cart-recommendation__swatch {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     margin: 0;
     padding: 0;
-    border: 1px solid rgb(var(--color-foreground-rgb) / 0.2);
-    border-radius: 1px;
+    border: 1px solid #dfdfdf;
+    border-radius: 4px;
     background-color: var(--swatch-background, transparent);
     background-image: var(--swatch-image, none);
     background-position: center;
@@ -193,7 +193,7 @@
   }
 
   .mo-compare-product .cart-recommendation__swatch.is-selected {
-    outline: 1px solid var(--color-foreground);
+    outline: 1.5px solid #596f53;
     outline-offset: 1px;
   }
 
@@ -209,21 +209,31 @@
   }
 
   .mo-compare-product .cart-recommendation__size {
-    min-width: 31px;
-    padding: 4px 5px;
-    border: 1px solid rgb(var(--color-foreground-rgb) / 0.15);
-    border-radius: 2px;
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-size: 10px;
+    min-width: 32px;
+    padding: 4px 6px;
+    border: 1px solid #dfdfdf;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #171717;
+    font-size: 11px;
+    font-weight: 500;
     line-height: 1.2;
     text-align: center;
     cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .mo-compare-product .cart-recommendation__size:hover {
+    background-color: #eef1ea;
+    border-color: #596f53;
+    color: #596f53;
   }
 
   .mo-compare-product .cart-recommendation__size.is-selected {
-    border-color: transparent;
-    background-color: #ececec;
+    border-color: #596f53;
+    background-color: #596f53;
+    color: #ffffff;
+    font-weight: 600;
   }
 
   .mo-compare-product .cart-media-nav {

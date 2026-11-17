@@ -145,7 +145,7 @@
 
   /* =========================================================================
      Color Option Specifics (Visual Color Swatches)
-     28px x 28px, 2px border-radius, active shadow/glow highlight
+     28px x 28px, 4px border-radius, brand green active highlight
      ========================================================================= */
   .variant-option--swatches {
     display: flex;
@@ -164,9 +164,9 @@
     max-height: 28px !important;
     padding: 0 !important;
     margin: 0 !important;
-    border-radius: 2px !important;
-    border: 1px solid #E5E5E5 !important;
-    background-color: #FFFFFF !important;
+    border-radius: 4px !important;
+    border: 1px solid #dfdfdf !important;
+    background-color: #ffffff !important;
     position: relative !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -180,7 +180,7 @@
 
   .variant-option--swatches .variant-option__button-label:hover,
   .variant-option__button-label--has-swatch:hover {
-    border-color: #000000 !important;
+    border-color: #596f53 !important;
   }
 
   .variant-option__button-label--has-swatch .swatch {
@@ -188,7 +188,7 @@
     height: 100% !important;
     min-width: 100% !important;
     min-height: 100% !important;
-    border-radius: 2px !important;
+    border-radius: 3px !important;
     border: none !important;
     background-size: cover !important;
     background-position: center !important;
@@ -196,12 +196,12 @@
     box-sizing: border-box !important;
   }
 
-  /* Active / Selected Color Swatch with Subtle Bottom Shadow & Glow Highlight */
+  /* Active / Selected Color Swatch with Brand Green Highlight */
   .variant-option--swatches .variant-option__button-label:has(input:checked),
   .variant-option__button-label--has-swatch:has(input:checked) {
-    border-color: #000000 !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.12) !important;
-    outline: 1.5px solid #000000 !important;
+    border-color: #596f53 !important;
+    box-shadow: 0 3px 8px rgba(89, 111, 83, 0.24) !important;
+    outline: 1.5px solid #596f53 !important;
     outline-offset: 1.5px !important;
   }
 
@@ -214,20 +214,20 @@
 
   /* =========================================================================
      Size & Other Options (Text Buttons)
-     Font DM Sans 500, 12px, Height 28px, min-width 50px, padding 6px 12px, border-radius 2px
+     Font DM Sans 500, 13px, Height 34px, min-width 50px, padding 6px 14px, border-radius 4px
      ========================================================================= */
   .variant-option:not(.variant-option--swatches) .variant-option__button-label,
   .variant-option__button-label:not(.variant-option__button-label--has-swatch) {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
     font-weight: 500 !important;
-    font-size: 12px !important;
-    line-height: 16px !important;
-    height: 28px !important;
-    min-height: 28px !important;
-    max-height: 28px !important;
+    font-size: 13px !important;
+    line-height: 18px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
     min-width: 50px !important;
-    padding: 6px 12px !important;
-    border-radius: 2px !important;
+    padding: 6px 14px !important;
+    border-radius: 4px !important;
     box-sizing: border-box !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -243,23 +243,26 @@
     transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
 
     /* Unselected State: White background with light gray border */
-    background-color: #FFFFFF !important;
-    border: 1px solid #E5E5E5 !important;
-    color: #000000 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #dfdfdf !important;
+    color: #171717 !important;
     box-shadow: none !important;
     outline: none !important;
   }
 
   .variant-option:not(.variant-option--swatches) .variant-option__button-label:hover:not(:has([data-option-available='false'])) {
-    border-color: #000000 !important;
+    border-color: #596f53 !important;
+    background-color: #eef1ea !important;
+    color: #596f53 !important;
   }
 
-  /* Selected State: Filled solid gray background with no border */
+  /* Selected State: Filled Brand Green background with white text */
   .variant-option:not(.variant-option--swatches) .variant-option__button-label:has(input:checked),
   .variant-option__button-label:not(.variant-option__button-label--has-swatch):has(input:checked) {
-    background-color: #ECECEC !important;
-    border: 1px solid transparent !important;
-    color: #000000 !important;
+    background-color: #596f53 !important;
+    border: 1px solid #596f53 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
     box-shadow: none !important;
     outline: none !important;
   }
@@ -267,23 +270,23 @@
   /* Out of Stock State: White background with diagonal cross-through line */
   .variant-option:not(.variant-option--swatches) .variant-option__button-label:has([data-option-available='false']),
   .variant-option__button-label:not(.variant-option__button-label--has-swatch):has([data-option-available='false']) {
-    background-color: #FFFFFF !important;
-    border: 1px solid #E5E5E5 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e5e5 !important;
     color: #999999 !important;
     cursor: not-allowed !important;
   }
 
   .variant-option:not(.variant-option--swatches) .variant-option__button-label:has([data-option-available='false']):has(input:checked) {
-    background-color: #ECECEC !important;
-    border: 1px solid transparent !important;
-    color: #777777 !important;
+    background-color: #eef1ea !important;
+    border: 1px solid #596f53 !important;
+    color: #596f53 !important;
   }
 
   /* Button text */
   .variant-option__button-label__text {
     font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 12px !important;
+    font-weight: inherit !important;
+    font-size: 13px !important;
     color: inherit !important;
     z-index: 2;
     display: block;
@@ -335,12 +338,12 @@
   .variant-option__select-wrapper {
     display: flex;
     position: relative;
-    border: 1px solid #E5E5E5;
-    border-radius: 2px;
+    border: 1px solid #dfdfdf;
+    border-radius: 6px;
     align-items: center;
     margin-top: 4px;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #ffffff;
+    color: #171717;
   }
 
   .variant-option__select {
