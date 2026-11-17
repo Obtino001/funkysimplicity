@@ -1143,8 +1143,8 @@
         "button_QVwkNk"
       ],
       "custom_css": [
-        ".button:hover {background: #596f53; color: #fff;}",
-        ".button {font-size: 14px;}"
+        ".button {background: #596f53; border: 1px solid #596f53; color: #fff; font-size: 14px;}",
+        ".button:hover {background: #fff; border: 1px solid #596f53; color: #596f53;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -1283,8 +1283,8 @@
         "button_XVBiJK"
       ],
       "custom_css": [
-        ".button:hover {background: #596f53; color: #fff;}",
-        ".button {font-size: 14px;}"
+        ".button {background: #596f53; border: 1px solid #596f53; color: #fff; font-size: 14px;}",
+        ".button:hover {background: #fff; border: 1px solid #596f53; color: #596f53;}"
       ],
       "name": "t:names.rich_text_section",
       "settings": {
@@ -2191,7 +2191,7 @@
                 "label": "MEET THE MAKERS",
                 "link": "shopify://pages/meet-the-makers",
                 "open_in_new_tab": false,
-                "style_class": "button-secondary",
+                "style_class": "button",
                 "custom_button_background": "{{ settings.color_palette.foreground }}",
                 "custom_button_text": "{{ settings.color_palette.background }}",
                 "custom_button_border": "{{ settings.color_palette.background }}",
@@ -2220,7 +2220,8 @@
       "custom_css": [
         ".custom-section-content {background: #f6f6f6; padding: 30px; margin: 60px 0; border-radius: 12px;}",
         ".text-block--AY1NWV1VjRUZuYTZJd__text_CrQ7PA p {font-size: 36px; font-weight: 300 !important;}",
-        ".button-secondary:hover {background: #596f53; border: 1px solid #596f53; color: #fff;}",
+        ".button, .button-secondary {background: #596f53; border: 1px solid #596f53; color: #fff;}",
+        ".button:hover, .button-secondary:hover {background: #fff; border: 1px solid #596f53; color: #596f53;}",
         "@media (max-width: 767px) {.custom-section-content {margin: 30px 0; }}"
       ],
       "name": "t:names.image_with_text",
@@ -2360,7 +2361,7 @@
         "button_label": "JOIN OUR COMMUNITY",
         "button_link": "https://www.instagram.com/funkysimplicity/",
         "button_bg": "#596f53",
-        "button_color": "#596f53"
+        "button_color": "#ffffff"
       }
     },
     "featured_blog_posts_NaHffm": {

@@ -38,9 +38,9 @@
     assign effective_primary_button_hover_text = palette_lightest
     assign effective_primary_button_hover_border = settings.palette_primary_button_border
   else
-    assign effective_primary_button_hover_background = settings.palette_primary_button_background | color_darken: 8
-    assign effective_primary_button_hover_text = palette_lightest
-    assign effective_primary_button_hover_border = settings.palette_primary_button_background | color_darken: 8
+    assign effective_primary_button_hover_background = palette_lightest
+    assign effective_primary_button_hover_text = settings.palette_primary_button_background
+    assign effective_primary_button_hover_border = settings.palette_primary_button_background
   endif
 %}
 
@@ -48,13 +48,13 @@
 {% liquid
   assign secondary_bg_brightness = settings.palette_secondary_button_background | color_brightness
   if settings.palette_secondary_button_background.alpha < 0.4 or secondary_bg_brightness > 128
-    assign effective_secondary_button_hover_background = settings.palette_secondary_button_text
-    assign effective_secondary_button_hover_text = palette_lightest
+    assign effective_secondary_button_hover_background = palette_lightest
+    assign effective_secondary_button_hover_text = settings.palette_secondary_button_text
     assign effective_secondary_button_hover_border = settings.palette_secondary_button_border
   else
-    assign effective_secondary_button_hover_background = settings.palette_secondary_button_background | color_darken: 8
-    assign effective_secondary_button_hover_text = palette_lightest
-    assign effective_secondary_button_hover_border = settings.palette_secondary_button_background | color_darken: 8
+    assign effective_secondary_button_hover_background = palette_lightest
+    assign effective_secondary_button_hover_text = settings.palette_secondary_button_background
+    assign effective_secondary_button_hover_border = settings.palette_secondary_button_background
   endif
 %}
 

@@ -308,9 +308,9 @@
 }
 
 .tcc-add-btn:hover:not(:disabled) {
-  background: #475942;
-  color: #ffffff;
-  border-color: #475942;
+  background: #ffffff;
+  color: #596f53;
+  border-color: #596f53;
 }
 
 .tcc-add-btn:disabled {
@@ -476,7 +476,7 @@
 }
 
 .collection-tab:hover {
-  background: #eef1ea;
+  background: #ffffff;
   border-color: #596f53;
   color: #596f53;
 }
@@ -489,9 +489,9 @@
 }
 
 .collection-tab--active:hover {
-  background: #475942;
-  border-color: #475942;
-  color: #ffffff;
+  background: #ffffff;
+  border-color: #596f53;
+  color: #596f53;
 }
 
 @media screen and (max-width: 749px) {
@@ -734,8 +734,9 @@
 }
 
 .tcc-quick-shop-sheet .tcc-add-btn:not(.mobile):hover {
-  background: #475942;
-  border-color: #475942;
+  background: #ffffff;
+  border-color: #596f53;
+  color: #596f53;
 }
 
 .tcc-quick-shop-sheet .tcc-add-btn.mobile {

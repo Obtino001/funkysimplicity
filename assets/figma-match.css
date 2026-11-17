@@ -240,7 +240,9 @@ img.icon-block__media {
     color: #444444 !important;
   }
 
+  div[id*="section_ctkgYh"] .button,
   div[id*="section_ctkgYh"] .button-secondary,
+  .shopify-section:has(.image-block--image_4AwDLy) .button,
   .shopify-section:has(.image-block--image_4AwDLy) .button-secondary {
     margin-top: 6px;
     padding: 12px 24px !important;
@@ -1193,15 +1195,15 @@ img.icon-block__media {
 }
 
 .cm-btn {
-  background-color: transparent;
-  color: #596f53;
+  background-color: #596f53;
+  color: #ffffff;
   border: 1px solid #596f53;
 }
 
 .cm-btn:hover {
-  background-color: #475942;
-  color: #fff;
-  border-color: #475942;
+  background-color: #ffffff;
+  color: #596f53;
+  border-color: #596f53;
 }
 
 .fc-btn:hover {
@@ -1209,9 +1211,9 @@ img.icon-block__media {
 }
 
 .tcc-add-btn:hover:not(:disabled) {
-  background: #475942;
-  color: #fff;
-  border-color: #475942;
+  background: #ffffff;
+  color: #596f53;
+  border-color: #596f53;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1778,8 +1780,8 @@ body {
   padding: 14px 28px;
   border-radius: 9999px !important;
   border: 1px solid #596f53 !important;
-  background-color: transparent !important;
-  color: #596f53 !important;
+  background-color: #596f53 !important;
+  color: #ffffff !important;
   font-family: var(--font-body--family, "DM Sans", sans-serif);
   font-size: 13px;
   font-weight: 500;
@@ -1795,8 +1797,8 @@ body {
 .fcs-view-all-btn:hover,
 .cm-btn:hover,
 .fc-btn:hover {
-  background-color: #596f53 !important;
+  background-color: #ffffff !important;
   border-color: #596f53 !important;
-  color: #ffffff !important;
+  color: #596f53 !important;
 }
 
