@@ -136,8 +136,14 @@
         class="cart-complementary-card__add"
         data-recommendation-add
         data-variant-id="{{ variant.id }}"
+        aria-label="{{ 'actions.add_to_cart' | t | escape }}"
       >
-        <span class="cart-recommendation__add-icon">{{ 'actions.add_to_cart' | t }}</span>
+        <span class="cart-recommendation__add-icon">
+          <span class="cart-complementary-card__add-label">{{ 'actions.add_to_cart' | t }}</span>
+          <span class="cart-complementary-card__add-mobile-icon" aria-hidden="true">
+            {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
+          </span>
+        </span>
         <span class="cart-recommendation__add-spinner" aria-hidden="true"></span>
       </button>
     </div>
