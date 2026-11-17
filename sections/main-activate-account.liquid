@@ -1,0 +1,38 @@
+{% render 'customer-styles' %}
+
+<div class="fs-customer-page">
+  <div class="fs-customer-card">
+    <h1 class="fs-customer-title">Activate Account</h1>
+    <p class="fs-customer-subtitle">Create your password to activate your Funky Simplicity account.</p>
+
+    {% form 'activate_customer_password', class: 'fs-customer-form' %}
+      {% if form.errors %}
+        <div class="fs-customer-alert fs-customer-alert--error">
+          {{ form.errors | default_errors }}
+        </div>
+      {% endif %}
+
+      <div class="fs-customer-field">
+        <label class="fs-customer-label" for="password">Password</label>
+        <input type="password" name="customer[password]" id="password" class="fs-customer-input" autocomplete="new-password" required>
+      </div>
+
+      <div class="fs-customer-field">
+        <label class="fs-customer-label" for="password_confirmation">Confirm Password</label>
+        <input type="password" name="customer[password_confirmation]" id="password_confirmation" class="fs-customer-input" autocomplete="new-password" required>
+      </div>
+
+      <div class="fs-customer-actions">
+        <button type="submit" class="fs-customer-btn">Activate Account</button>
+        <button type="submit" name="decline" class="fs-customer-btn fs-customer-btn--secondary">Decline Invitation</button>
+      </div>
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Activate Account",
+  "settings": []
+}
+{% endschema %}

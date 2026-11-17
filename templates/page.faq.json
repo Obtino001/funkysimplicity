@@ -1,0 +1,466 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "heading": "Customer Help",
+        "subtext": "<p>If talking to a real-life human is more your thing, you can reach our Customer Happiness Team via email (<a href=\"mailto:info@funkysimplicity.com\">info@funkysimplicity.com</a>) or WhatsApp (<a href=\"https://wa.me/31626258727\">+31 6 26258727</a>).</p>",
+        "text_alignment": "center",
+        "show_breadcrumb": false,
+        "background_color": "",
+        "min_height": 0,
+        "padding_block_start": 56,
+        "padding_block_end": 32
+      }
+    },
+    "ordering_faq": {
+      "type": "section",
+      "blocks": {
+        "heading_1": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Ordering</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "acc_1": {
+          "type": "accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5",
+            "border": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "row_1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What size should I buy?",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_1": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>If you’re not quite sure which size is right for you, refer to our size guides located on each product page, or visit our <a href=\"/pages/custom-made-leggings\">Custom Made Leggings</a> page. Tip: add your height and weight in your cart comments and we’ll verify your fit before shipping!</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_1"
+              ]
+            },
+            "row_2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Can I cancel my order?",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_2": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We completely get it, we change our minds too! While we wish we could, once an order is placed and fulfilled we are unable to alter or cancel it. Should the item(s) not work out, you can return or exchange unworn items within 14 days.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_2"
+              ]
+            }
+          },
+          "block_order": [
+            "row_1",
+            "row_2"
+          ]
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "acc_1"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "border": "none",
+        "padding-block-start": 24,
+        "padding-block-end": 24
+      }
+    },
+    "shipping_faq": {
+      "type": "section",
+      "blocks": {
+        "heading_1": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Shipping, Returns & Exchanges</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "acc_1": {
+          "type": "accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5",
+            "border": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "row_1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Which carriers do you use?",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_1": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We use all major carriers and local courier partners with tracked delivery daily from our fulfillment center in the Netherlands.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_1"
+              ]
+            },
+            "row_2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What is the shipping policy?",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_2": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Once your order is placed, you will receive a confirmation email letting you know that our fulfillment team has received your order. Once fulfilled, you will receive tracking information. Shipping is free for orders above €150.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_2"
+              ]
+            },
+            "row_3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Do you ship overseas?",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Yes, we ship all over the world. Shipping rates are calculated automatically at checkout.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_3"
+              ]
+            },
+            "row_4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "What is your returns policy?",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_4": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>You can return unworn, undamaged items in their original packaging with tags attached within 14 days. Unfortunately, we cannot accept returns on underwear, sale items, or custom-made orders.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_4"
+              ]
+            }
+          },
+          "block_order": [
+            "row_1",
+            "row_2",
+            "row_3",
+            "row_4"
+          ]
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "acc_1"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "background_media": "none",
+        "background_color": "#f6f6f6",
+        "border": "none",
+        "padding-block-start": 16,
+        "padding-block-end": 48
+      }
+    },
+    "cta": {
+      "type": "section",
+      "blocks": {
+        "cta_text": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Get in touch</h2><p>Have questions about your order, sizing, or a general enquiry?</p>",
+            "alignment": "center",
+            "type_preset": "rte"
+          },
+          "blocks": {}
+        },
+        "cta_btn": {
+          "type": "button",
+          "settings": {
+            "label": "Contact us",
+            "link": "shopify://pages/contact",
+            "style_class": "button",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "cta_text",
+        "cta_btn"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "padding-block-start": 48,
+        "padding-block-end": 56
+      }
+    },
+    "features": {
+      "type": "icon-features-bar",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather_fabric",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_star",
+            "custom_svg": "",
+            "title": "Handmade Fairly In Bali",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "stretch",
+            "custom_svg": "",
+            "title": "4 Way Stretch Cotton",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand_diamond",
+            "custom_svg": "",
+            "title": "Original Swiss Artwork",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "custom_css": [
+        ".ifb-grid {background: #f6f6f6; padding: 30px 0;}",
+        ".ifb-container {max-width: var(--fs-site-width, 1600px);}"
+      ],
+      "settings": {
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "{{ settings.color_palette.foreground }}",
+        "icon_color": "{{ settings.color_palette.foreground }}",
+        "show_dividers": true,
+        "divider_color": "#c5c5c5",
+        "icon_size": 60,
+        "font_size": 18,
+        "section_width": "page-width",
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "ordering_faq",
+    "shipping_faq",
+    "cta",
+    "features"
+  ]
+}

@@ -12,7 +12,25 @@
         type="image/png"
         href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
       >
+      <link
+        rel="apple-touch-icon"
+        href="{{ settings.favicon | image_url: width: 180, height: 180 }}"
+      >
     {%- endif -%}
+
+    {%- unless request.design_mode -%}
+      <script>
+        if (window.location.pathname.startsWith('/nl')) {
+          var path = window.location.pathname.replace(/^\/nl/, '');
+          window.location.replace('https://funkysimplicity.nl' + (path || '/'));
+        } else {
+          var enPrefixMatch = window.location.pathname.match(/^\/en-[a-z]{2}(\/.*)?$/i);
+          if (enPrefixMatch) {
+            window.location.replace((enPrefixMatch[1] || '/') + window.location.search);
+          }
+        }
+      </script>
+    {%- endunless -%}
 
     {% if settings.transition_to_main_product or settings.page_transition_enabled %}
       {% style %}
@@ -195,5 +213,28 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+
+    <script>
+      (function () {
+        var paramsToRemove = ['shpxid', '_pos', '_sid', '_ss', '_psq', '_v'];
+        try {
+          var url = new URL(window.location.href);
+          var changed = false;
+          paramsToRemove.forEach(function (p) {
+            if (url.searchParams.has(p)) {
+              url.searchParams.delete(p);
+              changed = true;
+            }
+          });
+          if (changed) {
+            var newQuery = url.searchParams.toString();
+            var newUrl = url.pathname + (newQuery ? '?' + newQuery : '') + url.hash;
+            window.history.replaceState({}, document.title, newUrl);
+          }
+        } catch (e) {
+          console.warn('URL clean script error', e);
+        }
+      })();
+    </script>
   </body>
 </html>

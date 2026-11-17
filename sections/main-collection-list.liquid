@@ -2,7 +2,7 @@
 
 {% liquid
   assign section_collections = collections
-  assign max_items = 20
+  assign max_items = section.settings.max_collections | default: 36
   if section.settings.background_color != blank
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
   endif
@@ -205,10 +205,9 @@
       "id": "max_collections",
       "label": "t:settings.collection_count",
       "min": 1,
-      "max": 16,
+      "max": 50,
       "step": 1,
-      "default": 4,
-      "visible_if": "{{ section.settings.layout_type == 'editorial' }}"
+      "default": 36
     },
     {
       "type": "header",

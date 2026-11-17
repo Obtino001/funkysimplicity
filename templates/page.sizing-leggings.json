@@ -1,0 +1,142 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "t:names.title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "helpful_cta": {
+      "type": "section",
+      "blocks": {
+        "cta_btn": {
+          "type": "button",
+          "settings": {
+            "label": "Want A Custom-Made Length? Explore Custom Orders",
+            "link": "shopify://pages/custom-made-leggings",
+            "style_class": "button",
+            "width": "fit-content"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "cta_btn"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "section_width": "page-width",
+        "padding-block-start": 8,
+        "padding-block-end": 48
+      }
+    },
+    "features": {
+      "type": "icon-features-bar",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather_fabric",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_star",
+            "custom_svg": "",
+            "title": "Handmade Fairly In Bali",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "stretch",
+            "custom_svg": "",
+            "title": "4 Way Stretch Cotton",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand_diamond",
+            "custom_svg": "",
+            "title": "Original Swiss Artwork",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "custom_css": [
+        ".ifb-grid {background: #f6f6f6; padding: 30px 0;}",
+        ".ifb-container {max-width: var(--fs-site-width, 1600px);}"
+      ],
+      "settings": {
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "{{ settings.color_palette.foreground }}",
+        "icon_color": "{{ settings.color_palette.foreground }}",
+        "show_dividers": true,
+        "divider_color": "#c5c5c5",
+        "icon_size": 60,
+        "font_size": 18,
+        "section_width": "page-width",
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "helpful_cta",
+    "features"
+  ]
+}

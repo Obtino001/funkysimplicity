@@ -1,0 +1,304 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "page-banner-wide",
+      "custom_css": [
+        "h1, p {color: #ffffff;}"
+      ],
+      "settings": {
+        "heading": "Lookbook",
+        "heading_size": 52,
+        "heading_size_mobile": 34,
+        "heading_weight": "400",
+        "subtext": "<p>EXPLORE — See the unique additions we have to offer in our new collection.</p>",
+        "subtext_size": 18,
+        "subtext_size_mobile": 15,
+        "subtext_weight": "400",
+        "text_alignment": "center",
+        "show_breadcrumb": false,
+        "background_image": "shopify://shop_images/Frame_230.png",
+        "background_image_mobile": "shopify://shop_images/Frame_230_1.png",
+        "overlay_opacity": 35,
+        "background_color": "",
+        "min_height": 440,
+        "padding_block_start": 60,
+        "padding_block_end": 60
+      }
+    },
+    "community_lookbook": {
+      "type": "community-mosaic-grid",
+      "blocks": {
+        "m_1": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_2_9.png",
+            "hover_title": "Shop Leggings",
+            "hover_cta": "Shop Style →",
+            "link": "shopify://collections/leggings"
+          }
+        },
+        "m_2": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3_388bdfab-4302-4898-b5f1-6b94ad94eda6.png",
+            "hover_title": "Shop Flares",
+            "hover_cta": "Shop Style →",
+            "link": "shopify://collections/flare-pants"
+          }
+        },
+        "m_3": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_5.png",
+            "hover_title": "Shop Catsuits",
+            "hover_cta": "Shop Style →",
+            "link": "shopify://collections/catsuits"
+          }
+        },
+        "m_4": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_4_2fd5a6c0-8322-46d7-9f8b-e7c09f08f32f.png",
+            "hover_title": "Shop Prints",
+            "hover_cta": "Shop Print →",
+            "link": "shopify://collections/shop-by-print"
+          }
+        },
+        "m_5": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_6_47badc9d-98b3-402c-86b2-284dc796b3e3.png",
+            "hover_title": "Shop Sport Bras",
+            "hover_cta": "Shop Style →",
+            "link": "shopify://collections/sport-bras"
+          }
+        },
+        "m_6": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_2_10.png",
+            "hover_title": "Shop Capris",
+            "hover_cta": "Shop Style →",
+            "link": "shopify://collections/capri-leggings"
+          }
+        },
+        "m_7": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_3_1_7779fab5-962d-446a-ba42-5f15da46dad8.png",
+            "hover_title": "Shop Shorts",
+            "hover_cta": "Shop Style →",
+            "link": "shopify://collections/shorts-hot-pants"
+          }
+        },
+        "m_8": {
+          "type": "media",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_5_1_36e2322a-a217-4f9d-b65a-17e7049fdba5.png",
+            "hover_title": "Shop Pocketed",
+            "hover_cta": "Shop Style →",
+            "link": "shopify://collections/leggings-with-pockets"
+          }
+        }
+      },
+      "block_order": [
+        "m_1",
+        "m_2",
+        "m_3",
+        "m_4",
+        "m_5",
+        "m_6",
+        "m_7",
+        "m_8"
+      ],
+      "settings": {
+        "heading": "Explore the Collection",
+        "heading_size": 36,
+        "heading_alignment": "left",
+        "section_width": "page-width",
+        "gap": 10,
+        "overlay_opacity": 40,
+        "overlay_cta_label": "Shop Look →",
+        "show_button": true,
+        "button_label": "SHOP ALL STYLES",
+        "button_link": "shopify://collections/shop-by-style",
+        "button_bg": "#596f53",
+        "button_color": "#ffffff"
+      }
+    },
+    "hotspots_look": {
+      "type": "product-hotspots",
+      "blocks": {
+        "h_1": {
+          "type": "_hotspot-product",
+          "settings": {
+            "product": "pufferfish-leggings-grey-black",
+            "x-position": 48,
+            "y-position": 62
+          }
+        },
+        "h_2": {
+          "type": "_hotspot-product",
+          "settings": {
+            "product": "zebra-cross-back-bra-cream-black",
+            "x-position": 54,
+            "y-position": 34
+          }
+        },
+        "h_3": {
+          "type": "_hotspot-product",
+          "settings": {
+            "product": "jaguar-leggings-cream-olive-black",
+            "x-position": 68,
+            "y-position": 58
+          }
+        }
+      },
+      "block_order": [
+        "h_1",
+        "h_2",
+        "h_3"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/hero-image-homepage-funkysimplicity-leggings_2_868c1733-04db-4483-a4b8-b05b0dd8bfe0.png",
+        "toggle_overlay": false,
+        "section_width": "page-width",
+        "hotspot_color": "#596f53",
+        "bullseye_color": "#ffffff"
+      }
+    },
+    "featured_styles": {
+      "type": "tabbed-collection-carousel",
+      "blocks": {
+        "t1": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "leggings",
+            "tab_title": "Leggings",
+            "view_all_url": ""
+          }
+        },
+        "t2": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "flare-pants",
+            "tab_title": "Flare Pants",
+            "view_all_url": ""
+          }
+        },
+        "t3": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "catsuits",
+            "tab_title": "Catsuits",
+            "view_all_url": ""
+          }
+        },
+        "t4": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "sport-bras",
+            "tab_title": "Sport Bras",
+            "view_all_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "heading": "Featured Styles",
+        "heading_size": "h2",
+        "section_width": "page-width",
+        "background_color": "#ffffff",
+        "columns_desktop": "4.5",
+        "columns_mobile": "2",
+        "products_to_show": 8,
+        "gap": 8,
+        "card_aspect_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_badges": true,
+        "low_stock_threshold": 5,
+        "show_quick_shop": true,
+        "show_swatches": true,
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL",
+        "padding_top": 56,
+        "padding_bottom": 64
+      }
+    },
+    "features": {
+      "type": "icon-features-bar",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather_fabric",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_star",
+            "custom_svg": "",
+            "title": "Handmade Fairly In Bali",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "stretch",
+            "custom_svg": "",
+            "title": "4 Way Stretch Cotton",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand_diamond",
+            "custom_svg": "",
+            "title": "Original Swiss Artwork",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "custom_css": [
+        ".ifb-grid {background: #f6f6f6; padding: 30px 0;}",
+        ".ifb-container {max-width: var(--fs-site-width, 1600px);}"
+      ],
+      "settings": {
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "{{ settings.color_palette.foreground }}",
+        "icon_color": "{{ settings.color_palette.foreground }}",
+        "show_dividers": true,
+        "divider_color": "#c5c5c5",
+        "icon_size": 60,
+        "font_size": 18,
+        "section_width": "page-width",
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "community_lookbook",
+    "hotspots_look",
+    "featured_styles",
+    "features"
+  ]
+}

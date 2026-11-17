@@ -132,6 +132,35 @@
       {{- form.body -}}
     </textarea>
 
+    {% if block.settings.show_consent_checkboxes %}
+      <div class="contact-form__consents">
+        <label class="contact-form__consent-item">
+          <input type="hidden" name="contact[Privacy Policy Consent]" value="No">
+          <input
+            type="checkbox"
+            name="contact[Privacy Policy Consent]"
+            value="Yes"
+            required
+          >
+          <span>
+            {{- block.settings.privacy_consent_label | default: 'I consent to the processing of my personal data in accordance with the Privacy Policy.' -}}
+            <span aria-hidden="true">*</span>
+          </span>
+        </label>
+        <label class="contact-form__consent-item">
+          <input type="hidden" name="contact[Marketing Consent]" value="No">
+          <input
+            type="checkbox"
+            name="contact[Marketing Consent]"
+            value="Yes"
+          >
+          <span>
+            {{- block.settings.marketing_consent_label | default: 'I agree to receive marketing communications, offers, and updates via email.' -}}
+          </span>
+        </label>
+      </div>
+    {% endif %}
+
     {{ submit_button }}
   {%- endform -%}
 </div>
@@ -177,6 +206,33 @@
     display: flex;
     align-items: center;
     gap: var(--gap-xs);
+  }
+
+  .contact-form__consents {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-block: 4px;
+  }
+
+  .contact-form__consent-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--color-foreground, #171717);
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .contact-form__consent-item input[type='checkbox'] {
+    flex: 0 0 auto;
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+    accent-color: #596f53;
+    cursor: pointer;
   }
 {% endstylesheet %}
 
@@ -312,6 +368,26 @@
       "unit": "px",
       "default": 0,
       "visible_if": "{{ block.settings.input_style == \"custom\" }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_consent_checkboxes",
+      "label": "Show Privacy & Marketing Consent Checkboxes",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "privacy_consent_label",
+      "label": "Privacy Policy Consent Label",
+      "default": "I consent to the processing of my personal data in accordance with the Privacy Policy.",
+      "visible_if": "{{ block.settings.show_consent_checkboxes }}"
+    },
+    {
+      "type": "text",
+      "id": "marketing_consent_label",
+      "label": "Marketing Consent Label",
+      "default": "I agree to receive marketing communications, offers, and updates via email.",
+      "visible_if": "{{ block.settings.show_consent_checkboxes }}"
     },
     {
       "type": "header",

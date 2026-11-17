@@ -1,88 +1,32 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "main": {
-      "type": "main-page",
-      "blocks": {
-        "title": {
-          "type": "text",
-          "name": "t:names.title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-heading--family)",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "content": {
-          "type": "text",
-          "name": "t:names.content",
-          "settings": {
-            "text": "{{ closest.page.content }}",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "title",
-        "content"
-      ],
+    "banner": {
+      "type": "page-banner",
       "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "background_color": "{{ settings.color_palette.background }}",
-        "padding-block-start": 40,
-        "padding-block-end": 0
+        "heading": "Contact Us",
+        "subtext": "<p>For wholesale or other inquiries, please contact us via email <a href=\"mailto:info@funkysimplicity.com\">info@funkysimplicity.com</a> or by WhatsApp <a href=\"https://wa.me/31626258727\" target=\"_blank\" rel=\"noopener noreferrer\">+31 6 26258727</a> and we'll get back to you as soon as we can.</p>",
+        "text_alignment": "center",
+        "show_breadcrumb": false,
+        "background_color": "",
+        "min_height": 0,
+        "padding_block_start": 48,
+        "padding_block_end": 16
       }
     },
     "form": {
       "type": "section",
       "blocks": {
-        "contact_form_UwiCkQ": {
+        "contact_form_block": {
           "type": "contact-form",
           "settings": {
             "width": "custom",
-            "custom_width": 50,
+            "custom_width": 60,
             "width_mobile": "custom",
             "custom_width_mobile": 100,
             "input_style": "default",
+            "show_consent_checkboxes": true,
+            "privacy_consent_label": "I consent to the processing of my personal data in accordance with the Privacy Policy.",
+            "marketing_consent_label": "I agree to receive marketing communications, offers, and updates via email.",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -107,9 +51,8 @@
         }
       },
       "block_order": [
-        "contact_form_UwiCkQ"
+        "contact_form_block"
       ],
-      "name": "t:names.contact_form",
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -118,28 +61,326 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
+        "gap": 20,
         "section_width": "page-width",
-        "section_height_custom": 50,
         "background_media": "none",
         "background_color": "{{ settings.color_palette.background }}",
-        "video_position": "cover",
-        "background_image_position": "cover",
         "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 32,
-        "padding-block-end": 84
+        "padding-block-start": 16,
+        "padding-block-end": 48
+      }
+    },
+    "faqs": {
+      "type": "section",
+      "blocks": {
+        "heading_1": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>FAQ's</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "acc_1": {
+          "type": "accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5",
+            "border": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "row_1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Business Registration info",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_1": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Here below is our business registration info:</p><p><strong>Funky Simplicity</strong><br/>Nieuwezijdsarmsteeg 17<br/>1012 NB Amsterdam, Netherlands</p><p><strong>Telephone number:</strong> <a href=\"https://wa.me/31626258727\" target=\"_blank\" rel=\"noopener noreferrer\">+31 6 26258727</a> (WhatsApp only please)</p><p><strong>KVK:</strong> 64867951<br/><strong>VAT:</strong> NL001909091B58<br/><strong>BANK IBAN:</strong> NL05 INGB 0008 6541 73<br/><strong>SWIFT:</strong> INGBNL2A</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_1"
+              ]
+            },
+            "row_2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Custom size orders",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_2": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>For custom size orders, or pregnancy leggings, please contact us via email <a href=\"mailto:info@funkysimplicity.com\">info@funkysimplicity.com</a>, WhatsApp <a href=\"https://wa.me/31626258727\" target=\"_blank\" rel=\"noopener noreferrer\">+31 6 26258727</a>, or visit our <a href=\"/pages/custom-made-leggings\">Custom Made Leggings</a> page.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_2"
+              ]
+            },
+            "row_3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Finding the perfect fit",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>If you have any questions regarding finding your perfect size, please contact us via email <a href=\"mailto:info@funkysimplicity.com\">info@funkysimplicity.com</a> or WhatsApp: <a href=\"https://wa.me/31626258727\" target=\"_blank\" rel=\"noopener noreferrer\">+31 6 26258727</a>.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_3"
+              ]
+            },
+            "row_4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Privacy policy",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_4": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Read here all about our <a href=\"/pages/privacy-policy\">Privacy Policy</a>.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_4"
+              ]
+            },
+            "row_5": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Shipping & Returns",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_5": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Read here our <a href=\"/pages/shipping-delivery-returns\">Shipping & Return policy</a>.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_5"
+              ]
+            }
+          },
+          "block_order": [
+            "row_1",
+            "row_2",
+            "row_3",
+            "row_4",
+            "row_5"
+          ]
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "acc_1"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "background_media": "none",
+        "background_color": "#f6f6f6",
+        "border": "none",
+        "padding-block-start": 24,
+        "padding-block-end": 56
+      }
+    },
+    "features": {
+      "type": "icon-features-bar",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather_fabric",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_star",
+            "custom_svg": "",
+            "title": "Handmade Fairly In Bali",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "stretch",
+            "custom_svg": "",
+            "title": "4 Way Stretch Cotton",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand_diamond",
+            "custom_svg": "",
+            "title": "Original Swiss Artwork",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "custom_css": [
+        ".ifb-grid {background: #f6f6f6; padding: 30px 0;}",
+        ".ifb-container {max-width: var(--fs-site-width, 1600px);}"
+      ],
+      "settings": {
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "{{ settings.color_palette.foreground }}",
+        "icon_color": "{{ settings.color_palette.foreground }}",
+        "show_dividers": true,
+        "divider_color": "#c5c5c5",
+        "icon_size": 60,
+        "font_size": 18,
+        "section_width": "page-width",
+        "padding_top": 24,
+        "padding_bottom": 48
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "banner",
+    "form",
+    "faqs",
+    "features"
   ]
 }

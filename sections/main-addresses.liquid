@@ -1,0 +1,176 @@
+{% render 'customer-styles' %}
+<script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+
+<div class="fs-customer-page">
+  <div class="fs-customer-wide">
+    <div class="fs-customer-header-row">
+      <div>
+        <h1 class="fs-customer-title">Addresses</h1>
+        <a href="{{ routes.account_url }}" class="fs-customer-link">&larr; Back to Account</a>
+      </div>
+      <button type="button" class="fs-customer-btn" onclick="toggleAddressBox('AddAddress')">Add New Address</button>
+    </div>
+
+    <div id="AddAddress" class="fs-customer-panel" style="display: none; margin-bottom: 28px;">
+      <h2>Add a new address</h2>
+      {% form 'customer_address', customer.new_address, class: 'fs-customer-form' %}
+        <div class="fs-customer-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressFirstNameNew">First Name</label>
+            <input type="text" id="AddressFirstNameNew" name="address[first_name]" value="{{ form.first_name }}" class="fs-customer-input">
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressLastNameNew">Last Name</label>
+            <input type="text" id="AddressLastNameNew" name="address[last_name]" value="{{ form.last_name }}" class="fs-customer-input">
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressCompanyNew">Company</label>
+            <input type="text" id="AddressCompanyNew" name="address[company]" value="{{ form.company }}" class="fs-customer-input">
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressAddress1New">Address 1</label>
+            <input type="text" id="AddressAddress1New" name="address[address1]" value="{{ form.address1 }}" class="fs-customer-input">
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressAddress2New">Address 2</label>
+            <input type="text" id="AddressAddress2New" name="address[address2]" value="{{ form.address2 }}" class="fs-customer-input">
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressCityNew">City</label>
+            <input type="text" id="AddressCityNew" name="address[city]" value="{{ form.city }}" class="fs-customer-input">
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressCountryNew">Country</label>
+            <select id="AddressCountryNew" name="address[country]" data-default="{{ form.country }}" class="fs-customer-select">{{ all_country_option_tags }}</select>
+          </div>
+          <div id="AddressProvinceContainerNew" class="fs-customer-field" style="display: none;">
+            <label class="fs-customer-label" for="AddressProvinceNew">Province / State</label>
+            <select id="AddressProvinceNew" name="address[province]" data-default="{{ form.province }}" class="fs-customer-select"></select>
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressZipNew">Postal / Zip Code</label>
+            <input type="text" id="AddressZipNew" name="address[zip]" value="{{ form.zip }}" class="fs-customer-input">
+          </div>
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="AddressPhoneNew">Phone</label>
+            <input type="tel" id="AddressPhoneNew" name="address[phone]" value="{{ form.phone }}" class="fs-customer-input">
+          </div>
+        </div>
+        <label class="fs-customer-checkbox-row">
+          {{ form.set_as_default_checkbox }}
+          <span>Set as default address</span>
+        </label>
+        <div class="fs-customer-actions">
+          <button type="submit" class="fs-customer-btn">Save Address</button>
+          <button type="button" class="fs-customer-btn fs-customer-btn--secondary" onclick="toggleAddressBox('AddAddress')">Cancel</button>
+        </div>
+      {% endform %}
+    </div>
+
+    {% paginate customer.addresses by 12 %}
+      <div class="fs-customer-address-grid">
+        {% for address in customer.addresses %}
+          <div class="fs-customer-panel">
+            {% if address == customer.default_address %}
+              <span style="display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 9999px; background: #596f53; color: #fff; margin-bottom: 12px;">Default</span>
+            {% endif %}
+            <div style="font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+              {{ address | format_address }}
+            </div>
+            <div class="fs-customer-actions">
+              <button type="button" class="fs-customer-btn fs-customer-btn--secondary" onclick="toggleAddressBox('EditAddress_{{ address.id }}')">Edit</button>
+              <form method="post" action="{{ address.url }}" onsubmit="return confirm('Are you sure you wish to delete this address?');">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="fs-customer-link">Delete</button>
+              </form>
+            </div>
+
+            <div id="EditAddress_{{ address.id }}" style="display: none; margin-top: 20px; padding-top: 20px; border-top: 1px solid #dfdfdf;">
+              <h3>Edit address</h3>
+              {% form 'customer_address', address, class: 'fs-customer-form' %}
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressFirstName_{{ form.id }}">First Name</label>
+                  <input type="text" id="AddressFirstName_{{ form.id }}" name="address[first_name]" value="{{ form.first_name }}" class="fs-customer-input">
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressLastName_{{ form.id }}">Last Name</label>
+                  <input type="text" id="AddressLastName_{{ form.id }}" name="address[last_name]" value="{{ form.last_name }}" class="fs-customer-input">
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressCompany_{{ form.id }}">Company</label>
+                  <input type="text" id="AddressCompany_{{ form.id }}" name="address[company]" value="{{ form.company }}" class="fs-customer-input">
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressAddress1_{{ form.id }}">Address 1</label>
+                  <input type="text" id="AddressAddress1_{{ form.id }}" name="address[address1]" value="{{ form.address1 }}" class="fs-customer-input">
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressAddress2_{{ form.id }}">Address 2</label>
+                  <input type="text" id="AddressAddress2_{{ form.id }}" name="address[address2]" value="{{ form.address2 }}" class="fs-customer-input">
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressCity_{{ form.id }}">City</label>
+                  <input type="text" id="AddressCity_{{ form.id }}" name="address[city]" value="{{ form.city }}" class="fs-customer-input">
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressCountry_{{ form.id }}">Country</label>
+                  <select id="AddressCountry_{{ form.id }}" name="address[country]" data-address-country-select data-form-id="{{ form.id }}" data-default="{{ form.country }}" class="fs-customer-select">{{ all_country_option_tags }}</select>
+                </div>
+                <div id="AddressProvinceContainer_{{ form.id }}" class="fs-customer-field" style="display: none;">
+                  <label class="fs-customer-label" for="AddressProvince_{{ form.id }}">Province / State</label>
+                  <select id="AddressProvince_{{ form.id }}" name="address[province]" data-default="{{ form.province }}" class="fs-customer-select"></select>
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressZip_{{ form.id }}">Postal / Zip Code</label>
+                  <input type="text" id="AddressZip_{{ form.id }}" name="address[zip]" value="{{ form.zip }}" class="fs-customer-input">
+                </div>
+                <div class="fs-customer-field">
+                  <label class="fs-customer-label" for="AddressPhone_{{ form.id }}">Phone</label>
+                  <input type="tel" id="AddressPhone_{{ form.id }}" name="address[phone]" value="{{ form.phone }}" class="fs-customer-input">
+                </div>
+                <label class="fs-customer-checkbox-row">
+                  {{ form.set_as_default_checkbox }}
+                  <span>Set as default address</span>
+                </label>
+                <div class="fs-customer-actions">
+                  <button type="submit" class="fs-customer-btn">Update Address</button>
+                  <button type="button" class="fs-customer-btn fs-customer-btn--secondary" onclick="toggleAddressBox('EditAddress_{{ address.id }}')">Cancel</button>
+                </div>
+              {% endform %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% if paginate.pages > 1 %}
+        <div class="fs-customer-actions" style="margin-top: 24px;">{{ paginate | default_pagination }}</div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</div>
+
+<script>
+  function toggleAddressBox(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('DOMContentLoaded', function () {
+    if (typeof Shopify !== 'undefined' && Shopify.CountryProvinceSelector) {
+      new Shopify.CountryProvinceSelector('AddressCountryNew', 'AddressProvinceNew', {
+        hideElement: 'AddressProvinceContainerNew'
+      });
+      document.querySelectorAll('[data-address-country-select]').forEach(function (select) {
+        var fid = select.getAttribute('data-form-id');
+        new Shopify.CountryProvinceSelector('AddressCountry_' + fid, 'AddressProvince_' + fid, {
+          hideElement: 'AddressProvinceContainer_' + fid
+        });
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Customer Addresses",
+  "settings": []
+}
+{% endschema %}

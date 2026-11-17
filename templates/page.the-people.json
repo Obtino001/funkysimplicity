@@ -1,0 +1,350 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "t:names.title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {
+            "text_color": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "page_banner_wide_fzQiD8": {
+      "type": "page-banner-wide",
+      "custom_css": [
+        "h1,p {color: white;}"
+      ],
+      "name": "Page banner wide",
+      "settings": {
+        "heading": "Meet the Makers",
+        "heading_size": 46,
+        "heading_size_mobile": 30,
+        "heading_weight": "400",
+        "subtext": "<p>We’ve built a light-filled home and spacious studio for our master tailor Ketut Mertha and his family in Bali.</p>",
+        "subtext_size": 18,
+        "subtext_size_mobile": 14,
+        "subtext_weight": "400",
+        "text_alignment": "center",
+        "show_breadcrumb": false,
+        "background_image": "shopify://shop_images/Frame_230.png",
+        "background_image_mobile": "shopify://shop_images/Frame_230_1.png",
+        "overlay_opacity": 0,
+        "background_color": "",
+        "min_height": 400,
+        "padding_block_start": 50,
+        "padding_block_end": 30
+      }
+    },
+    "page_banner_WGKNcm": {
+      "type": "page-banner",
+      "name": "Page banner",
+      "settings": {
+        "heading": "Fair Trade & Ethically Made",
+        "subtext": "<p>In Bali, we work hand in hand with local artisans, ensuring they’re treated with fairness, respect, and love. As a fair-trade company, we believe in fashion’s power to uplift and empower—bringing happiness and freedom to both the maker and the wearer.</p>",
+        "text_alignment": "center",
+        "show_breadcrumb": false,
+        "background_color": "",
+        "min_height": 0,
+        "padding_block_start": 50,
+        "padding_block_end": 30
+      }
+    },
+    "image_with_text_os_MDBchW": {
+      "type": "image-with-text-os",
+      "name": "Image with text OS",
+      "settings": {
+        "image_position": "right",
+        "image": "shopify://shop_images/Frame_248.png",
+        "heading": "Small Team, Quality Materials",
+        "heading_size": 36,
+        "heading_weight": "400",
+        "content": "<p>Working in small batches with care and craftsmanship, we create leggings for everyday comfort. Our founder, Sanne, personally checks that our fabric meets our standards, creating timeless fashion that respects both people and the planet.</p>",
+        "body_size": 16,
+        "body_weight": "400",
+        "signature": "",
+        "signature_size": 14,
+        "signature_weight": "400",
+        "button_label": "",
+        "button_url": "",
+        "background_color": "",
+        "padding_block_start": 0,
+        "padding_block_end": 30
+      }
+    },
+    "image_with_text_os_DJjkmb": {
+      "type": "image-with-text-os",
+      "name": "Image with text OS",
+      "settings": {
+        "image_position": "left",
+        "image": "shopify://shop_images/Frame_245.png",
+        "heading": "No Sweatshops, No Child Labor",
+        "heading_size": 36,
+        "heading_weight": "400",
+        "content": "<p>We believe all humans should have a good quality of life, fair-pay, and excellent working conditions, which is why we collaborate exclusively with small family-run Balinese artisans. We've built them a beautiful home and spacious atelier, this way they can work freely and at their own pace.</p>",
+        "body_size": 16,
+        "body_weight": "400",
+        "signature": "",
+        "signature_size": 14,
+        "signature_weight": "400",
+        "button_label": "",
+        "button_url": "",
+        "background_color": "",
+        "padding_block_start": 0,
+        "padding_block_end": 30
+      }
+    },
+    "the_process_fMjPjF": {
+      "type": "the-process",
+      "blocks": {
+        "process_step_VPKMeB": {
+          "type": "process_step",
+          "settings": {
+            "image": "shopify://shop_images/image_4_89d3eca0-7efe-4dd8-8d7b-d3a0a9cb94c9.png",
+            "icon": "shopify://shop_images/leaf-svgrepo-com_1.svg",
+            "title": "Unique hand-print designs",
+            "description": "<p>Each of our signature prints begins as original Swiss artwork and is brought to life in Bali using traditional hand-screen-printing techniques. Skilled printmakers apply eco-friendly inks by hand onto our 90% cotton stretch fabric, making every single piece a wearable work of art.</p>",
+            "marker_offset": -75,
+            "content_align": "auto"
+          }
+        },
+        "process_step_AhqYyC": {
+          "type": "process_step",
+          "settings": {
+            "image": "shopify://shop_images/image_1_cb3c1dbf-a497-43b8-86c3-ec9a456fd184.png",
+            "icon": "shopify://shop_images/time-svgrepo-com_1.svg",
+            "title": "Naturally air-dried",
+            "description": "<p>After printing, each fabric is gently draped over bamboo poles to dry naturally in the warm Balinese breeze. This slow, mindful process locks in the vibrancy and richness of the colors, ensuring they remain as bright and beautiful as the day they were made—year after year.</p>",
+            "marker_offset": -75,
+            "content_align": "auto"
+          }
+        },
+        "process_step_b9NHhE": {
+          "type": "process_step",
+          "settings": {
+            "image": "shopify://shop_images/image_5_043310ed-75c6-41f5-8499-838d4c2e0e2f.png",
+            "icon": "shopify://shop_images/cut-svgrepo-com_1.svg",
+            "title": "Precision cut for every shape and size",
+            "description": "<p>Our master tailor, Ketut Mertha, expertly cuts each piece of fabric to ensure a flawless fit. For custom orders, we create personalized templates based on your specific measurements—whether you need longer or shorter legs, we’ve got you covered.</p>",
+            "marker_offset": -65,
+            "content_align": "auto"
+          }
+        },
+        "process_step_BDC6YB": {
+          "type": "process_step",
+          "settings": {
+            "image": "shopify://shop_images/image_6.png",
+            "icon": "shopify://shop_images/Heart.svg",
+            "title": "Balinese sewing craftsmanship",
+            "description": "<p>Every piece is meticulously sewn in our Bali studio by Ketut Mertha and his family, including his wife and two brothers and sisters-in-law. As a small, family-owned operation, we take pride in supporting the local community in Bali, Indonesia. Every stitch is placed with care, ensuring the highest quality.</p>",
+            "marker_offset": -75,
+            "content_align": "auto"
+          }
+        },
+        "process_step_PwRVPq": {
+          "type": "process_step",
+          "settings": {
+            "image": "shopify://shop_images/image_7_a7781040-8083-4fb3-ad9b-e54014b4d6dc.png",
+            "icon": "shopify://shop_images/leaf-svgrepo-com_1_1.svg",
+            "title": "Human quality control",
+            "description": "<p>Every piece is personally inspected by Ketut Mertha. From securing threads to the final finish, each detail is carefully checked before it leaves the atelier.</p>",
+            "marker_offset": -75,
+            "content_align": "auto"
+          }
+        }
+      },
+      "block_order": [
+        "process_step_VPKMeB",
+        "process_step_AhqYyC",
+        "process_step_b9NHhE",
+        "process_step_BDC6YB",
+        "process_step_PwRVPq"
+      ],
+      "name": "The Process",
+      "settings": {
+        "heading": "The Process",
+        "heading_size": 36,
+        "heading_size_mobile": 26,
+        "heading_weight": "400",
+        "step_title_size": 28,
+        "step_title_size_mobile": 20,
+        "step_title_weight": "400",
+        "step_description_size": 16,
+        "step_description_size_mobile": 14,
+        "step_description_weight": "400",
+        "line_color": "rgba(89, 111, 83, 0.2)",
+        "line_weight": 1,
+        "marker_color": "#596f53",
+        "marker_width": 10,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding_block_start": 30,
+        "padding_block_end": 50
+      }
+    },
+    "icon_features_bar_3NBTjj": {
+      "type": "icon-features-bar",
+      "blocks": {
+        "feature_EKJHAw": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather_fabric",
+            "custom_image": "",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "link": ""
+          }
+        },
+        "feature_YRFGkc": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_star",
+            "custom_image": "",
+            "custom_svg": "",
+            "title": "Handmade Fairly In Bali",
+            "link": ""
+          }
+        },
+        "feature_JTmx8n": {
+          "type": "feature",
+          "settings": {
+            "icon": "stretch",
+            "custom_image": "",
+            "custom_svg": "",
+            "title": "4 Way Stretch Cotton",
+            "link": ""
+          }
+        },
+        "feature_b6nEGQ": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand_diamond",
+            "custom_image": "",
+            "custom_svg": "",
+            "title": "Original Swiss Artwork",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_EKJHAw",
+        "feature_YRFGkc",
+        "feature_JTmx8n",
+        "feature_b6nEGQ"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {section#IconFeaturesBar-template--30227266765127__icon_features_bar_3NBTjj {margin-bottom: 0px; } .ifb-item__title {font-size: 16px; } .ifb-item__img {width: 50px !important; height: 50px !important; }}"
+      ],
+      "name": "Icon Features Bar",
+      "settings": {
+        "bg_color": "#f8f8f8",
+        "text_color": "#121212",
+        "icon_color": "#121212",
+        "show_dividers": true,
+        "divider_color": "#e5e5e5",
+        "icon_size": 60,
+        "font_size": 18,
+        "section_width": "page-width",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "atelier_video": {
+      "type": "section",
+      "blocks": {
+        "vid_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Funky's Atelier Grand Opening</h2><p>Blessed new beginnings — see our Grand Opening ceremony of our fair trade atelier with our Bali family.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "padding-block-end": 12
+          },
+          "blocks": {}
+        },
+        "vid_player": {
+          "type": "video",
+          "settings": {
+            "source": "url",
+            "video_url": "https://www.youtube.com/watch?v=KHNdeT8xgUg",
+            "video_autoplay": false,
+            "video_loop": false,
+            "cover_image": "shopify://shop_images/IMG_5551.jpg",
+            "alt": "Funky Simplicity Atelier Grand Opening in Bali",
+            "custom_width": 85,
+            "custom_width_mobile": 100,
+            "aspect_ratio": "16/9",
+            "border_radius": 12
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "vid_heading",
+        "vid_player"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "background_color": "#f6f6f6",
+        "padding-block-start": 56,
+        "padding-block-end": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_banner_wide_fzQiD8",
+    "page_banner_WGKNcm",
+    "image_with_text_os_MDBchW",
+    "image_with_text_os_DJjkmb",
+    "the_process_fMjPjF",
+    "atelier_video",
+    "icon_features_bar_3NBTjj"
+  ]
+}

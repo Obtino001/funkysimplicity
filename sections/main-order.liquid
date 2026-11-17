@@ -1,0 +1,109 @@
+{% render 'customer-styles' %}
+
+<div class="fs-customer-page">
+  <div class="fs-customer-wide">
+    <div class="fs-customer-header-row">
+      <div>
+        <h1 class="fs-customer-title">Order {{ order.name }}</h1>
+        <p class="fs-customer-subtitle" style="margin-bottom: 0;">Placed on {{ order.created_at | time_tag: format: 'date_at_time' }}</p>
+        {% if order.cancelled %}
+          <p class="fs-customer-alert fs-customer-alert--error" style="margin-top: 12px;">
+            Cancelled on {{ order.cancelled_at | time_tag: format: 'date_at_time' }} ({{ order.cancel_reason_label }})
+          </p>
+        {% endif %}
+      </div>
+      <a href="{{ routes.account_url }}" class="fs-customer-btn fs-customer-btn--secondary">&larr; Return to Account</a>
+    </div>
+
+    <div class="fs-customer-grid">
+      <div class="fs-customer-panel">
+        <div class="fs-customer-table-wrap">
+          <table class="fs-customer-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>SKU</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for line_item in order.line_items %}
+                <tr>
+                  <td>
+                    {% if line_item.url != blank %}
+                      <a href="{{ line_item.url }}" class="fs-customer-link">{{ line_item.title }}</a>
+                    {% else %}
+                      {{ line_item.title }}
+                    {% endif %}
+                    {% if line_item.fulfillment %}
+                      <div style="font-size: 12px; color: #555555; margin-top: 4px;">
+                        Fulfilled {{ line_item.fulfillment.created_at | time_tag: format: 'date' }}
+                        {% if line_item.fulfillment.tracking_url %}
+                          — <a href="{{ line_item.fulfillment.tracking_url }}" class="fs-customer-link">Track shipment</a>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </td>
+                  <td>{{ line_item.sku }}</td>
+                  <td>{{ line_item.final_price | money }}</td>
+                  <td>{{ line_item.quantity }}</td>
+                  <td>{{ line_item.final_line_price | money }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4"><strong>Subtotal</strong></td>
+                <td>{{ order.line_items_subtotal_price | money }}</td>
+              </tr>
+              {% for discount_application in order.cart_level_discount_applications %}
+                <tr>
+                  <td colspan="4">Discount ({{ discount_application.title }})</td>
+                  <td>-{{ discount_application.total_allocated_amount | money }}</td>
+                </tr>
+              {% endfor %}
+              {% for shipping_method in order.shipping_methods %}
+                <tr>
+                  <td colspan="4">Shipping ({{ shipping_method.title }})</td>
+                  <td>{{ shipping_method.price | money }}</td>
+                </tr>
+              {% endfor %}
+              {% for tax_line in order.tax_lines %}
+                <tr>
+                  <td colspan="4">Tax ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</td>
+                  <td>{{ tax_line.price | money }}</td>
+                </tr>
+              {% endfor %}
+              <tr>
+                <td colspan="4"><strong>Total</strong></td>
+                <td><strong>{{ order.total_net_amount | money_with_currency }}</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="fs-customer-panel">
+          <h3>Billing Address</h3>
+          <p style="font-size: 13px; color: #555555; margin-bottom: 8px;">Payment Status: {{ order.financial_status_label }}</p>
+          <div style="font-size: 14px; line-height: 1.6;">{{ order.billing_address | format_address }}</div>
+        </div>
+        <div class="fs-customer-panel">
+          <h3>Shipping Address</h3>
+          <p style="font-size: 13px; color: #555555; margin-bottom: 8px;">Fulfillment: {{ order.fulfillment_status_label }}</p>
+          <div style="font-size: 14px; line-height: 1.6;">{{ order.shipping_address | format_address }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Order",
+  "settings": []
+}
+{% endschema %}

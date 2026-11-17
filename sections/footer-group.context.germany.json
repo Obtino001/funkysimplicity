@@ -1,0 +1,71 @@
+{
+  "context": {
+    "market": "germany"
+  },
+  "parent": "footer-group.json",
+  "sections": {
+    "footer_m9NzUG": {
+      "blocks": {
+        "group_fCLyGw": {
+          "blocks": {
+            "group_H6DWPc": {
+              "blocks": {
+                "text_H7dygG": {
+                  "settings": {
+                    "text": "<p>Wir glauben, dass wahre Freiheit bedeutet, das Leben nach deinen eigenen Regeln zu leben – ein Leben ohne Grenzen. Unsere Designs sind dazu gemacht, diese Freiheit in dir zu inspirieren: sich ohne Einschränkungen zu bewegen, ohne Zögern zu glänzen und jeden Tag mutig zu leben. Während unsere Stücke dich mächtig und geborgen fühlen lassen, ehren wir auch die Handwerker, die sie zum Leben erwecken.</p>"
+                  }
+                },
+                "group_e7pq4n": {
+                  "blocks": {
+                    "text_D7qQ9P": {
+                      "settings": {
+                        "text": "<p><a href=\"https://wa.me/31626258727\" target=\"_blank\" rel=\"noopener noreferrer\">+31 6 26258727 (nur WhatsApp)</a></p>"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "group_BWbCwN": {
+              "blocks": {
+                "menu_N6Kjqk": {
+                  "settings": {
+                    "heading": "Kollektionen"
+                  }
+                }
+              }
+            },
+            "group_VrMit8": {
+              "blocks": {
+                "menu_w6nWee": {
+                  "settings": {
+                    "heading": "Schnelllinks"
+                  }
+                }
+              }
+            },
+            "group_6YMkgY": {
+              "blocks": {
+                "text_QzLwPg": {
+                  "settings": {
+                    "text": "<h4>Newsletter Anmeldung<br/></h4>"
+                  }
+                },
+                "text_LzFcxJ": {
+                  "settings": {
+                    "text": "<p>Für exklusive Angebote und neue Drops, die dich zum Lächeln bringen (keine Sorge, wir senden nicht viele Newsletter!)<br/></p>"
+                  }
+                },
+                "email_signup_CAkt8g": {
+                  "settings": {
+                    "label": "Absenden"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

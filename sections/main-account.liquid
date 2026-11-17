@@ -1,0 +1,76 @@
+{% render 'customer-styles' %}
+
+<div class="fs-customer-page">
+  <div class="fs-customer-wide">
+    <div class="fs-customer-header-row">
+      <div>
+        <h1 class="fs-customer-title">My Account</h1>
+        <p class="fs-customer-subtitle" style="margin-bottom: 0;">Welcome back{% if customer.first_name != blank %}, {{ customer.first_name }}{% endif %}.</p>
+      </div>
+      <a href="{{ routes.account_logout_url }}" class="fs-customer-btn fs-customer-btn--secondary">Log Out</a>
+    </div>
+
+    <div class="fs-customer-grid">
+      <div class="fs-customer-panel">
+        <h2>Order History</h2>
+        {% paginate customer.orders by 20 %}
+          {% if customer.orders.size > 0 %}
+            <div class="fs-customer-table-wrap">
+              <table class="fs-customer-table">
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Date</th>
+                    <th>Payment Status</th>
+                    <th>Fulfillment</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for order in customer.orders %}
+                    <tr>
+                      <td>
+                        <a href="{{ order.customer_url }}" class="fs-customer-link">{{ order.name }}</a>
+                      </td>
+                      <td>{{ order.created_at | time_tag: format: 'date' }}</td>
+                      <td>{{ order.financial_status_label }}</td>
+                      <td>{{ order.fulfillment_status_label }}</td>
+                      <td>{{ order.total_net_amount | money_with_currency }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% else %}
+            <p style="margin: 0; color: #555555;">You haven't placed any orders yet.</p>
+          {% endif %}
+
+          {% if paginate.pages > 1 %}
+            <div class="fs-customer-actions" style="margin-top: 20px;">
+              {{ paginate | default_pagination }}
+            </div>
+          {% endif %}
+        {% endpaginate %}
+      </div>
+
+      <div class="fs-customer-panel">
+        <h2>Account Details</h2>
+        {% if customer.default_address %}
+          <div style="font-size: 14px; line-height: 1.6; margin-bottom: 20px;">
+            {{ customer.default_address | format_address }}
+          </div>
+        {% else %}
+          <p style="font-size: 14px; color: #555555; margin-bottom: 20px;">No default address saved yet.</p>
+        {% endif %}
+        <a href="{{ routes.account_addresses_url }}" class="fs-customer-btn">Manage Addresses ({{ customer.addresses_count }})</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Account",
+  "settings": []
+}
+{% endschema %}

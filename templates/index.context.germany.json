@@ -1,0 +1,280 @@
+{
+  "context": {
+    "market": "germany"
+  },
+  "parent": "index.json",
+  "sections": {
+    "custom_banner_M7gQKd": {
+      "settings": {
+        "eyebrow": "HANDGEFERTIGT IN BALI SEIT 1994",
+        "heading": "Sportbekleidung aus Baumwolle mit Seele",
+        "primary_label": "JETZT SHOPPEN",
+        "secondary_label": "NACH PRINTS SHOPPEN"
+      }
+    },
+    "section_6zhiU4": {
+      "blocks": {
+        "group_6gVN3j": {
+          "blocks": {
+            "group_T4pVQd": {
+              "blocks": {
+                "text_hAGKzW": {
+                  "settings": {
+                    "text": "<p>Hochwertige Stoffe</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "group_zJCkPx": {
+          "blocks": {
+            "group_9XJKgG": {
+              "blocks": {
+                "text_Nc7kc9": {
+                  "settings": {
+                    "text": "<p>Fairer Handel aus Bali</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "group_36UbhG": {
+          "blocks": {
+            "group_qTHY8i": {
+              "blocks": {
+                "text_8qJJe6": {
+                  "settings": {
+                    "text": "<p>4-Wege-Stretch-Baumwolle</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "group_MnzqRC": {
+          "blocks": {
+            "group_b8BhVn": {
+              "blocks": {
+                "text_w6m4AE": {
+                  "settings": {
+                    "text": "<p>Original Schweizer Designkunst</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "group_mTfYPM": {
+          "blocks": {
+            "group_kqiNpp": {
+              "blocks": {
+                "text_Hg6nHx": {
+                  "settings": {
+                    "text": "<p>Hochwertige Stoffe</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "group_QmAPT6": {
+          "blocks": {
+            "group_b8mWFM": {
+              "blocks": {
+                "text_F3bKh9": {
+                  "settings": {
+                    "text": "<p>Fairer Handel aus Bali</p>"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "style_collection_row_shop": {
+      "settings": {
+        "heading": "Nach Stil shoppen"
+      }
+    },
+    "section_Uk9bUB": {
+      "blocks": {
+        "button_QVwkNk": {
+          "settings": {
+            "label": "ALLE ANSEHEN"
+          }
+        }
+      }
+    },
+    "print_collection_row_shop": {
+      "settings": {
+        "heading": "Einzigartige Funky Prints"
+      }
+    },
+    "section_yeaQgP": {
+      "blocks": {
+        "button_XVBiJK": {
+          "settings": {
+            "label": "ALLE ANSEHEN"
+          }
+        }
+      }
+    },
+    "tabbed_collection_carousel_MFGEYK": {
+      "settings": {
+        "heading": "Unsere Bestseller",
+        "view_all_text": "ALLE ANSEHEN"
+      }
+    },
+    "fabric_features_banner_Qikw9m": {
+      "settings": {
+        "heading": "<p>90% Baumwolle.<br/>10% Stretch.</p>",
+        "description": "<p>Jedes Stück wird aus unserer charakteristischen Mischung aus 90% atmungsaktiver Baumwolle und 10% Elasthan gefertigt – für natürliche Weichheit und ganztägige Bewegungsfreiheit.</p>"
+      },
+      "blocks": {
+        "feature_MbWK8Q": {
+          "settings": {
+            "title": "Baumwollreicher Stoff",
+            "text": "Hergestellt aus 90% Baumwolle für ein weiches, atmungsaktives Tragegefühl."
+          }
+        },
+        "feature_hy6fBg": {
+          "settings": {
+            "title": "Angenehmer Stretch",
+            "text": "10% Elasthan, das jede Bewegung mitmacht."
+          }
+        },
+        "feature_PXR4Kd": {
+          "settings": {
+            "title": "Für jeden Tag gemacht",
+            "text": "Entwickelt für dauerhaften Komfort im Alltag und beim Yoga."
+          }
+        }
+      }
+    },
+    "google_reviews_grid_FMnrpF": {
+      "settings": {
+        "heading": "Google-Bewertungen unserer Kunden",
+        "rating_prefix": "Mit 5/5 bewertet auf",
+        "view_all_text": "ALLE BEWERTUNGEN ANSEHEN"
+      }
+    },
+    "featured_collection_split_EcGpnQ": {
+      "settings": {
+        "banner_heading": "Für Ihn",
+        "view_all_text": "ALLE ANSEHEN"
+      }
+    },
+    "hero_feature_boxes_KndTVh": {
+      "settings": {
+        "heading": "Die perfekte Leggings\nVon unserer Bali-Familie für Sie"
+      },
+      "blocks": {
+        "feature_box_R7dKyN": {
+          "settings": {
+            "title": "4-Wege-Stretch-Baumwolle",
+            "text": "Von Tag zu Spiel, bewegen Sie sich frei und selbstbewusst – unsere Leggings dehnen sich in alle Richtungen für maximale Flexibilität und Halt."
+          }
+        },
+        "feature_box_zj8RyX": {
+          "settings": {
+            "title": "Butterweicher Komfort",
+            "text": "Unser ultraweicher Baumwoll-Stretchstoff fühlt sich wie eine zweite Haut an und hält alles an seinem Platz. Keine schlappen Knie oder hängenden Hintern."
+          }
+        },
+        "feature_box_caRHUV": {
+          "settings": {
+            "title": "Balinesisches Handwerk",
+            "text": "Jedes Paar wird liebevoll von einer Familie erfahrener Handwerker in dem Atelier gefertigt, das wir neben ihrem Zuhause auf Bali gebaut haben."
+          }
+        },
+        "feature_box_RVmpmH": {
+          "settings": {
+            "title": "Hochwertige Stoffe",
+            "text": "Unsere Leggings bestehen aus einer hochwertigen Mischung aus 90% Baumwolle und 10% Elasthan, die unzählige Wäschen überstehen."
+          }
+        }
+      }
+    },
+    "section_ctkgYh": {
+      "blocks": {
+        "group_4E9YAz": {
+          "blocks": {
+            "text_CrQ7PA": {
+              "settings": {
+                "text": "<p>Lernen Sie unser Funky<br/>Simplicity Team kennen<br/></p>"
+              }
+            },
+            "text_r9r7Bj": {
+              "settings": {
+                "text": "<p>Mit Seele in Bali genäht. Versand aus den Niederlanden</p>"
+              }
+            },
+            "text_zzrHXj": {
+              "settings": {
+                "text": "<p>Jedes Funky Simplicity Stück wird von einer wunderschönen Familie in Bali genäht, in einem friedlichen Atelier, das an ihr Zuhause angebaut ist und das wir 2020 mit Unterstützung unserer großartigen Kunden gebaut haben – ein Ort der Freude, Würde und Kreativität.</p><p>Bestellungen werden täglich mit Liebe aus unserem niederländischen Fulfillment-Center direkt zu Ihrer Tür geliefert.<br/></p>"
+              }
+            },
+            "button_fQCbRa": {
+              "settings": {
+                "label": "DIE MACHER KENNENLERNEN"
+              }
+            }
+          }
+        }
+      }
+    },
+    "community_mosaic_grid_DVKKwQ": {
+      "settings": {
+        "heading": "Unsere Funky Community",
+        "button_label": "WERDE TEIL DER COMMUNITY"
+      }
+    },
+    "featured_causes_jmwFEN": {
+      "settings": {
+        "heading": "Projekte, die wir lieben & jeden Monat unterstützen – dank Ihnen ❤️"
+      },
+      "blocks": {
+        "cause_card_dPzmU9": {
+          "settings": {
+            "text": "Vielleicht haben Sie Seaspiracy auf Netflix gesehen. Diese planetenliebenden Helden halten unsere Ozeane sauber und unsere Meeresfreunde sicher. Ihre engagierte Arbeit bewahrt die fragilen Ökosysteme der Ozeane. Wenn Sie eine Leggings kaufen – sehen Sie nicht nur großartig aus, sondern tun auch etwas Gutes!",
+            "link_label": "Ich bin interessiert, zeig mir die Website 💗"
+          }
+        },
+        "cause_card_hxVX79": {
+          "settings": {
+            "title": "Bärenschutzgebiet Vietnam",
+            "text": "Während wir uns ganz dem Herstellen großartiger Leggings widmen, möchten wir auch etwas an unseren Planeten und seine wunderschönen Bewohner zurückgeben. Wir unterstützen das Bärenschutzgebiet in Vietnam mit monatlichen Spenden. Das Bear Sanctuary Vietnam ist ein gemeinnütziges Projekt, das sich der Rettung, Rehabilitation und dem Schutz der gefährdeten Bären Vietnams widmet.",
+            "link_label": "Ich bin interessiert, zeig mir die Website 💗"
+          }
+        }
+      }
+    },
+    "icon_features_bar_pfzAtC": {
+      "blocks": {
+        "feature_rny4h9": {
+          "settings": {
+            "title": "Hochwertige Stoffe"
+          }
+        },
+        "feature_NGWUkA": {
+          "settings": {
+            "title": "Fair auf Bali handgefertigt"
+          }
+        },
+        "feature_NUh3NL": {
+          "settings": {
+            "title": "4-Wege-Stretch-Baumwolle"
+          }
+        },
+        "feature_a9xP8P": {
+          "settings": {
+            "title": "Original Schweizer Designkunst"
+          }
+        }
+      }
+    }
+  }
+}

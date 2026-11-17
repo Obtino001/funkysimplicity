@@ -174,7 +174,8 @@
           "men-collection",
           "jeans-jeggings",
           "women-shirts-blouses",
-          "underwear"
+          "underwear",
+          "men-shirts"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,

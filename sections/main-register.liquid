@@ -1,0 +1,82 @@
+{% render 'customer-styles' %}
+
+<div class="fs-customer-page">
+  <div class="fs-customer-card">
+    <h1 class="fs-customer-title">Create Account</h1>
+    <p class="fs-customer-subtitle">Join Funky Simplicity to track orders and save your preferred fit & addresses.</p>
+
+    {% form 'create_customer', class: 'fs-customer-form' %}
+      {% if form.errors %}
+        <div class="fs-customer-alert fs-customer-alert--error">
+          {{ form.errors | default_errors }}
+        </div>
+      {% endif %}
+
+      <div class="fs-customer-field">
+        <label class="fs-customer-label" for="RegisterForm-FirstName">First Name</label>
+        <input
+          type="text"
+          name="customer[first_name]"
+          id="RegisterForm-FirstName"
+          class="fs-customer-input"
+          value="{% if form.first_name %}{{ form.first_name }}{% endif %}"
+          autocomplete="given-name"
+        >
+      </div>
+
+      <div class="fs-customer-field">
+        <label class="fs-customer-label" for="RegisterForm-LastName">Last Name</label>
+        <input
+          type="text"
+          name="customer[last_name]"
+          id="RegisterForm-LastName"
+          class="fs-customer-input"
+          value="{% if form.last_name %}{{ form.last_name }}{% endif %}"
+          autocomplete="family-name"
+        >
+      </div>
+
+      <div class="fs-customer-field">
+        <label class="fs-customer-label" for="RegisterForm-email">Email</label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="RegisterForm-email"
+          class="fs-customer-input"
+          value="{% if form.email %}{{ form.email }}{% endif %}"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="fs-customer-field">
+        <label class="fs-customer-label" for="RegisterForm-password">Password</label>
+        <input
+          type="password"
+          name="customer[password]"
+          id="RegisterForm-password"
+          class="fs-customer-input"
+          autocomplete="new-password"
+          required
+        >
+      </div>
+
+      <div class="fs-customer-actions" style="flex-direction: column; align-items: stretch;">
+        <button type="submit" class="fs-customer-btn">Create Account</button>
+      </div>
+
+      <div style="text-align: center; margin-top: 8px;">
+        <a href="{{ routes.account_login_url }}" class="fs-customer-link">Already have an account? Sign in</a>
+      </div>
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer Register",
+  "settings": []
+}
+{% endschema %}

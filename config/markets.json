@@ -1,0 +1,10 @@
+{
+  "markets": {
+    "germany": {
+      "parent": "@default"
+    },
+    "nl": {
+      "parent": "@default"
+    }
+  }
+}

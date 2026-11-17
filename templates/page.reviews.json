@@ -1,0 +1,632 @@
+{
+  "sections": {
+    "reviews_grid": {
+      "type": "google-reviews-grid",
+      "blocks": {
+        "rev_1": {
+          "type": "review",
+          "settings": {
+            "author": "Christine",
+            "avatar_color": "#e06d53",
+            "rating": 5,
+            "text": "I do not wear anything else but the cotton leggins by FunkySimplicity! Really, ive ditched tights alltogether as the waistbands were always cutting me. Not so the case with these wonderful leggins. The fabric is just so super SOFT and durable. Ive bought two pairs last year and was wearing them for 12 months straight and they are still perfectly in shape. Plus they are ethically produced.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_2": {
+          "type": "review",
+          "settings": {
+            "author": "Dannii",
+            "avatar_color": "#b93815",
+            "rating": 5,
+            "text": "If you are in doubt, just listen... these are the best leggings EVER. The way they feel and fit around my thighs & butt is incredible. No sneak peaks when I squat & I don’t hear any seams tearing when I go to pull them up. Thank you all so much for creating this wearable masterpiece, I’ll deff be buying more!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_3": {
+          "type": "review",
+          "settings": {
+            "author": "Laura",
+            "avatar_color": "#4d7c0f",
+            "rating": 5,
+            "text": "These are not only the most excellent yoga pants I’ve ever owned; they’re possibly the best pants I’ve ever owned. The fabric is outstanding quality with excellent fit around hips and bum. No ugly sag in back! The boot cut is very flattering to legs. Great customer service as well. Thank you!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_4": {
+          "type": "review",
+          "settings": {
+            "author": "Zoé",
+            "avatar_color": "#c2410c",
+            "rating": 5,
+            "text": "The leggings are a dream. The quality is just great and the shipping was very fast. The fit is perfect, it shapes without cutting in and is super comfortable. Thank you so much to Sanne and FunkySimplicity for the great leggings!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_5": {
+          "type": "review",
+          "settings": {
+            "author": "Rachele",
+            "avatar_color": "#558b2f",
+            "rating": 5,
+            "text": "As always, the best yoga pants in the world! Thank you Sanne for the help in sizing, I can't get enough of funkysimplicity",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_6": {
+          "type": "review",
+          "settings": {
+            "author": "Sudha",
+            "avatar_color": "#2e7d32",
+            "rating": 5,
+            "text": "These pants are so comfy and sexy!! The material quality is outstanding, with such a fun color and print, and the fit is exceptional. Can't wait for my next pair. Thanks Sanne!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_7": {
+          "type": "review",
+          "settings": {
+            "author": "Obsibian",
+            "avatar_color": "#596f53",
+            "rating": 5,
+            "text": "Really lovely and strong material, but whilst being flexible and good fit. Amazing pattern. I feel fiery in them ha!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_8": {
+          "type": "review",
+          "settings": {
+            "author": "Martina",
+            "avatar_color": "#854d0e",
+            "rating": 5,
+            "text": "Best pants on etsy and on this planet. Super good fit, very comfortable, great quality. My pair number 5 over many years and I keep coming back. Keep up your excellent work! Thank you!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_9": {
+          "type": "review",
+          "settings": {
+            "author": "Mary",
+            "avatar_color": "#e06d53",
+            "rating": 5,
+            "text": "These work! Super sexy! The fabric and cut on these are fabulous. The design is by far the most artistic of zebra designs that I've seen anywhere. They are truly stunning and make me feel beautiful! Excellent customer service and fast delivery.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_10": {
+          "type": "review",
+          "settings": {
+            "author": "AC",
+            "avatar_color": "#b93815",
+            "rating": 5,
+            "text": "Bought so many items in my order and while some were not available, Sanne was very communicative and made sure I got something else that I wanted. :)",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_11": {
+          "type": "review",
+          "settings": {
+            "author": "Siem",
+            "avatar_color": "#4d7c0f",
+            "rating": 5,
+            "text": "Het is precies wat staat omschreven en het is een geweldige broek",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_12": {
+          "type": "review",
+          "settings": {
+            "author": "Julia",
+            "avatar_color": "#c2410c",
+            "rating": 5,
+            "text": "Sehr achtsame Verkäuferin, stellte Rückfragen, legte Wert darauf das mir die Legging auch wirklich meinen Wünschen entspricht. Legging ist aus festem, hochwertigem Stoff - ist ihren Preis definitiv wert.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_13": {
+          "type": "review",
+          "settings": {
+            "author": "Wieteke",
+            "avatar_color": "#558b2f",
+            "rating": 5,
+            "text": "I love the item! Somebody was wearing it in my yogaclass and it looked so good. High quality, good fit.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_14": {
+          "type": "review",
+          "settings": {
+            "author": "AC",
+            "avatar_color": "#2e7d32",
+            "rating": 5,
+            "text": "Sanne let me know right away when a print was out and gave me great options — I ended up getting white dragon in the low waist hotpants, and man... I love them! Thank you, Sanne, for your lovely items and great customer service!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_15": {
+          "type": "review",
+          "settings": {
+            "author": "Claudia",
+            "avatar_color": "#596f53",
+            "rating": 5,
+            "text": "Ein geniales Teil, super Passform, angenehm zu tragen und macht einen tollen Hintern… love it!!!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_16": {
+          "type": "review",
+          "settings": {
+            "author": "Andie",
+            "avatar_color": "#854d0e",
+            "rating": 5,
+            "text": "Super, wie immer! Erstklassiges Service!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_17": {
+          "type": "review",
+          "settings": {
+            "author": "karinebie75",
+            "avatar_color": "#e06d53",
+            "rating": 5,
+            "text": "De leggings van Funky Simplicity vind ik fantastisch! Ze zitten heerlijk! Voor mijn type huid, heel fijn dat het volledig katoen is. En de stoffen zijn ook super mooi. Ik ben er heel blij mee! Karin",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_18": {
+          "type": "review",
+          "settings": {
+            "author": "Stéphanie",
+            "avatar_color": "#b93815",
+            "rating": 5,
+            "text": "Super legging, de très bonne qualité. Je l'adore. Sanne est de très bon conseil pour aider à choisir la taille, encore merci, n'hésitez pas.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_19": {
+          "type": "review",
+          "settings": {
+            "author": "Claudia",
+            "avatar_color": "#4d7c0f",
+            "rating": 5,
+            "text": "Ein geniales Teil! Sehr fester, qualitativ hochwertiger Stoff und doch dehnbar… kaufe ich direkt noch für meine Freundin❣️",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_20": {
+          "type": "review",
+          "settings": {
+            "author": "Martina",
+            "avatar_color": "#c2410c",
+            "rating": 5,
+            "text": "Thank you so much! I had to come back for another pair as they are just great .... as always super customer service. I especially love the super high waist. The leggings fit super perfect, feel and look great.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_21": {
+          "type": "review",
+          "settings": {
+            "author": "Janina",
+            "avatar_color": "#558b2f",
+            "rating": 5,
+            "text": "TOP! Passt wie angegossen, gerne wieder!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_22": {
+          "type": "review",
+          "settings": {
+            "author": "RomanTisch",
+            "avatar_color": "#2e7d32",
+            "rating": 5,
+            "text": "Super schöne Leggings 😍 und eine sooo liebe Verkäuferin! Ganz lieben Dank für den lieben Kontakt und die tolle Leggings 💞🙏🏻",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_23": {
+          "type": "review",
+          "settings": {
+            "author": "Customer",
+            "avatar_color": "#596f53",
+            "rating": 4,
+            "text": "The T-shirt looks as depicted in the images. The fabric is thin and soft, of high quality, and very pleasant to wear. The red one is a beautiful, vibrant colour. Good craftsmanship!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_24": {
+          "type": "review",
+          "settings": {
+            "author": "Julie",
+            "avatar_color": "#854d0e",
+            "rating": 5,
+            "text": "These shorts are really cute. I love the cut and the fabric is thick and high quality. Sanne was very helpful in making sure my order was exactly right. I highly recommend this seller.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_25": {
+          "type": "review",
+          "settings": {
+            "author": "Andie",
+            "avatar_color": "#e06d53",
+            "rating": 5,
+            "text": "Really good quality, great needlework!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_26": {
+          "type": "review",
+          "settings": {
+            "author": "Maura",
+            "avatar_color": "#b93815",
+            "rating": 5,
+            "text": "Love these and quality is amazing, Sanne is so lovely to deal with, highly recommend 💜",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_27": {
+          "type": "review",
+          "settings": {
+            "author": "Verified Customer",
+            "avatar_color": "#4d7c0f",
+            "rating": 5,
+            "text": "Super tolle leggings 🥰 sehr schöner Stoff! Sanne ist eine super liebe Verkäuferin und macht eine tolle Beratung! Ganz ganz lieben Dank ❤️❤️❤️",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_28": {
+          "type": "review",
+          "settings": {
+            "author": "Maria Isabel",
+            "avatar_color": "#c2410c",
+            "rating": 5,
+            "text": "It's an amazing Leggings, love it!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_29": {
+          "type": "review",
+          "settings": {
+            "author": "jademuse",
+            "avatar_color": "#558b2f",
+            "rating": 5,
+            "text": "Sanne was so wonderful in getting me properly sized for this beautiful blouse. The fabric is soft and the print is classy. Definitely a great purchase. Thank you Sanne!!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_30": {
+          "type": "review",
+          "settings": {
+            "author": "Vanessa",
+            "avatar_color": "#2e7d32",
+            "rating": 5,
+            "text": "The jumpsuit is gorgeous and very high quality and the customer service was above and beyond. Will be ordering more!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_31": {
+          "type": "review",
+          "settings": {
+            "author": "Mellie",
+            "avatar_color": "#596f53",
+            "rating": 5,
+            "text": "Super kwaliteit broek, zit heerlijk en komt overeen met mijn verwachtingen.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_32": {
+          "type": "review",
+          "settings": {
+            "author": "Iris",
+            "avatar_color": "#854d0e",
+            "rating": 5,
+            "text": "Really amazing feel & fit. Love my new pants. So comfortable & sexy at the same time… also fast & helpful communications with Sanne. Highly recommend & will be back.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_33": {
+          "type": "review",
+          "settings": {
+            "author": "Sara",
+            "avatar_color": "#e06d53",
+            "rating": 5,
+            "text": "Love this simple top for yoga - very supportive yet not constricting and flattering - perfect design for active wear as it doesn’t ride up or fall down… Great 👍",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_34": {
+          "type": "review",
+          "settings": {
+            "author": "Sara",
+            "avatar_color": "#b93815",
+            "rating": 5,
+            "text": "Fab! Great fit and flattering cut, most importantly stays in place while you move. Very happy with the item and seller, thank you! 🙏",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_35": {
+          "type": "review",
+          "settings": {
+            "author": "Maya",
+            "avatar_color": "#4d7c0f",
+            "rating": 5,
+            "text": "Great customer service and beautiful, stylish leggings. Thanks :-)",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_36": {
+          "type": "review",
+          "settings": {
+            "author": "Maluna",
+            "avatar_color": "#c2410c",
+            "rating": 5,
+            "text": "Beautiful fitting, great design and material. I am super happy with the product!! Very comfy, would definitely buy again and again 🌼",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_37": {
+          "type": "review",
+          "settings": {
+            "author": "Martina",
+            "avatar_color": "#558b2f",
+            "rating": 5,
+            "text": "Super happy with this catsuit. Fits perfect, excellent quality as always and just so yummy to wear. Thank you, FunkySimplicity for existing and making this world just that little more fun and funky.",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        },
+        "rev_38": {
+          "type": "review",
+          "settings": {
+            "author": "Dawn",
+            "avatar_color": "#2e7d32",
+            "rating": 5,
+            "text": "Love them! They fit so well and are so soft! I want to wear them all the time!",
+            "date": "Verified Customer",
+            "show_google_badge": true
+          }
+        }
+      },
+      "block_order": [
+        "rev_1",
+        "rev_2",
+        "rev_3",
+        "rev_4",
+        "rev_5",
+        "rev_6",
+        "rev_7",
+        "rev_8",
+        "rev_9",
+        "rev_10",
+        "rev_11",
+        "rev_12",
+        "rev_13",
+        "rev_14",
+        "rev_15",
+        "rev_16",
+        "rev_17",
+        "rev_18",
+        "rev_19",
+        "rev_20",
+        "rev_21",
+        "rev_22",
+        "rev_23",
+        "rev_24",
+        "rev_25",
+        "rev_26",
+        "rev_27",
+        "rev_28",
+        "rev_29",
+        "rev_30",
+        "rev_31",
+        "rev_32",
+        "rev_33",
+        "rev_34",
+        "rev_35",
+        "rev_36",
+        "rev_37",
+        "rev_38"
+      ],
+      "settings": {
+        "heading": "Why People Choose Us",
+        "heading_size": "h1",
+        "rating_prefix": "Rated 5/5 On",
+        "google_logo": "shopify://shop_images/image_10_cd412fdf-7e3d-48bd-b377-ea396ed6ee83.png",
+        "enable_marquee": false,
+        "marquee_speed": 35,
+        "card_bg": "#f6f6f6",
+        "text_color": "#171717",
+        "star_color": "#f59e0b",
+        "show_view_all": false,
+        "view_all_text": "VIEW ALL REVIEWS",
+        "view_all_link": "",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "shop_look_tabs": {
+      "type": "tabbed-collection-carousel",
+      "blocks": {
+        "tab_1": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "plain-colors",
+            "tab_title": "Plain Colors",
+            "view_all_url": ""
+          }
+        },
+        "tab_2": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "feather",
+            "tab_title": "Feathers",
+            "view_all_url": ""
+          }
+        },
+        "tab_3": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "leggings-with-pockets",
+            "tab_title": "Leggings With Pockets",
+            "view_all_url": ""
+          }
+        },
+        "tab_4": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "catsuits",
+            "tab_title": "Catsuits",
+            "view_all_url": ""
+          }
+        },
+        "tab_5": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "women-shirts-blouses",
+            "tab_title": "Blouses",
+            "view_all_url": ""
+          }
+        },
+        "tab_6": {
+          "type": "collection_tab",
+          "settings": {
+            "collection": "men-collection",
+            "tab_title": "Men Collection",
+            "view_all_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_1",
+        "tab_2",
+        "tab_3",
+        "tab_4",
+        "tab_5",
+        "tab_6"
+      ],
+      "settings": {
+        "heading": "Shop Customer Favorites",
+        "heading_size": "h2",
+        "section_width": "page-width",
+        "background_color": "#ffffff",
+        "columns_desktop": "4.5",
+        "columns_mobile": "2",
+        "products_to_show": 8,
+        "gap": 8,
+        "card_aspect_ratio": "portrait",
+        "show_secondary_image": true,
+        "show_badges": true,
+        "low_stock_threshold": 5,
+        "show_quick_shop": true,
+        "show_swatches": true,
+        "show_view_all": true,
+        "view_all_text": "VIEW ALL",
+        "padding_top": 48,
+        "padding_bottom": 64
+      }
+    },
+    "features": {
+      "type": "icon-features-bar",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather_fabric",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_star",
+            "custom_svg": "",
+            "title": "Handmade Fairly In Bali",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "stretch",
+            "custom_svg": "",
+            "title": "4 Way Stretch Cotton",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand_diamond",
+            "custom_svg": "",
+            "title": "Original Swiss Artwork",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "custom_css": [
+        ".ifb-grid {background: #f6f6f6; padding: 30px 0;}",
+        ".ifb-container {max-width: var(--fs-site-width, 1600px);}"
+      ],
+      "settings": {
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "{{ settings.color_palette.foreground }}",
+        "icon_color": "{{ settings.color_palette.foreground }}",
+        "show_dividers": true,
+        "divider_color": "#c5c5c5",
+        "icon_size": 60,
+        "font_size": 18,
+        "section_width": "page-width",
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "reviews_grid",
+    "shop_look_tabs",
+    "features"
+  ]
+}

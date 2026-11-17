@@ -1,0 +1,123 @@
+{% render 'customer-styles' %}
+
+<div class="fs-customer-page">
+  <div class="fs-customer-card">
+    <div id="RecoverPasswordSection" style="display: none;">
+      <h1 class="fs-customer-title">Reset your password</h1>
+      <p class="fs-customer-subtitle">We will send you an email to reset your password.</p>
+
+      {% form 'recover_customer_password', class: 'fs-customer-form' %}
+        {% assign recover_success = form.posted_successfully? %}
+        {% if form.errors %}
+          <div class="fs-customer-alert fs-customer-alert--error">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <div class="fs-customer-field">
+          <label class="fs-customer-label" for="RecoverEmail">Email</label>
+          <input
+            type="email"
+            value=""
+            name="email"
+            id="RecoverEmail"
+            class="fs-customer-input"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <div class="fs-customer-actions">
+          <button type="submit" class="fs-customer-btn">Submit</button>
+          <button type="button" class="fs-customer-link" onclick="toggleRecoverForm(false)">Cancel</button>
+        </div>
+      {% endform %}
+    </div>
+
+    <div id="CustomerLoginSection">
+      <h1 class="fs-customer-title">Login</h1>
+      <p class="fs-customer-subtitle">Sign in to view your orders, wishlist, and saved addresses.</p>
+
+      {% if recover_success %}
+        <div class="fs-customer-alert fs-customer-alert--success">
+          We've sent you an email with a link to update your password.
+        </div>
+      {% endif %}
+
+      {% form 'customer_login', class: 'fs-customer-form' %}
+        {% if form.errors %}
+          <div class="fs-customer-alert fs-customer-alert--error">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <div class="fs-customer-field">
+          <label class="fs-customer-label" for="CustomerEmail">Email</label>
+          <input
+            type="email"
+            name="customer[email]"
+            id="CustomerEmail"
+            class="fs-customer-input"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            required
+          >
+        </div>
+
+        {% if form.password_needed %}
+          <div class="fs-customer-field">
+            <label class="fs-customer-label" for="CustomerPassword">Password</label>
+            <input
+              type="password"
+              name="customer[password]"
+              id="CustomerPassword"
+              class="fs-customer-input"
+              autocomplete="current-password"
+              required
+            >
+          </div>
+        {% endif %}
+
+        <div class="fs-customer-actions" style="justify-content: space-between;">
+          <button type="button" class="fs-customer-link" onclick="toggleRecoverForm(true)">Forgot your password?</button>
+          <a href="{{ routes.account_register_url }}" class="fs-customer-link">Create account</a>
+        </div>
+
+        <div class="fs-customer-actions">
+          <button type="submit" class="fs-customer-btn" style="width: 100%;">Sign In</button>
+        </div>
+      {% endform %}
+
+      {% if shop.checkout.guest_login %}
+        <hr style="margin: 28px 0; border: 0; border-top: 1px solid #dfdfdf;">
+        <h2 class="fs-customer-title" style="font-size: 22px;">Continue as a guest</h2>
+        {% form 'guest_login', class: 'fs-customer-form' %}
+          <button type="submit" class="fs-customer-btn fs-customer-btn--secondary" style="width: 100%;">Continue</button>
+        {% endform %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleRecoverForm(show) {
+    var recover = document.getElementById('RecoverPasswordSection');
+    var login = document.getElementById('CustomerLoginSection');
+    if (!recover || !login) return;
+    recover.style.display = show ? 'block' : 'none';
+    login.style.display = show ? 'none' : 'block';
+  }
+  if (window.location.hash === '#recover') {
+    toggleRecoverForm(true);
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Customer Login",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,972 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "heading": "The perfect fit, every time",
+        "subtext": "<p>While our inclusive size range—from XXS to XXL—covers most needs, we understand that sometimes you want something extra special. If you’re shorter than 1.60m or taller than 1.80m, or simply looking for a more personalized fit, we offer custom-sized leggings tailored just for you!</p>",
+        "text_alignment": "center",
+        "show_breadcrumb": false,
+        "background_color": "",
+        "min_height": 0,
+        "padding_block_start": 50,
+        "padding_block_end": 32
+      }
+    },
+    "showcase_grid": {
+      "type": "section",
+      "blocks": {
+        "card_group_1": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 24,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "background_media": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "img_1": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/WhatsApp_Image_2024-08-24_at_11.42.36.jpg",
+                "image_ratio": "portrait",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "border_radius": 10
+              },
+              "blocks": {}
+            },
+            "title_1": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Custom made flared leggings</h4>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "h4",
+                "font": "var(--font-heading--family)"
+              },
+              "blocks": {}
+            },
+            "desc_1": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Struggle to find flared leggings that don’t drag on the floor or hit at the wrong spot? Our custom-made flared leggings are tailored to your height and preferences, ensuring a flattering flare every time.</p>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "img_1",
+            "title_1",
+            "desc_1"
+          ]
+        },
+        "card_group_2": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 24,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "background_media": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "img_2": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/pregnancyleggingsblacksnake.jpg",
+                "image_ratio": "portrait",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "border_radius": 10
+              },
+              "blocks": {}
+            },
+            "title_2": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Gentle support for every stage</h4>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "h4",
+                "font": "var(--font-heading--family)"
+              },
+              "blocks": {}
+            },
+            "desc_2": {
+              "type": "text",
+              "settings": {
+                "text": "<p>A little bundle of joy on its way? Our pregnancy leggings feature 4-way stretch cotton that grows with you, providing gentle, flexible support through every trimester—and beyond.</p>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "img_2",
+            "title_2",
+            "desc_2"
+          ]
+        },
+        "card_group_3": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 24,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "background_media": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "img_3": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/GREY_SNAKE.jpeg",
+                "image_ratio": "portrait",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "border_radius": 10
+              },
+              "blocks": {}
+            },
+            "title_3": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>No sag, no stress - just a perfect fit</h4>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "h4",
+                "font": "var(--font-heading--family)"
+              },
+              "blocks": {}
+            },
+            "desc_3": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Say goodbye to ill-fitting leggings and hello to the perfect fit. Whether you need extra length, a snug fit around your waist, or more room to move, our custom sizing feels like a second skin.</p>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "img_3",
+            "title_3",
+            "desc_3"
+          ]
+        },
+        "card_group_4": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "flex-start",
+            "gap": 12,
+            "width": "custom",
+            "custom_width": 24,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "background_media": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "img_4": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/IMG_1494.jpg",
+                "image_ratio": "portrait",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "border_radius": 10
+              },
+              "blocks": {}
+            },
+            "title_4": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Twice the fun - Matching duo sets</h4>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "h4",
+                "font": "var(--font-heading--family)"
+              },
+              "blocks": {}
+            },
+            "desc_4": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Whether you’re twinning with your partner, bestie, or little one, our matching duo sets bring joy to your wardrobe and are fully customizable for a flawless fit.</p>",
+                "width": "100%",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "img_4",
+            "title_4",
+            "desc_4"
+          ]
+        }
+      },
+      "block_order": [
+        "card_group_1",
+        "card_group_2",
+        "card_group_3",
+        "card_group_4"
+      ],
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "flex-start",
+        "gap": 16,
+        "section_width": "page-width",
+        "background_color": "#ffffff",
+        "padding-block-start": 16,
+        "padding-block-end": 48
+      }
+    },
+    "why_custom": {
+      "type": "section",
+      "blocks": {
+        "heading_1": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Why Go Custom?</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "acc_1": {
+          "type": "accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5",
+            "border": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "row_1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Inclusive sizes with extra personalization",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_1": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Our standard size range (XXS–XXL) is already designed to fit most, but if you're shorter than 1.60m or taller than 1.80m, or want a fit tailored to your shape, custom sizing is for you.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_1"
+              ]
+            },
+            "row_2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Your choice of design",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_2": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Select any print from our collection to make your leggings as unique as your personality.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_2"
+              ]
+            },
+            "row_3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Tailored waistlines and lengths",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Prefer a high, mid, or low waist? Extra leg length? You decide!</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_3"
+              ]
+            },
+            "row_4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "Pregnancy-friendly options",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_4": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Embrace every stage of life with leggings made for comfort and support during your pregnancy.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_4"
+              ]
+            }
+          },
+          "block_order": [
+            "row_1",
+            "row_2",
+            "row_3",
+            "row_4"
+          ]
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "acc_1"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "background_media": "none",
+        "background_color": "#f6f6f6",
+        "border": "none",
+        "padding-block-start": 32,
+        "padding-block-end": 36
+      }
+    },
+    "custom_form": {
+      "type": "section",
+      "blocks": {
+        "cf_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Ready to make it yours?</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "cf_intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let’s create your dream leggings or catsuit! Whether you need a special size, pregnancy-friendly design, or unique customization, we’re here to make it happen. Leave your height, weight, and specifications below to get started with your custom order today. Custom-made items incur an additional fee of €10.</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "contact_form_block": {
+          "type": "contact-form",
+          "settings": {
+            "width": "custom",
+            "custom_width": 60,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100,
+            "input_style": "default",
+            "show_consent_checkboxes": true,
+            "privacy_consent_label": "I consent to the processing of my personal data in accordance with the Privacy Policy.",
+            "marketing_consent_label": "I agree to receive marketing communications, offers, and updates via email.",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "submit-button": {
+              "type": "contact-form-submit-button",
+              "static": true,
+              "settings": {
+                "label": "Submit",
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        }
+      },
+      "block_order": [
+        "cf_heading",
+        "cf_intro",
+        "contact_form_block"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "border": "none",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "highlights_strip": {
+      "type": "section",
+      "blocks": {
+        "hl_1": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment": "center",
+            "gap": 6,
+            "width": "custom",
+            "custom_width": 32,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100
+          },
+          "blocks": {
+            "t1": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Tailored just for you</h4><p>Prefer a high, mid, or low waist? Long or short leg? You decide!</p>",
+                "alignment": "center",
+                "type_preset": "rte",
+                "text_color": "#ffffff"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "t1"
+          ]
+        },
+        "hl_2": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment": "center",
+            "gap": 6,
+            "width": "custom",
+            "custom_width": 32,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100
+          },
+          "blocks": {
+            "t2": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>Choose your design and print</h4><p>Select any print from our collection to make your unique legging.</p>",
+                "alignment": "center",
+                "type_preset": "rte",
+                "text_color": "#ffffff"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "t2"
+          ]
+        },
+        "hl_3": {
+          "type": "group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment": "center",
+            "gap": 6,
+            "width": "custom",
+            "custom_width": 32,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100
+          },
+          "blocks": {
+            "t3": {
+              "type": "text",
+              "settings": {
+                "text": "<h4>4-Way Stretch Cotton</h4><p>Superior comfort and flexibility.</p>",
+                "alignment": "center",
+                "type_preset": "rte",
+                "text_color": "#ffffff"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "t3"
+          ]
+        }
+      },
+      "block_order": [
+        "hl_1",
+        "hl_2",
+        "hl_3"
+      ],
+      "settings": {
+        "content_direction": "row",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "gap": 24,
+        "section_width": "full-width",
+        "background_color": "#596f53",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
+    },
+    "how_it_works": {
+      "type": "section",
+      "blocks": {
+        "heading_1": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>How does it work?</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "acc_1": {
+          "type": "accordion",
+          "settings": {
+            "icon": "plus",
+            "dividers": true,
+            "type_preset": "h5",
+            "border": "none",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "row_1": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "1. Start your order",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_1": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Fill out the custom order form above with your measurements and preferences. Let us know your preferred print, waistline style, or any specific requests.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_1"
+              ]
+            },
+            "row_2": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "2. Finalize your custom order",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_2": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Our founder, Sanne, will personally reach out to confirm your order details, ensuring everything is just right before we begin making your custom leggings.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_2"
+              ]
+            },
+            "row_3": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "3. We create your custom leggings",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_3": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Our loving <a href=\"/pages/meet-the-makers\">Balinese makers</a> will make your leggings or catsuit in fair trade and ethical conditions.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_3"
+              ]
+            },
+            "row_4": {
+              "type": "_accordion-row",
+              "settings": {
+                "heading": "4. Delivered to you",
+                "open_by_default": false,
+                "icon": "none"
+              },
+              "blocks": {
+                "text_4": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Enjoy your one-of-a-kind Funky Simplicity creation, tailored just for you!</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "background": false,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_4"
+              ]
+            }
+          },
+          "block_order": [
+            "row_1",
+            "row_2",
+            "row_3",
+            "row_4"
+          ]
+        }
+      },
+      "block_order": [
+        "heading_1",
+        "acc_1"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.background }}",
+        "border": "none",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    },
+    "features": {
+      "type": "icon-features-bar",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "feather_fabric",
+            "custom_svg": "",
+            "title": "High Quality Fabrics",
+            "link": ""
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "badge_star",
+            "custom_svg": "",
+            "title": "Handmade Fairly In Bali",
+            "link": ""
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "stretch",
+            "custom_svg": "",
+            "title": "4 Way Stretch Cotton",
+            "link": ""
+          }
+        },
+        "feature_4": {
+          "type": "feature",
+          "settings": {
+            "icon": "hand_diamond",
+            "custom_svg": "",
+            "title": "Original Swiss Artwork",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "feature_4"
+      ],
+      "custom_css": [
+        ".ifb-grid {background: #f6f6f6; padding: 30px 0;}",
+        ".ifb-container {max-width: var(--fs-site-width, 1600px);}"
+      ],
+      "settings": {
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "{{ settings.color_palette.foreground }}",
+        "icon_color": "{{ settings.color_palette.foreground }}",
+        "show_dividers": true,
+        "divider_color": "#c5c5c5",
+        "icon_size": 60,
+        "font_size": 18,
+        "section_width": "page-width",
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "showcase_grid",
+    "why_custom",
+    "custom_form",
+    "highlights_strip",
+    "how_it_works",
+    "features"
+  ]
+}
