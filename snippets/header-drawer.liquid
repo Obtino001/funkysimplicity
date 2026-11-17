@@ -1264,19 +1264,18 @@
      it from being clipped. */
   .menu-drawer__close-button.menu-drawer__close-button,
   .menu-drawer__back-button.menu-drawer__back-button {
-    border-radius: 0;
+    border-radius: 50%;
     outline-offset: calc(var(--padding-2xs) * -1);
   }
 
   .button.close-button.menu-drawer__close-button.focus-inset span.svg-wrapper.header-drawer-icon.header-drawer-icon--close svg{
-stroke: #000000 !important;
-    color: #000000 !important;
+    stroke: #171717 !important;
+    color: #171717 !important;
   }
 
-  /* Safari < 16.4 draws the close focus ring via a pseudo-element; keep it
-     rectangular there too. */
+  /* Safari < 16.4 draws the close focus ring via a pseudo-element */
   .menu-drawer__close-button:focus-visible::after {
-    border-radius: 0;
+    border-radius: 50%;
   }
 
   .menu-drawer__nav-buttons--with-title .menu-drawer__back-button {
@@ -1568,7 +1567,7 @@ stroke: #000000 !important;
       justify-content: center;
       background: #ffffff !important;
       border: 1px solid #dfdfdf !important;
-      border-radius: 6px !important;
+      border-radius: 9999px !important;
       box-shadow: none !important;
       color: #171717;
       transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
@@ -1603,7 +1602,7 @@ stroke: #000000 !important;
       padding: 0 14px;
       background: #f6f6f6;
       border: 1px solid #dfdfdf;
-      border-radius: 6px;
+      border-radius: 9999px;
     }
 
     .menu-drawer__search:focus-within {
@@ -1813,7 +1812,7 @@ stroke: #000000 !important;
       border: 0;
       outline: 0;
       box-shadow: none;
-      border-radius: 8px;
+      border-radius: 10px;
       object-fit: cover;
     }
 
@@ -1837,7 +1836,7 @@ stroke: #000000 !important;
       height: 44px;
       margin: 24px auto 16px;
       padding: 0 28px;
-      border-radius: 6px;
+      border-radius: 9999px;
       background: #596f53;
       color: #ffffff;
       border: 1px solid #596f53;
@@ -1884,7 +1883,7 @@ stroke: #000000 !important;
       padding: 0 12px;
       background: #f6f6f6 !important;
       border: 1px solid #dfdfdf !important;
-      border-radius: 6px !important;
+      border-radius: 9999px !important;
       box-shadow: none !important;
       color: #171717 !important;
       font-family: 'DM Sans', var(--font-body--family, sans-serif);

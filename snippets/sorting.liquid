@@ -174,7 +174,7 @@
   .sorting-filter__select-wrapper {
     display: flex;
     position: relative;
-    border-radius: var(--variant-picker-button-radius);
+    border-radius: 9999px;
     align-items: center;
     overflow: clip;
     padding: var(--padding-2xs) var(--padding-xs);
@@ -275,12 +275,13 @@
     padding: var(--padding-2xs) calc(var(--drawer-padding) / 2) var(--padding-2xs) var(--padding-2xs);
 
     &:hover {
-      border-radius: calc(var(--style-border-radius-popover) / 2);
-      background-color: rgb(var(--color-foreground-rgb) / var(--opacity-8));
+      border-radius: 9999px;
+      background-color: var(--color-brand-green-tint, #eef1ea);
+      color: var(--color-brand-green, #596f53);
     }
 
     &:focus {
-      border-radius: calc(var(--style-border-radius-popover) / 2);
+      border-radius: 9999px;
     }
   }
 

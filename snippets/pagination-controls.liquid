@@ -165,7 +165,7 @@
   .pagination {
     --pagination-size: 36px;
     --pagination-inset: 2px;
-    --pagination-radius: 6;
+    --pagination-radius: 9999;
 
     display: flex;
     justify-content: center;
@@ -307,7 +307,7 @@
       position: absolute;
       inset: var(--pagination-inset);
       border-radius: calc(var(--pagination-radius) * 1px);
-      background: var(--color-foreground);
+      background: var(--color-brand-green, #596f53);
       z-index: -1;
     }
 

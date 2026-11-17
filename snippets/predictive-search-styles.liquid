@@ -216,10 +216,11 @@
   .predictive-search-results__pill:focus,
   .predictive-search-results__pill:hover,
   .predictive-search-results__card--query:is([aria-selected='true'], :focus-within) .predictive-search-results__pill {
-    --pill-background-color: rgb(var(--color-foreground-rgb) / var(--opacity-8));
+    --pill-background-color: var(--color-brand-green-tint, #eef1ea);
 
     background-color: var(--pill-background-color);
-    outline: var(--border-width-sm) solid var(--color-border);
+    color: var(--color-brand-green, #596f53);
+    outline: var(--border-width-sm) solid rgba(89, 111, 83, 0.35);
     border: var(--border-width-sm);
     text-decoration: none;
   }

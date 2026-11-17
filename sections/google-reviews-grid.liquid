@@ -304,7 +304,7 @@
   /* Card */
   .gr-card {
     background-color: var(--gr-card-bg, #ffffff);
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 1.75rem;
     width: 360px;
     flex: 0 0 360px;
@@ -428,9 +428,9 @@
     justify-content: center;
     padding: 14px 28px;
     border-radius: 9999px;
-    border: 1px solid var(--gr-text-color, #121212);
+    border: 1px solid var(--color-brand-green, #596f53);
     background: transparent;
-    color: var(--gr-text-color, #121212);
+    color: var(--color-brand-green, #596f53);
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -440,8 +440,9 @@
   }
 
   .gr-btn:hover {
-    background: var(--gr-text-color, #121212);
-    color: var(--color-background, #ffffff);
+    background: var(--color-brand-green-hover, #475942);
+    border-color: var(--color-brand-green-hover, #475942);
+    color: #ffffff;
   }
 
   /* Desktop proportions from the Figma review strip. */
@@ -470,7 +471,7 @@
       flex: 0 0 320px;
       padding: 20px;
       gap: 12px;
-      border-radius: 0;
+      border-radius: 10px;
       box-shadow: none;
     }
 
