@@ -949,13 +949,22 @@
       overflow-x: hidden;
     }
 
-    .cart-drawer--custom .cart-drawer__inner,
+    .cart-drawer--custom .cart-drawer__inner {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
     .cart-drawer--custom .cart-drawer__content {
       width: 100%;
       max-width: 100%;
       min-width: 0;
       box-sizing: border-box;
       overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .cart-drawer--custom .theme-drawer__header {
@@ -988,6 +997,7 @@
     }
 
     .cart-drawer--custom .cart-free-shipping {
+      flex-shrink: 0;
       padding: 12px 16px;
     }
 
@@ -1011,6 +1021,7 @@
     }
 
     .cart-drawer--custom .cart-drawer__items {
+      flex-shrink: 0;
       padding-inline: 16px;
       width: 100%;
       max-width: 100%;
@@ -1191,13 +1202,14 @@
     }
 
     .cart-drawer--custom .cart-complementary--inline {
+      flex: 0 0 auto;
       width: 100%;
       max-width: 100%;
       min-width: 0;
       padding: 0 0 14px;
       border: 0;
       box-sizing: border-box;
-      overflow-x: hidden;
+      overflow: visible;
     }
 
     .cart-drawer--custom .cart-complementary--inline .cart-complementary__heading {
@@ -1217,21 +1229,22 @@
     }
 
     .cart-drawer--custom .cart-complementary--inline .cart-complementary__scroller {
-      padding: 0;
-    }
-
-    .cart-drawer--custom .cart-complementary--inline .cart-complementary__scroller {
+      flex: 0 0 auto;
       width: 100%;
       max-width: 100%;
       min-width: 0;
-      overflow-x: hidden;
-      overflow-y: visible;
+      min-height: auto;
+      padding: 0;
+      overflow: visible;
     }
 
     .cart-drawer--custom .cart-complementary--inline .cart-complementary__list {
+      display: flex;
       flex-direction: row;
+      align-items: flex-start;
       gap: 10px;
       overflow-x: auto;
+      overflow-y: hidden;
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
@@ -1252,6 +1265,7 @@
     }
 
     .cart-drawer--custom .cart-complementary--inline .cart-complementary-card__media {
+      flex-shrink: 0;
       width: var(--cart-mobile-carousel-card-width);
       height: auto;
       aspect-ratio: 82 / 97;
