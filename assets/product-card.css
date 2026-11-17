@@ -267,7 +267,7 @@
   line-height: 1.2;
 }
 
-.tcc-opt-pill:hover {
+.tcc-opt-pill:hover:not(.is-selected):not(.is-disabled) {
   background: #eef1ea;
   border-color: #596f53;
   color: #596f53;
@@ -708,7 +708,7 @@
   color: #171717;
 }
 
-.tcc-quick-shop-sheet .tcc-opt-pill:hover {
+.tcc-quick-shop-sheet .tcc-opt-pill:hover:not(.is-selected):not(.is-disabled) {
   background: #eef1ea;
   border-color: #596f53;
   color: #596f53;

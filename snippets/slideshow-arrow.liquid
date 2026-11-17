@@ -74,8 +74,11 @@
     align-items: center;
     justify-content: center;
     aspect-ratio: 1 / 1;
-    background-color: var(--color-primary-button-background);
-    color: var(--color-primary-button-text);
+    background-color: #ffffff;
+    color: #171717;
+    border: 1px solid #d5d8d3;
+    box-shadow: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
 
   .slideshow-control.slideshow-control--shape-circle {
@@ -83,7 +86,27 @@
   }
 
   .slideshow-control.slideshow-control--shape-square {
-    border-radius: 0;
+    border-radius: 10px;
+  }
+
+  .slideshow-control:is(.slideshow-control--shape-square, .slideshow-control--shape-circle):hover:not(:disabled) {
+    background-color: var(--color-brand-green, #596f53);
+    border-color: var(--color-brand-green, #596f53);
+    color: #ffffff;
+  }
+
+  .slideshow-control:is(.slideshow-control--shape-square, .slideshow-control--shape-circle):disabled,
+  .slideshow-control:is(.slideshow-control--shape-square, .slideshow-control--shape-circle):disabled:hover {
+    background-color: #f6f6f6;
+    border-color: #e5e5e5;
+    color: #8c8c8c;
+    opacity: 1;
+    cursor: not-allowed;
+  }
+
+  .slideshow-control:is(.slideshow-control--shape-square, .slideshow-control--shape-circle) svg,
+  .slideshow-control:is(.slideshow-control--shape-square, .slideshow-control--shape-circle) svg path {
+    stroke: currentColor;
   }
 
   .slideshow-control .icon-caret {

@@ -477,6 +477,8 @@
     --radius-sm: 9999px;
     --radius-md: 10px;
     --radius-lg: 12px;
+    --product-corner-radius: {{ settings.product_corner_radius | default: 10 | append: 'px' }};
+    --card-corner-radius: {{ settings.card_corner_radius | default: 10 | append: 'px' }};
 
     /* Animation */
     --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);

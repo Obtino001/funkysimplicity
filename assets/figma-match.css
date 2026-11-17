@@ -266,7 +266,8 @@ img.icon-block__media {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #f4f4f4;
+  background-color: #f6f6f6;
+  border-radius: var(--product-corner-radius, 10px);
 }
 
 .tcc-card__media-wrapper--portrait {
@@ -1332,8 +1333,9 @@ img.icon-block__media {
   .product-information slideshow-arrows .slideshow-control,
   media-gallery slideshow-arrows .slideshow-control {
     opacity: 0 !important;
-    background: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #171717;
+    border: 1px solid #d5d8d3;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -1343,7 +1345,31 @@ img.icon-block__media {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
     transition:
       opacity 0.25s ease,
-      transform 0.25s ease;
+      transform 0.25s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .product-information slideshow-arrows .slideshow-control:hover:not(:disabled),
+  media-gallery slideshow-arrows .slideshow-control:hover:not(:disabled) {
+    background-color: #596f53;
+    border-color: #596f53;
+    color: #ffffff;
+  }
+
+  .product-information slideshow-arrows .slideshow-control:disabled,
+  media-gallery slideshow-arrows .slideshow-control:disabled {
+    background-color: #f6f6f6;
+    border-color: #e5e5e5;
+    color: #8c8c8c;
+  }
+
+  .product-information slideshow-arrows .slideshow-control svg,
+  .product-information slideshow-arrows .slideshow-control svg path,
+  media-gallery slideshow-arrows .slideshow-control svg,
+  media-gallery slideshow-arrows .slideshow-control svg path {
+    stroke: currentColor;
   }
 
   .product-information

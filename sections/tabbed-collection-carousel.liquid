@@ -327,25 +327,52 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    border: 1px solid #dfdfdf;
-    background: transparent;
-    color: var(--color-foreground, #171717);
+    border: 1px solid #d5d8d3;
+    background-color: #ffffff;
+    color: #171717;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     padding: 0;
+    opacity: 1;
+  }
+
+  .tcc-arrow-btn svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+    contain: none;
+    overflow: visible;
+  }
+
+  .tcc-arrow-btn svg,
+  .tcc-arrow-btn svg polyline,
+  .tcc-arrow-btn svg path {
+    stroke: currentColor;
+    fill: none;
   }
 
   .tcc-arrow-btn:hover:not(:disabled) {
     border-color: var(--color-brand-green, #596f53);
-    background: var(--color-brand-green, #596f53);
+    background-color: var(--color-brand-green, #596f53);
     color: #ffffff;
   }
 
-  .tcc-arrow-btn:disabled {
-    opacity: 0.35;
+  .tcc-arrow-btn:focus-visible {
+    outline: 2px solid var(--color-brand-green, #596f53);
+    outline-offset: 2px;
+  }
+
+  .tcc-arrow-btn:disabled,
+  .tcc-arrow-btn:disabled:hover {
+    background-color: #f6f6f6;
+    border-color: #e5e5e5;
+    color: #8c8c8c;
+    opacity: 1;
     cursor: not-allowed;
   }
 
