@@ -1587,7 +1587,69 @@
       opacity: 0.82;
     }
 
-    /* Localization popover — Light Theme surface with pill inputs/items */
+    /* Localization popover inside black header pill matches header black surface */
+    #header-component .header-localization-group .localization-wrapper {
+      background-color: var(--header-pill-bg, #000000);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+      --color-foreground-rgb: 255 255 255;
+      --color-foreground-muted: rgba(255, 255, 255, 0.72);
+      --color-foreground-subdued: rgba(255, 255, 255, 0.72);
+    }
+
+    #header-component .header-localization-group .localization-wrapper,
+    #header-component .header-localization-group .localization-wrapper .localization-form,
+    #header-component .header-localization-group .localization-wrapper .localization-form__list,
+    #header-component .header-localization-group .localization-wrapper .localization-form__list-item,
+    #header-component .header-localization-group .localization-wrapper .country,
+    #header-component .header-localization-group .localization-wrapper .language-name,
+    #header-component .header-localization-group .localization-wrapper .currency-code,
+    #header-component .header-localization-group .localization-wrapper .popular-countries,
+    #header-component .header-localization-group .localization-wrapper .countries,
+    #header-component .header-localization-group .localization-wrapper [role='option'],
+    #header-component .header-localization-group .localization-wrapper li {
+      color: #ffffff !important;
+    }
+
+    #header-component .header-localization-group .localization-wrapper .localization-form__currency,
+    #header-component .header-localization-group .dropdown-language-wrapper .language-iso {
+      color: rgba(255, 255, 255, 0.65) !important;
+    }
+
+    #header-component .header-localization-group .localization-wrapper .icon-checkmark,
+    #header-component .header-localization-group .localization-wrapper .icon-checkmark svg,
+    #header-component .header-localization-group .localization-wrapper .icon-checkmark svg path {
+      color: #88a87f !important;
+      stroke: #88a87f !important;
+    }
+
+    #header-component .header-localization-group .localization-wrapper .country-filter .field {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    #header-component .header-localization-group .localization-wrapper .country-filter__input {
+      background: transparent !important;
+      color: #ffffff !important;
+      border: none !important;
+      padding: 8px 12px 8px 36px !important;
+      font-size: 13px !important;
+    }
+
+    #header-component .header-localization-group .localization-wrapper .country-filter__input::placeholder {
+      color: rgba(255, 255, 255, 0.55) !important;
+    }
+
+    #header-component .header-localization-group .localization-wrapper .country-filter__search-icon svg,
+    #header-component .header-localization-group .localization-wrapper .country-filter__reset-button svg {
+      fill: rgba(255, 255, 255, 0.72) !important;
+    }
+
+    /* Mobile drawer localization popover stays Light Theme surface */
     .localization-wrapper {
       background-color: #ffffff;
       color: #171717;
@@ -1599,7 +1661,6 @@
       --color-foreground-subdued: rgb(23 23 23 / 0.7);
     }
 
-    /* All text, labels, and spans inside localization dropdown */
     .localization-wrapper,
     .localization-wrapper .localization-form,
     .localization-wrapper .localization-form__list,
@@ -1632,7 +1693,6 @@
       color: #596f53 !important;
     }
 
-    /* Country search filter styling inside light dropdown */
     .localization-wrapper .country-filter {
       padding: 8px 8px 4px;
     }
@@ -1683,7 +1743,7 @@
     .dropdown-language-wrapper .language-name {
       flex: 1;
       text-align: left;
-      color: #171717 !important;
+      color: inherit !important;
     }
 
     .dropdown-language-wrapper .language-iso {
@@ -1721,32 +1781,40 @@
       color: #596f53 !important;
     }
 
+    #header-component .header-localization-group .localization-wrapper .localization-form__list-item:hover,
+    #header-component .header-localization-group .localization-wrapper .localization-form__list-item:focus-visible,
+    #header-component .header-localization-group .localization-wrapper .localization-form__list-item[aria-current='true'],
+    #header-component .header-localization-group .localization-wrapper .localization-form__list-item.is-selected {
+      background-color: rgba(89, 111, 83, 0.35) !important;
+      color: #ffffff !important;
+    }
+
     .localization-wrapper .localization-form__list-item:not([aria-current='true']) .icon-checkmark {
       visibility: hidden;
     }
 
-    /* Submenus inside Light Theme header */
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu {
-      --color-foreground: #171717 !important;
-      --color-foreground-rgb: 23 23 23 !important;
-      --color-foreground-muted: #555555 !important;
-      --color-foreground-subdued: #555555 !important;
+    /* Submenus / Mega Menu match the Black Header Pill surface */
+    #header-component .menu-list__submenu {
+      --color-background: #000000 !important;
+      --color-foreground: #ffffff !important;
+      --color-foreground-rgb: 255 255 255 !important;
+      --color-foreground-muted: rgba(255, 255, 255, 0.72) !important;
+      --color-foreground-subdued: rgba(255, 255, 255, 0.72) !important;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu a,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu span,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu h2,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu h3 {
-      color: #171717 !important;
+    #header-component .menu-list__submenu a,
+    #header-component .menu-list__submenu span,
+    #header-component .menu-list__submenu h2,
+    #header-component .menu-list__submenu h3 {
+      color: #ffffff !important;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .menu-list__submenu a:hover {
-      color: #596f53 !important;
-      background-color: #eef1ea !important;
+    #header-component .menu-list__submenu a:not(.mega-menu__view-all):not(:has(.mega-menu__link-image)):hover {
+      color: #d6e2d1 !important;
+      background-color: rgba(89, 111, 83, 0.25) !important;
     }
 
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .mega-menu__link:hover,
-    header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .mega-menu__view-all:hover {
+    #header-component .mega-menu__link:hover {
       background-color: transparent !important;
       opacity: 1;
     }
@@ -2043,7 +2111,7 @@
 
       #header-component .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
         --submenu-gap: 0px;
-        --mega-menu-surface: #ffffff;
+        --mega-menu-surface: var(--header-pill-bg, #000000);
         --full-open-header-height: 0px;
         --submenu-padding-block-start: 0px;
         --submenu-padding-block-end: 0px;
@@ -2079,7 +2147,7 @@
         width: 0;
         height: 0;
         border-inline: 11px solid transparent;
-        border-block-end: 11px solid var(--mega-menu-surface, #ffffff);
+        border-block-end: 11px solid var(--mega-menu-surface, #000000);
         transform: translateX(-50%);
         pointer-events: none;
         z-index: 2;
@@ -2104,10 +2172,10 @@
         width: calc(100% - (var(--page-margin, 30px) * 2));
         box-sizing: border-box;
         overflow: visible;
-        background-color: var(--mega-menu-surface, #ffffff);
-        border: 1px solid rgba(89, 111, 83, 0.16);
+        background-color: var(--mega-menu-surface, #000000) !important;
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 12px;
-        box-shadow: 0 20px 48px rgb(23 23 23 / 0.14);
+        box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
         /* Fade/slide in; the hidden state below delays visibility so the old panel fades out. */
         opacity: 0;
         transform: translateY(6px);
@@ -2247,7 +2315,7 @@
       }
 
       #header-component .mega-menu__link span {
-        color: #171717;
+        color: #ffffff;
         font-family: 'DM Sans', var(--font-body--family, sans-serif);
         font-size: 14px;
         font-weight: 500;
@@ -2257,8 +2325,8 @@
         transition: color 0.18s ease;
       }
 
-      #header-component .mega-menu__link:hover span {
-        color: #596f53;
+      #header-component .menu-list__submenu .mega-menu__link:hover span {
+        color: #d6e2d1 !important;
       }
 
       /* Outlined pill button centered under the grid. */
@@ -2283,9 +2351,9 @@
 
       #header-component .menu-list__submenu .mega-menu__view-all,
       #header-component .menu-list__submenu .mega-menu__view-all:visited {
-        border: 1px solid #596f53;
+        border: 1px solid rgba(255, 255, 255, 0.85);
         background-color: transparent !important;
-        color: #596f53 !important;
+        color: #ffffff !important;
         opacity: 1;
       }
 
