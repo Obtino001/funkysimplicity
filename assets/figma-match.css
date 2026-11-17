@@ -668,8 +668,8 @@ img.icon-block__media {
   }
 
   .tabbed-collection-carousel .tcc-save-badge {
-    padding: 2px 5px;
-    font-size: 8px;
+    padding: 2px 7px;
+    font-size: 10px;
   }
 
   .tabbed-collection-carousel .tcc-swatches {
@@ -837,10 +837,14 @@ img.icon-block__media {
   }
 
   .cart-drawer--custom .theme-drawer__badge {
-    width: 20px;
-    height: 20px;
-    background: #f6f6f6;
-    border-radius: 999px;
+    width: auto;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    background: #eef1ea;
+    color: #596f53;
+    font-weight: 600;
+    border-radius: 9999px;
     font-size: 12px;
   }
 
@@ -1144,7 +1148,7 @@ img.icon-block__media {
     .header-logo__image,
   #header-component[transparent][data-sticky-state="active"]
     .header-logo__image {
-    height: 70px !important;
+    height: 44px !important;
     width: auto !important;
     max-width: 132px;
   }
