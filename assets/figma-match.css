@@ -36,12 +36,13 @@ body.page-width-normal {
   }
 
   .hero__content-wrapper .text-block p {
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.45;
   }
 
   a.size-style.button-custom {
     padding: 15px 25px;
-    font-size: 12px;
+    font-size: 13px;
     min-width: 150px;
   }
 
@@ -160,10 +161,10 @@ img.icon-block__media {
   [id*="section_6zhiU4"] .text-block,
   [id*="section_6zhiU4"] .text-block p,
   [id*="section_6zhiU4"] .text-block span {
-    font-size: 12px !important;
+    font-size: 13px !important;
     color: #111111 !important;
-    white-space: nowrap !important;
-    line-height: 1.2 !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
   }
 
   [id*="section_6zhiU4"],
@@ -2085,7 +2086,7 @@ a.skip-to-content-link:focus-visible {
 
   .page-banner__breadcrumb,
   .page-banner-wide__breadcrumb {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.4;
   }
 
