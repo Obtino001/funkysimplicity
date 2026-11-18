@@ -4,7 +4,8 @@ import { Component } from '@theme/component';
 
 const MIN_ZOOM = 1;
 const MAX_ZOOM = 5;
-const DEFAULT_ZOOM = 1.5;
+const INITIAL_ZOOM = 1;
+const DOUBLE_TAP_ZOOM = 2;
 const DOUBLE_TAP_DELAY = 300;
 const DOUBLE_TAP_DISTANCE = 50;
 const DRAG_THRESHOLD = 10;
@@ -19,11 +20,11 @@ export class DragZoomWrapper extends Component {
   requiredRefs = ['image'];
   #controller = new AbortController();
   /** @type {number} */
-  #scale = DEFAULT_ZOOM;
+  #scale = INITIAL_ZOOM;
   /** @type {number} */
   #initialDistance = 0;
   /** @type {number} */
-  #startScale = DEFAULT_ZOOM;
+  #startScale = INITIAL_ZOOM;
   /** @type {Point} */
   #translate = { x: 0, y: 0 };
   /** @type {Point} */
@@ -204,14 +205,14 @@ export class DragZoomWrapper extends Component {
       this.#hasManualZoom = false; // Reset the flag
       this.#translate = { x: 0, y: 0 }; // Center the image
     } else {
-      // Toggle between zoom levels: 1x ↔ 1.5x
+      // Toggle between zoom levels: 1x ↔ 2x
       const tolerance = 0.05; // Small tolerance for floating point comparison
 
       if (Math.abs(this.#scale - MIN_ZOOM) < tolerance) {
-        // Currently at 1x, go to 1.5x
-        targetZoom = DEFAULT_ZOOM;
+        // Currently at 1x, go to 2x
+        targetZoom = DOUBLE_TAP_ZOOM;
       } else {
-        // Currently at 1.5x or any other level, go to 1x
+        // Currently zoomed in, reset to 1x
         targetZoom = MIN_ZOOM;
       }
     }
@@ -446,15 +447,16 @@ export class DragZoomWrapper extends Component {
   };
 
   /**
-   * Reset zoom to default state (1.5x scale, centered position)
+   * Reset zoom to default uncropped state (1x scale, centered position)
    * Called when zoom is exited/closed
    */
   #resetZoom = () => {
     // Reset scale and translation to defaults
-    this.#scale = DEFAULT_ZOOM;
-    this.#startScale = DEFAULT_ZOOM;
+    this.#scale = INITIAL_ZOOM;
+    this.#startScale = INITIAL_ZOOM;
     this.#translate.x = 0;
     this.#translate.y = 0;
+    this.#hasManualZoom = false;
 
     // Reset gesture state to prevent interference on next zoom open
     this.#startPosition = { x: 0, y: 0 };
@@ -465,7 +467,7 @@ export class DragZoomWrapper extends Component {
     this.#hasDraggedBeyondThreshold = false;
 
     // Update CSS properties to reflect reset state
-    this.style.setProperty('--drag-zoom-scale', DEFAULT_ZOOM.toString());
+    this.style.setProperty('--drag-zoom-scale', INITIAL_ZOOM.toString());
     this.style.setProperty('--drag-zoom-translate-x', '0px');
     this.style.setProperty('--drag-zoom-translate-y', '0px');
   };

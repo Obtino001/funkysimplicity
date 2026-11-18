@@ -100,6 +100,7 @@ export class ZoomDialog extends Component {
     const newImage = new Image();
     newImage.className = image.className;
     newImage.alt = image.alt;
+    newImage.style.cssText = image.style.cssText;
     newImage.setAttribute('data_max_resolution', highResolutionUrl);
     newImage.setAttribute('ref', 'image');
 

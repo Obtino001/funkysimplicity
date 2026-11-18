@@ -52,14 +52,17 @@
   }
 
   zoom-dialog dialog {
+    width: 100%;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     border: none;
     margin: 0;
     padding: 0;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 100dvh;
     background: #fff;
+    overscroll-behavior: contain;
     opacity: 0;
     transition: opacity var(--animation-speed) var(--animation-easing);
     scrollbar-width: none;
