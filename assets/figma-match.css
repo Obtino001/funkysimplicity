@@ -2245,3 +2245,10 @@ body {
   color: #596f53 !important;
 }
 
+.shopify-policy__title,
+.shopify-policy__title h1,
+.shopify-policy__title h2 {
+  text-align: center;
+  margin-inline: auto;
+}
+
