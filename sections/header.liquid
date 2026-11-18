@@ -554,7 +554,7 @@
       /* Set header paddings based on height setting */
       --header-padding: var(--padding-sm);
       --font-paragraph--line-height: 1;
-      --header-content-transition-timing: 0s;
+      --header-content-transition-timing: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
       display: block;
       contain: layout style;
@@ -592,7 +592,7 @@
     .header[transparent] {
       --language-button-background-color: transparent;
       --language-button-border-color: transparent;
-      --header-content-transition-timing: 0s;
+      --header-content-transition-timing: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
       --closed-underlay-height: 0px;
 
@@ -608,10 +608,10 @@
       z-index: var(--layer-overlay);
 
       &[data-sticky-state='active'] {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
       }
 
       &[transparent='not-sticky'][data-sticky-state='active'] {
@@ -696,8 +696,12 @@
     }
 
     .header[data-sticky-state] {
-      transition: opacity var(--animation-speed) var(--animation-easing);
+      transition:
+        opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
       opacity: 1;
+      transform: translateY(0);
     }
 
     .header[data-sticky-state='active'] {
@@ -712,6 +716,8 @@
 
     .header[data-sticky-state='idle'] {
       opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
     }
 
     /* ================================
@@ -1267,9 +1273,53 @@
     /* =========================================================================
        DARK PILL HEADER STYLE (APPLIED ONLY ON NON-TRANSPARENT HEADER)
        ========================================================================= */
-    /* =========================================================================
-       DARK PILL HEADER STYLE (APPLIED ONLY ON NON-TRANSPARENT HEADER)
-       ========================================================================= */
+    #header-component {
+      transition:
+        padding 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #header-component .header__row--top {
+      transition:
+        max-width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #header-component .header__row--top .header__columns {
+      transition:
+        background-color 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        border-radius 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        min-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #header-component .header-logo__image {
+      transition:
+        height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #header-component :is(.menu-list__link, .dropdown-localization__button, .header-actions__action, .search-action, .search-modal__button, .header-actions__cart-icon svg, .search-action svg, .search-modal__button svg) {
+      transition:
+        color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        fill 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.25s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #header-component,
+      #header-component .header__row--top,
+      #header-component .header__row--top .header__columns,
+      #header-component .header-logo__image,
+      #header-component :is(.menu-list__link, .dropdown-localization__button, .header-actions__action, .search-action, .search-modal__button, .header-actions__cart-icon svg, .search-action svg, .search-modal__button svg) {
+        transition: none !important;
+      }
+    }
+
     header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) {
       background: transparent !important;
       box-shadow: none !important;
@@ -1303,7 +1353,7 @@
 
       background-color: var(--header-pill-bg, #000000);
       border: 0;
-      border-radius: 9999px;
+      border-radius: 36px;
       padding: 4px 28px;
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
       color: var(--header-pill-text, #ffffff);
@@ -1311,7 +1361,14 @@
       width: 100%;
       box-sizing: border-box;
       min-height: 0;
-      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+      transition:
+        background-color 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        border-radius 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        padding 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        min-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     @media screen and (min-width: 990px) {
@@ -1505,19 +1562,20 @@
     #header-component[transparent]:not([data-sticky-state='active']) .header__underlay-open {
       background: transparent !important;
       background-color: transparent !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
+      border-radius: 0px !important;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0) !important;
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) {
       padding-block: 0;
+      padding-inline: 0;
       width: 100%;
     }
 
     #header-component[transparent]:not([data-sticky-state='active']) .header__row {
       border-bottom: none !important;
-      max-width: none !important;
-      margin-inline: 0 !important;
+      max-width: 100% !important;
+      margin-inline: auto !important;
     }
 
     @media screen and (min-width: 990px) {
@@ -1852,7 +1910,7 @@
         background: transparent !important;
       }
 
-      .header-section:has(> #header-component[transparent]:not([data-sticky-state='active'])) {
+      .header-section:has(> #header-component[transparent]) {
         min-height: 65px;
       }
 
@@ -1862,10 +1920,10 @@
       }
 
       #header-component[transparent][data-sticky-state='active'] {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
       }
 
       #header-component[transparent]:not([data-sticky-state='active']) {
@@ -1958,11 +2016,11 @@
       #header-component[transparent]:not([data-sticky-state='active']) .header__columns,
       #header-component[transparent]:not([data-sticky-state='active']) .header__row--top .header__columns {
         padding: 10px 16px !important;
-        min-height: 45px;
-        height: auto;
+        min-height: 65px;
+        height: 65px;
         background: transparent !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
+        border-radius: 0px !important;
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0) !important;
       }
 
       #header-component[transparent]:not([data-sticky-state='active']) .header-logo__image {
@@ -1981,7 +2039,7 @@
 
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header__row--top,
       #header-component[transparent][data-sticky-state='active'] .header__row--top {
-        max-width: none;
+        max-width: 100%;
         margin-inline: 0;
       }
 
@@ -1991,9 +2049,9 @@
         padding: 5px 16px !important;
         min-height: 55px;
         height: 55px;
-        border-radius: 999px;
+        border-radius: 36px;
         background-color: var(--header-pill-bg, #000000) !important;
-        box-shadow: none;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
       }
 
       header-component:not([transparent="always"]):not([transparent="not-sticky"]:not([data-sticky-state="active"])):not([data-transparent="true"]) .header-logo__image,

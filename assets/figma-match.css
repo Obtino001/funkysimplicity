@@ -63,6 +63,34 @@ body.page-width-normal {
     z-index: calc(var(--layer-menu-drawer) + 1) !important;
   }
 
+  /* Smooth header scroll transition across transparent top and scrolled pill */
+  #header-component {
+    transition:
+      padding 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #header-component .header__row--top {
+    transition:
+      max-width 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #header-component .header__row--top .header__columns {
+    transition:
+      background-color 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      border-radius 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      min-height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+      padding 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  #header-component .header-logo__image {
+    transition: height 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   /* Compact transparent navigation below the announcement strip. */
   #header-component[transparent]:not([data-sticky-state="active"])
     .header__row--top,
@@ -1390,6 +1418,7 @@ img.icon-block__media {
     height: 45px !important;
     width: auto !important;
     max-width: 170px;
+    transition: height 0.38s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   header-component:not([transparent="always"]):not(
@@ -1401,6 +1430,7 @@ img.icon-block__media {
     height: 44px !important;
     width: auto !important;
     max-width: 132px;
+    transition: height 0.38s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .announcement-bar__text {
