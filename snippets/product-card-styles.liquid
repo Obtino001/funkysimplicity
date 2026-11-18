@@ -101,14 +101,39 @@
       })();
     }
 
-    function formatMoney(cents) {
-      let formatted = '$' + (cents / 100).toFixed(2);
-      if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
-        formatted = window.Shopify.formatMoney(cents);
-      }
+    function decodeHtml(str) {
+      if (!str) return '';
       const textarea = document.createElement('textarea');
-      textarea.innerHTML = formatted;
+      textarea.innerHTML = str;
       return textarea.value;
+    }
+
+    function formatMoney(cents, data) {
+      if (typeof cents !== 'number') return '';
+      const format = (data && data.money_format) || '';
+      if (window.Shopify && typeof window.Shopify.formatMoney === 'function') {
+        return decodeHtml(window.Shopify.formatMoney(cents, format || undefined));
+      }
+      if (format) {
+        const amount = (cents / 100).toFixed(2);
+        const formatted = format
+          .replace(/\{\{\s*amount_no_decimals\s*\}\}/g, Math.round(cents / 100).toString())
+          .replace(/\{\{\s*amount_with_comma_separator\s*\}\}/g, amount.replace('.', ','))
+          .replace(/\{\{\s*amount_no_decimals_with_comma_separator\s*\}\}/g, Math.round(cents / 100).toString())
+          .replace(/\{\{\s*amount\s*\}\}/g, amount);
+        return decodeHtml(formatted);
+      }
+      const activeCurrency = window.Shopify && window.Shopify.currency && window.Shopify.currency.active;
+      if (activeCurrency) {
+        try {
+          return new Intl.NumberFormat(document.documentElement.lang || undefined, {
+            style: 'currency',
+            currency: activeCurrency,
+          }).format(cents / 100);
+        } catch (e) {}
+      }
+      const symbol = (data && data.currency_symbol) || '';
+      return symbol + (cents / 100).toFixed(2);
     }
 
     function initThemeProductCard(card) {
@@ -185,13 +210,22 @@
         const variant = resolveVariant();
 
         if (variant) {
-          const formattedPrice = formatMoney(variant.price);
+          const formattedPrice = variant.price_formatted
+            ? decodeHtml(variant.price_formatted)
+            : formatMoney(variant.price, productData);
           if (variant.compare_at_price > variant.price) {
             if (priceSale) priceSale.textContent = formattedPrice;
-            if (priceCompare) priceCompare.textContent = formatMoney(variant.compare_at_price);
+            if (priceCompare) {
+              priceCompare.textContent = variant.compare_formatted
+                ? decodeHtml(variant.compare_formatted)
+                : formatMoney(variant.compare_at_price, productData);
+            }
             if (saveBadge) {
               const diff = variant.compare_at_price - variant.price;
-              saveBadge.textContent = 'Save ' + formatMoney(diff);
+              const formattedSavings = variant.savings_formatted
+                ? decodeHtml(variant.savings_formatted)
+                : formatMoney(diff, productData);
+              saveBadge.textContent = 'Save ' + formattedSavings;
               saveBadge.style.display = 'inline-block';
             }
             if (priceRegular) priceRegular.style.display = 'none';

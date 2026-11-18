@@ -15,31 +15,32 @@
     assign aspect_ratio_class = 'tcc-card__media-wrapper--adapt'
   endif
 
+  assign cur_sym = cart.currency.symbol | default: '€'
   case idx
     when 1
       assign title = 'Argus Leggings – Tosca Brown'
-      assign price = '€89.00'
+      assign price = cur_sym | append: '89.00'
       assign compare_price = ''
       assign badge_type = 'low-stock'
       assign badge_label = 'Low Stock'
       assign show_overlay = true
     when 2
       assign title = 'Giraffe Leggings – Olive Black'
-      assign price = '€34.99'
-      assign compare_price = '€44.00'
+      assign price = cur_sym | append: '34.99'
+      assign compare_price = cur_sym | append: '44.00'
       assign badge_type = 'sale'
       assign badge_label = 'Sale'
       assign show_overlay = false
     when 3
       assign title = 'Bloom Leggings – Cream Black'
-      assign price = '€89.00'
+      assign price = cur_sym | append: '89.00'
       assign compare_price = ''
       assign badge_type = ''
       assign badge_label = ''
       assign show_overlay = false
     else
       assign title = 'Bloom Capri Leggings – Green'
-      assign price = '€63.00'
+      assign price = cur_sym | append: '63.00'
       assign compare_price = ''
       assign badge_type = ''
       assign badge_label = ''
