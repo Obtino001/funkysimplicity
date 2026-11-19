@@ -17,6 +17,7 @@
   assign section_id = section.id
   assign heading = section.settings.heading
   assign heading_size = section.settings.heading_size | default: 'h2'
+  assign section_width = section.settings.section_width | default: 'page-width'
   assign columns_desktop_setting = section.settings.columns_desktop | default: '4.5'
   assign col_num = columns_desktop_setting | plus: 0.0
   if col_num <= 0
@@ -239,12 +240,21 @@
     box-sizing: border-box;
   }
 
-  /* Capped to the site width (--fs-site-width) so every section lines up with the header. */
+  /* Centered 85vw display width on desktop/tablet when using page-width; full mobile width with page margin on <= 749px. */
   .tcc-container {
     width: 100%;
     max-width: var(--fs-site-width, 1600px);
     margin-inline: auto;
     box-sizing: border-box;
+  }
+
+  @media screen and (min-width: 750px) {
+    .tabbed-collection-carousel:not(.section--full-width) > .tcc-container {
+      grid-column: 1 / -1;
+      width: 85vw;
+      max-width: 85vw;
+      margin-inline: auto;
+    }
   }
 
   /* Header */
@@ -387,20 +397,12 @@
     display: none !important;
   }
 
-  /* Panels & Slider */
+  /* Panels & Slider: clips cards symmetrically on both left and right edges */
   .tcc-panels-container {
     position: relative;
     width: 100%;
     overflow: hidden;
     container-type: inline-size;
-  }
-
-  /* Desktop: allow slides to bleed to right viewport edge while clipping left edge cleanly */
-  @media screen and (min-width: 990px) {
-    .tcc-panels-container {
-      overflow: visible;
-      clip-path: inset(-12px -100vw -20px 0);
-    }
   }
 
   .tcc-tab-panel {

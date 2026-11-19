@@ -109,12 +109,21 @@
     overflow-x: clip;
   }
 
-  /* Capped to the site width (--fs-site-width) so every section lines up with the header. */
+  /* Centered 85vw display width on desktop/tablet; full mobile width with page margin on <= 749px. */
   .scr-container {
     width: 100%;
     max-width: var(--fs-site-width, 1600px);
     margin-inline: auto;
     box-sizing: border-box;
+  }
+
+  @media screen and (min-width: 750px) {
+    .style-collection-row > .scr-container {
+      grid-column: 1 / -1;
+      width: 85vw;
+      max-width: 85vw;
+      margin-inline: auto;
+    }
   }
 
   .scr-header {
@@ -201,18 +210,11 @@
     cursor: not-allowed;
   }
 
-  /* Track overflow wrapper: clips scrolled cards cleanly on the left while allowing right-edge bleed on desktop */
+  /* Track overflow wrapper: clips scrolled cards cleanly on both left and right edges */
   .scr-track-wrapper {
     position: relative;
     width: 100%;
     overflow: hidden;
-  }
-
-  @media screen and (min-width: 990px) {
-    .scr-track-wrapper {
-      overflow: visible;
-      clip-path: inset(-12px -100vw -12px 0);
-    }
   }
 
   .scr-track {
